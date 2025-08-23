@@ -22,10 +22,10 @@ export default function Contact() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Let's Connect
+                Let&apos;s Connect
               </h1>
-              <p className="text-lg text-gray-600">
-                Always interested in discussing architecture, platform engineering, and AI-driven productivity
+              <p className="text-gray-600 mb-4">
+                Let&apos;s discuss how I can help with your CMS platform challenges, AI integration projects, or digital transformation initiatives.
               </p>
             </div>
 

@@ -106,7 +106,7 @@ export default function Projects() {
                       <div className="grid sm:grid-cols-2 gap-4 text-sm">
                         <div>
                           <span className="font-medium text-gray-900">Platform Size:</span>
-                          <span className="text-gray-600 ml-2">8' × 8'</span>
+                          <span className="text-gray-600 ml-2">8&apos; × 8&apos;</span>
                         </div>
                         <div>
                           <span className="font-medium text-gray-900">Height:</span>
@@ -134,7 +134,7 @@ export default function Projects() {
                           <p className="text-primary-700 text-sm leading-relaxed">
                             Built in response to a heartfelt request from my children, this project demonstrates the same 
                             principles I apply to enterprise software: thoughtful planning, quality construction, 
-                            user-centered design, and building things that last. Whether it's cloud architecture 
+                            user-centered design, and building things that last. Whether it&apos;s cloud architecture 
                             or backyard engineering, the mindset remains the same.
                           </p>
                         </div>

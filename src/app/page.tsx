@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import Layout from '@/components/Layout';
 import { generatePageMetadata } from '@/lib/metadata-generators';
-import { getCurrentRole, getFirstName, getBioParagraphs } from '@/lib/data-helpers';
+import { getCurrentRole, getBioParagraphs } from '@/lib/data-helpers';
 import data from '../../content/data.json';
 
 // Get dynamic data using utilities
 const currentRole = getCurrentRole(data.resume);
-const firstName = getFirstName(data.contact);
 
 // Generate metadata using utility
 export const metadata = generatePageMetadata(

@@ -1,7 +1,6 @@
 import Layout from '@/components/Layout';
-import { formatDate } from '@/lib/utils';
 import { generatePageMetadata } from '@/lib/metadata-generators';
-import { formatRoleTitle, getRoleDuration } from '@/lib/data-helpers';
+import { getRoleDuration } from '@/lib/data-helpers';
 import data from '../../../content/data.json';
 
 // Generate metadata using utility

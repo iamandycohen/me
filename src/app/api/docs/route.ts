@@ -4,10 +4,12 @@ import { generateOpenApiSpec } from '@/lib/metadata-generators';
 import { getCurrentRole } from '@/lib/data-helpers';
 import data from '../../../../content/data.json';
 
-// Generate OpenAPI spec using utility
+// Get current role for dynamic content
 const currentRole = getCurrentRole(data.resume);
+
+// Generate OpenAPI spec using utility
 const openApiSpec = generateOpenApiSpec(data.contact, currentRole, mcpTools);
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   return NextResponse.json(openApiSpec);
 } 
