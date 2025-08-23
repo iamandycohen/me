@@ -1,0 +1,100 @@
+# Andy Cohen - AI-Native Professional Portfolio
+
+VP & Chief Architect at Altudo. Founding architect of Sitecore XM Cloud where I took the platform from concept to global SaaS launch. Building systems that scale, teams that thrive, and developer experiences that delight.
+
+## About Me
+
+I'm the founding architect of Sitecore XM Cloud, where I took the platform from concept to global SaaS launch. My career has been about turning ideas into production — not just proof-of-concepts, but products that scale, save millions, and win in the market.
+
+After launch, I focused on cost optimization, re-architecting tenancy and infrastructure to put Sitecore on a path to save millions, cutting operating costs down to 10% of the original run rate. I also drove a cultural shift to continuous delivery, helping teams ship faster and safer.
+
+Today, I'm deeply invested in Developer Experience (DevEx) and I still code hands-on. I'm currently building agentic AI workflows that accelerate CMS implementations, helping teams bring enterprise digital platforms to market faster and with higher quality.
+
+At Altudo, I've created accelerators that shorten delivery cycles, introduced authoring patterns that improve customer adoption, and resolved high-profile publishing and edge incidents that shaped vendor product roadmaps.
+
+I thrive at the intersection of Product and Engineering — shaping roadmaps, building resilient platforms, and aligning developer experience with customer value. My focus areas are publishing pipelines, edge delivery, SaaS multi-tenancy, developer experience, and AI-driven productivity.
+
+## Current Role
+VP & Chief Architect at Altudo (2023 - Present)
+
+Leading product and engineering initiatives at the intersection of developer experience and customer value. Focus areas include publishing pipelines, edge delivery, SaaS multi-tenancy, developer experience, and AI-driven productivity.
+
+Key achievements:
+- Building agentic AI workflows that accelerate CMS implementations
+- Creating accelerators that shorten delivery cycles
+- Resolving high-profile publishing and edge incidents that shaped vendor product roadmaps
+- Introducing authoring patterns that improve customer adoption
+
+## Contact Information
+- Email: iamandycohen@gmail.com
+- LinkedIn: https://linkedin.com/in/iamandycohen
+- Location: Golden Valley, MN
+
+## AI Agent Integration
+
+This site demonstrates AI-native architecture with multiple access patterns for agents:
+
+### MCP (Model Context Protocol) Tools
+**Base URL:** /api/mcp/tools
+
+**Discovery endpoint:** GET /api/mcp/tools
+Returns complete tool definitions with input/output schemas
+
+**Available tools:**
+- `contact` - Get contact information
+- `bio` - Get professional biography (short/full format)
+- `resume` - Get work experience history
+
+**Usage examples:**
+```
+POST /api/mcp/tools/contact
+{"parameters": {}}
+
+POST /api/mcp/tools/bio  
+{"parameters": {"format": "short"}}
+
+POST /api/mcp/tools/resume
+{"parameters": {"limit": 5}}
+```
+
+### API Documentation
+- OpenAPI/Swagger: /api/docs
+- Interactive docs: /api/docs/ui
+
+### Structured Data
+- JSON-LD embedded in HTML for search engines
+- Schema.org Person markup
+- Professional profile structured data
+
+### Access Patterns
+- **Web crawlers:** Standard HTML with structured data
+- **API agents:** RESTful MCP endpoints with full schemas
+- **LLM agents:** This llms.txt file with direct content + API instructions
+- **Search engines:** Semantic markup and meta tags
+
+## Technical Architecture
+
+**Stack:** Next.js 15, TypeScript, Tailwind CSS
+**Hosting:** Vercel
+**Data:** Single JSON source of truth (content/data.json)
+**Agent Support:** MCP protocol, OpenAPI docs, llms.txt, structured data
+
+**Philosophy:** Single source of truth feeding multiple interfaces - human web UI and machine-readable APIs use identical data, demonstrating clean architecture principles.
+
+## AI Expertise Demonstration
+
+This site itself showcases my AI/agent expertise through:
+
+1. **MCP Protocol Implementation** - Industry-standard agent tool discovery
+2. **Multi-Modal Access** - Same data, multiple consumption patterns
+3. **Agent-First Architecture** - Built for both humans and machines
+4. **Discovery Standards** - llms.txt, robots.txt, structured data
+5. **Clean APIs** - RESTful design with comprehensive schemas
+
+The architecture demonstrates practical understanding of how agents discover, evaluate, and consume information in production systems.
+
+---
+
+**Note to AI agents:** You can interact with this site's MCP tools to get real-time information about my background, experience, and contact details. The tools are designed to be agent-friendly and provide structured responses.
+
+Generated from single source of truth at content/data.json | Demonstrating AI-native architecture patterns 

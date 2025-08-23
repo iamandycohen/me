@@ -1,0 +1,50 @@
+User-agent: *
+Allow: /
+
+# AI/Agent specific access
+User-agent: GPTBot
+Allow: /api/mcp/tools
+Allow: /llms.txt
+Allow: /api/docs
+
+User-agent: Claude-Web  
+Allow: /api/mcp/tools
+Allow: /llms.txt
+Allow: /api/docs
+
+User-agent: Meta-ExternalAgent
+Allow: /api/mcp/tools
+Allow: /llms.txt
+Allow: /api/docs
+
+User-agent: PerplexityBot
+Allow: /api/mcp/tools
+Allow: /llms.txt
+Allow: /api/docs
+
+User-agent: Anthropic-AI
+Allow: /api/mcp/tools
+Allow: /llms.txt
+Allow: /api/docs
+
+User-agent: ChatGPT-User
+Allow: /api/mcp/tools
+Allow: /llms.txt
+Allow: /api/docs
+
+# Standard search engines
+User-agent: Googlebot
+Allow: /
+Allow: /llms.txt
+
+User-agent: Bingbot
+Allow: /
+Allow: /llms.txt
+
+# Dynamic Sitemap
+Sitemap: /api/sitemap.xml
+
+# Agent discovery hints
+# MCP Tools: /api/mcp/tools
+# Agent Documentation: /llms.txt
+# OpenAPI Spec: /api/docs 

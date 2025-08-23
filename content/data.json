@@ -1,0 +1,196 @@
+{
+  "contact": {
+    "name": "Andy Cohen",
+    "email": "iamandycohen@gmail.com",
+    "linkedin": "linkedin.com/in/iamandycohen",
+    "location": "Golden Valley, MN"
+  },
+  "bio": {
+    "short": "Founding architect of Sitecore XM Cloud and leader in CMS platform development. Building the future of content management in the Age of AI.",
+    "full": "I'm the founding architect of Sitecore XM Cloud, where I architected and built the platform from concept to global SaaS launch. As a leader in CMS platform development with a lifelong passion for software craftsmanship, my journey began at age 8 when I taught myself to code by reading PC magazines my mom brought home from work. This early foundation gave me deep understanding of how software systems evolve and what it takes to build platforms that truly last.\n\nI led XM Cloud from inception through POC to architectural blueprint to execution and production launch. After launch, I focused on cost optimization and architectural redesign, achieving significant cost reductions while re-architecting the platform's tenancy and infrastructure to deliver millions in ongoing savings. I drove the cultural and technical transformation to continuous delivery, fundamentally changing how the platform ships and scales.\n\nMy expertise lies in building CMS platforms themselves - architecting the engines, APIs, and infrastructure that enable content management at enterprise scale. From those early days learning programming fundamentals to building applicant tracking systems, time management platforms, and eventually enterprise content management and digital experience platforms, I've consistently built the software that others build upon.\n\nAt Altudo, I'm pioneering the future of CMS platforms in the Age of AI, developing agentic workflows and AI-driven experiences that fundamentally transform how content management systems operate. I'm not just implementing AI features - I'm reimagining how CMS platforms can leverage AI to accelerate implementation, enhance authoring experiences, and deliver intelligent content orchestration.\n\nThroughout my professional career, I've specialized in platform architecture and product development across consulting firms and product companies - from building internal platforms at TempWorks and ILM to architecting enterprise solutions at Horizontal Integration, Perficient, Avanade, and ultimately leading platform development at Sitecore.\n\nMy approach combines decades of hands-on development experience with platform engineering expertise, AI innovation, and product strategy. Having grown up alongside the evolution of software development, I understand both the fundamentals and the cutting edge, always focusing on building systems that scale to serve millions while enabling developers and content creators to achieve more. I thrive at the intersection of Platform Engineering and AI - architecting next-generation CMS platforms, building intelligent developer experiences, and defining how content management evolves in an AI-driven world.\n\nWhether it's enterprise platforms serving millions of users or innovative AI workflows that transform content operations, I believe in building platform foundations that last and enable others to create extraordinary digital experiences. That same curiosity that drove me to learn from PC magazines as a child continues to fuel my passion for pushing the boundaries of what's possible in software development."
+  },
+  "professional": {
+    "keywords": [
+      "Andy Cohen",
+      "CMS Platform Architecture",
+      "AI-Driven Content Management",
+      "Sitecore XM Cloud",
+      "Platform Engineering",
+      "Digital Experience Platforms",
+      "Agentic AI Workflows",
+      "Content Platform Development"
+    ],
+    "expertise": [
+      "CMS Platform Architecture",
+      "AI-Driven Content Management", 
+      "Platform Engineering",
+      "Digital Experience Platforms",
+      "Agentic AI Workflows",
+      "SaaS Platform Development",
+      "Content Management Systems",
+      "Developer Experience Platforms"
+    ],
+    "skills": [
+      "CMS Platform Development",
+      "AI-Driven Content Management",
+      "Platform Architecture",
+      "Agentic AI Workflows",
+      "Digital Experience Platforms",
+      "SaaS Platform Engineering",
+      "Cloud-Native Architecture",
+      "Developer Experience Design",
+      "Content Management APIs",
+      "Microservices Architecture",
+      "Continuous Delivery",
+      "Team Leadership",
+      "Product Strategy",
+      "JavaScript",
+      "React", 
+      "TypeScript",
+      "Next.js",
+      "C#",
+      ".NET",
+      "LLM Integration",
+      "MCP",
+      "Cursor AI",
+      "Platform Scaling"
+    ]
+  },
+  "resume": [
+    {
+      "title": "Vice President, Chief Architect, DXP",
+      "company": "Altudo",
+      "period": "Sep 2024 - Present",
+      "highlights": [
+        "Leading CMS platform architecture strategies for the Age of AI",
+        "Pioneering agentic AI workflows that transform content management systems",
+        "Architecting next-generation digital experience platforms with AI integration",
+        "Defining the future of content management through AI-driven platform innovation"
+      ],
+      "description": "Leading the evolution of content management systems in the Age of AI. Pioneering agentic workflows and intelligent platform architectures that fundamentally transform how CMS platforms operate, scale, and deliver value to enterprise clients."
+    },
+    {
+      "title": "Senior Director, Engineering – XM Cloud",
+      "company": "Sitecore", 
+      "period": "May 2024 - Sep 2024",
+      "highlights": [
+        "Directed platform engineering and architecture roadmap for XM Cloud",
+        "Achieved significant platform cost reductions through architectural optimization",
+        "Led platform scaling initiatives and infrastructure modernization",
+        "Transformed engineering practices for large-scale platform development"
+      ],
+      "description": "Directed the engineering roadmap and platform architecture for Sitecore XM Cloud, achieving substantial cost optimizations while scaling the platform to serve enterprise clients globally."
+    },
+    {
+      "title": "Principal Architect – XM Cloud", 
+      "company": "Sitecore",
+      "period": "Apr 2023 - May 2024",
+      "highlights": [
+        "Architected cloud-native content management platform from foundation",
+        "Designed edge-driven content delivery architecture for enterprise scale",
+        "Led platform architecture from inception through production launch",
+        "Established architectural patterns for modern CMS platform development"
+      ],
+      "description": "Architected the foundational platform architecture for Sitecore's XM Cloud, designing cloud-native content management systems that enable industry-leading digital experiences at enterprise scale."
+    },
+    {
+      "title": "System Architect - Content",
+      "company": "Sitecore",
+      "period": "Jul 2020 - Mar 2023", 
+      "highlights": [
+        "Led platform transformation from monolithic to cloud-native SaaS architecture",
+        "Architected microservices platform for headless content management", 
+        "Established continuous delivery practices for platform development",
+        "Built scalable content management platform serving millions of requests"
+      ],
+      "description": "Led the foundational transformation of Sitecore's platform architecture from monolithic systems to cloud-native SaaS, architecting microservices solutions and establishing modern platform development practices."
+    },
+    {
+      "title": "Solutions Architect – Sales Engineering",
+      "company": "Sitecore",
+      "period": "Sep 2019 - Jul 2020",
+      "highlights": [
+        "Designed platform demonstrations showcasing enterprise CMS capabilities",
+        "Architected solutions for complex enterprise content management needs", 
+        "Translated platform capabilities into business value for enterprise clients",
+        "Influenced platform roadmap based on enterprise customer requirements"
+      ],
+      "description": "Designed and executed platform demonstrations that showcased Sitecore's enterprise CMS capabilities, directly influencing platform development priorities and customer success."
+    },
+    {
+      "title": "Group Manager, Solution Development",
+      "company": "Avanade",
+      "period": "Jun 2019 - Sep 2019", 
+      "highlights": [
+        "Delivered enterprise CMS platform integrations for major telecommunications client",
+        "Architected content management solutions enabling large-scale content operations",
+        "Led platform integration projects with complex enterprise requirements",
+        "Managed solution development teams building content management systems"
+      ],
+      "description": "Delivered comprehensive enterprise CMS platform solutions for a major telecommunications client, architecting content management systems that enabled large-scale internal content operations."
+    },
+    {
+      "title": "Sitecore Solutions Architect", 
+      "company": "Perficient",
+      "period": "Oct 2018 - Jun 2019",
+      "highlights": [
+        "Architected enterprise-scale CMS platform implementations on cloud infrastructure",
+        "Designed content management solutions with advanced governance and security",
+        "Built scalable digital experience platforms for enterprise clients",
+        "Optimized CMS platform performance and reliability at scale"
+      ],
+      "description": "Architected scalable content management platform solutions on cloud infrastructure, focusing on enterprise-grade governance, security, and performance optimization for large-scale CMS implementations."
+    },
+    {
+      "title": "Technology Director",
+      "company": "Horizontal Integration", 
+      "period": "Oct 2013 - Sep 2017",
+      "highlights": [
+        "Architected reusable content management platform solutions",
+        "Established enterprise-level development practices for platform teams",
+        "Led platform development initiatives that accelerated delivery timelines",
+        "Built foundation for modern CMS platform development methodologies"
+      ],
+      "description": "Architected reusable content management platform solutions and established enterprise-level development practices, building the foundation for scalable platform development across multiple client implementations."
+    },
+    {
+      "title": "Principal I Consultant",
+      "company": "ILM Professional Services", 
+      "period": "Mar 2013 - Oct 2013",
+      "highlights": [
+        "Delivered enterprise platform solutions for major clients including General Mills and ShopNBC",
+        "Architected .NET-based content management and e-commerce platforms",
+        "Built scalable platform solutions across diverse industry verticals",
+        "Established platform development practices for enterprise clients"
+      ],
+      "description": "Delivered comprehensive platform solutions for major enterprise clients including General Mills and ShopNBC, focusing on scalable content management and e-commerce platform architecture."
+    },
+    {
+      "title": "Web Development Manager",
+      "company": "TempWorks Software", 
+      "period": "Apr 2010 - Mar 2013",
+      "highlights": [
+        "Built and shipped web-based applicant tracking platform from concept to production",
+        "Developed comprehensive time tracking and job application management systems",
+        "Architected platform solutions serving staffing and recruitment industry",
+        "Led development team building enterprise software platforms"
+      ],
+      "description": "Built and shipped multiple web-based platform solutions including applicant tracking, time management, and job application systems while leading development teams, establishing the foundation for enterprise platform development expertise."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Treehouse Builder",
+      "period": "Sep 2024", 
+      "description": "Constructed a stunning 4-season treehouse featuring blue and yellow custom paint, elevated 12 feet above ground on a solid platform. Built from concept to completion upon a heartfelt request from my children, this project showcases the same engineering precision and attention to detail I bring to enterprise software platforms.",
+      "highlights": [
+        "4-season weatherproofing and insulation for year-round use",
+        "Structural engineering for 12-foot elevated platform stability", 
+        "Custom 8'×8' construction with integrated windows and door",
+        "Hand-crafted ladder and deck systems for safe access",
+        "Vibrant blue and yellow color scheme designed with children in mind",
+        "Complete electrical planning and safety considerations"
+      ]
+    }
+  ]
+} 
