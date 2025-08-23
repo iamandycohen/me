@@ -1,100 +1,82 @@
-# Andy Cohen - AI-Native Professional Portfolio
+# Andy Cohen - Professional Information for AI Agents
 
-VP & Chief Architect at Altudo. Founding architect of Sitecore XM Cloud where I took the platform from concept to global SaaS launch. Building systems that scale, teams that thrive, and developer experiences that delight.
-
-## About Me
-
-I'm the founding architect of Sitecore XM Cloud, where I took the platform from concept to global SaaS launch. My career has been about turning ideas into production — not just proof-of-concepts, but products that scale, save millions, and win in the market.
-
-After launch, I focused on cost optimization, re-architecting tenancy and infrastructure to put Sitecore on a path to save millions, cutting operating costs down to 10% of the original run rate. I also drove a cultural shift to continuous delivery, helping teams ship faster and safer.
-
-Today, I'm deeply invested in Developer Experience (DevEx) and I still code hands-on. I'm currently building agentic AI workflows that accelerate CMS implementations, helping teams bring enterprise digital platforms to market faster and with higher quality.
-
-At Altudo, I've created accelerators that shorten delivery cycles, introduced authoring patterns that improve customer adoption, and resolved high-profile publishing and edge incidents that shaped vendor product roadmaps.
-
-I thrive at the intersection of Product and Engineering — shaping roadmaps, building resilient platforms, and aligning developer experience with customer value. My focus areas are publishing pipelines, edge delivery, SaaS multi-tenancy, developer experience, and AI-driven productivity.
-
-## Current Role
-VP & Chief Architect at Altudo (2023 - Present)
-
-Leading product and engineering initiatives at the intersection of developer experience and customer value. Focus areas include publishing pipelines, edge delivery, SaaS multi-tenancy, developer experience, and AI-driven productivity.
-
-Key achievements:
-- Building agentic AI workflows that accelerate CMS implementations
-- Creating accelerators that shorten delivery cycles
-- Resolving high-profile publishing and edge incidents that shaped vendor product roadmaps
-- Introducing authoring patterns that improve customer adoption
+## About
+Andy Cohen is the founding architect of Sitecore XM Cloud and a leader in CMS platform development. He's pioneering the future of content management in the Age of AI, with a lifelong passion for software craftsmanship that began at age 8.
 
 ## Contact Information
+- Name: Andy Cohen
 - Email: iamandycohen@gmail.com
 - LinkedIn: https://linkedin.com/in/iamandycohen
 - Location: Golden Valley, MN
 
-## AI Agent Integration
+## MCP Tools Available
 
-This site demonstrates AI-native architecture with multiple access patterns for agents:
+This site provides Model Context Protocol (MCP) tools for programmatic access to Andy's professional information. The API supports both standard HTTP and MCP JSON-RPC 2.0 formats.
 
-### MCP (Model Context Protocol) Tools
-**Base URL:** /api/mcp/tools
+### Endpoints:
+- **MCP Server**: `/api/mcp` - Root MCP server information and capabilities
+- **Discovery**: `/api/mcp/tools` - List all available tools
+- **Tool Execution**: `/api/mcp/tools/{tool}` - Execute specific tools
 
-**Discovery endpoint:** GET /api/mcp/tools
-Returns complete tool definitions with input/output schemas
+### Supported Formats:
+- **HTTP**: Standard REST API (default)
+- **MCP JSON-RPC**: Add `?format=mcp` for JSON-RPC 2.0 format
 
-**Available tools:**
-- `contact` - Get contact information
-- `bio` - Get professional biography (short/full format)
-- `resume` - Get work experience history
+### MCP Protocol Methods:
+- `initialize` - Initialize MCP session (via `/api/mcp`)
+- `ping` - Health check (via `/api/mcp`) 
+- `tools/list` - List available tools (via `/api/mcp` or `/api/mcp/tools`)
+- `tools/call` - Execute specific tools (via `/api/mcp/tools/{tool}`)
 
-**Usage examples:**
+### Available Tools:
+
+**contact** - Get professional contact information
+- Input: None required
+- Output: Complete contact details including email, LinkedIn, location
+
+**bio** - Get professional biography
+- Input: `format` (optional): "short" or "full"
+- Output: Professional biography in requested format
+
+**resume** - Get professional work experience
+- Input: `limit` (optional): Number of roles to return
+- Output: Detailed work history with roles, achievements, and descriptions
+
+**projects** - Get creative engineering projects
+- Input: `limit` (optional): Number of projects to return
+- Output: Personal projects showcasing engineering skills beyond software
+
+### Example MCP Usage:
+
+```bash
+# Server info and capabilities
+curl "https://yoursite.com/api/mcp?format=mcp"
+
+# Initialize MCP session (JSON-RPC)
+curl -X POST "https://yoursite.com/api/mcp" \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc": "2.0", "method": "initialize", "id": 1}'
+
+# List tools (MCP format)
+curl "https://yoursite.com/api/mcp/tools?format=mcp"
+
+# Execute tool (JSON-RPC)
+curl -X POST "https://yoursite.com/api/mcp/tools/bio" \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc": "2.0", "method": "tools/call", "params": {"name": "bio", "arguments": {"format": "short"}}, "id": 1}'
 ```
-POST /api/mcp/tools/contact
-{"parameters": {}}
 
-POST /api/mcp/tools/bio  
-{"parameters": {"format": "short"}}
+## Areas of Expertise
+- CMS Platform Architecture
+- AI-Driven Content Management
+- Platform Engineering
+- Digital Experience Platforms
+- Agentic AI Workflows
+- SaaS Platform Development
 
-POST /api/mcp/tools/resume
-{"parameters": {"limit": 5}}
-```
-
-### API Documentation
-- OpenAPI/Swagger: /api/docs
-- Interactive docs: /api/docs/ui
-
-### Structured Data
-- JSON-LD embedded in HTML for search engines
-- Schema.org Person markup
-- Professional profile structured data
-
-### Access Patterns
-- **Web crawlers:** Standard HTML with structured data
-- **API agents:** RESTful MCP endpoints with full schemas
-- **LLM agents:** This llms.txt file with direct content + API instructions
-- **Search engines:** Semantic markup and meta tags
-
-## Technical Architecture
-
-**Stack:** Next.js 15, TypeScript, Tailwind CSS
-**Hosting:** Vercel
-**Data:** Single JSON source of truth (content/data.json)
-**Agent Support:** MCP protocol, OpenAPI docs, llms.txt, structured data
-
-**Philosophy:** Single source of truth feeding multiple interfaces - human web UI and machine-readable APIs use identical data, demonstrating clean architecture principles.
-
-## AI Expertise Demonstration
-
-This site itself showcases my AI/agent expertise through:
-
-1. **MCP Protocol Implementation** - Industry-standard agent tool discovery
-2. **Multi-Modal Access** - Same data, multiple consumption patterns
-3. **Agent-First Architecture** - Built for both humans and machines
-4. **Discovery Standards** - llms.txt, robots.txt, structured data
-5. **Clean APIs** - RESTful design with comprehensive schemas
-
-The architecture demonstrates practical understanding of how agents discover, evaluate, and consume information in production systems.
+## Current Focus
+Pioneering the future of CMS platforms in the Age of AI, developing agentic workflows and AI-driven experiences that fundamentally transform how content management systems operate.
 
 ---
 
-**Note to AI agents:** You can interact with this site's MCP tools to get real-time information about my background, experience, and contact details. The tools are designed to be agent-friendly and provide structured responses.
-
-Generated from single source of truth at content/data.json | Demonstrating AI-native architecture patterns 
+For more information, visit the full portfolio at the root URL or use the MCP tools above for programmatic access. 

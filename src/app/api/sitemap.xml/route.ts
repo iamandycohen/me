@@ -33,6 +33,12 @@ export async function GET(request: NextRequest) {
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>${baseUrl}/api/mcp</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>${baseUrl}/api/mcp/tools</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
