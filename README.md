@@ -1,171 +1,83 @@
-# Andy Cohen - AI-Native Professional Portfolio
+# Andy Cohen - Professional Portfolio
 
-A minimalist professional portfolio demonstrating AI expertise through implementation. Features comprehensive agent discovery mechanisms, MCP tools, and clean architecture that works seamlessly for both humans and AI agents.
+> **Open Source AI-Native Portfolio** | [🔗 View on GitHub](https://github.com/iamandycohen/me)
 
-## AI Expertise Showcase
+A modern, AI-native professional portfolio showcasing expertise in CMS architecture and AI-driven content management. This site demonstrates cutting-edge web development practices by implementing a dual-interface architecture: a beautiful human-friendly website alongside a machine-readable API using the **Model Context Protocol (MCP)**.
 
-This site demonstrates practical AI/agent integration expertise through:
+## ✨ What Makes This Special
 
-- **MCP Protocol Implementation** - Industry-standard agent tool discovery
-- **Multi-Modal Access Patterns** - Same data, multiple consumption methods
-- **Comprehensive Agent Discovery** - 5+ discovery mechanisms for maximum compatibility
-- **Clean Architecture** - Single JSON source feeding all interfaces
-- **Production-Ready** - Full OpenAPI docs, structured data, proper CORS
+### 🌐 **Human Interface**
+- **Clean Design**: Minimalist, professional presentation focused on showcasing expertise
+- **Responsive**: Optimized viewing experience across all devices
+- **Performance**: Fast loading with modern web technologies
 
-## Agent Discovery Mechanisms
+### 🤖 **AI Agent Interface** 
+- **MCP Protocol**: Full implementation using official MCP SDK
+- **5 Professional Tools**: Contact, biography, resume, projects, and complete profile access
+- **Agent Discovery**: Multiple pathways for AI agents to discover and interact with professional data
+- **Live Testing**: Interactive interface for exploring MCP capabilities
 
-### 1. **llms.txt** - LLM Agent Instructions
-`/llms.txt` - Comprehensive agent documentation with:
-- Full professional biography and contact information
-- Detailed MCP tool usage instructions and examples
-- Technical architecture explanation
-- Direct content access for agents that prefer text over APIs
+## 🚀 AI-Native Architecture
 
-### 2. **MCP (Model Context Protocol) Tools**
-`/api/mcp/tools` - Industry-standard agent tool discovery:
-- **Discovery**: `GET /api/mcp/tools` returns all available tools with schemas
-- **Execution**: `POST /api/mcp/tools/{toolname}` executes tools with parameters
-- **Tools Available**: `contact`, `bio`, `resume`
+This portfolio showcases modern AI-native development by providing **two doors** to the same information:
 
-**Example Usage:**
-```bash
-# Discover tools
-curl http://localhost:3000/api/mcp/tools
+- **Human Door**: Beautiful web interface for people to explore
+- **Agent Door**: Structured API for AI agents to access professional data
 
-# Get contact info
-curl -X POST http://localhost:3000/api/mcp/tools/contact \
-  -H "Content-Type: application/json" \
-  -d '{"parameters": {}}'
+Both interfaces share the same source of truth, demonstrating how modern websites can serve both human visitors and AI agents effectively.
 
-# Get short bio
-curl -X POST http://localhost:3000/api/mcp/tools/bio \
-  -H "Content-Type: application/json" \
-  -d '{"parameters": {"format": "short"}}'
-```
+## 🛠 Built With
 
-### 3. **OpenAPI Documentation**
-`/api/docs` - Complete OpenAPI 3.0 specification:
-- Full API documentation with examples
-- Schema definitions for all endpoints
-- Interactive testing capabilities
-- Agent-friendly structured API descriptions
+- **Next.js 15** - Modern React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **Model Context Protocol** - AI agent communication standard
+- **Vercel** - Deployment and hosting
 
-### 4. **Enhanced robots.txt**
-Agent-specific access rules for:
-- GPTBot, Claude-Web, PerplexityBot, Anthropic-AI, ChatGPT-User
-- Specific permissions for MCP endpoints and agent documentation
-- Discovery hints in comments
+## 🎯 Features for Visitors
 
-### 5. **Meta Tags & Structured Data**
-- **Custom AI Meta Tags**: `ai:tools`, `ai:agent-friendly`, `mcp:endpoint`
-- **JSON-LD Schema.org**: Person markup with professional details
-- **OpenGraph**: Social sharing with agent context
-- **Link Relations**: Alternate formats for different agent types
+**Explore Professional Information:**
+- Comprehensive biography and career history  
+- Detailed work experience and achievements
+- Creative engineering projects beyond software
+- Direct contact information and LinkedIn profile
 
-### 6. **Dynamic Sitemap Integration**
-`/api/sitemap.xml` - Dynamic sitemap that adapts to any deployment domain, includes both human and agent-facing endpoints for comprehensive crawling
+**For Developers & AI Enthusiasts:**
+- Live MCP server demonstration at `/mcp-test`
+- Complete API documentation at `/api/docs`
+- AI agent instructions at `/llms.txt`
+- Open source implementation for learning and reference
 
-## Technical Architecture
+## 🌟 Professional Highlights
 
-**Stack**: Next.js 15, TypeScript, Tailwind CSS  
-**Data Source**: Single JSON file (`content/data.json`)  
-**Hosting**: Vercel-ready  
-**Agent Support**: 5+ discovery mechanisms, MCP protocol, OpenAPI docs
+- **Founding Architect** of [Sitecore XM Cloud](https://www.sitecore.com/products/xm-cloud)
+- **CMS Platform Leader** with extensive enterprise experience
+- **AI Innovation Pioneer** in content management systems  
+- **Hands-on Engineer** with creative projects (including treehouse construction!)
 
-**Philosophy**: Single source of truth - one JSON file feeds the website, MCP tools, llms.txt, and structured data. No duplication, no sync issues.
+## 🔗 Open Source
 
-## Content Structure
+This entire portfolio is **open source** and available for learning, inspiration, and contribution:
 
-The site presents Andy Cohen's professional information:
+**[📂 github.com/iamandycohen/me](https://github.com/iamandycohen/me)**
 
-### Bio
-Professional biography highlighting:
-- Founding architect of Sitecore XM Cloud (concept to global launch)
-- Cost optimization expertise (90% reduction in operating costs)
-- Current focus on AI-driven developer productivity
-- Leadership at the intersection of Product and Engineering
+Feel free to explore the code, learn from the MCP implementation, or use it as inspiration for your own AI-native projects. Issues and pull requests welcome!
 
-### Resume
-Current: **VP & Chief Architect at Altudo** (2023-Present)
-- Building agentic AI workflows for CMS implementations
-- Creating development accelerators
-- Resolving high-profile platform incidents
-- Improving customer adoption patterns
+## 📡 Agent Discovery
 
-### Contact
-- **Email**: iamandycohen@gmail.com
-- **LinkedIn**: linkedin.com/in/iamandycohen
+AI agents can discover and interact with this portfolio through multiple mechanisms:
+- **MCP Server**: `/api/mcp-server` - JSON-RPC 2.0 protocol implementation
+- **Agent Instructions**: `/llms.txt` - Comprehensive guide for AI interaction
+- **API Documentation**: `/api/docs` - OpenAPI specification 
+- **Structured Data**: JSON-LD markup for search engines and AI crawlers
+
+## 📞 Connect
+
+- **Email**: [iamandycohen@gmail.com](mailto:iamandycohen@gmail.com)
+- **LinkedIn**: [linkedin.com/in/iamandycohen](https://linkedin.com/in/iamandycohen)
 - **Location**: Golden Valley, MN
+- **GitHub**: [github.com/iamandycohen/me](https://github.com/iamandycohen/me)
 
-## Quick Start
+---
 
-```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Test all agent discovery mechanisms
-# (See PowerShell test in terminal output above)
-```
-
-## Agent Integration Testing
-
-All discovery mechanisms verified working:
-- ✅ MCP Tools Discovery (3 tools available)
-- ✅ llms.txt accessible (comprehensive instructions)
-- ✅ OpenAPI documentation (v1.0.0)
-- ✅ MCP tool execution (contact, bio, resume)
-
-## Deployment
-
-### Vercel (Recommended)
-1. Connect GitHub repository to Vercel
-2. Auto-deployment on push to main
-3. All agent endpoints automatically available at your domain
-
-### Manual
-```bash
-npm run build
-npm start
-```
-
-## API Endpoints Summary
-
-| Endpoint | Method | Purpose | Agent Type |
-|----------|--------|---------|------------|
-| `/llms.txt` | GET | Agent instructions & content | LLM agents |
-| `/api/mcp/tools` | GET | Tool discovery | MCP-compatible agents |
-| `/api/mcp/tools/{tool}` | POST | Tool execution | MCP-compatible agents |
-| `/api/docs` | GET | OpenAPI specification | API agents |
-| `/robots.txt` | GET | Agent access rules | Web crawlers |
-| `/api/sitemap.xml` | GET | Dynamic sitemap with agent endpoints | Search engines |
-
-## Why This Architecture?
-
-This portfolio serves as a **live demonstration** of AI-native architecture principles:
-
-1. **Agent-First Design** - Built with agent consumption as a first-class concern
-2. **Multiple Discovery Patterns** - Accommodates different agent capabilities and preferences  
-3. **Standards Compliance** - Uses established protocols (MCP, OpenAPI, Schema.org)
-4. **Single Source of Truth** - No data duplication between human and agent interfaces
-5. **Production Quality** - Full documentation, testing, and deployment ready
-
-The site itself **is** the portfolio piece - demonstrating practical understanding of how agents discover, evaluate, and consume information in production systems.
-
-## License
-
-MIT License
-
-## Contact
-
-**Andy Cohen**
-- Email: iamandycohen@gmail.com
-- LinkedIn: [linkedin.com/in/iamandycohen](https://linkedin.com/in/iamandycohen)
-- Location: Golden Valley, MN
-
-*Building systems that scale, teams that thrive, and developer experiences that delight.* 
+*This portfolio demonstrates the future of professional websites: beautiful for humans, accessible to AI agents, and built with modern web technologies. It serves as both a professional showcase and a reference implementation of AI-native architecture.* 

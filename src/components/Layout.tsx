@@ -1,22 +1,24 @@
 'use client';
 
 import Link from 'next/link';
-import { getFirstName } from '@/lib/data-helpers';
+import { getDisplayName } from '@/lib/data-helpers';
 import data from '../../content/data.json';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-const firstName = getFirstName(data.contact);
+const displayName = getDisplayName(data.contact);
 
 export default function Layout({ children }: LayoutProps) {
   const navigation = [
     { name: 'About', href: '/' },
     { name: 'Resume', href: '/resume' },
     { name: 'Projects', href: '/projects' },
+    { name: 'Speaking', href: '/speaking' },
     { name: 'Contact', href: '/contact' },
-    { name: 'API', href: '/api/mcp/tools' }
+    { name: 'API', href: '/api/docs', external: true },
+    { name: 'MCP Test', href: '/mcp-test' },
   ];
 
   return (
@@ -26,7 +28,7 @@ export default function Layout({ children }: LayoutProps) {
         <div className="container-max">
           <div className="flex justify-between items-center py-4">
             <Link href="/" className="text-lg font-bold text-gray-900">
-              {firstName}
+              {displayName}
             </Link>
             
             <div className="flex space-x-8">
@@ -52,7 +54,7 @@ export default function Layout({ children }: LayoutProps) {
         <div className="container-max py-12">
           <div className="text-center">
             <p className="text-gray-600 mb-2">
-              {firstName} - Building systems that scale, teams that thrive, and developer experiences that delight.
+              {displayName} - Building systems that scale, teams that thrive, and developer experiences that delight.
             </p>
             <p className="text-sm text-gray-500">
               AI-native architecture • MCP integration • Enterprise platforms

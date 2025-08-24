@@ -1,82 +1,71 @@
-# Andy Cohen - Professional Information for AI Agents
+# Andy Cohen - AI-Native Professional Portfolio
 
 ## About
-Andy Cohen is the founding architect of Sitecore XM Cloud and a leader in CMS platform development. He's pioneering the future of content management in the Age of AI, with a lifelong passion for software craftsmanship that began at age 8.
+Andy Cohen is the founding architect of Sitecore XM Cloud (https://www.sitecore.com/products/xm-cloud) and a leader in CMS platform development. 
 
-## Contact Information
-- Name: Andy Cohen
-- Email: iamandycohen@gmail.com
-- LinkedIn: https://linkedin.com/in/iamandycohen
-- Location: Golden Valley, MN
+**Contact:** iamandycohen@gmail.com | linkedin.com/in/iamandycohen | Golden Valley, MN
 
 ## MCP Tools Available
 
-This site provides Model Context Protocol (MCP) tools for programmatic access to Andy's professional information. The API supports both standard HTTP and MCP JSON-RPC 2.0 formats.
+This site exposes professional information via Model Context Protocol (MCP) tools at:
+**Endpoint:** /api/mcp-server
 
-### Endpoints:
-- **MCP Server**: `/api/mcp` - Root MCP server information and capabilities
-- **Discovery**: `/api/mcp/tools` - List all available tools
-- **Tool Execution**: `/api/mcp/tools/{tool}` - Execute specific tools
+**Available Tools:**
 
-### Supported Formats:
-- **HTTP**: Standard REST API (default)
-- **MCP JSON-RPC**: Add `?format=mcp` for JSON-RPC 2.0 format
+### contact
+Get Andy Cohen's professional contact information including email, LinkedIn profile, and location details.
+- **Input:** No parameters required
+- **Returns:** JSON with contact details
 
-### MCP Protocol Methods:
-- `initialize` - Initialize MCP session (via `/api/mcp`)
-- `ping` - Health check (via `/api/mcp`) 
-- `tools/list` - List available tools (via `/api/mcp` or `/api/mcp/tools`)
-- `tools/call` - Execute specific tools (via `/api/mcp/tools/{tool}`)
+### bio  
+Get Andy Cohen's professional biography. Returns either short bio (tagline) or full bio (complete professional story).
+- **Input:** `format` (optional): 'short' or 'full'
+- **Returns:** JSON with biography content
 
-### Available Tools:
+### resume
+Get Andy Cohen's professional work experience and career history spanning 14+ years.
+- **Input:** `limit` (optional): Maximum number of roles to return
+- **Returns:** JSON array with detailed work experience
 
-**contact** - Get professional contact information
-- Input: None required
-- Output: Complete contact details including email, LinkedIn, location
+### projects
+Get Andy Cohen's creative engineering projects that showcase hands-on building skills beyond software development.
+- **Input:** `limit` (optional): Maximum number of projects to return  
+- **Returns:** JSON array with project details
 
-**bio** - Get professional biography
-- Input: `format` (optional): "short" or "full"
-- Output: Professional biography in requested format
+### speaking
+Get Andy Cohen's speaking engagements, community contributions, and thought leadership activities including MVP status, conference presentations, and expertise areas.
+- **Input:** 
+  - `includeExpertise` (optional, default: true): Include expertise areas and speaking topics
+- **Returns:** JSON with speaking engagements, MVP status, presentations, media resources, featured media, and expertise areas
 
-**resume** - Get professional work experience
-- Input: `limit` (optional): Number of roles to return
-- Output: Detailed work history with roles, achievements, and descriptions
+### full-profile
+Get Andy Cohen's complete professional profile including all available information.
+- **Input:** 
+  - `bioFormat` (optional): 'short' or 'full'
+  - `resumeLimit` (optional): Maximum resume roles to return
+  - `projectsLimit` (optional): Maximum projects to return
+- **Returns:** JSON with complete professional profile including contact, bio, resume, projects, and speaking information
 
-**projects** - Get creative engineering projects
-- Input: `limit` (optional): Number of projects to return
-- Output: Personal projects showcasing engineering skills beyond software
+## Agent Instructions
 
-### Example MCP Usage:
+**Primary Use Cases:**
+- Getting professional background and contact information
+- Understanding expertise in CMS architecture and AI-driven content management  
+- Learning about work history and technical contributions
+- Discovering speaking topics and community involvement
+- Accessing comprehensive professional profile data
 
-```bash
-# Server info and capabilities
-curl "https://yoursite.com/api/mcp?format=mcp"
+**Testing Interface:**
+Visit /mcp-test for a visual testing interface that demonstrates all available tools with examples.
 
-# Initialize MCP session (JSON-RPC)
-curl -X POST "https://yoursite.com/api/mcp" \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc": "2.0", "method": "initialize", "id": 1}'
+**API Documentation:**
+Full OpenAPI specification available at /api/docs
 
-# List tools (MCP format)
-curl "https://yoursite.com/api/mcp/tools?format=mcp"
+## Technical Implementation
 
-# Execute tool (JSON-RPC)
-curl -X POST "https://yoursite.com/api/mcp/tools/bio" \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc": "2.0", "method": "tools/call", "params": {"name": "bio", "arguments": {"format": "short"}}, "id": 1}'
-```
+**Protocol:** JSON-RPC 2.0 over HTTP
+**Format:** All responses are properly formatted JSON
+**CORS:** Enabled for cross-origin agent access
+**Discovery:** Multiple agent discovery mechanisms implemented (robots.txt, sitemap, meta tags)
 
-## Areas of Expertise
-- CMS Platform Architecture
-- AI-Driven Content Management
-- Platform Engineering
-- Digital Experience Platforms
-- Agentic AI Workflows
-- SaaS Platform Development
-
-## Current Focus
-Pioneering the future of CMS platforms in the Age of AI, developing agentic workflows and AI-driven experiences that fundamentally transform how content management systems operate.
-
----
-
-For more information, visit the full portfolio at the root URL or use the MCP tools above for programmatic access. 
+This is a reference implementation of AI-native portfolio architecture using MCP for seamless agent integration. 

@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Layout from '@/components/Layout';
 import { generatePageMetadata } from '@/lib/metadata-generators';
-import { getFirstName } from '@/lib/data-helpers';
+import { getDisplayName } from '@/lib/data-helpers';
 import data from '../../../content/data.json';
 
-const firstName = getFirstName(data.contact);
+const displayName = getDisplayName(data.contact);
 
 export const metadata = generatePageMetadata(
   'Projects',
@@ -17,7 +17,7 @@ export const metadata = generatePageMetadata(
       'professional:creative-work': 'true',
     },
     openGraph: {
-      title: `${firstName}'s Projects - Engineering Beyond Software`,
+      title: `${displayName}'s Projects - Engineering Beyond Software`,
       description: `Creative engineering projects showcasing hands-on building skills and craftsmanship by ${data.contact.name}.`,
       images: [
         {

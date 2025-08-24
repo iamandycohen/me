@@ -1,12 +1,15 @@
 import Layout from '@/components/Layout';
 import { generatePageMetadata } from '@/lib/metadata-generators';
-import { getRoleDuration } from '@/lib/data-helpers';
+import { getRoleDuration, getDisplayName } from '@/lib/data-helpers';
+import { addSitecoreLinks } from '@/lib/utils';
 import data from '../../../content/data.json';
+
+const displayName = getDisplayName(data.contact);
 
 // Generate metadata using utility
 export const metadata = generatePageMetadata(
   'Resume',
-  `Professional experience and career history for ${data.contact.name}`,
+  `Professional experience and career history for ${displayName}`,
   data.contact
 );
 
@@ -44,7 +47,7 @@ export default function Resume() {
 
                   <div className="mb-6">
                     <p className="text-gray-700 leading-relaxed">
-                      {role.description}
+                      {addSitecoreLinks(role.description)}
                     </p>
                   </div>
 
@@ -57,7 +60,7 @@ export default function Resume() {
                         <li key={highlightIndex} className="flex items-start gap-3">
                           <div className="flex-shrink-0 w-2 h-2 bg-primary-500 rounded-full mt-2.5"></div>
                           <span className="text-gray-700 leading-relaxed">
-                            {highlight}
+                            {addSitecoreLinks(highlight)}
                           </span>
                         </li>
                       ))}
