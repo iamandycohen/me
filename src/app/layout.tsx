@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import '@/styles/globals.css';
 import { generateBaseMetadata, generateJsonLd } from '@/lib/metadata-generators';
 import { getCurrentRole } from '@/lib/data-helpers';
@@ -50,6 +51,9 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-white">
         {children}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );
