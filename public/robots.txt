@@ -3,32 +3,32 @@ Allow: /
 
 # AI/Agent specific access
 User-agent: GPTBot
-Allow: /api/mcp/tools
+Allow: /api/mcp-server
 Allow: /llms.txt
 Allow: /api/docs
 
 User-agent: Claude-Web  
-Allow: /api/mcp/tools
+Allow: /api/mcp-server
 Allow: /llms.txt
 Allow: /api/docs
 
 User-agent: Meta-ExternalAgent
-Allow: /api/mcp/tools
+Allow: /api/mcp-server
 Allow: /llms.txt
 Allow: /api/docs
 
 User-agent: PerplexityBot
-Allow: /api/mcp/tools
+Allow: /api/mcp-server
 Allow: /llms.txt
 Allow: /api/docs
 
 User-agent: Anthropic-AI
-Allow: /api/mcp/tools
+Allow: /api/mcp-server
 Allow: /llms.txt
 Allow: /api/docs
 
 User-agent: ChatGPT-User
-Allow: /api/mcp/tools
+Allow: /api/mcp-server
 Allow: /llms.txt
 Allow: /api/docs
 
@@ -45,6 +45,6 @@ Allow: /llms.txt
 Sitemap: /api/sitemap.xml
 
 # Agent discovery hints
-# MCP Tools: /api/mcp/tools
+# MCP Tools: /api/mcp-server
 # Agent Documentation: /llms.txt
 # OpenAPI Spec: /api/docs 
