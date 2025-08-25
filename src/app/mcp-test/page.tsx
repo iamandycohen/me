@@ -2,19 +2,12 @@
 
 import { useState } from 'react';
 import Layout from '@/components/Layout';
+import { getClientBaseUrl } from '@/lib/api-helpers';
 
 export default function MCPTest() {
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
   
-  // Get the current base URL dynamically
-  const getBaseUrl = () => {
-    if (typeof window !== 'undefined') {
-      return `${window.location.protocol}//${window.location.host}`;
-    }
-    return 'http://localhost:3000'; // Fallback for SSR
-  };
-
   const testMCP = async (method: string, params?: any) => {
     setLoading(true);
     try {
@@ -120,7 +113,7 @@ export default function MCPTest() {
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
             <p className="text-blue-800">
-              <strong>Server Endpoint:</strong> <code className="bg-blue-100 px-2 py-1 rounded">{getBaseUrl()}/api/mcp</code>
+              <strong>Server Endpoint:</strong> <code className="bg-blue-100 px-2 py-1 rounded">{getClientBaseUrl()}/api/mcp</code>
             </p>
           </div>
         </div>
@@ -181,7 +174,7 @@ export default function MCPTest() {
             <div>
               <h4 className="font-semibold mb-2">cURL Example:</h4>
               <pre className="text-sm bg-gray-800 text-gray-100 p-3 rounded overflow-auto">
-{`curl -X POST ${getBaseUrl()}/api/mcp \\
+{`curl -X POST ${getClientBaseUrl()}/api/mcp \\
   -H "Content-Type: application/json" \\
   -H "Accept: application/json, text/event-stream" \\
   -d '{

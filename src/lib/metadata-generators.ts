@@ -2,28 +2,13 @@ import type { Metadata } from "next";
 import type { Contact, Role, Bio } from "@/types";
 import { MCPTool } from "@/types";
 import { getDisplayName, formatLinkedInUrl } from "./data-helpers";
+import { getBaseUrl } from "./api-helpers";
 
 // Professional data interface for type safety
 interface ProfessionalData {
   keywords: string[];
   expertise: string[];
   skills: string[];
-}
-
-// Get the correct base URL based on environment
-function getBaseUrl(): string {
-  // Custom domain (production)
-  if (process.env.SITE_URL) {
-    return process.env.SITE_URL;
-  }
-  
-  // Vercel deployment without custom domain
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`;
-  }
-  
-  // Local development
-  return "http://localhost:3000";
 }
 
 // Generate JSON-LD structured data

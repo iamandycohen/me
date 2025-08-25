@@ -1,11 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getBaseUrl } from "@/lib/api-helpers";
 
 export async function GET(request: NextRequest) {
-  const host = request.headers.get("host") || "localhost:3000";
-  const protocol =
-    request.headers.get("x-forwarded-proto") ||
-    (host.includes("localhost") ? "http" : "https");
-  const baseUrl = `${protocol}://${host}`;
+  const baseUrl = getBaseUrl(request);
   const lastmod = new Date().toISOString().split("T")[0]; // Calculated once
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
