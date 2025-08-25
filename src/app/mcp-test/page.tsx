@@ -6,7 +6,8 @@ import Layout from '@/components/Layout';
 export default function MCPTest() {
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
-
+  const vercelHost = process.env.VERCEL_URL || "localhost:3000";
+  
   const testMCP = async (method: string, params?: any) => {
     setLoading(true);
     try {
@@ -94,7 +95,7 @@ export default function MCPTest() {
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
             <p className="text-blue-800">
-              <strong>Server Endpoint:</strong> <code className="bg-blue-100 px-2 py-1 rounded">http://localhost:3000/api/mcp-server</code>
+              <strong>Server Endpoint:</strong> <code className="bg-blue-100 px-2 py-1 rounded">{vercelHost}/api/mcp-server</code>
             </p>
           </div>
         </div>
@@ -155,7 +156,7 @@ export default function MCPTest() {
             <div>
               <h4 className="font-semibold mb-2">cURL Example:</h4>
               <pre className="text-sm bg-gray-800 text-gray-100 p-3 rounded overflow-auto">
-{`curl -X POST http://localhost:3000/api/mcp-server \\
+{`curl -X POST ${vercelHost}/api/mcp-server \\
   -H "Content-Type: application/json" \\
   -d '{
     "jsonrpc": "2.0",
