@@ -66,7 +66,7 @@ Feel free to explore the code, learn from the MCP implementation, or use it as i
 ## 📡 Agent Discovery
 
 AI agents can discover and interact with this portfolio through multiple mechanisms:
-- **MCP Server**: `/api/mcp-server` - JSON-RPC 2.0 protocol implementation
+- **MCP Server**: `/api/mcp` - JSON-RPC 2.0 protocol implementation using Vercel MCP Adapter
 - **Agent Instructions**: `/llms.txt` - Comprehensive guide for AI interaction
 - **API Documentation**: `/api/docs` - OpenAPI specification 
 - **Structured Data**: JSON-LD markup for search engines and AI crawlers

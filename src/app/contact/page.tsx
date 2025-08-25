@@ -145,7 +145,7 @@ export default function Contact() {
                     This site provides structured data access via MCP tools. Agents can programmatically access my professional information.
                   </p>
                   <a 
-                    href="/api/mcp-server" 
+                    href="/api/mcp" 
                     className="inline-flex items-center gap-2 text-sm font-medium text-primary-700 hover:text-primary-800"
                     target="_blank"
                     rel="noopener noreferrer"

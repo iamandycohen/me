@@ -21,12 +21,12 @@ function generateMcpServerOpenApiSpec() {
     },
     servers: [
       {
-        url: '/api/mcp-server',
+        url: '/api/mcp',
         description: 'MCP Server Endpoint'
       }
     ],
     paths: {
-      '/api/mcp-server': {
+      '/api/mcp': {
         get: {
           summary: 'Get MCP Server Information',
           description: 'Returns basic information about the MCP server, including capabilities and available tools count.',

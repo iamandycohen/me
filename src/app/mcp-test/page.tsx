@@ -6,6 +6,14 @@ import Layout from '@/components/Layout';
 export default function MCPTest() {
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
+  
+  // Get the current base URL dynamically
+  const getBaseUrl = () => {
+    if (typeof window !== 'undefined') {
+      return `${window.location.protocol}//${window.location.host}`;
+    }
+    return 'http://localhost:3000'; // Fallback for SSR
+  };
 
   const testMCP = async (method: string, params?: any) => {
     setLoading(true);
@@ -17,14 +25,31 @@ export default function MCPTest() {
         ...(params && { params })
       };
 
-      const res = await fetch('/api/mcp-server', {
+      const res = await fetch('/api/mcp', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json, text/event-stream'
+        },
         body: JSON.stringify(body)
       });
 
-      const data = await res.json();
-      setResponse(JSON.stringify(data, null, 2));
+      const responseText = await res.text();
+      
+      // Handle Server-Sent Events format
+      if (responseText.startsWith('event: message\ndata: ')) {
+        const jsonStr = responseText.replace('event: message\ndata: ', '').trim();
+        const data = JSON.parse(jsonStr);
+        setResponse(JSON.stringify(data, null, 2));
+      } else {
+        // Fallback for regular JSON responses
+        try {
+          const data = JSON.parse(responseText);
+          setResponse(JSON.stringify(data, null, 2));
+        } catch {
+          setResponse(responseText);
+        }
+      }
     } catch (error) {
       setResponse(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
@@ -38,7 +63,8 @@ export default function MCPTest() {
       method: 'initialize',
       params: {
         clientInfo: { name: 'web-tester', version: '1.0.0' },
-        protocolVersion: '2025-03-26'
+        protocolVersion: '2025-03-26',
+        capabilities: {}
       }
     },
     {
@@ -48,7 +74,7 @@ export default function MCPTest() {
     {
       name: 'Contact Info',
       method: 'tools/call',
-      params: { name: 'contact' }
+      params: { name: 'contact', arguments: {} }
     },
     {
       name: 'Short Bio',
@@ -68,7 +94,7 @@ export default function MCPTest() {
     {
       name: 'All Projects',
       method: 'tools/call',
-      params: { name: 'projects' }
+      params: { name: 'projects', arguments: {} }
     },
     {
       name: 'Full Profile',
@@ -78,7 +104,7 @@ export default function MCPTest() {
     {
       name: 'Speaking Info',
       method: 'tools/call',
-      params: { name: 'speaking' }
+      params: { name: 'speaking', arguments: {} }
     }
   ];
 
@@ -94,7 +120,7 @@ export default function MCPTest() {
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
             <p className="text-blue-800">
-              <strong>Server Endpoint:</strong> <code className="bg-blue-100 px-2 py-1 rounded">http://localhost:3000/api/mcp-server</code>
+              <strong>Server Endpoint:</strong> <code className="bg-blue-100 px-2 py-1 rounded">{getBaseUrl()}/api/mcp</code>
             </p>
           </div>
         </div>
@@ -123,10 +149,10 @@ export default function MCPTest() {
             <div className="mt-8 p-4 bg-green-50 border border-green-200 rounded-lg">
               <h3 className="font-semibold text-green-800 mb-2">✅ MCP Server Status</h3>
               <ul className="text-sm text-green-700 space-y-1">
-                <li>• 5 tools registered (contact, bio, resume, projects, full-profile)</li>
+                <li>• 6 tools registered (contact, bio, resume, projects, speaking, full-profile)</li>
                 <li>• JSON-RPC 2.0 protocol compliance</li>
-                <li>• Official MCP SDK integration</li>
-                <li>• Enhanced error handling</li>
+                <li>• Vercel MCP Adapter integration</li>
+                <li>• Server-Sent Events (SSE) support</li>
               </ul>
             </div>
           </div>
@@ -155,8 +181,9 @@ export default function MCPTest() {
             <div>
               <h4 className="font-semibold mb-2">cURL Example:</h4>
               <pre className="text-sm bg-gray-800 text-gray-100 p-3 rounded overflow-auto">
-{`curl -X POST http://localhost:3000/api/mcp-server \\
+{`curl -X POST ${getBaseUrl()}/api/mcp \\
   -H "Content-Type: application/json" \\
+  -H "Accept: application/json, text/event-stream" \\
   -d '{
     "jsonrpc": "2.0",
     "method": "tools/call",
@@ -171,9 +198,12 @@ export default function MCPTest() {
             <div>
               <h4 className="font-semibold mb-2">JavaScript Example:</h4>
               <pre className="text-sm bg-gray-800 text-gray-100 p-3 rounded overflow-auto">
-{`const response = await fetch('/api/mcp-server', {
+{`const response = await fetch('/api/mcp', {
   method: 'POST',
-  headers: {'Content-Type': 'application/json'},
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json, text/event-stream'
+  },
   body: JSON.stringify({
     jsonrpc: '2.0',
     method: 'tools/call',

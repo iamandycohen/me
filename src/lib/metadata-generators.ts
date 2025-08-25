@@ -10,6 +10,22 @@ interface ProfessionalData {
   skills: string[];
 }
 
+// Get the correct base URL based on environment
+function getBaseUrl(): string {
+  // Custom domain (production)
+  if (process.env.SITE_URL) {
+    return process.env.SITE_URL;
+  }
+  
+  // Vercel deployment without custom domain
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  
+  // Local development
+  return "http://localhost:3000";
+}
+
 // Generate JSON-LD structured data
 export function generateJsonLd(
   contact: Contact,
@@ -27,7 +43,7 @@ export function generateJsonLd(
       name: currentRole.company,
     },
     description: bio.short,
-    url: process.env.SITE_URL || "http://localhost:3000",
+    url: getBaseUrl(),
     email: contact.email,
     sameAs: [formatLinkedInUrl(contact.linkedin)],
     knowsAbout: professional.skills,
@@ -44,7 +60,7 @@ export function generateJsonLd(
       {
         "@type": "PropertyValue",
         name: "MCP Server Endpoint",
-        value: "/api/mcp-server",
+        value: "/api/mcp",
       },
       {
         "@type": "PropertyValue",
@@ -80,11 +96,11 @@ export function generateBaseMetadata(
 
     // AI/Agent discovery meta tags
     other: {
-      "ai:mcp-server": "/api/mcp-server",
+      "ai:mcp-server": "/api/mcp",
       "ai:description":
         "Professional information accessible via MCP tools and structured data",
       "ai:type": "professional-portfolio",
-      "mcp:endpoint": "/api/mcp-server",
+      "mcp:endpoint": "/api/mcp",
       "llms:document": "/llms.txt",
       "openapi:spec": "/api/docs",
     },
@@ -94,7 +110,7 @@ export function generateBaseMetadata(
       title: `${displayName} - AI-Native Professional Portfolio`,
       description: `${currentRole.title} building systems that scale. ${bio.short}`,
       type: "profile",
-      url: process.env.SITE_URL || "http://localhost:3000",
+      url: getBaseUrl(),
     },
 
     // Additional meta
@@ -102,7 +118,7 @@ export function generateBaseMetadata(
       types: {
         "text/plain": [{ url: "/llms.txt", title: "LLM Agent Information" }],
         "application/json": [
-          { url: "/api/mcp-server", title: "MCP Server Endpoint" },
+          { url: "/api/mcp", title: "MCP Server Endpoint" },
           { url: "/api/docs", title: "OpenAPI Specification" },
         ],
       },
@@ -151,14 +167,12 @@ export function generateOpenApiSpec(
     },
     servers: [
       {
-        url: process.env.VERCEL_URL
-          ? `https://${process.env.VERCEL_URL}`
-          : "http://localhost:3000",
+        url: getBaseUrl(),
         description: "Production/Development server",
       },
     ],
     paths: {
-      "/api/mcp-server": {
+      "/api/mcp": {
         get: {
           summary: "Get MCP server information",
           description:
@@ -182,12 +196,12 @@ export function generateOpenApiSpec(
                           tools: {
                             type: "object",
                             properties: {
-                              listChanged: { type: "boolean", example: false }
-                            }
-                          }
-                        }
+                              listChanged: { type: "boolean", example: false },
+                            },
+                          },
+                        },
                       },
-                      tools: { type: "number", example: 5 }
+                      tools: { type: "number", example: 5 },
                     },
                   },
                 },
@@ -197,7 +211,8 @@ export function generateOpenApiSpec(
         },
         post: {
           summary: "Execute MCP JSON-RPC requests",
-          description: "Handle MCP protocol requests including initialize, tools/list, and tools/call methods",
+          description:
+            "Handle MCP protocol requests including initialize, tools/list, and tools/call methods",
           tags: ["MCP Server"],
           requestBody: {
             required: true,
@@ -207,36 +222,36 @@ export function generateOpenApiSpec(
                   type: "object",
                   properties: {
                     jsonrpc: { type: "string", example: "2.0" },
-                    method: { 
-                      type: "string", 
+                    method: {
+                      type: "string",
                       enum: ["initialize", "tools/list", "tools/call"],
-                      example: "tools/list"
+                      example: "tools/list",
                     },
                     id: { type: "number", example: 1 },
-                    params: { type: "object" }
+                    params: { type: "object" },
                   },
-                  required: ["jsonrpc", "method", "id"]
+                  required: ["jsonrpc", "method", "id"],
                 },
                 examples: {
                   initialize: {
                     summary: "Initialize MCP session",
                     value: {
                       jsonrpc: "2.0",
-                      method: "initialize", 
+                      method: "initialize",
                       id: 1,
                       params: {
                         clientInfo: { name: "test-client", version: "1.0.0" },
-                        protocolVersion: "2025-03-26"
-                      }
-                    }
+                        protocolVersion: "2025-03-26",
+                      },
+                    },
                   },
                   tools_list: {
                     summary: "List available tools",
                     value: {
                       jsonrpc: "2.0",
                       method: "tools/list",
-                      id: 2
-                    }
+                      id: 2,
+                    },
                   },
                   tools_call: {
                     summary: "Call a tool",
@@ -245,11 +260,11 @@ export function generateOpenApiSpec(
                       method: "tools/call",
                       id: 3,
                       params: {
-                        name: "contact"
-                      }
-                    }
-                  }
-                }
+                        name: "contact",
+                      },
+                    },
+                  },
+                },
               },
             },
           },
@@ -263,11 +278,11 @@ export function generateOpenApiSpec(
                     properties: {
                       jsonrpc: { type: "string", example: "2.0" },
                       id: { type: "number" },
-                      result: { type: "object" }
-                    }
-                  }
-                }
-              }
+                      result: { type: "object" },
+                    },
+                  },
+                },
+              },
             },
             "400": {
               description: "Invalid JSON-RPC request",
@@ -282,29 +297,30 @@ export function generateOpenApiSpec(
                         type: "object",
                         properties: {
                           code: { type: "number" },
-                          message: { type: "string" }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+                          message: { type: "string" },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
       },
       "/mcp-test": {
         get: {
           summary: "Visual MCP testing interface",
-          description: "Interactive web interface for testing MCP tools with live examples",
+          description:
+            "Interactive web interface for testing MCP tools with live examples",
           tags: ["Testing"],
           responses: {
             "200": {
-              description: "HTML testing interface"
-            }
-          }
-        }
-      }
+              description: "HTML testing interface",
+            },
+          },
+        },
+      },
     },
     components: {
       schemas: {
