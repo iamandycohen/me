@@ -6,8 +6,7 @@ import Layout from '@/components/Layout';
 export default function MCPTest() {
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
-  const vercelHostEnv = process.env.NEXT_PUBLIC_VERCEL_URL;
-  const vercelHost = vercelHostEnv ? `https://${vercelHostEnv}` : "http://localhost:3000";
+  const vercelHost = `https://www.iamandycohen.com`;
   
   const testMCP = async (method: string, params?: any) => {
     setLoading(true);
