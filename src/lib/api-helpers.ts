@@ -1,95 +1,157 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
 export const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
-export function createCorsHeaders(methods: string[] = ['GET', 'POST', 'OPTIONS']) {
+export function createCorsHeaders(
+  methods: string[] = ["GET", "POST", "OPTIONS"]
+) {
   return {
     ...corsHeaders,
-    'Access-Control-Allow-Methods': methods.join(', '),
+    "Access-Control-Allow-Methods": methods.join(", "),
   };
 }
 
-export function createErrorResponse(message: string, status: number = 500, customHeaders: Record<string, string> = {}) {
+export function createErrorResponse(
+  message: string,
+  status: number = 500,
+  customHeaders: Record<string, string> = {}
+) {
   return NextResponse.json(
     { success: false, error: message },
-    { 
-      status, 
-      headers: { ...createCorsHeaders(), ...customHeaders }
+    {
+      status,
+      headers: { ...createCorsHeaders(), ...customHeaders },
     }
   );
 }
 
-export function createSuccessResponse(data: any, customHeaders: Record<string, string> = {}) {
+export function createSuccessResponse(
+  data: any,
+  customHeaders: Record<string, string> = {}
+) {
   return NextResponse.json(
     { success: true, data },
-    { 
-      status: 200, 
-      headers: { ...createCorsHeaders(), ...customHeaders }
+    {
+      status: 200,
+      headers: { ...createCorsHeaders(), ...customHeaders },
     }
   );
 }
 
 // MCP JSON-RPC 2.0 response helpers
-export function createMcpResponse(result: any, id: string | number = 1, customHeaders: Record<string, string> = {}) {
+export function createMcpResponse(
+  result: any,
+  id: string | number = 1,
+  customHeaders: Record<string, string> = {}
+) {
   const response = {
-    jsonrpc: '2.0',
+    jsonrpc: "2.0",
     id,
-    result
+    result,
   };
-  
+
   return NextResponse.json(response, {
     status: 200,
-    headers: { 
-      ...createCorsHeaders(), 
-      'Content-Type': 'application/json',
-      ...customHeaders 
-    }
+    headers: {
+      ...createCorsHeaders(),
+      "Content-Type": "application/json",
+      ...customHeaders,
+    },
   });
 }
 
-export function createMcpError(error: string, code: number = -32603, id: string | number = 1, customHeaders: Record<string, string> = {}) {
+export function createMcpError(
+  error: string,
+  code: number = -32603,
+  id: string | number = 1,
+  customHeaders: Record<string, string> = {}
+) {
   const response = {
-    jsonrpc: '2.0',
+    jsonrpc: "2.0",
     id,
     error: {
       code,
-      message: error
-    }
+      message: error,
+    },
   };
-  
+
   return NextResponse.json(response, {
     status: 200, // MCP errors are still 200 OK with error in response
-    headers: { 
-      ...createCorsHeaders(), 
-      'Content-Type': 'application/json',
-      ...customHeaders 
-    }
+    headers: {
+      ...createCorsHeaders(),
+      "Content-Type": "application/json",
+      ...customHeaders,
+    },
   });
 }
 
-export function handleApiError(error: unknown, context: string = 'API'): NextResponse {
+export function handleApiError(
+  error: unknown,
+  context: string = "API"
+): NextResponse {
   console.error(`${context} error:`, error);
-  
-  const message = error instanceof Error ? error.message : 'An unexpected error occurred';
+
+  const message =
+    error instanceof Error ? error.message : "An unexpected error occurred";
   return createErrorResponse(message, 500);
 }
 
-export function handleMcpError(error: unknown, context: string = 'MCP', id: string | number = 1): NextResponse {
+export function handleMcpError(
+  error: unknown,
+  context: string = "MCP",
+  id: string | number = 1
+): NextResponse {
   console.error(`${context} error:`, error);
-  
-  const message = error instanceof Error ? error.message : 'An unexpected error occurred';
-  const code = error instanceof Error && error.message.includes('not found') ? -32601 : -32603;
-  
+
+  const message =
+    error instanceof Error ? error.message : "An unexpected error occurred";
+  const code =
+    error instanceof Error && error.message.includes("not found")
+      ? -32601
+      : -32603;
+
   return createMcpError(message, code, id);
 }
 
-export function createOptionsResponse(methods: string[] = ['GET', 'POST', 'OPTIONS']) {
+export function createOptionsResponse(
+  methods: string[] = ["GET", "POST", "OPTIONS"]
+) {
   return new Response(null, {
     status: 204,
-    headers: createCorsHeaders(methods)
+    headers: createCorsHeaders(methods),
   });
-} 
+}
+
+// Get the correct base URL based on context and environment
+export function getBaseUrl(request?: Request): string {
+  // If we have a request (API routes), use headers for dynamic detection
+  if (request) {
+    const host = request.headers.get("host") || "localhost:3000";
+    const protocol = request.headers.get("x-forwarded-proto") || 
+                    (host.includes("localhost") ? "http" : "https");
+    return `${protocol}://${host}`;
+  }
+
+  // Fallback to environment variables (SSR, metadata generation)
+  if (process.env.SITE_URL) {
+    return process.env.SITE_URL;
+  }
+
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+
+  return "http://localhost:3000";
+}
+
+// Client-side base URL getter
+export function getClientBaseUrl(): string {
+  if (typeof window !== 'undefined') {
+    return `${window.location.protocol}//${window.location.host}`;
+  }
+  return getBaseUrl(); // Fallback to server-side logic during SSR
+}

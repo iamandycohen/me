@@ -8,7 +8,7 @@ Andy Cohen is the founding architect of Sitecore XM Cloud (https://www.sitecore.
 ## MCP Tools Available
 
 This site exposes professional information via Model Context Protocol (MCP) tools at:
-**Endpoint:** /api/mcp-server
+**Endpoint:** /api/mcp
 
 **Available Tools:**
 

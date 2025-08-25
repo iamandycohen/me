@@ -12,7 +12,7 @@
     "type-check": "tsc --noEmit",
     "test": "jest",
     "test:watch": "jest --watch",
-    "mcp:test": "curl -X POST http://localhost:3000/api/mcp-server -H \"Content-Type: application/json\" -d '{\"jsonrpc\": \"2.0\", \"method\": \"initialize\", \"id\": 1, \"params\": {\"clientInfo\": {\"name\": \"test\", \"version\": \"1.0.0\"}, \"protocolVersion\": \"2025-03-26\"}}'"
+    "mcp:test": "curl -X POST http://localhost:3000/api/mcp -H \"Content-Type: application/json\" -H \"Accept: application/json, text/event-stream\" -d @mcp-test-payload.json"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
@@ -21,6 +21,7 @@
     "clsx": "^2.0.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "mcp-handler": "^1.0.1",
     "next": "^15.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

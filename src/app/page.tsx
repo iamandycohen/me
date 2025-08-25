@@ -28,7 +28,7 @@ export const metadata = generatePageMetadata(
       "professional:company": currentRole.company,
       "professional:expertise": data.professional.expertise.join(", "),
       "ai:instructions":
-        "Use MCP server at /api/mcp-server for structured data access. Available tools: contact, bio, resume, projects, full-profile. See /llms.txt for detailed usage.",
+        "Use MCP server at /api/mcp for structured data access. Available tools: contact, bio, resume, projects, speaking, full-profile. See /llms.txt for detailed usage.",
     },
   }
 );
