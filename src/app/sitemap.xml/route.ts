@@ -20,6 +20,7 @@ export async function GET(_request: NextRequest) {
     { path: "/community", priority: 0.8, changefreq: "daily" },
     { path: "/api/mcp", priority: 0.9, changefreq: "daily" },
     { path: "/llms.txt", priority: 0.9, changefreq: "daily" },
+    { path: "/llms-full.txt", priority: 0.9, changefreq: "daily" },
     { path: "/mcp-test", priority: 0.7, changefreq: "daily" },
     { path: "/api/docs", priority: 0.7, changefreq: "daily" },
   ];

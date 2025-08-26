@@ -56,8 +56,32 @@ export default function RootLayout({
         {/* Resource hints for performance */}
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
+
+        {/* LLM Discovery Meta Tags */}
+        <meta
+          name="llm-agent-resources"
+          content="/llms.txt,/llms-full.txt,/api/mcp"
+        />
+        <meta name="ai-agent-friendly" content="true" />
+        <meta name="mcp-server" content="/api/mcp" />
+        <link
+          rel="alternate"
+          type="text/plain"
+          href="/llms.txt"
+          title="LLM Agent Information"
+        />
+        <link
+          rel="alternate"
+          type="text/plain"
+          href="/llms-full.txt"
+          title="Complete Profile for LLMs"
+        />
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -74,8 +98,8 @@ export default function RootLayout({
         </div>
         {/* Optimized analytics loading */}
         {process.env.NEXT_PUBLIC_GA_ID && (
-          <GoogleAnalytics 
-            gaId={process.env.NEXT_PUBLIC_GA_ID} 
+          <GoogleAnalytics
+            gaId={process.env.NEXT_PUBLIC_GA_ID}
             dataLayerName="dataLayer"
           />
         )}
