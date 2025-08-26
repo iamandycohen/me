@@ -12,7 +12,6 @@ export const metadata = generatePageMetadata(
 
 export default function Speaking() {
   const {
-    mvpStatus,
     mvpProfileUrl,
     description,
     presentations,
@@ -40,9 +39,9 @@ export default function Speaking() {
             {/* Sitecore MVP Status */}
             <section className="mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                Sitecore MVP
+                Sitecore MVP - 2025 Honorary
               </h2>
-              <div className="bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
+              <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg border border-yellow-200 p-8 shadow-sm mb-6">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
@@ -63,20 +62,23 @@ export default function Speaking() {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      {mvpStatus}
+                      Honorary MVP - Exceptional Contributions Recognition
                     </h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Recognized as a {addSitecoreLinks("Sitecore")} Most
-                      Valuable Professional for demonstrating exceptional
-                      support and engagement with the global Sitecore community
-                      through speaking, knowledge sharing, and technical
-                      leadership.
+                    <div className="bg-white rounded-lg p-4 border border-yellow-100 mb-4">
+                      <p className="text-sm text-gray-600 mb-2 font-medium">Special Recognition Statement:</p>
+                      <blockquote className="text-gray-700 italic leading-relaxed border-l-4 border-yellow-400 pl-4">
+                        &ldquo;Andy Cohen dedicated five years to {addSitecoreLinks("Sitecore")}, establishing himself as a prominent figure within the community. As one of the principal architects of XM Cloud, he championed its development from the outset. In recognition of his significant contributions, we are honored to present Andy with the Honorary MVP award.&rdquo;
+                      </blockquote>
+                      <p className="text-sm text-gray-500 mt-2">— Danny Robinson, CTO of Sitecore</p>
+                    </div>
+                    <p className="text-gray-700 leading-relaxed mb-3">
+                      Named as a 2025 Honorary MVP, a <strong>rarely awarded distinction</strong> recognizing exceptional contributions to the {addSitecoreLinks("Sitecore")} ecosystem and community leadership.
                     </p>
                     <a
                       href={mvpProfileUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-primary-600 hover:text-primary-700 text-sm font-medium mt-3"
+                      className="inline-flex items-center gap-1 text-primary-600 hover:text-primary-700 text-sm font-medium"
                     >
                       View MVP Profile
                       <svg

@@ -194,8 +194,9 @@
     }
   ],
   "speaking": {
-    "mvpStatus": "Sitecore MVP",
+    "mvpStatus": "Sitecore MVP - 2025 Honorary",
     "mvpProfileUrl": "https://mvp.sitecore.com/en/Directory/Profile?id=7a7a68872ab1437ed8ec08dd030ff642",
+    "mvpHonoraryDescription": "Named as a 2025 Honorary MVP, a rarely awarded distinction recognizing exceptional contributions to the Sitecore ecosystem. Danny Robinson, CTO of Sitecore, stated: 'Andy Cohen dedicated five years to Sitecore, establishing himself as a prominent figure within the community. As one of the principal architects of XM Cloud, he championed its development from the outset. In recognition of his significant contributions, we are honored to present Andy with the Honorary MVP award.'",
     "description": "Presentations, podcasts, and thought leadership content sharing insights on CMS architecture, XM Cloud development, and the future of AI-driven content management",
     "mediaResources": {
       "podcasts": [
