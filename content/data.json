@@ -237,7 +237,7 @@
     "presentations": [
       {
         "title": "SUGCON Europe 2025",
-        "organization": "SUGCON Community",
+        "organization": "SUGCON",
         "location": "Antwerp, Belgium",
         "date": "April 2025",
         "sessionTitle": "Full Circle: The Architect of XM Cloud builds an XM Cloud Site (as a partner for the first time)",
@@ -247,7 +247,7 @@
       },
       {
         "title": "SUGCON India 2024",
-        "organization": "SUGCON Community",
+        "organization": "SUGCON",
         "location": "Bangalore,India", 
         "date": "2024",
         "sessionTitle": "💘Heart to Heart with an XM Cloud Architect💘 (with Liz)",
@@ -257,7 +257,7 @@
       },
       {
         "title": "SUGCON Europe 2024", 
-        "organization": "SUGCON Community",
+        "organization": "SUGCON",
         "location": "Dublin, Ireland",
         "date": "April 2024",
         "sessionTitle": "Building for Resiliency",
@@ -268,7 +268,7 @@
       },
       {
         "title": "SUGCON ANZ 2023",
-        "organization": "SUGCON Community", 
+        "organization": "SUGCON", 
         "location": "Sydney, Australia",
         "date": "2023",
         "sessionTitle": "Building for Resiliency",
@@ -277,7 +277,7 @@
       },
       {
         "title": "SUGCON India 2023", 
-        "organization": "SUGCON Community",
+        "organization": "SUGCON",
         "location": "Delhi, India",
         "date": "2023",
         "sessionTitle": "Build for XM Cloud according to the Architect of XM Cloud",
@@ -287,7 +287,7 @@
       },
       {
         "title": "SUGCON Europe 2023",
-        "organization": "SUGCON Community", 
+        "organization": "SUGCON", 
         "location": "Malaga, Spain",
         "date": "2023",
         "sessionTitle": "Innovations in Deploy",
@@ -298,7 +298,7 @@
       },
       {
         "title": "SUGCON ANZ 2022",
-        "organization": "SUGCON Community",
+        "organization": "SUGCON",
         "location": "Melbourne, Australia",
         "date": "2022",
         "sessionTitle": "XM Cloud - Developer Experience",
@@ -320,7 +320,7 @@
       },
       {
         "title": "SUGCON Europe 2022",
-        "organization": "SUGCON Community",
+        "organization": "SUGCON",
         "location": "Budapest, Hungary", 
         "date": "April 2022",
         "sessionTitle": "XM Cloud - Build and Deploy in less than 5 minutes",

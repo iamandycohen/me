@@ -218,14 +218,14 @@ export default function Community() {
                                 <p className="text-lg font-medium text-gray-800 mb-2">
                                   {presentation.sessionTitle}
                                 </p>
-                                <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
+                                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-600 mb-3">
                                   <span>{presentation.organization}</span>
-                                  <span>•</span>
+                                  <span className="hidden sm:inline">•</span>
                                   <span>{presentation.location}</span>
-                                  <span>•</span>
+                                  <span className="hidden sm:inline">•</span>
                                   <span>{presentation.date}</span>
                                   {presentation.isHistoric && (
-                                    <span className="ml-2 text-yellow-600 text-sm font-medium">
+                                    <span className="text-yellow-600 text-sm font-medium">
                                       (Historic)
                                     </span>
                                   )}
