@@ -246,6 +246,16 @@
         "sessionizeUrl": "https://sessionize.com/iamandycohen"
       },
       {
+        "title": "SUGCON India 2024",
+        "organization": "SUGCON Community",
+        "location": "Bangalore,India", 
+        "date": "2024",
+        "sessionTitle": "💘Heart to Heart with an XM Cloud Architect💘 (with Liz)",
+        "topics": ["XM Cloud Architecture", "Candid Review", "Collaboration"],
+        "description": "Collaborative presentation with Liz offering a candid review of the XM Cloud journey, sharing wins, losses, and insights from the founding architect's perspective alongside implementation expertise.",
+        "videoUrl": "https://www.youtube.com/watch?v=IEbZIOVPzW4&list=PLvwdDTmlDsRwv59ccvK5sodnaLLu9_AfT&index=9"
+      },
+      {
         "title": "SUGCON Europe 2024", 
         "organization": "SUGCON Community",
         "location": "Dublin, Ireland",
@@ -255,16 +265,6 @@
         "description": "Explored architectural patterns and best practices for building resilient, scalable CMS systems that can withstand high traffic loads and provide consistent performance under varying conditions.",
         "videoUrl": "https://youtu.be/3zLjcHzGT9E?si=BNfEocwSaqBpd7oj&t=33",
         "sessionizeUrl": "https://sessionize.com/andy-cohen"
-      },
-      {
-        "title": "SUGCON India 2024",
-        "organization": "SUGCON Community",
-        "location": "Bangalore,India", 
-        "date": "2024",
-        "sessionTitle": "💘Heart to Heart with an XM Cloud Architect💘 (with Liz)",
-        "topics": ["XM Cloud Architecture", "Candid Review", "Collaboration"],
-        "description": "Collaborative presentation with Liz offering a candid review of the XM Cloud journey, sharing wins, losses, and insights from the founding architect's perspective alongside implementation expertise.",
-        "videoUrl": "https://www.youtube.com/watch?v=IEbZIOVPzW4&list=PLvwdDTmlDsRwv59ccvK5sodnaLLu9_AfT&index=9"
       },
       {
         "title": "SUGCON ANZ 2023",
