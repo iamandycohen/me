@@ -143,6 +143,11 @@ const nextConfig = {
         destination: '/community',
         permanent: true,
       },
+      {
+        source: '/api/sitemap.xml',
+        destination: '/sitemap.xml',
+        permanent: true,
+      },
     ];
   },
 };
