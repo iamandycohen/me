@@ -267,6 +267,15 @@
         "videoUrl": "https://www.youtube.com/watch?v=IEbZIOVPzW4&list=PLvwdDTmlDsRwv59ccvK5sodnaLLu9_AfT&index=9"
       },
       {
+        "title": "SUGCON ANZ 2023",
+        "organization": "SUGCON Community", 
+        "location": "Sydney, Australia",
+        "date": "2023",
+        "sessionTitle": "Building for Resiliency",
+        "topics": ["Regional Architecture", "Global Implementation", "Best Practices"],
+        "description": "Adapted presentation for the Asia-Pacific audience, focusing on regional considerations for building resilient CMS systems and sharing lessons learned from global implementations."
+      },
+      {
         "title": "SUGCON India 2023", 
         "organization": "SUGCON Community",
         "location": "Delhi, India",
@@ -275,15 +284,6 @@
         "topics": ["XM Cloud", "Architecture", "Best Practices", "Technical Leadership"],
         "description": "Direct guidance from the founding architect of XM Cloud on best practices and design principles for building future-proof applications. A comprehensive walkthrough covering content creation, site design, frontend development, hosting, and system integrations.",
         "videoUrl": "https://youtu.be/d8u6de7zeAQ?si=ugyOIgvJXv5RUEIm&t=39"
-      },
-      {
-        "title": "SUGCON ANZ 2023",
-        "organization": "SUGCON Community", 
-        "location": "Sydney, Australia",
-        "date": "2023",
-        "sessionTitle": "Building for Resiliency",
-        "topics": ["Regional Architecture", "Global Implementation", "Best Practices"],
-        "description": "Adapted presentation for the Asia-Pacific audience, focusing on regional considerations for building resilient CMS systems and sharing lessons learned from global implementations."
       },
       {
         "title": "SUGCON Europe 2023",
