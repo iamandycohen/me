@@ -4,12 +4,12 @@ export interface MCPTool {
   description: string;
   inputSchema: {
     type: string;
-    properties: Record<string, any>;
+    properties: Record<string, unknown>;
     required: string[];
   };
   outputSchema: {
     type: string;
-    properties: Record<string, any>;
+    properties: Record<string, unknown>;
     required: string[];
   };
 }
@@ -51,6 +51,49 @@ export interface Project {
   description: string;
   link?: string;
   highlights: string[];
+}
+
+// Presentation entry for speaking engagements
+export interface Presentation {
+  title: string;
+  organization: string;
+  location: string;
+  date: string;
+  sessionTitle: string;
+  topics: string[];
+  description: string;
+  videoUrl?: string;
+  sessionizeUrl?: string;
+  documentationUrl?: string;
+  documentationQuote?: string;
+  documentationSource?: string;
+  isFeatured?: boolean;
+  isLiveDemo?: boolean;
+  isHistoric?: boolean;
+  isUpcoming?: boolean;
+}
+
+// Speaking data structure
+export interface SpeakingData {
+  mvpStatus: string;
+  mvpProfileUrl: string;
+  description: string;
+  presentations: Presentation[];
+  featuredMedia: {
+    title: string;
+    episode: string;
+    description: string;
+    blogUrl: string;
+    podcastUrl: string;
+    videoUrl: string;
+  };
+  mediaResources: {
+    podcasts: Array<{
+      title: string;
+      url: string;
+      description: string;
+    }>;
+  };
 }
 
 // API Response types

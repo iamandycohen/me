@@ -8,7 +8,7 @@ export default function MCPTest() {
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
   
-  const testMCP = async (method: string, params?: any) => {
+  const testMCP = async (method: string, params?: Record<string, unknown>) => {
     setLoading(true);
     try {
       const body = {

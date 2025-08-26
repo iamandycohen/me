@@ -191,7 +191,9 @@ export default function Home() {
                       <code className="font-mono text-primary-600 block mb-1">
                         speaking
                       </code>
-                      <p className="text-gray-600">Speaking & thought leadership</p>
+                      <p className="text-gray-600">
+                        Speaking & thought leadership
+                      </p>
                     </div>
                     <div className="text-center">
                       <code className="font-mono text-primary-600 block mb-1">
