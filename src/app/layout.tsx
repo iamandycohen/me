@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import '@/styles/globals.css';
 import { generateBaseMetadata, generateJsonLd } from '@/lib/metadata-generators';
@@ -8,6 +8,13 @@ import data from '../../content/data.json';
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-inter',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
 });
 
 // Get current role for dynamic content
@@ -35,12 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
-        {/* Font preloads */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -49,7 +52,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-white">
+      <body className={`min-h-screen bg-white ${inter.className}`}>
         {children}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />

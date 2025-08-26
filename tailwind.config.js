@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'Courier New', 'monospace'],
+      },
       colors: {
         primary: {
           50: '#f0f9ff',
@@ -27,10 +31,6 @@ module.exports = {
           800: '#1f2937',
           900: '#111827',
         },
-      },
-      fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Monaco', 'monospace'],
       },
       spacing: {
         '18': '4.5rem',

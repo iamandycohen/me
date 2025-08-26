@@ -3,6 +3,15 @@ const nextConfig = {
   images: {
     formats: ['image/webp', 'image/avif'],
   },
+  // Performance optimizations
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: ['lucide-react'],
+  },
+  // Compiler optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   async headers() {
     return [
       {
@@ -11,6 +20,24 @@ const nextConfig = {
           { key: 'Access-Control-Allow-Origin', value: '*' },
           { key: 'Access-Control-Allow-Methods', value: 'GET, POST, OPTIONS' },
           { key: 'Access-Control-Allow-Headers', value: 'Content-Type, Authorization' },
+        ],
+      },
+      // Performance and security headers
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          }
         ],
       },
     ];
