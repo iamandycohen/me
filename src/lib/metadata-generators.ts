@@ -71,6 +71,7 @@ export function generateBaseMetadata(
   const displayName = getDisplayName(contact);
 
   return {
+    metadataBase: new URL(getConfiguredSiteUrl()),
     title: {
       default: `${displayName} - AI-Native Professional Portfolio`,
       template: `%s | ${displayName}`,

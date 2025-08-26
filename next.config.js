@@ -11,28 +11,60 @@ const nextConfig = {
   },
   // Performance optimizations
   experimental: {
-    // optimizeCss: true, // Temporarily disabled due to critters dependency
+    optimizeCss: true,
     optimizePackageImports: ['@heroicons/react', 'clsx', 'tailwind-merge'],
   },
   // Compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Webpack optimizations
+  // Enhanced webpack optimizations
   webpack: (config, { dev, isServer }) => {
     // Optimize for production builds
     if (!dev && !isServer) {
+      // Enhanced bundle splitting for better caching
       config.optimization.splitChunks = {
         chunks: 'all',
+        maxInitialRequests: 25,
+        minSize: 20000,
         cacheGroups: {
           default: false,
           vendors: false,
+          // Framework chunks (React, Next.js core)
+          framework: {
+            chunks: 'all',
+            name: 'framework',
+            test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-sync-external-store)[\\/]/,
+            priority: 40,
+            enforce: true,
+          },
+          // Large libraries that change less frequently
+          lib: {
+            test(module) {
+              return module.size() > 160000 &&
+                /node_modules[/\\]/.test(module.identifier());
+            },
+            name(module) {
+              // Simple hash for chunk naming
+              const identifier = module.identifier();
+              const hash = identifier.split('').reduce((a, b) => {
+                a = ((a << 5) - a) + b.charCodeAt(0);
+                return a & a;
+              }, 0);
+              return 'lib-' + Math.abs(hash).toString(36).substring(0, 8);
+            },
+            priority: 30,
+            minChunks: 1,
+            reuseExistingChunk: true,
+          },
+          // Common vendor chunks
           vendor: {
             name: 'vendors',
             chunks: 'all',
             test: /node_modules/,
             priority: 20
           },
+          // Common shared code
           common: {
             name: 'common',
             minChunks: 2,
@@ -43,7 +75,12 @@ const nextConfig = {
           }
         }
       };
+
+      // Tree shaking optimization
+      config.optimization.usedExports = true;
+      config.optimization.sideEffects = false;
     }
+
     return config;
   },
   async headers() {
@@ -71,10 +108,15 @@ const nextConfig = {
           {
             key: 'X-Content-Type-Options',
             value: 'nosniff'
+          },
+          // Preload critical resources
+          {
+            key: 'Link',
+            value: '</headshot.png>; rel=preload; as=image; type=image/png'
           }
         ],
       },
-      // Static assets caching
+      // Static assets caching with better cache control
       {
         source: '/(.*)\\.(ico|png|jpg|jpeg|gif|webp|svg|woff|woff2)',
         headers: [

@@ -11,16 +11,19 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import data from "../../content/data.json";
 
+// Optimized font loading
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+  preload: true,
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-jetbrains-mono",
+  preload: false, // Only preload primary font
 });
 
 // Get current role for dynamic content
@@ -50,6 +53,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
+        {/* Resource hints for performance */}
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -64,8 +72,12 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </div>
+        {/* Optimized analytics loading */}
         {process.env.NEXT_PUBLIC_GA_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+          <GoogleAnalytics 
+            gaId={process.env.NEXT_PUBLIC_GA_ID} 
+            dataLayerName="dataLayer"
+          />
         )}
         <SpeedInsights />
       </body>

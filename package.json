@@ -59,13 +59,14 @@
   "license": "MIT",
   "browserslist": {
     "production": [
-      ">0.2%",
+      ">0.5%",
       "not dead",
       "not op_mini all",
-      "not safari < 12",
-      "not chrome < 80",
-      "not edge < 80",
-      "not firefox < 78"
+      "not safari < 13",
+      "not chrome < 87",
+      "not edge < 88",
+      "not firefox < 82",
+      "not ios_saf < 13.4"
     ],
     "development": [
       "last 1 chrome version",
