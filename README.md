@@ -13,7 +13,7 @@ A modern, AI-native professional portfolio showcasing expertise in CMS architect
 
 ### 🤖 **AI Agent Interface** 
 - **MCP Protocol**: Full implementation using official MCP SDK
-- **5 Professional Tools**: Contact, biography, resume, projects, and complete profile access
+- **6 Professional Tools**: Contact, biography, resume, projects, community contributions, and complete profile access
 - **Agent Discovery**: Multiple pathways for AI agents to discover and interact with professional data
 - **Live Testing**: Interactive interface for exploring MCP capabilities
 

@@ -70,4 +70,32 @@
   .gradient-text {
     @apply bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent;
   }
+  
+  /* CSS-only tabbed interface for community page */
+  .tab-content {
+    display: none;
+  }
+  
+  .tab-content:target {
+    display: block;
+  }
+  
+  /* Show first tab by default when no hash is present */
+  #mvp-awards:not(:target) ~ #presentations:not(:target) ~ #media:not(:target),
+  #mvp-awards:target {
+    display: block;
+  }
+  
+  /* Active tab styling */
+  .tab-nav-link:target {
+    @apply border-blue-600 text-blue-600 bg-blue-50;
+  }
+  
+  /* Mobile responsive tab styling */
+  @media (max-width: 640px) {
+    .tab-nav-link {
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+    }
+  }
 } 

@@ -6,6 +6,8 @@ import {
   generateJsonLd,
 } from "@/lib/metadata-generators";
 import { getCurrentRole } from "@/lib/data-helpers";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import data from "../../content/data.json";
 
 const inter = Inter({
@@ -56,7 +58,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`min-h-screen bg-white ${inter.className}`}>
-        {children}
+        <div className="min-h-screen bg-white">
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
+        </div>
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         )}

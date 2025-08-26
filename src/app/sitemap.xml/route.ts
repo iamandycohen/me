@@ -17,7 +17,7 @@ export async function GET(_request: NextRequest) {
     { path: "/resume", priority: 0.8, changefreq: "daily" },
     { path: "/projects", priority: 0.8, changefreq: "daily" },
     { path: "/contact", priority: 0.8, changefreq: "daily" },
-    { path: "/speaking", priority: 0.8, changefreq: "daily" },
+    { path: "/community", priority: 0.8, changefreq: "daily" },
     { path: "/api/mcp", priority: 0.9, changefreq: "daily" },
     { path: "/llms.txt", priority: 0.9, changefreq: "daily" },
     { path: "/mcp-test", priority: 0.7, changefreq: "daily" },

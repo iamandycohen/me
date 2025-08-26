@@ -1,6 +1,6 @@
 import { createMcpHandler } from "mcp-handler";
 import { z } from "zod";
-import { type SpeakingData } from "@/types";
+import { type CommunityData } from "@/types";
 import data from "../../../../content/data.json";
 
 const handler = createMcpHandler(
@@ -96,35 +96,36 @@ const handler = createMcpHandler(
       }
     );
 
-    // Speaking tool
+    // Community tool
     server.tool(
-      "speaking",
-      `Get ${data.contact.name}'s speaking engagements, community contributions, and thought leadership activities including MVP status, conference presentations, and expertise areas.`,
+      "community",
+      `Get ${data.contact.name}'s community leadership and contributions including MVP awards, conference presentations, media appearances, and thought leadership activities.`,
       {
         includeExpertise: z
           .boolean()
           .optional()
           .describe(
-            "Include expertise areas and speaking topics (default: true)"
+            "Include expertise areas and community topics (default: true)"
           ),
       },
       async ({ includeExpertise }) => {
         const includeExp = includeExpertise !== false;
-        const speakingData: SpeakingData = {
-          mvpStatus: data.speaking.mvpStatus,
-          mvpProfileUrl: data.speaking.mvpProfileUrl,
-          description: data.speaking.description,
-          presentations: data.speaking.presentations,
-          mediaResources: data.speaking.mediaResources,
-          featuredMedia: data.speaking.featuredMedia,
-          ...(includeExp && { expertiseAreas: data.speaking.expertiseAreas }),
+        const communityData: CommunityData = {
+          mvpStatus: data.community.mvpStatus,
+          mvpAwards: data.community.mvpAwards,
+          mvpProfileUrl: data.community.mvpProfileUrl,
+          description: data.community.description,
+          presentations: data.community.presentations,
+          mediaResources: data.community.mediaResources,
+          featuredMedia: data.community.featuredMedia,
+          ...(includeExp && { expertiseAreas: data.community.expertiseAreas }),
         };
 
         return {
           content: [
             {
               type: "text",
-              text: JSON.stringify({ speaking: speakingData }, null, 2),
+              text: JSON.stringify({ community: communityData }, null, 2),
             },
           ],
         };
@@ -134,7 +135,7 @@ const handler = createMcpHandler(
     // Full profile tool
     server.tool(
       "full-profile",
-      `Get ${data.contact.name}'s complete professional profile including all available information: contact details, bio, resume, projects, speaking engagements, and community contributions.`,
+      `Get ${data.contact.name}'s complete professional profile including all available information: contact details, bio, resume, projects, community contributions, and thought leadership activities.`,
       {
         bioFormat: z
           .enum(["short", "full"])
@@ -173,7 +174,7 @@ const handler = createMcpHandler(
                   bio: bioData,
                   resume: fullResumeData,
                   projects: fullProjectsData,
-                  speaking: data.speaking,
+                  community: data.community,
                 },
                 null,
                 2

@@ -53,7 +53,7 @@ export interface Project {
   highlights: string[];
 }
 
-// Presentation entry for speaking engagements
+// Presentation entry for community engagements
 export interface Presentation {
   title: string;
   organization: string;
@@ -67,15 +67,32 @@ export interface Presentation {
   documentationUrl?: string;
   documentationQuote?: string;
   documentationSource?: string;
-  isFeatured?: boolean;
   isLiveDemo?: boolean;
   isHistoric?: boolean;
   isUpcoming?: boolean;
 }
 
-// Speaking data structure
-export interface SpeakingData {
+// Expertise area structure
+export interface ExpertiseArea {
+  category: string;
+  topics: string[];
+}
+
+// MVP Award entry
+export interface MVPAward {
+  year: string;
+  type: string;
+  status: string;
+  description: string;
+  announcementUrl?: string;
+  quote?: string;
+  quoteSource?: string;
+}
+
+// Community data structure
+export interface CommunityData {
   mvpStatus: string;
+  mvpAwards?: MVPAward[];
   mvpProfileUrl: string;
   description: string;
   presentations: Presentation[];
@@ -94,6 +111,7 @@ export interface SpeakingData {
       description: string;
     }>;
   };
+  expertiseAreas?: ExpertiseArea[];
 }
 
 // API Response types

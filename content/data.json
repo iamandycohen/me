@@ -193,11 +193,33 @@
       ]
     }
   ],
-  "speaking": {
-    "mvpStatus": "Sitecore MVP - 2025 Honorary",
+  "community": {
+    "mvpStatus": "Sitecore MVP",
+    "mvpAwards": [
+      {
+        "year": "2025",
+        "type": "Honorary",
+        "status": "Current",
+        "description": "Named as a 2025 Honorary MVP, a rarely awarded distinction recognizing exceptional contributions to the Sitecore ecosystem.",
+        "announcementUrl": "https://www.sitecore.com/company/newsroom/press-releases/2025/01/sitecore-announces-2025-most-valuable-professionals",
+        "quote": "Andy Cohen dedicated five years to Sitecore, establishing himself as a prominent figure within the community. As one of the principal architects of XM Cloud, he championed its development from the outset. In recognition of his significant contributions, we are honored to present Andy with the Honorary MVP award.",
+        "quoteSource": "Danny Robinson, CTO of Sitecore"
+      },
+      {
+        "year": "2017", 
+        "type": "Technology",
+        "status": "Alumni",
+        "description": "Recognized as a Technology MVP for technical expertise, community engagement, and knowledge sharing within the Sitecore ecosystem."
+      },
+      {
+        "year": "2016",
+        "type": "Technology", 
+        "status": "Alumni",
+        "description": "First MVP recognition for technical leadership, community contributions, and dedication to advancing Sitecore development practices."
+      }
+    ],
     "mvpProfileUrl": "https://mvp.sitecore.com/en/Directory/Profile?id=7a7a68872ab1437ed8ec08dd030ff642",
-    "mvpHonoraryDescription": "Named as a 2025 Honorary MVP, a rarely awarded distinction recognizing exceptional contributions to the Sitecore ecosystem. Danny Robinson, CTO of Sitecore, stated: 'Andy Cohen dedicated five years to Sitecore, establishing himself as a prominent figure within the community. As one of the principal architects of XM Cloud, he championed its development from the outset. In recognition of his significant contributions, we are honored to present Andy with the Honorary MVP award.'",
-    "description": "Presentations, podcasts, and thought leadership content sharing insights on CMS architecture, XM Cloud development, and the future of AI-driven content management",
+    "description": "Community leadership through presentations, podcasts, and thought leadership content sharing insights on CMS architecture, XM Cloud development, and the future of AI-driven content management",
     "mediaResources": {
       "podcasts": [
         {
@@ -237,7 +259,7 @@
       {
         "title": "SUGCON India 2024",
         "organization": "SUGCON Community",
-        "location": "India", 
+        "location": "Bangalore,India", 
         "date": "2024",
         "sessionTitle": "💘Heart to Heart with an XM Cloud Architect💘 (with Liz)",
         "topics": ["XM Cloud Architecture", "Candid Review", "Collaboration"],
@@ -247,13 +269,12 @@
       {
         "title": "SUGCON India 2023", 
         "organization": "SUGCON Community",
-        "location": "India",
+        "location": "Delhi, India",
         "date": "2023",
         "sessionTitle": "Build for XM Cloud according to the Architect of XM Cloud",
         "topics": ["XM Cloud", "Architecture", "Best Practices", "Technical Leadership"],
-        "description": "Andy's favorite presentation offering direct guidance from the founding architect of XM Cloud on best practices and design principles for building future-proof applications. A comprehensive walkthrough covering content creation, site design, frontend development, hosting, and system integrations.",
-        "videoUrl": "https://youtu.be/d8u6de7zeAQ?si=ugyOIgvJXv5RUEIm&t=39",
-        "isFeatured": true
+        "description": "Direct guidance from the founding architect of XM Cloud on best practices and design principles for building future-proof applications. A comprehensive walkthrough covering content creation, site design, frontend development, hosting, and system integrations.",
+        "videoUrl": "https://youtu.be/d8u6de7zeAQ?si=ugyOIgvJXv5RUEIm&t=39"
       },
       {
         "title": "SUGCON ANZ 2023",
@@ -267,12 +288,25 @@
       {
         "title": "SUGCON Europe 2023",
         "organization": "SUGCON Community", 
-        "location": "Europe",
+        "location": "Malaga, Spain",
         "date": "2023",
         "sessionTitle": "Innovations in Deploy",
         "topics": ["Live Demo", "Deployment Innovation", "CI/CD Automation", "DevOps"], 
         "description": "Live demonstration of cutting-edge deployment strategies and automation techniques for modern CMS implementations, showcasing CI/CD pipelines and cloud-native deployment patterns through hands-on examples.",
         "videoUrl": "https://www.youtube.com/watch?v=50Vu6Bp--f0&t=23s",
+        "isLiveDemo": true
+      },
+      {
+        "title": "SUGCON ANZ 2022",
+        "organization": "SUGCON Community",
+        "location": "Melbourne, Australia",
+        "date": "2022",
+        "sessionTitle": "XM Cloud - Developer Experience",
+        "topics": ["XM Cloud", "Developer Experience", "Live Demo", "Technical Demo"],
+        "description": "Technical demonstration of XM Cloud focusing on developer experience, including CLI commands, the new Cloud portal launchpad for composable apps, and introduction to Pages as a replacement for Horizon editor. Emphasized XM Cloud's headless-only architecture while showcasing built-in analytics and personalization capabilities.",
+        "documentationUrl": "https://cadewhitbourn.com/sitecore/sitecore-user-group-conference-sugcon-anz-2022-reflections-and-key-takeaways/",
+        "documentationQuote": "Andy Cohen worked through a demo of XM Cloud. A fair bit of the technical content in this session went beyond me, particularly all the stuff that involved pumping out commands in the CLI. However, it was good to get eyes on the new Cloud portal launchpad where all the composable apps can be accessed. I also noted the mention of Pages, a replacement for Horizon editor. Andy was clear, XM Cloud is headless only, so to be clear, it is headless only.",
+        "documentationSource": "Conference Reflection by Cade Whitbourn",
         "isLiveDemo": true
       },
       {

@@ -32,11 +32,11 @@ Get Andy Cohen's creative engineering projects that showcase hands-on building s
 - **Input:** `limit` (optional): Maximum number of projects to return  
 - **Returns:** JSON array with project details
 
-### speaking
-Get Andy Cohen's speaking engagements, community contributions, and thought leadership activities including MVP status, conference presentations, and expertise areas.
+### community  
+Get Andy Cohen's community leadership and contributions including MVP awards, conference presentations, media appearances, and thought leadership activities.
 - **Input:** 
-  - `includeExpertise` (optional, default: true): Include expertise areas and speaking topics
-- **Returns:** JSON with speaking engagements, MVP status, presentations, media resources, featured media, and expertise areas
+  - `includeExpertise` (optional, default: true): Include expertise areas and community topics  
+- **Returns:** JSON with community leadership, MVP awards, presentations, media resources, featured media, and expertise areas
 
 ### full-profile
 Get Andy Cohen's complete professional profile including all available information.
@@ -44,7 +44,7 @@ Get Andy Cohen's complete professional profile including all available informati
   - `bioFormat` (optional): 'short' or 'full'
   - `resumeLimit` (optional): Maximum resume roles to return
   - `projectsLimit` (optional): Maximum projects to return
-- **Returns:** JSON with complete professional profile including contact, bio, resume, projects, and speaking information
+- **Returns:** JSON with complete professional profile including contact, bio, resume, projects, and community information
 
 ## Agent Instructions
 
@@ -52,7 +52,7 @@ Get Andy Cohen's complete professional profile including all available informati
 - Getting professional background and contact information
 - Understanding expertise in CMS architecture and AI-driven content management  
 - Learning about work history and technical contributions
-- Discovering speaking topics and community involvement
+- Discovering community leadership and involvement
 - Accessing comprehensive professional profile data
 
 **Testing Interface:**

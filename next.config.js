@@ -94,6 +94,15 @@ const nextConfig = {
                ? 'http://localhost:3000' 
                : 'https://www.iamandycohen.com'),
   },
+  async redirects() {
+    return [
+      {
+        source: '/speaking',
+        destination: '/community',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig; 
