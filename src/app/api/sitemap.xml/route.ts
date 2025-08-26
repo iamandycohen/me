@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getBaseUrl } from "@/lib/api-helpers";
+import { getConfiguredSiteUrl } from "@/lib/url-helpers";
 
-export async function GET(request: NextRequest) {
-  const baseUrl = getBaseUrl(request);
+export async function GET(_request: NextRequest) {
+  const baseUrl = getConfiguredSiteUrl();
   const lastmod = new Date().toISOString().split("T")[0]; // Calculated once
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

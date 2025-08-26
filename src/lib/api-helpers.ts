@@ -125,33 +125,3 @@ export function createOptionsResponse(
     headers: createCorsHeaders(methods),
   });
 }
-
-// Get the correct base URL based on context and environment
-export function getBaseUrl(request?: Request): string {
-  // If we have a request (API routes), use headers for dynamic detection
-  if (request) {
-    const host = request.headers.get("host") || "localhost:3000";
-    const protocol = request.headers.get("x-forwarded-proto") || 
-                    (host.includes("localhost") ? "http" : "https");
-    return `${protocol}://${host}`;
-  }
-
-  // Fallback to environment variables (SSR, metadata generation)
-  if (process.env.SITE_URL) {
-    return process.env.SITE_URL;
-  }
-
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`;
-  }
-
-  return "http://localhost:3000";
-}
-
-// Client-side base URL getter
-export function getClientBaseUrl(): string {
-  if (typeof window !== 'undefined') {
-    return `${window.location.protocol}//${window.location.host}`;
-  }
-  return getBaseUrl(); // Fallback to server-side logic during SSR
-}

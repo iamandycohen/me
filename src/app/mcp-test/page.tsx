@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Layout from '@/components/Layout';
-import { getClientBaseUrl } from '@/lib/api-helpers';
+import { getClientBaseUrl } from '@/lib/url-helpers';
 
 export default function MCPTest() {
   const [response, setResponse] = useState('');

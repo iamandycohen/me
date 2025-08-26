@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { Contact, Role, Bio } from "@/types";
 import { MCPTool } from "@/types";
 import { getDisplayName, formatLinkedInUrl } from "./data-helpers";
-import { getBaseUrl } from "./api-helpers";
+import { getConfiguredSiteUrl } from "./url-helpers";
 
 // Professional data interface for type safety
 interface ProfessionalData {
@@ -28,7 +28,7 @@ export function generateJsonLd(
       name: currentRole.company,
     },
     description: bio.short,
-    url: getBaseUrl(),
+    url: getConfiguredSiteUrl(),
     email: contact.email,
     sameAs: [formatLinkedInUrl(contact.linkedin)],
     knowsAbout: professional.skills,
@@ -95,7 +95,7 @@ export function generateBaseMetadata(
       title: `${displayName} - AI-Native Professional Portfolio`,
       description: `${currentRole.title} building systems that scale. ${bio.short}`,
       type: "profile",
-      url: getBaseUrl(),
+      url: getConfiguredSiteUrl(),
     },
 
     // Additional meta
@@ -152,7 +152,7 @@ export function generateOpenApiSpec(
     },
     servers: [
       {
-        url: getBaseUrl(),
+        url: getConfiguredSiteUrl(),
         description: "Production/Development server",
       },
     ],

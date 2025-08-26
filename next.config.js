@@ -17,7 +17,11 @@ const nextConfig = {
   },
   env: {
     SITE_NAME: 'Andy Cohen',
-    SITE_URL: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000',
+    // Centralized URL resolution with dev/prod awareness
+    SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 
+             (process.env.NODE_ENV === 'development' 
+               ? 'http://localhost:3000' 
+               : 'https://www.iamandycohen.com'),
   },
 };
 

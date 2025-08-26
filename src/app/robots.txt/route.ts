@@ -1,4 +1,10 @@
-User-agent: *
+import { NextResponse } from "next/server";
+import { getConfiguredSiteUrl } from "@/lib/url-helpers";
+
+export async function GET() {
+  const siteUrl = getConfiguredSiteUrl();
+
+  const robotsTxt = `User-agent: *
 Allow: /
 
 # AI/Agent specific access
@@ -42,9 +48,18 @@ Allow: /
 Allow: /llms.txt
 
 # Dynamic Sitemap
-Sitemap: /api/sitemap.xml
+Sitemap: ${siteUrl}/sitemap.xml
 
 # Agent discovery hints
 # MCP Tools: /api/mcp
 # Agent Documentation: /llms.txt
-# OpenAPI Spec: /api/docs 
+# OpenAPI Spec: /api/docs`;
+
+  return new NextResponse(robotsTxt, {
+    status: 200,
+    headers: {
+      "Content-Type": "text/plain",
+      "Cache-Control": "public, s-maxage=86400, stale-while-revalidate",
+    },
+  });
+}

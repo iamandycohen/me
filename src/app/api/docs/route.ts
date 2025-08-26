@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import data from '../../../../content/data.json';
+import { formatLinkedInUrl } from '@/lib/data-helpers';
 
 // Generate OpenAPI spec for the new MCP server
 function generateMcpServerOpenApiSpec() {
@@ -12,7 +13,7 @@ function generateMcpServerOpenApiSpec() {
       contact: {
         name: data.contact.name,
         email: data.contact.email,
-        url: `https://${data.contact.linkedin}`
+        url: formatLinkedInUrl(data.contact.linkedin)
       },
       license: {
         name: 'MIT',
