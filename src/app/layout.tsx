@@ -71,7 +71,7 @@ export default function RootLayout({
 
         <div className="min-h-screen bg-white">
           <Navigation />
-          <main>{children}</main>
+          <main className="flex-1">{children}</main>
           <Footer />
         </div>
 

@@ -22,6 +22,14 @@ export function generateJsonLd(
     "@context": "https://schema.org",
     "@type": "Person",
     name: contact.name,
+    image: {
+      "@type": "ImageObject",
+      url: `${getConfiguredSiteUrl()}/headshot.png`,
+      width: 800,
+      height: 800,
+      caption: `Professional headshot of ${contact.name}`,
+      description: `Professional photograph of ${contact.name}, ${currentRole.title} at ${currentRole.company}`,
+    },
     jobTitle: currentRole.title,
     worksFor: {
       "@type": "Organization",
