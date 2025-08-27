@@ -5,13 +5,11 @@ import { generatePageMetadata } from "@/lib/metadata-generators";
 import {
   getCurrentRole,
   getBioParagraphs,
-  getDisplayName,
 } from "@/lib/data-helpers";
 import { addSitecoreLinks } from "@/lib/utils";
 import data from "../../content/data.json";
 
 // Get dynamic data using utilities
-const displayName = getDisplayName(data.contact);
 const currentRole = getCurrentRole(data.resume);
 
 // Generate metadata using utility
