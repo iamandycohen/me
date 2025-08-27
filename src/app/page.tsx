@@ -16,7 +16,7 @@ const currentRole = getCurrentRole(data.resume);
 
 // Generate metadata using utility
 export const metadata = generatePageMetadata(
-  `${displayName}`,
+  `About`,
   `${data.bio.short} | AI agent integration available via MCP tools.`,
   data.contact,
   {

@@ -9,7 +9,9 @@ const displayName = getDisplayName(data.contact);
 export const metadata = generatePageMetadata(
   "Resume",
   `Professional experience and career history for ${displayName}`,
-  data.contact
+  data.contact,
+  {},
+  "/resume",
 );
 
 export default function Resume() {

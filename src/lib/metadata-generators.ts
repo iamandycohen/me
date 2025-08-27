@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { Contact, Role, Bio } from "@/types";
 import { MCPTool } from "@/types";
 import { getDisplayName, formatLinkedInUrl } from "./data-helpers";
-import { getConfiguredSiteUrl } from "./url-helpers";
+import { absoluteUrl, getConfiguredSiteUrl } from "./url-helpers";
 
 // Professional data interface for type safety
 interface ProfessionalData {
@@ -80,7 +80,7 @@ export function generateBaseMetadata(
     keywords: professional.keywords,
     authors: [{ name: contact.name }],
 
-    // AI/Agent discovery meta tags
+    // AI/Agent discovery meta tags (moved from manual head)
     other: {
       "ai:mcp-server": "/api/mcp",
       "ai:description":
@@ -89,6 +89,10 @@ export function generateBaseMetadata(
       "mcp:endpoint": "/api/mcp",
       "llms:document": "/llms.txt",
       "openapi:spec": "/api/docs",
+      // LLM Discovery Meta Tags (from manual head)
+      "llm-agent-resources": "/llms.txt,/llms-full.txt,/api/mcp",
+      "ai-agent-friendly": "true",
+      "mcp-server": "/api/mcp",
     },
 
     // OpenGraph for social sharing
@@ -97,12 +101,31 @@ export function generateBaseMetadata(
       description: `${currentRole.title} building systems that scale. ${bio.short}`,
       type: "profile",
       url: getConfiguredSiteUrl(),
+      images: [
+        {
+          url: "/headshot.png",
+          width: 800,
+          height: 800,
+          alt: `Professional headshot of ${contact.name}`,
+        },
+      ],
     },
 
-    // Additional meta
+    // Twitter Card for enhanced Twitter/X sharing
+    twitter: {
+      card: "summary",
+      title: `${displayName} - AI-Native Professional Portfolio`,
+      description: `${currentRole.title} building systems that scale. ${bio.short}`,
+      images: ["/headshot.png"],
+    },
+
+    // Additional alternates (moved from manual head)
     alternates: {
       types: {
-        "text/plain": [{ url: "/llms.txt", title: "LLM Agent Information" }],
+        "text/plain": [
+          { url: "/llms.txt", title: "LLM Agent Information" },
+          { url: "/llms-full.txt", title: "Complete Profile for LLMs" },
+        ],
         "application/json": [
           { url: "/api/mcp", title: "MCP Server Endpoint" },
           { url: "/api/docs", title: "OpenAPI Specification" },
@@ -117,10 +140,9 @@ export function generatePageMetadata(
   pageTitle: string,
   description: string,
   contact: Contact,
-  additional: Partial<Metadata> = {}
+  additional: Partial<Metadata> = {},
+  path: string = ""
 ): Metadata {
-  //const firstName = getFirstName(contact);
-
   return {
     title: pageTitle,
     description,
@@ -128,6 +150,24 @@ export function generatePageMetadata(
       title: `${pageTitle} | ${contact.name}`,
       description,
       siteName: `${contact.name} - Professional Portfolio`,
+      url: absoluteUrl(path),
+      images: [
+        {
+          url: "/headshot.png",
+          width: 800,
+          height: 800,
+          alt: `Professional headshot of ${contact.name}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary",
+      title: `${pageTitle} | ${contact.name}`,
+      description,
+      images: ["/headshot.png"],
+    },
+    alternates: {
+      canonical: absoluteUrl(path),
     },
     ...additional,
   };

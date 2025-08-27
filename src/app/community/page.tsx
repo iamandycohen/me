@@ -6,7 +6,9 @@ import { generatePageMetadata } from "@/lib/metadata-generators";
 export const metadata = generatePageMetadata(
   "Community",
   "Community leadership, MVP recognition, conference presentations, and thought leadership in CMS architecture and XM Cloud development.",
-  data.contact
+  data.contact,
+  {},
+  "/community",
 );
 
 export default function Community() {

@@ -1,7 +1,8 @@
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from "@vercel/analytics/next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 import "@/styles/globals.css";
 import {
   generateBaseMetadata,
@@ -10,6 +11,7 @@ import {
 import { getCurrentRole } from "@/lib/data-helpers";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PerformanceHints from "@/components/PerformanceHints";
 import data from "../../content/data.json";
 
 // Optimized font loading
@@ -53,50 +55,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <head>
-        {/* Resource hints for performance */}
-        <link rel="dns-prefetch" href="//www.google-analytics.com" />
-        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-
-        {/* LLM Discovery Meta Tags */}
-        <meta
-          name="llm-agent-resources"
-          content="/llms.txt,/llms-full.txt,/api/mcp"
-        />
-        <meta name="ai-agent-friendly" content="true" />
-        <meta name="mcp-server" content="/api/mcp" />
-        <link
-          rel="alternate"
-          type="text/plain"
-          href="/llms.txt"
-          title="LLM Agent Information"
-        />
-        <link
-          rel="alternate"
-          type="text/plain"
-          href="/llms-full.txt"
-          title="Complete Profile for LLMs"
-        />
+      <body className={`min-h-screen bg-white ${inter.className}`}>
+        {/* Performance hints for third-party resources */}
+        <PerformanceHints />
 
         {/* JSON-LD Structured Data */}
-        <script
+        <Script
+          id="json-ld"
           type="application/ld+json"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(jsonLd),
           }}
         />
-      </head>
-      <body className={`min-h-screen bg-white ${inter.className}`}>
+
         <div className="min-h-screen bg-white">
           <Navigation />
           <main>{children}</main>
           <Footer />
         </div>
+
         {/* Optimized analytics loading */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics

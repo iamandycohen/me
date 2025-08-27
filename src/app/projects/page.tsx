@@ -29,7 +29,8 @@ export const metadata = generatePageMetadata(
         },
       ],
     },
-  }
+  },
+  "/projects",
 );
 
 export default function Projects() {

@@ -10,7 +10,9 @@ const currentRole = getCurrentRole(data.resume);
 export const metadata = generatePageMetadata(
   "Contact",
   `Get in touch with ${data.contact.name}`,
-  data.contact
+  data.contact,
+  {},
+  "/contact"
 );
 
 export default function Contact() {
