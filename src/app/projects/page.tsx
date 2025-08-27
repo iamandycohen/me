@@ -30,7 +30,7 @@ export const metadata = generatePageMetadata(
       ],
     },
   },
-  "/projects",
+  "/projects"
 );
 
 export default function Projects() {
@@ -105,47 +105,6 @@ export default function Projects() {
                             <span className="text-gray-700">{highlight}</span>
                           </div>
                         ))}
-                      </div>
-                    </div>
-
-                    {/* Technical Specs */}
-                    <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                        Technical Specifications
-                      </h3>
-                      <div className="grid sm:grid-cols-2 gap-4 text-sm">
-                        <div>
-                          <span className="font-medium text-gray-900">
-                            Platform Size:
-                          </span>
-                          <span className="text-gray-600 ml-2">
-                            8&apos; × 8&apos;
-                          </span>
-                        </div>
-                        <div>
-                          <span className="font-medium text-gray-900">
-                            Height:
-                          </span>
-                          <span className="text-gray-600 ml-2">
-                            12 feet above ground
-                          </span>
-                        </div>
-                        <div>
-                          <span className="font-medium text-gray-900">
-                            Season Rating:
-                          </span>
-                          <span className="text-gray-600 ml-2">
-                            4-season weatherproofing
-                          </span>
-                        </div>
-                        <div>
-                          <span className="font-medium text-gray-900">
-                            Construction:
-                          </span>
-                          <span className="text-gray-600 ml-2">
-                            Custom built from concept
-                          </span>
-                        </div>
                       </div>
                     </div>
 

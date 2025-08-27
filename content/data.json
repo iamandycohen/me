@@ -22,7 +22,7 @@
     ],
     "expertise": [
       "CMS Architecture",
-      "AI-Driven Content Management", 
+      "AI-Driven Content Management",
       "Software Engineering",
       "Digital Experience Systems",
       "Agentic AI Workflows",
@@ -45,7 +45,7 @@
       "Team Leadership",
       "Product Strategy",
       "JavaScript",
-      "React", 
+      "React",
       "TypeScript",
       "Next.js",
       "C#",
@@ -71,7 +71,7 @@
     },
     {
       "title": "Senior Director, Engineering – XM Cloud",
-      "company": "Sitecore", 
+      "company": "Sitecore",
       "period": "May 2024 - Sep 2024",
       "highlights": [
         "Directed engineering and architecture roadmap for XM Cloud",
@@ -82,7 +82,7 @@
       "description": "Directed the engineering roadmap and architecture for Sitecore XM Cloud, achieving substantial cost optimizations while scaling the system to serve enterprise clients globally."
     },
     {
-      "title": "Principal Architect – XM Cloud", 
+      "title": "Principal Architect – XM Cloud",
       "company": "Sitecore",
       "period": "Apr 2023 - May 2024",
       "highlights": [
@@ -96,10 +96,10 @@
     {
       "title": "System Architect - Content",
       "company": "Sitecore",
-      "period": "Jul 2020 - Mar 2023", 
+      "period": "Jul 2020 - Mar 2023",
       "highlights": [
         "Led transformation from monolithic to cloud-native SaaS architecture",
-        "Built microservices system for headless content management", 
+        "Built microservices system for headless content management",
         "Established continuous delivery practices for development teams",
         "Created scalable content management serving millions of requests"
       ],
@@ -111,7 +111,7 @@
       "period": "Sep 2019 - Jul 2020",
       "highlights": [
         "Created compelling demonstrations showcasing enterprise CMS capabilities",
-        "Designed solutions for complex enterprise content management needs", 
+        "Designed solutions for complex enterprise content management needs",
         "Translated technical capabilities into business value for enterprise clients",
         "Influenced product roadmap based on enterprise customer requirements"
       ],
@@ -120,7 +120,7 @@
     {
       "title": "Group Manager, Solution Development",
       "company": "Avanade",
-      "period": "Jun 2019 - Sep 2019", 
+      "period": "Jun 2019 - Sep 2019",
       "highlights": [
         "Delivered enterprise CMS integrations for major telecommunications client",
         "Built content management solutions enabling large-scale content operations",
@@ -130,7 +130,7 @@
       "description": "Delivered comprehensive enterprise CMS solutions for a major telecommunications client, building content management systems that enabled large-scale internal content operations."
     },
     {
-      "title": "Sitecore Solutions Architect", 
+      "title": "Sitecore Solutions Architect",
       "company": "Perficient",
       "period": "Oct 2018 - Jun 2019",
       "highlights": [
@@ -143,7 +143,7 @@
     },
     {
       "title": "Technology Director",
-      "company": "Horizontal Integration", 
+      "company": "Horizontal Integration",
       "period": "Oct 2013 - Sep 2017",
       "highlights": [
         "Built reusable content management solutions",
@@ -155,7 +155,7 @@
     },
     {
       "title": "Principal I Consultant",
-      "company": "ILM Professional Services", 
+      "company": "ILM Professional Services",
       "period": "Mar 2013 - Oct 2013",
       "highlights": [
         "Delivered enterprise solutions for major clients including General Mills and ShopNBC",
@@ -167,7 +167,7 @@
     },
     {
       "title": "Web Development Manager",
-      "company": "TempWorks Software", 
+      "company": "TempWorks Software",
       "period": "Apr 2010 - Mar 2013",
       "highlights": [
         "Built and shipped web-based applicant tracking system from concept to production",
@@ -181,11 +181,11 @@
   "projects": [
     {
       "title": "Treehouse Builder",
-      "period": "Sep 2024", 
-      "description": "Constructed a stunning 4-season treehouse featuring blue and yellow custom paint, elevated 12 feet above ground on a solid framework. Built from concept to completion upon a heartfelt request from my children, this project showcases the same engineering precision and attention to detail I bring to enterprise software.",
+      "period": "Sep 2024",
+      "description": "During the month between working at Sitecore and Altudo, and with the help of Justin Vogt, I was able to build a treehouse for my children Marty and Caroline.",
       "highlights": [
         "4-season weatherproofing and insulation for year-round use",
-        "Structural engineering for 12-foot elevated framework stability", 
+        "Structural engineering for 12-foot elevated framework stability",
         "Custom 8'×8' construction with integrated windows and door",
         "Hand-crafted ladder and deck systems for safe access",
         "Vibrant blue and yellow color scheme designed with children in mind",
@@ -206,14 +206,14 @@
         "quoteSource": "Danny Robinson, CTO of Sitecore"
       },
       {
-        "year": "2017", 
+        "year": "2017",
         "type": "Technology",
         "status": "Alumni",
         "description": "Recognized as a Technology MVP for technical expertise, community engagement, and knowledge sharing within the Sitecore ecosystem."
       },
       {
         "year": "2016",
-        "type": "Technology", 
+        "type": "Technology",
         "status": "Alumni",
         "description": "First MVP recognition for technical leadership, community contributions, and dedication to advancing Sitecore development practices."
       }
@@ -241,57 +241,83 @@
         "location": "Antwerp, Belgium",
         "date": "April 2025",
         "sessionTitle": "Full Circle: The Architect of XM Cloud builds an XM Cloud Site (as a partner for the first time)",
-        "topics": ["XM Cloud", "Architecture", "Partner Implementation"],
+        "topics": [
+          "XM Cloud",
+          "Architecture",
+          "Partner Implementation"
+        ],
         "description": "A unique perspective presentation where the founding architect of XM Cloud demonstrates building an XM Cloud site as a partner implementation, offering insights into both the platform creation and practical implementation challenges.",
         "sessionizeUrl": "https://sessionize.com/iamandycohen"
       },
       {
         "title": "SUGCON India 2024",
         "organization": "SUGCON",
-        "location": "Bangalore,India", 
+        "location": "Bangalore,India",
         "date": "2024",
         "sessionTitle": "💘Heart to Heart with an XM Cloud Architect💘 (with Liz)",
-        "topics": ["XM Cloud Architecture", "Candid Review", "Collaboration"],
+        "topics": [
+          "XM Cloud Architecture",
+          "Candid Review",
+          "Collaboration"
+        ],
         "description": "Collaborative presentation with Liz Nelson offering a candid review of the XM Cloud journey, sharing wins, losses, and insights from the founding architect's perspective alongside implementation expertise.",
         "videoUrl": "https://www.youtube.com/watch?v=IEbZIOVPzW4&list=PLvwdDTmlDsRwv59ccvK5sodnaLLu9_AfT&index=9"
       },
       {
-        "title": "SUGCON Europe 2024", 
+        "title": "SUGCON Europe 2024",
         "organization": "SUGCON",
         "location": "Dublin, Ireland",
         "date": "April 2024",
         "sessionTitle": "Building for Resiliency",
-        "topics": ["System Architecture", "Scalability", "Performance"],
+        "topics": [
+          "System Architecture",
+          "Scalability",
+          "Performance"
+        ],
         "description": "Explored architectural patterns and best practices for building resilient, scalable CMS systems that can withstand high traffic loads and provide consistent performance under varying conditions.",
         "videoUrl": "https://youtu.be/3zLjcHzGT9E?si=BNfEocwSaqBpd7oj&t=33",
         "sessionizeUrl": "https://sessionize.com/andy-cohen"
       },
       {
         "title": "SUGCON ANZ 2023",
-        "organization": "SUGCON", 
+        "organization": "SUGCON",
         "location": "Sydney, Australia",
         "date": "2023",
         "sessionTitle": "Building for Resiliency",
-        "topics": ["Regional Architecture", "Global Implementation", "Best Practices"],
+        "topics": [
+          "Regional Architecture",
+          "Global Implementation",
+          "Best Practices"
+        ],
         "description": "Adapted presentation for the Asia-Pacific audience, focusing on regional considerations for building resilient CMS systems and sharing lessons learned from global implementations."
       },
       {
-        "title": "SUGCON India 2023", 
+        "title": "SUGCON India 2023",
         "organization": "SUGCON",
         "location": "Delhi, India",
         "date": "2023",
         "sessionTitle": "Build for XM Cloud according to the Architect of XM Cloud",
-        "topics": ["XM Cloud", "Architecture", "Best Practices", "Technical Leadership"],
+        "topics": [
+          "XM Cloud",
+          "Architecture",
+          "Best Practices",
+          "Technical Leadership"
+        ],
         "description": "Direct guidance from the founding architect of XM Cloud on best practices and design principles for building future-proof applications. A comprehensive walkthrough covering content creation, site design, frontend development, hosting, and system integrations.",
         "videoUrl": "https://youtu.be/d8u6de7zeAQ?si=ugyOIgvJXv5RUEIm&t=39"
       },
       {
         "title": "SUGCON Europe 2023",
-        "organization": "SUGCON", 
+        "organization": "SUGCON",
         "location": "Malaga, Spain",
         "date": "2023",
         "sessionTitle": "Innovations in Deploy",
-        "topics": ["Live Demo", "Deployment Innovation", "CI/CD Automation", "DevOps"], 
+        "topics": [
+          "Live Demo",
+          "Deployment Innovation",
+          "CI/CD Automation",
+          "DevOps"
+        ],
         "description": "Live demonstration of cutting-edge deployment strategies and automation techniques for modern CMS implementations, showcasing CI/CD pipelines and cloud-native deployment patterns through hands-on examples.",
         "videoUrl": "https://www.youtube.com/watch?v=50Vu6Bp--f0&t=23s",
         "isLiveDemo": true
@@ -302,7 +328,12 @@
         "location": "Melbourne, Australia",
         "date": "2022",
         "sessionTitle": "XM Cloud - Developer Experience",
-        "topics": ["XM Cloud", "Developer Experience", "Live Demo", "Technical Demo"],
+        "topics": [
+          "XM Cloud",
+          "Developer Experience",
+          "Live Demo",
+          "Technical Demo"
+        ],
         "description": "Technical demonstration of XM Cloud focusing on developer experience, including CLI commands, the new Cloud portal launchpad for composable apps, and introduction to Pages as a replacement for Horizon editor. Emphasized XM Cloud's headless-only architecture while showcasing built-in analytics and personalization capabilities.",
         "documentationUrl": "https://cadewhitbourn.com/sitecore/sitecore-user-group-conference-sugcon-anz-2022-reflections-and-key-takeaways/",
         "documentationQuote": "Andy Cohen worked through a demo of XM Cloud. A fair bit of the technical content in this session went beyond me, particularly all the stuff that involved pumping out commands in the CLI. However, it was good to get eyes on the new Cloud portal launchpad where all the composable apps can be accessed. I also noted the mention of Pages, a replacement for Horizon editor. Andy was clear, XM Cloud is headless only, so to be clear, it is headless only.",
@@ -313,18 +344,26 @@
         "title": "Sitecore Symposium 2022",
         "organization": "Sitecore",
         "location": "Chicago, Illinois",
-        "date": "October 2022", 
+        "date": "October 2022",
         "sessionTitle": "Meet the Architects",
-        "topics": ["Enterprise Architecture", "Panel Discussion", "Strategic Planning"],
+        "topics": [
+          "Enterprise Architecture",
+          "Panel Discussion",
+          "Strategic Planning"
+        ],
         "description": "Participated in the exclusive architect panel session, sharing insights on enterprise-scale CMS architecture decisions and the future direction of content management systems."
       },
       {
         "title": "SUGCON Europe 2022",
         "organization": "SUGCON",
-        "location": "Budapest, Hungary", 
+        "location": "Budapest, Hungary",
         "date": "April 2022",
         "sessionTitle": "XM Cloud - Build and Deploy in less than 5 minutes",
-        "topics": ["Historic Demo", "XM Cloud Launch", "Live Deployment"],
+        "topics": [
+          "Historic Demo",
+          "XM Cloud Launch",
+          "Live Deployment"
+        ],
         "description": "Historic live demonstration of Sitecore's next generation product, XM Cloud. The very first public demonstration of XM Cloud Deploy, successfully deploying Sitecore from an empty cloud environment in just over 5 minutes. This session introduced the Sitecore community to what XM Cloud is, what it isn't, and marked the beginning of the SaaS journey for Sitecore.",
         "videoUrl": "https://youtu.be/Sm4X6EG8fCU?si=grZaN16g-2V9sHaF&t=44",
         "documentationUrl": "https://www.flux-digital.com/blog/sugcon-2022-thoughts-takeaways/",
@@ -338,8 +377,12 @@
         "organization": "Sitecore",
         "location": "Orlando, Florida",
         "date": "October 2019",
-        "sessionTitle": "Compassion in Tech (with Thomas Lin)", 
-        "topics": ["Compassion in Tech", "Human-Centered Development", "Technology Ethics"],
+        "sessionTitle": "Compassion in Tech (with Thomas Lin)",
+        "topics": [
+          "Compassion in Tech",
+          "Human-Centered Development",
+          "Technology Ethics"
+        ],
         "description": "Co-presented with Thomas Lin on bringing compassion into technology development, exploring how empathy and human-centered approaches can transform how we build and implement technical solutions in the enterprise."
       }
     ],
@@ -356,13 +399,13 @@
         "category": "Technical Leadership",
         "topics": [
           "CMS Architecture & Scalability",
-          "Cloud-Native Content Management", 
+          "Cloud-Native Content Management",
           "Enterprise Digital Transformation",
           "Modern Development Practices"
         ]
       },
       {
-        "category": "Innovation & Strategy", 
+        "category": "Innovation & Strategy",
         "topics": [
           "AI-Driven Content Management",
           "Agentic Workflows & Automation",
@@ -372,4 +415,4 @@
       }
     ]
   }
-} 
+}
