@@ -84,7 +84,7 @@ export function generateBaseMetadata(
       default: `${displayName} - AI-Native Professional Portfolio`,
       template: `%s | ${displayName}`,
     },
-    description: `${currentRole.title} at ${currentRole.company}. ${bio.short}`,
+    description: `${displayName}. ${bio.short}`,
     keywords: professional.keywords,
     authors: [{ name: contact.name }],
 
