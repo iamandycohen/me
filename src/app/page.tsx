@@ -1,33 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import MCPServerSection from "@/components/MCPServerSection";
-import { generatePageMetadata } from "@/lib/metadata-generators";
 import { getCurrentRole, getBioParagraphs } from "@/lib/data-helpers";
 import { addSitecoreLinks } from "@/lib/utils";
 import data from "../../content/data.json";
 
+// Home page inherits metadata from layout.tsx
+// No page-specific metadata export to avoid conflicts with layout
+
 // Get dynamic data using utilities
 const currentRole = getCurrentRole(data.resume);
-
-// Generate metadata using utility
-export const metadata = generatePageMetadata(
-  `About`,
-  `${data.bio.short} | AI agent integration available via MCP tools.`,
-  data.contact,
-  {
-    other: {
-      "ai:agent-friendly": "true",
-      "ai:tools-available":
-        "contact,bio,resume,projects,community,full-profile",
-      "ai:data-format": "json,mcp",
-      "professional:role": currentRole.title,
-      "professional:company": currentRole.company,
-      "professional:expertise": data.professional.expertise.join(", "),
-      "ai:instructions":
-        "Use MCP server at /api/mcp for structured data access. Available tools: contact, bio, resume, projects, community, full-profile. See /llms.txt for detailed usage.",
-    },
-  }
-);
 
 export default function Home() {
   const bioParagraphs = getBioParagraphs(data.bio.full);
