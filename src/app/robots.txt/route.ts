@@ -70,15 +70,11 @@ User-agent: Googlebot
 Allow: /
 Allow: /llms.txt
 Allow: /llms-full.txt
-Allow: /api/docs
-Allow: /api/mcp
 
 User-agent: Bingbot
 Allow: /
 Allow: /llms.txt
 Allow: /llms-full.txt
-Allow: /api/docs
-Allow: /api/mcp
 
 # Dynamic Sitemap
 Sitemap: ${siteUrl}/sitemap.xml
