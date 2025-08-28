@@ -47,7 +47,6 @@ function Navigation() {
     { name: "Projects", href: "/projects" },
     { name: "Community", href: "/community" },
     { name: "Contact", href: "/contact" },
-    { name: "API", href: "/api/docs", external: true },
     { name: "MCP Test", href: "/mcp-test" },
   ];
 
@@ -70,13 +69,12 @@ function Navigation() {
                 key={item.name}
                 href={item.href}
                 className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
-                {...(item.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
               >
                 {item.name}
               </Link>
             ))}
+            {/* Separator */}
+            <div className="h-5 w-px bg-gray-300"></div>
             <a
               href={getGitHubUrl(pathname)}
               target="_blank"
@@ -84,8 +82,7 @@ function Navigation() {
               className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors font-medium"
               title="View page source on GitHub"
             >
-              <GitHubIcon />
-              GitHub
+              View page on <GitHubIcon />
             </a>
           </div>
 
@@ -128,13 +125,12 @@ function Navigation() {
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block px-4 py-3 text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors font-medium"
-                {...(item.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
               >
                 {item.name}
               </Link>
             ))}
+            {/* Separator */}
+            <div className="mx-4 my-2 h-px bg-gray-200"></div>
             <a
               href={getGitHubUrl(pathname)}
               target="_blank"
@@ -142,8 +138,7 @@ function Navigation() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center gap-2 px-4 py-3 text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors font-medium"
             >
-              <GitHubIcon />
-              GitHub
+              View page on <GitHubIcon />
             </a>
           </div>
         </div>
