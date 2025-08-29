@@ -106,7 +106,7 @@ export default function FloatingChatWidget() {
             {/* Welcome Message & Starter Questions */}
             <div className="p-4 border-b border-gray-100 bg-gray-50">
               <p className="text-sm text-gray-600 mb-3">
-                Hi! I'm Andy's AI assistant. Ask me anything about his professional background, projects, or experience.
+                Hi! I&apos;m Andy&apos;s AI assistant. Ask me anything about his professional background, projects, or experience.
               </p>
               
               {/* Starter Questions */}
@@ -162,7 +162,7 @@ export default function FloatingChatWidget() {
           {/* Mobile Welcome */}
           <div className="p-4 border-b border-gray-100 bg-gray-50">
             <p className="text-sm text-gray-600 mb-3">
-              Hi! I'm Andy's AI assistant. Ask me anything about his professional background, projects, or experience.
+              Hi! I&apos;m Andy&apos;s AI assistant. Ask me anything about his professional background, projects, or experience.
             </p>
             
             <div className="grid grid-cols-1 gap-2">

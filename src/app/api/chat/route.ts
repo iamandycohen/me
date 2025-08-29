@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import OpenAI from "openai";
 import {
   listMcpTools,
@@ -13,7 +13,6 @@ import {
 import {
   createSecureError,
   handleOpenAIError,
-  handleMCPError,
   createStreamError,
   ErrorType,
 } from "@/lib/error-handler";
