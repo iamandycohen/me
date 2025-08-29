@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import MCPServerSection from "@/components/MCPServerSection";
+import MCPExplainer from "@/components/MCPExplainer";
 import { getCurrentRole, getBioParagraphs } from "@/lib/data-helpers";
 import { addSitecoreLinks } from "@/lib/utils";
 import data from "../../content/data.json";
@@ -182,6 +183,10 @@ export default function Home() {
               MCP protocol compliance, structured APIs, and clean data
               architecture that works seamlessly for both humans and machines.
             </p>
+
+            <div className="mb-8">
+              <MCPExplainer variant="homepage" />
+            </div>
 
             <MCPServerSection />
           </div>

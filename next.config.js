@@ -20,6 +20,9 @@ const nextConfig = {
   },
   // Enhanced webpack optimizations
   webpack: (config, { dev, isServer }) => {
+    // Let Next.js handle source maps - don't override devtool
+    // Next.js 15 automatically handles source maps for debugging
+    
     // Optimize for production builds
     if (!dev && !isServer) {
       // Enhanced bundle splitting for better caching

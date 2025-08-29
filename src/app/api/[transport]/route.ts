@@ -1,14 +1,15 @@
 import { createMcpHandler } from "mcp-handler";
 import { z } from "zod";
 import { type CommunityData } from "@/types";
+import { TOOL_DESCRIPTIONS } from "@/lib/mcp-tools";
 import data from "../../../../content/data.json";
 
 const handler = createMcpHandler(
   (server) => {
-    // Contact tool
+    // Contact tool - using shared description (no duplication!)
     server.tool(
       "contact",
-      `Get ${data.contact.name}'s professional contact information including email, LinkedIn profile, and location details.`,
+      TOOL_DESCRIPTIONS.contact,
       {},
       async () => ({
         content: [
@@ -20,17 +21,15 @@ const handler = createMcpHandler(
       })
     );
 
-    // Bio tool
+    // Bio tool - using shared description (no duplication!)
     server.tool(
       "bio",
-      `Get ${data.contact.name}'s professional biography. Returns either short bio (tagline) or full bio (complete professional story) based on the format parameter.`,
+      TOOL_DESCRIPTIONS.bio,
       {
         format: z
           .enum(["short", "full"])
           .optional()
-          .describe(
-            "Format of bio to return - short for tagline, full for complete story"
-          ),
+          .describe("Format of bio to return - short for tagline, full for complete story"),
       },
       async ({ format }) => {
         const bioFormat = format || "short";
@@ -46,10 +45,10 @@ const handler = createMcpHandler(
       }
     );
 
-    // Resume tool
+    // Resume tool - using shared description (no duplication!)
     server.tool(
       "resume",
-      `Get ${data.contact.name}'s professional work experience and career history. Returns detailed information about roles, companies, achievements, and career progression spanning 14+ years.`,
+      TOOL_DESCRIPTIONS.resume,
       {
         limit: z
           .number()
@@ -70,10 +69,10 @@ const handler = createMcpHandler(
       }
     );
 
-    // Projects tool
+    // Projects tool - using shared description (no duplication!)
     server.tool(
       "projects",
-      `Get ${data.contact.name}'s creative engineering projects that showcase hands-on building skills and craftsmanship beyond software development. Includes personal projects like treehouse construction that demonstrate engineering mindset across different domains.`,
+      TOOL_DESCRIPTIONS.projects,
       {
         limit: z
           .number()
@@ -96,17 +95,15 @@ const handler = createMcpHandler(
       }
     );
 
-    // Community tool
+    // Community tool - using shared description (no duplication!)
     server.tool(
       "community",
-      `Get ${data.contact.name}'s community leadership and contributions including MVP awards, conference presentations, media appearances, and thought leadership activities.`,
+      TOOL_DESCRIPTIONS.community,
       {
         includeExpertise: z
           .boolean()
           .optional()
-          .describe(
-            "Include expertise areas and community topics (default: true)"
-          ),
+          .describe("Include expertise areas and community topics (default: true)"),
       },
       async ({ includeExpertise }) => {
         const includeExp = includeExpertise !== false;
@@ -132,10 +129,10 @@ const handler = createMcpHandler(
       }
     );
 
-    // Full profile tool
+    // Full profile tool - using shared description (no duplication!)
     server.tool(
       "full-profile",
-      `Get ${data.contact.name}'s complete professional profile including all available information: contact details, bio, resume, projects, community contributions, and thought leadership activities.`,
+      TOOL_DESCRIPTIONS["full-profile"],
       {
         bioFormat: z
           .enum(["short", "full"])

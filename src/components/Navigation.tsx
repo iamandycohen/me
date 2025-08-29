@@ -34,6 +34,7 @@ function Navigation() {
       "/projects": "projects/page.tsx",
       "/community": "community/page.tsx",
       "/contact": "contact/page.tsx",
+      "/chat": "chat/page.tsx",
       "/mcp-test": "mcp-test/page.tsx",
     };
 
@@ -47,6 +48,7 @@ function Navigation() {
     { name: "Projects", href: "/projects" },
     { name: "Community", href: "/community" },
     { name: "Contact", href: "/contact" },
+    { name: "Chat", href: "/chat" },
     { name: "MCP Test", href: "/mcp-test" },
   ];
 

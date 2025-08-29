@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
+import MCPExplainer from "@/components/MCPExplainer";
 import { getClientBaseUrl } from "@/lib/url-helpers";
 
 export default function MCPTestInterface() {
@@ -110,12 +110,16 @@ export default function MCPTestInterface() {
 
   return (
     <div className="max-w-6xl mx-auto py-12 px-4">
+      <div className="mb-12">
+        <MCPExplainer variant="detailed" />
+      </div>
+      
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          MCP Server Testing Interface
+          Interactive MCP Testing
         </h1>
         <p className="text-lg text-gray-600 mb-8">
-          Test your Model Context Protocol server implementation
+          Test the live MCP server implementation - see how AI agents discover and use structured data
         </p>
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
           <p className="text-blue-800">
