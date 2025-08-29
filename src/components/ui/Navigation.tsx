@@ -34,8 +34,8 @@ function Navigation() {
       "/projects": "projects/page.tsx",
       "/community": "community/page.tsx",
       "/contact": "contact/page.tsx",
-      "/chat": "chat/page.tsx",
-      "/mcp-test": "mcp-test/page.tsx",
+      "/ai-chat": "ai-chat/page.tsx",
+      "/ai-tools": "ai-tools/page.tsx",
     };
 
     const filePath = pathMap[currentPath] || "page.tsx";
@@ -48,8 +48,8 @@ function Navigation() {
     { name: "Projects", href: "/projects" },
     { name: "Community", href: "/community" },
     { name: "Contact", href: "/contact" },
-    { name: "AI Chat", href: "/chat" },
-    { name: "AI Tools Demo", href: "/mcp-test" },
+    { name: "AI Chat", href: "/ai-chat" },
+    { name: "AI Tools Demo", href: "/ai-tools" },
   ];
 
   const toggleMobileMenu = () => {

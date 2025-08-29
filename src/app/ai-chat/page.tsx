@@ -4,13 +4,13 @@ import ChatInterface from '@/components/chat/ChatInterface';
 import data from '@/lib/data';
 
 export const metadata = generatePageMetadata(
-  'AI Chat with MCP Tools',
+  'AI Chat',
   'Chat with an AI assistant that has access to detailed information about Andy Cohen\'s professional background, projects, and experience via live Model Context Protocol tools.',
   data.contact,
   {
-    keywords: ['chat', 'AI', 'assistant', 'Andy Cohen', 'professional', 'experience', 'MCP', 'Model Context Protocol'],
+    keywords: ['AI chat', 'AI assistant', 'Andy Cohen', 'professional', 'experience', 'MCP', 'Model Context Protocol', 'AI tools'],
   },
-  '/chat'
+  '/ai-chat'
 );
 
 export default function ChatPage() {

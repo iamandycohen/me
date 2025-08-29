@@ -9,23 +9,24 @@ import data from "@/lib/data";
 const displayName = getDisplayName(data.contact);
 
 export const metadata = generatePageMetadata(
-  "MCP Server Test",
-  `Test interface for Model Context Protocol server implementation by ${data.contact.name} - interactive testing tools for MCP endpoints and API responses.`,
+  "AI Tools Demo",
+  `Interactive demonstration of AI tools and Model Context Protocol implementation by ${data.contact.name} - explore live MCP endpoints and AI-driven data access.`,
   data.contact,
   {
+    keywords: ['AI tools', 'AI demonstration', 'MCP', 'Model Context Protocol', 'AI integration', 'Andy Cohen', 'interactive demo'],
     other: {
-      "ai:tool-type": "testing,development,api",
+      "ai:tool-type": "demonstration,ai-tools,interactive",
       "ai:protocol": "model-context-protocol,json-rpc",
-      "technical:api-testing": "true",
-      "developer:mcp-server": "true",
+      "ai:demonstration": "true",
+      "developer:ai-showcase": "true",
     },
     openGraph: {
-      title: `${displayName}'s MCP Server - Testing Interface`,
-      description: `Interactive testing interface for Model Context Protocol server implementation. Test MCP endpoints, view API responses, and validate server functionality.`,
+      title: `${displayName}'s AI Tools Demo`,
+      description: `Interactive demonstration of AI tools and Model Context Protocol implementation. Explore live AI-driven data access and tool integration.`,
       type: "website",
     },
   },
-  "/mcp-test",
+  "/ai-tools",
 );
 
 export default function MCPTestPage() {

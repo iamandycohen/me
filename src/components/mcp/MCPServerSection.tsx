@@ -56,8 +56,8 @@ export default function MCPServerSection() {
               <p className="text-gray-600">OpenAPI specification</p>
             </div>
             <div>
-              <code className="font-mono text-primary-600">/mcp-test</code>
-              <p className="text-gray-600">Visual testing interface</p>
+              <code className="font-mono text-primary-600">/ai-tools</code>
+              <p className="text-gray-600">Visual AI tools interface</p>
             </div>
             <div>
               <code className="font-mono text-primary-600">JSON-LD</code>
@@ -70,7 +70,7 @@ export default function MCPServerSection() {
       <div className="pt-6 border-t border-gray-300">
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="/mcp-test"
+            href="/ai-tools"
             className="inline-flex items-center gap-2 font-mono text-sm text-primary-600 hover:text-primary-700"
           >
             Test MCP Server

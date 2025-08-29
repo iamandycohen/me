@@ -18,7 +18,8 @@ export async function GET(_request: NextRequest) {
     { path: "/projects", priority: 0.8, changefreq: "daily" },
     { path: "/contact", priority: 0.8, changefreq: "daily" },
     { path: "/community", priority: 0.8, changefreq: "daily" },
-    { path: "/mcp-test", priority: 0.7, changefreq: "daily" },
+    { path: "/ai-chat", priority: 0.8, changefreq: "daily" },
+    { path: "/ai-tools", priority: 0.7, changefreq: "daily" },
   ];
 
   // Generate sitemap URLs

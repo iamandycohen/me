@@ -52,7 +52,7 @@ export default function Home() {
                     Get in Touch
                   </Link>
                   <a
-                    href="/mcp-test"
+                    href="/ai-tools"
                     className="btn-secondary font-mono text-sm"
                   >
                     MCP Server
@@ -176,7 +176,7 @@ export default function Home() {
                   Chat with an AI that uses live MCP tools to answer questions about my experience. 
                   Watch it call real APIs in real-time.
                 </p>
-                <Link href="/chat" className="btn-primary text-sm">
+                <Link href="/ai-chat" className="btn-primary text-sm">
                   Start Chat →
                 </Link>
               </div>
@@ -190,7 +190,7 @@ export default function Home() {
                   Test the Model Context Protocol server directly. See how AI agents 
                   discover and use structured professional data.
                 </p>
-                <Link href="/mcp-test" className="btn-secondary text-sm">
+                <Link href="/ai-tools" className="btn-secondary text-sm">
                   Test MCP Tools →
                 </Link>
               </div>

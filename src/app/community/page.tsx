@@ -1,7 +1,7 @@
 import { generatePageMetadata } from "@/lib/metadata-generators";
 import { getDisplayName } from "@/lib/data-helpers";
 import data from "@/lib/data";
-import CommunityTabs from "./components/CommunityTabs";
+import CommunityTabs from "./_components/CommunityTabs";
 
 const displayName = getDisplayName(data.contact);
 
