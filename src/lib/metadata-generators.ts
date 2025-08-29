@@ -129,6 +129,7 @@ export function generateBaseMetadata(
 
     // Additional alternates (moved from manual head)
     alternates: {
+      canonical: absoluteUrl("/"),
       types: {
         "text/plain": [
           { url: "/llms.txt", title: "LLM Agent Information" },
