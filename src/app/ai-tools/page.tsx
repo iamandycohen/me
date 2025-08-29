@@ -2,8 +2,8 @@ import { generatePageMetadata } from "@/lib/metadata-generators";
 import { getDisplayName } from "@/lib/data-helpers";
 import MCPExplainer from "@/components/mcp/MCPExplainer";
 import MCPCodeExamples from "@/components/mcp/MCPCodeExamples";
-import MCPPerformanceMonitor from "@/components/mcp/MCPPerformanceMonitor";
-import MCPInteractiveTester from "@/components/mcp/MCPInteractiveTester";
+
+import MCPClientSDKDemo from "@/components/mcp/MCPClientSDKDemo";
 import data from "@/lib/data";
 
 const displayName = getDisplayName(data.contact);
@@ -31,7 +31,7 @@ export const metadata = generatePageMetadata(
 
 export default function MCPTestPage() {
   return (
-    <div className="max-w-6xl mx-auto py-12 px-4">
+    <div className="max-w-7xl mx-auto py-12 px-4">
       {/* MCP Education Section */}
       <div className="mb-12">
         <MCPExplainer variant="detailed" />
@@ -46,14 +46,9 @@ export default function MCPTestPage() {
         </p>
       </div>
 
-      {/* Interactive Testing Interface */}
+      {/* Official MCP SDK Testing Interface */}
       <div className="mb-12">
-        <MCPInteractiveTester />
-      </div>
-
-      {/* Performance Monitor */}
-      <div className="mb-12">
-        <MCPPerformanceMonitor />
+        <MCPClientSDKDemo />
       </div>
 
       {/* Code Examples */}
