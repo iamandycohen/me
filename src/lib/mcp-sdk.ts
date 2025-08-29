@@ -1,6 +1,7 @@
 import type { ChatCompletionTool } from 'openai/resources/chat/completions';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
+import { getConfiguredSiteUrl } from '@/lib/url-helpers';
 
 export interface McpTool {
   name: string;
@@ -40,7 +41,7 @@ async function getMcpClient(): Promise<Client> {
 
   clientPromise = (async () => {
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+      const baseUrl = getConfiguredSiteUrl();
       
       const transport = new StreamableHTTPClientTransport(
         new URL(`${baseUrl}/api/mcp`)

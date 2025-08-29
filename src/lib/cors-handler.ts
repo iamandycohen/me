@@ -21,7 +21,7 @@ export function createCorsResponse(
     ...(configuredSiteUrl.includes('www.') 
       ? [configuredSiteUrl.replace('https://www.', 'https://')]
       : [configuredSiteUrl.replace('https://', 'https://www.')]),
-    ...(process.env.NODE_ENV === 'development' ? ['http://localhost:3000'] : [])
+    // Note: In development, getConfiguredSiteUrl() already returns localhost, so no need to add it again
   ]);
   
   let allowedOrigin: string;
