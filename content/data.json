@@ -307,6 +307,22 @@
         "videoUrl": "https://youtu.be/d8u6de7zeAQ?si=ugyOIgvJXv5RUEIm&t=39"
       },
       {
+        "title": "SUGCON North America 2023",
+        "organization": "SUGCON",
+        "location": "Minneapolis, Minnesota",
+        "date": "2023",
+        "sessionTitle": "Build for XM Cloud according to the Architect of XM Cloud",
+        "topics": [
+          "XM Cloud",
+          "Developer Experience",
+          "Best Practices",
+          "Live Demo"
+        ],
+        "description": "Hear directly from the Architect of XM Cloud about how you should be building on XM Cloud to future proof your apps.",
+        "videoUrl": "https://www.youtube.com/watch?v=_nkH-HQX-QQ",
+        "isLiveDemo": true
+      },
+      {
         "title": "SUGCON Europe 2023",
         "organization": "SUGCON",
         "location": "Malaga, Spain",
