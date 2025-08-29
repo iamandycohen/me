@@ -85,11 +85,22 @@ export function createSecureError(
   );
 }
 
+// Type guard for errors with status property
+interface ErrorWithStatus {
+  status?: number;
+  code?: string;
+  param?: string;
+}
+
+function hasStatus(error: unknown): error is ErrorWithStatus {
+  return error != null && typeof error === 'object' && 'status' in error;
+}
+
 // Helper for handling OpenAI API errors specifically
 export function handleOpenAIError(error: unknown): NextResponse {
   // OpenAI errors can contain sensitive information, so we categorize them safely
-  if (error && typeof error === 'object' && 'status' in error) {
-    const status = (error as any).status;
+  if (hasStatus(error)) {
+    const status = error.status;
     
     if (status === 401) {
       return createSecureError(ErrorType.AUTHENTICATION, error, 'API authentication failed');
@@ -97,7 +108,7 @@ export function handleOpenAIError(error: unknown): NextResponse {
       return createSecureError(ErrorType.AUTHORIZATION, error, 'API access forbidden');
     } else if (status === 429) {
       return createSecureError(ErrorType.RATE_LIMIT, error, 'API rate limit exceeded');
-    } else if (status >= 500) {
+    } else if (status && status >= 500) {
       return createSecureError(ErrorType.EXTERNAL_SERVICE, error, 'AI service temporarily unavailable');
     }
   }

@@ -21,6 +21,39 @@ import type {
   ChatCompletionToolMessageParam,
 } from "openai/resources/chat/completions";
 
+
+
+// Type definitions for MCP tool results
+interface MCPTextContent {
+  type: 'text';
+  text: string;
+}
+
+interface MCPToolResult {
+  content?: MCPTextContent[];
+  [key: string]: unknown;
+}
+
+// Type definitions for errors
+interface StreamError {
+  code?: string;
+  param?: string;
+  message?: string;
+}
+
+// Type guard functions
+function isStreamError(error: unknown): error is StreamError {
+  return error != null && typeof error === 'object';
+}
+
+function isFunctionToolCall(toolCall: unknown): toolCall is { id: string; type: 'function'; function: { name: string; arguments: string } } {
+  return toolCall != null && typeof toolCall === 'object' && 
+         'type' in toolCall && (toolCall as any).type === 'function' && 
+         'function' in toolCall && (toolCall as any).function?.name;
+}
+
+
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -115,11 +148,12 @@ export async function POST(request: NextRequest) {
                   temperature: TEMPERATURE,
                   stream: true,
                 });
-              } catch (streamError: any) {
+              } catch (streamError: unknown) {
                 // If streaming fails (e.g., unverified organization), fall back to non-streaming
                 if (
-                  streamError?.code === "unsupported_value" &&
-                  streamError?.param === "stream"
+                  isStreamError(streamError) &&
+                  streamError.code === "unsupported_value" &&
+                  streamError.param === "stream"
                 ) {
                   useNonStreaming = true;
                 } else {
@@ -185,17 +219,17 @@ export async function POST(request: NextRequest) {
               }
 
               // Process tool calls (similar to streaming version)
-              const toolMessages: any[] = [];
+              const toolMessages: ChatCompletionToolMessageParam[] = [];
               for (const toolCall of toolCalls) {
+                if (!isFunctionToolCall(toolCall)) continue;
+                
                 try {
-                  const toolName = (toolCall as any).function.name;
+                  const toolName = toolCall.function.name;
                   let toolArgs: Record<string, unknown> = {};
 
-                  if ((toolCall as any).function.arguments) {
+                  if (toolCall.function.arguments) {
                     try {
-                      toolArgs = JSON.parse(
-                        (toolCall as any).function.arguments
-                      );
+                      toolArgs = JSON.parse(toolCall.function.arguments);
                     } catch (parseError) {
                       console.error(
                         "Failed to parse tool arguments:",
@@ -211,15 +245,16 @@ export async function POST(request: NextRequest) {
                   }
 
                   const toolResult = await callMcpTool(toolName, toolArgs);
-                  const toolContent = (toolResult as any).content
-                    ? (toolResult as any).content
-                        .map((item: any) => item.text)
+                  const mcpResult = toolResult as MCPToolResult;
+                  const toolContent = mcpResult.content
+                    ? mcpResult.content
+                        .map((item: MCPTextContent) => item.text)
                         .join("\n")
                     : JSON.stringify(toolResult);
 
                   toolMessages.push({
                     role: "tool",
-                    tool_call_id: toolCall.id,
+                    tool_call_id: (toolCall as any).id,
                     content: toolContent,
                   });
 
@@ -233,12 +268,12 @@ export async function POST(request: NextRequest) {
                   );
                 } catch (toolError) {
                   console.error(
-                    `Error executing tool ${(toolCall as any).function.name}:`,
+                    `Error executing tool ${isFunctionToolCall(toolCall) ? toolCall.function.name : (toolCall as any).id}:`,
                     toolError
                   );
                   toolMessages.push({
                     role: "tool",
-                    tool_call_id: toolCall.id,
+                    tool_call_id: (toolCall as any).id,
                     content: `Error: Failed to execute tool - ${
                       toolError instanceof Error
                         ? toolError.message
@@ -250,7 +285,7 @@ export async function POST(request: NextRequest) {
                     encoder.encode(
                       `data: ${JSON.stringify({
                         toolCall: {
-                          name: (toolCall as any).function.name,
+                          name: isFunctionToolCall(toolCall) ? toolCall.function.name : 'unknown',
                           status: "error",
                           error:
                             toolError instanceof Error
@@ -268,8 +303,7 @@ export async function POST(request: NextRequest) {
             } else {
               // Handle streaming response
               let currentAssistantMessage = "";
-              const toolCalls: OpenAI.Chat.Completions.ChatCompletionMessageToolCall[] =
-                [];
+              const toolCalls: Array<{id: string; type: 'function'; function: {name: string; arguments: string}}> = [];
 
               for await (const chunk of response!) {
                 const delta = chunk.choices[0]?.delta;
@@ -298,11 +332,11 @@ export async function POST(request: NextRequest) {
                         toolCalls[toolCall.index].id = toolCall.id;
                       }
                       if (toolCall.function?.name) {
-                        (toolCalls[toolCall.index] as any).function.name =
+                        toolCalls[toolCall.index].function.name =
                           toolCall.function.name;
                       }
                       if (toolCall.function?.arguments) {
-                        (toolCalls[toolCall.index] as any).function.arguments +=
+                        toolCalls[toolCall.index].function.arguments +=
                           toolCall.function.arguments;
                       }
                     }
@@ -331,15 +365,15 @@ export async function POST(request: NextRequest) {
               const toolMessages: ChatCompletionToolMessageParam[] = [];
 
               for (const toolCall of toolCalls) {
+                if (!isFunctionToolCall(toolCall)) continue;
+                
                 try {
-                  const toolName = (toolCall as any).function.name;
+                  const toolName = toolCall.function.name;
                   let toolArgs: Record<string, unknown> = {};
 
-                  if ((toolCall as any).function.arguments) {
+                  if (toolCall.function.arguments) {
                     try {
-                      toolArgs = JSON.parse(
-                        (toolCall as any).function.arguments
-                      );
+                      toolArgs = JSON.parse(toolCall.function.arguments);
                     } catch (parseError) {
                       console.error(
                         "Failed to parse tool arguments:",
@@ -355,15 +389,16 @@ export async function POST(request: NextRequest) {
                   }
 
                   const toolResult = await callMcpTool(toolName, toolArgs);
-                  const toolContent = (toolResult as any).content
-                    ? (toolResult as any).content
-                        .map((item: any) => item.text)
+                  const mcpResult = toolResult as MCPToolResult;
+                  const toolContent = mcpResult.content
+                    ? mcpResult.content
+                        .map((item: MCPTextContent) => item.text)
                         .join("\n")
                     : JSON.stringify(toolResult);
 
                   toolMessages.push({
                     role: "tool",
-                    tool_call_id: toolCall.id,
+                    tool_call_id: (toolCall as any).id,
                     content: toolContent,
                   });
 
@@ -377,12 +412,12 @@ export async function POST(request: NextRequest) {
                   );
                 } catch (toolError) {
                   console.error(
-                    `Error executing tool ${(toolCall as any).function.name}:`,
+                    `Error executing tool ${isFunctionToolCall(toolCall) ? toolCall.function.name : (toolCall as any).id}:`,
                     toolError
                   );
                   toolMessages.push({
                     role: "tool",
-                    tool_call_id: toolCall.id,
+                    tool_call_id: (toolCall as any).id,
                     content: `Error: Failed to execute tool - ${
                       toolError instanceof Error
                         ? toolError.message
@@ -395,7 +430,7 @@ export async function POST(request: NextRequest) {
                     encoder.encode(
                       `data: ${JSON.stringify({
                         toolCall: {
-                          name: (toolCall as any).function.name,
+                          name: isFunctionToolCall(toolCall) ? toolCall.function.name : 'unknown',
                           status: "error",
                           error:
                             toolError instanceof Error

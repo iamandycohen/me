@@ -60,8 +60,8 @@ describe('Chat API Route - Loop Breaker', () => {
 
 describe('Chat API Route - Request Validation', () => {
   test('should validate required messages parameter', () => {
-    const validateMessages = (body: any): { valid: boolean; error?: string } => {
-      if (!body.messages || !Array.isArray(body.messages)) {
+    const validateMessages = (body: unknown): { valid: boolean; error?: string } => {
+      if (!body || typeof body !== 'object' || !('messages' in body) || !Array.isArray((body as any).messages)) {
         return { valid: false, error: 'Messages array is required' };
       }
       return { valid: true };
@@ -109,7 +109,7 @@ describe('Chat API Route - Request Validation', () => {
 
 describe('Chat API Route - Tool Call Processing', () => {
   test('should handle tool call parsing errors gracefully', () => {
-    const parseToolArguments = (argsString: string): { success: boolean; args?: any; error?: string } => {
+    const parseToolArguments = (argsString: string): { success: boolean; args?: Record<string, unknown>; error?: string } => {
       try {
         if (!argsString) {
           return { success: true, args: {} };
@@ -144,7 +144,7 @@ describe('Chat API Route - Tool Call Processing', () => {
   });
 
   test('should format tool error messages correctly', () => {
-    const formatToolError = (error: any, _toolName: string): string => {
+    const formatToolError = (error: unknown, _toolName: string): string => {
       const message = error instanceof Error ? error.message : 'Unknown error';
       return `Error: Failed to execute tool - ${message}`;
     };

@@ -1,6 +1,17 @@
 import { NextResponse } from 'next/server';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { Contact, Bio, Professional, Role, Project, CommunityData, ExpertiseArea, MVPAward, Presentation } from '@/types';
+
+// Main data interface
+interface PortfolioData {
+  contact: Contact;
+  bio: Bio;
+  professional: Professional;
+  resume: Role[];
+  projects: Project[];
+  community: CommunityData;
+}
 
 export async function GET() {
   try {
@@ -20,7 +31,7 @@ export async function GET() {
   }
 }
 
-function generateMarkdown(data: any): string {
+function generateMarkdown(data: PortfolioData): string {
   let md = `# ${data.contact?.name || 'Professional Portfolio'}\n\n`;
   md += `*Complete professional profile for AI consumption*\n\n`;
 
@@ -70,7 +81,7 @@ function generateMarkdown(data: any): string {
   // Work Experience
   if (data.resume?.length) {
     md += `## Work Experience\n\n`;
-    data.resume.forEach((job: any) => {
+    data.resume.forEach((job: Role) => {
       md += `### ${job.title} - ${job.company}\n`;
       md += `**Period:** ${job.period}\n\n`;
       
@@ -91,7 +102,7 @@ function generateMarkdown(data: any): string {
   // Projects
   if (data.projects?.length) {
     md += `## Projects\n\n`;
-    data.projects.forEach((project: any) => {
+    data.projects.forEach((project: Project) => {
       md += `### ${project.title}\n`;
       if (project.period) {
         md += `**Period:** ${project.period}\n\n`;
@@ -126,7 +137,7 @@ function generateMarkdown(data: any): string {
       
       if (data.community.mvpAwards?.length) {
         md += `**Award History:**\n`;
-        data.community.mvpAwards.forEach((award: any) => {
+        data.community.mvpAwards.forEach((award: MVPAward) => {
           md += `- **${award.year} ${award.type} MVP** (${award.status}): ${award.description}\n`;
           if (award.quote) {
             md += `  > "${award.quote}" — *${award.quoteSource}*\n`;
@@ -139,7 +150,7 @@ function generateMarkdown(data: any): string {
     // Speaking Engagements
     if (data.community.presentations?.length) {
       md += `### Conference Presentations\n\n`;
-      data.community.presentations.forEach((pres: any) => {
+      data.community.presentations.forEach((pres: Presentation) => {
         md += `#### ${pres.sessionTitle || pres.title}\n`;
         md += `**Event:** ${pres.title} | **Location:** ${pres.location} | **Date:** ${pres.date}\n\n`;
         
@@ -183,7 +194,7 @@ function generateMarkdown(data: any): string {
     // Additional Media Resources
     if (data.community.mediaResources?.podcasts?.length) {
       md += `### Podcast Appearances\n\n`;
-      data.community.mediaResources.podcasts.forEach((podcast: any) => {
+      data.community.mediaResources.podcasts.forEach((podcast: { title: string; url: string; description: string }) => {
         md += `- **${podcast.title}**: ${podcast.description} - [Listen](${podcast.url})\n`;
       });
       md += `\n`;
@@ -192,7 +203,7 @@ function generateMarkdown(data: any): string {
     // Expertise Areas
     if (data.community.expertiseAreas?.length) {
       md += `### Areas of Expertise\n\n`;
-      data.community.expertiseAreas.forEach((area: any) => {
+      data.community.expertiseAreas.forEach((area: ExpertiseArea) => {
         md += `#### ${area.category}\n`;
         if (area.topics?.length) {
           area.topics.forEach((topic: string) => {

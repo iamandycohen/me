@@ -2,6 +2,14 @@ import { generatePageMetadata } from "@/lib/metadata-generators";
 import { getDisplayName } from "@/lib/data-helpers";
 import data from "@/lib/data";
 import CommunityTabs from "./_components/CommunityTabs";
+import { MVPAward, Presentation } from "@/types";
+
+// Type definitions for community data
+interface Podcast {
+  title: string;
+  url: string;
+  description: string;
+}
 
 const displayName = getDisplayName(data.contact);
 
@@ -72,7 +80,7 @@ export default function Community() {
       </div>
 
       {mvpAwards &&
-        mvpAwards.map((award: any, _index: number) => (
+        mvpAwards.map((award: MVPAward, _index: number) => (
           <div
             key={award.year}
             className={`rounded-lg border p-8 shadow-sm ${
@@ -171,7 +179,7 @@ export default function Community() {
       </div>
 
       <div className="space-y-8">
-        {presentations.map((presentation: any, index: number) => (
+        {presentations.map((presentation: Presentation, index: number) => (
           <div
             key={index}
             className={`bg-white rounded-lg border border-gray-200 p-8 shadow-sm ${
@@ -421,7 +429,7 @@ export default function Community() {
 
       {/* Additional Podcasts */}
       <div className="space-y-6">
-        {podcasts.map((podcast: any, index: number) => (
+        {podcasts.map((podcast: Podcast, index: number) => (
           <div
             key={index}
             className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm"

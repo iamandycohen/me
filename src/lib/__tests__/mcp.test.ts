@@ -1,9 +1,10 @@
-import { convertMcpToolToOpenAI, type McpTool } from '../mcp';
+import { convertMcpToolToOpenAI } from '../mcp-sdk';
+import { MCPTool } from '@/types';
 
 describe('MCP Tool Utilities', () => {
   describe('convertMcpToolToOpenAI', () => {
     test('should convert basic MCP tool to OpenAI format', () => {
-      const mcpTool: McpTool = {
+      const mcpTool: MCPTool = {
         name: 'test_tool',
         description: 'A test tool',
         inputSchema: {
@@ -36,7 +37,7 @@ describe('MCP Tool Utilities', () => {
     });
 
     test('should handle MCP tool without inputSchema', () => {
-      const mcpTool: McpTool = {
+      const mcpTool: MCPTool = {
         name: 'simple_tool',
         description: 'A simple tool without parameters',
       };
@@ -58,7 +59,7 @@ describe('MCP Tool Utilities', () => {
     });
 
     test('should handle MCP tool without description', () => {
-      const mcpTool: McpTool = {
+      const mcpTool: MCPTool = {
         name: 'undescribed_tool',
         inputSchema: {
           type: 'object',
@@ -86,7 +87,7 @@ describe('MCP Tool Utilities', () => {
     });
 
     test('should handle complex schema with nested objects', () => {
-      const mcpTool: McpTool = {
+      const mcpTool: MCPTool = {
         name: 'complex_tool',
         description: 'A tool with complex parameters',
         inputSchema: {
@@ -132,7 +133,7 @@ describe('MCP Tool Utilities', () => {
     });
 
     test('should handle empty inputSchema', () => {
-      const mcpTool: McpTool = {
+      const mcpTool: MCPTool = {
         name: 'empty_tool',
         description: 'A tool with empty schema',
         inputSchema: {
