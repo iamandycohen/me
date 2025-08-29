@@ -6,8 +6,27 @@ export async function GET() {
 
   const robotsTxt = `User-agent: *
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /api/docs
+Disallow: /api/mcp
 
-Sitemap: ${siteUrl}/sitemap.xml`;
+# AI Agents - Full MCP Access
+User-agent: GPTBot
+User-agent: Claude-Web
+User-agent: ClaudeBot
+User-agent: ChatGPT-User
+User-agent: Anthropic-AI
+User-agent: Meta-ExternalAgent
+User-agent: PerplexityBot
+User-agent: Gemini
+Allow: /api/mcp
+
+Sitemap: ${siteUrl}/sitemap.xml
+
+# MCP Server: ${siteUrl}/api/mcp
+# AI Profile: ${siteUrl}/llms.txt  
+# Full Profile: ${siteUrl}/llms-full.txt`;
 
   return new NextResponse(robotsTxt, {
     status: 200,
