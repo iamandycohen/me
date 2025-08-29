@@ -88,14 +88,7 @@ const nextConfig = {
   },
   async headers() {
     return [
-      {
-        source: '/api/mcp/:path*',
-        headers: [
-          { key: 'Access-Control-Allow-Origin', value: '*' },
-          { key: 'Access-Control-Allow-Methods', value: 'GET, POST, OPTIONS' },
-          { key: 'Access-Control-Allow-Headers', value: 'Content-Type, Authorization' },
-        ],
-      },
+      // CORS for MCP endpoints is now handled in middleware.ts
       // Performance and security headers
       {
         source: '/(.*)',

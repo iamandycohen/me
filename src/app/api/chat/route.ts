@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import { listMcpTools, callMcpTool, convertMcpToolToOpenAI } from '@/lib/mcp';
 import { MCP_TOOLS } from '@/lib/mcp-tools';
+import { validateChatRequest, validateRequestSize } from '@/lib/input-validation';
+import { createSecureError, handleOpenAIError, handleMCPError, createStreamError, ErrorType } from '@/lib/error-handler';
 import type { ChatCompletionMessageParam, ChatCompletionToolMessageParam } from 'openai/resources/chat/completions';
 
 const openai = new OpenAI({
@@ -27,21 +29,24 @@ const FORCE_NON_STREAMING = process.env.LLM_FORCE_NON_STREAMING === 'true';
 export async function POST(request: NextRequest) {
   try {
     if (!process.env.OPENAI_API_KEY) {
-      return NextResponse.json(
-        { error: 'OpenAI API key not configured' },
-        { status: 500 }
-      );
+      return createSecureError(ErrorType.INTERNAL, undefined, 'Service configuration error');
+    }
+
+    // Validate request size before parsing
+    const sizeValidation = validateRequestSize(request);
+    if (!sizeValidation.success) {
+      return createSecureError(ErrorType.VALIDATION, undefined, sizeValidation.error);
     }
 
     const body = await request.json();
-    const { messages } = body;
-
-    if (!messages || !Array.isArray(messages)) {
-      return NextResponse.json(
-        { error: 'Messages array is required' },
-        { status: 400 }
-      );
+    
+    // Enhanced input validation
+    const validation = validateChatRequest(body);
+    if (!validation.success || !validation.data) {
+      return createSecureError(ErrorType.VALIDATION, undefined, validation.error);
     }
+
+    const { messages } = validation.data;
 
     // Get available MCP tools
     let tools: OpenAI.Chat.Completions.ChatCompletionTool[] = [];
@@ -336,12 +341,9 @@ export async function POST(request: NextRequest) {
           controller.close();
 
         } catch (error) {
-          console.error('Error in chat completion:', error);
-          controller.enqueue(
-            encoder.encode(`data: ${JSON.stringify({ 
-              error: error instanceof Error ? error.message : 'An unexpected error occurred' 
-            })}\n\n`)
-          );
+          // Use secure error handling for streaming responses
+          const secureErrorData = createStreamError(ErrorType.INTERNAL, error);
+          controller.enqueue(encoder.encode(secureErrorData));
           controller.close();
         }
       },
@@ -356,10 +358,11 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Error processing chat request:', error);
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Internal server error' },
-      { status: 500 }
-    );
+    // Handle different types of errors securely
+    if (error && typeof error === 'object' && 'status' in error) {
+      return handleOpenAIError(error);
+    }
+    
+    return createSecureError(ErrorType.INTERNAL, error);
   }
 }

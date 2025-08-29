@@ -14,7 +14,8 @@
     "type-check": "tsc --noEmit",
     "test": "jest",
     "test:watch": "jest --watch",
-    "mcp:test": "curl -X POST http://localhost:3000/api/mcp -H \"Content-Type: application/json\" -H \"Accept: application/json, text/event-stream\" -d @mcp-test-payload.json"
+    "mcp:test": "curl -X POST http://localhost:3000/api/mcp -H \"Content-Type: application/json\" -H \"Accept: application/json, text/event-stream\" -d @mcp-test-payload.json",
+    "mcp:client": "node node_modules/@modelcontextprotocol/sdk/dist/esm/examples/client/simpleStreamableHttp.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

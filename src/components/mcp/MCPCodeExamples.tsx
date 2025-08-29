@@ -1,6 +1,5 @@
-'use client';
-
-import { useState } from 'react';
+import { getConfiguredSiteUrl } from '@/lib/url-helpers';
+import MCPCodeExamplesClient from './MCPCodeExamplesClient';
 
 interface CodeExample {
   title: string;
@@ -10,17 +9,18 @@ interface CodeExample {
   category: 'integration' | 'protocol' | 'discovery';
 }
 
-const CODE_EXAMPLES: CodeExample[] = [
-  {
-    title: "MCP Client Integration",
-    description: "How to integrate with this MCP server in your AI application",
-    language: "typescript",
-    category: "integration",
-    code: `// Connect to Andy Cohen's MCP server
+function getCodeExamples(siteUrl: string): CodeExample[] {
+  return [
+    {
+      title: "MCP Client Integration",
+      description: "How to integrate with this MCP server in your AI application",
+      language: "typescript",
+      category: "integration",
+      code: `// Connect to Andy Cohen's MCP server
 import { MCPClient } from '@modelcontextprotocol/sdk';
 
 const client = new MCPClient({
-  serverUrl: 'https://iamandycohen.com/api/mcp',
+  serverUrl: '${siteUrl}/api/mcp',
   transport: 'sse' // Server-sent events
 });
 
@@ -90,25 +90,25 @@ console.log('Andy's bio:', bio.content);`
     language: "bash",
     category: "discovery",
     code: `# 1. LLM Agent Instructions
-curl https://iamandycohen.com/llms.txt
+curl ${siteUrl}/llms.txt
 # Returns: Structured instructions for AI agents
 
 # 2. OpenAPI Specification  
-curl https://iamandycohen.com/api/docs
+curl ${siteUrl}/api/docs
 # Returns: Complete REST API documentation
 
 # 3. JSON-LD Structured Data
-curl -H "Accept: application/ld+json" https://iamandycohen.com/
+curl -H "Accept: application/ld+json" ${siteUrl}/
 # Returns: Semantic markup with MCP server info
 
 # 4. MCP Server Discovery
 curl -H "Content-Type: application/json" \\
      -d '{"jsonrpc":"2.0","method":"tools/list","id":1}' \\
-     https://iamandycohen.com/api/mcp
+     ${siteUrl}/api/mcp
 # Returns: Available MCP tools
 
 # 5. HTTP Headers for Agent Detection
-curl -I https://iamandycohen.com/
+curl -I ${siteUrl}/
 # Look for: X-MCP-Server: available`
   },
   {
@@ -149,14 +149,13 @@ async function createExecutiveSummary() {
 }
 
 // This is exactly what happens in the chat interface!`
-  }
-];
+    }
+  ];
+}
 
 export default function MCPCodeExamples() {
-  const [activeCategory, setActiveCategory] = useState<'integration' | 'protocol' | 'discovery'>('integration');
-  const [activeExample, setActiveExample] = useState(0);
-
-  const filteredExamples = CODE_EXAMPLES.filter(ex => ex.category === activeCategory);
+  const siteUrl = getConfiguredSiteUrl();
+  const codeExamples = getCodeExamples(siteUrl);
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
@@ -167,80 +166,8 @@ export default function MCPCodeExamples() {
         </p>
       </div>
 
-      {/* Category Tabs */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {[
-          { key: 'integration' as const, label: '🔧 Integration', desc: 'Client code' },
-          { key: 'protocol' as const, label: '📡 Protocol', desc: 'JSON-RPC' },
-          { key: 'discovery' as const, label: '🔍 Discovery', desc: 'Agent finding' }
-        ].map(({ key, label, desc }) => (
-          <button
-            key={key}
-            onClick={() => {
-              setActiveCategory(key);
-              setActiveExample(0);
-            }}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              activeCategory === key
-                ? 'bg-blue-100 text-blue-700 border border-blue-200'
-                : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
-            }`}
-          >
-            {label}
-            <div className="text-xs opacity-75">{desc}</div>
-          </button>
-        ))}
-      </div>
-
-      {/* Example Selector */}
-      <div className="flex flex-wrap gap-2 mb-4">
-        {filteredExamples.map((example, index) => (
-          <button
-            key={index}
-            onClick={() => setActiveExample(index)}
-            className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
-              activeExample === index
-                ? 'bg-purple-100 text-purple-700'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-            }`}
-          >
-            {example.title}
-          </button>
-        ))}
-      </div>
-
-      {/* Active Example */}
-      {filteredExamples[activeExample] && (
-        <div>
-          <div className="mb-3">
-            <h4 className="font-semibold text-gray-900 mb-1">
-              {filteredExamples[activeExample].title}
-            </h4>
-            <p className="text-sm text-gray-600">
-              {filteredExamples[activeExample].description}
-            </p>
-          </div>
-
-          <div className="relative">
-            <div className="flex items-center justify-between bg-gray-900 text-white px-4 py-2 rounded-t-lg">
-              <span className="text-sm font-mono">
-                {filteredExamples[activeExample].language}
-              </span>
-              <button 
-                onClick={() => navigator.clipboard.writeText(filteredExamples[activeExample].code)}
-                className="text-xs bg-gray-700 hover:bg-gray-600 px-2 py-1 rounded"
-              >
-                Copy
-              </button>
-            </div>
-            <pre className="bg-gray-50 p-4 rounded-b-lg overflow-x-auto text-sm">
-              <code className="language-typescript">
-                {filteredExamples[activeExample].code}
-              </code>
-            </pre>
-          </div>
-        </div>
-      )}
+      {/* Interactive client component */}
+      <MCPCodeExamplesClient examples={codeExamples} />
 
       <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border border-green-200">
         <div className="flex items-start gap-3">

@@ -20,7 +20,10 @@ export default function MCPPerformanceMonitor() {
     try {
       const response = await fetch('/api/mcp', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json, text/event-stream'
+        },
         body: JSON.stringify({
           jsonrpc: '2.0',
           method: 'tools/list',
@@ -32,8 +35,35 @@ export default function MCPPerformanceMonitor() {
       const responseTime = endTime - startTime;
       
       if (response.ok) {
-        const data = await response.json();
-        const toolCount = data.result?.tools?.length || 0;
+        const responseText = await response.text();
+        let data;
+        
+        if (response.headers.get("content-type")?.includes("text/event-stream")) {
+          // Handle SSE response
+          const lines = responseText.split("\n");
+          for (const line of lines) {
+            if (line.startsWith("data: ")) {
+              const jsonStr = line.slice(6);
+              if (jsonStr !== "[DONE]") {
+                try {
+                  data = JSON.parse(jsonStr);
+                  break;
+                } catch (e) {
+                  // Skip invalid JSON lines
+                }
+              }
+            }
+          }
+        } else {
+          // Fallback for regular JSON responses
+          try {
+            data = JSON.parse(responseText);
+          } catch (e) {
+            throw new Error('Invalid response format');
+          }
+        }
+        
+        const toolCount = data?.result?.tools?.length || 0;
         
         setMetrics({
           responseTime,
