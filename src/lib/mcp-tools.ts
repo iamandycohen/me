@@ -1,4 +1,4 @@
-import data from "../../content/data.json";
+import data from "@/lib/data";
 
 // Shared tool descriptions to eliminate duplication between MCP server and chat API
 export const TOOL_DESCRIPTIONS = {

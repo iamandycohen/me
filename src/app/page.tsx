@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import MCPServerSection from "@/components/MCPServerSection";
-import MCPExplainer from "@/components/MCPExplainer";
+import MCPServerSection from "@/components/mcp/MCPServerSection";
+import MCPExplainer from "@/components/mcp/MCPExplainer";
 import { getCurrentRole, getBioParagraphs } from "@/lib/data-helpers";
 import { addSitecoreLinks } from "@/lib/utils";
-import data from "../../content/data.json";
+import data from "@/lib/data";
 
 // Home page inherits metadata from layout.tsx
 // No page-specific metadata export to avoid conflicts with layout
@@ -142,6 +142,105 @@ export default function Home() {
                   {addSitecoreLinks(paragraph)}
                 </p>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI-First Demo Section */}
+      <section className="section-padding bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <div className="container-max">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-purple-100 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              Live MCP Server Running
+            </div>
+            
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              AI-First Architecture in Action
+            </h2>
+            
+            <p className="text-lg text-gray-600 mb-8">
+              This website demonstrates next-generation AI integration: real-time MCP tools, 
+              structured data APIs, and intelligent agent discovery - all while maintaining 
+              a beautiful human experience.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="bg-white rounded-lg p-6 shadow-sm border">
+                <h3 className="font-semibold mb-3 flex items-center gap-2">
+                  <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
+                  Try the AI Chat
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Chat with an AI that uses live MCP tools to answer questions about my experience. 
+                  Watch it call real APIs in real-time.
+                </p>
+                <Link href="/chat" className="btn-primary text-sm">
+                  Start Chat →
+                </Link>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-sm border">
+                <h3 className="font-semibold mb-3 flex items-center gap-2">
+                  <span className="w-3 h-3 bg-purple-500 rounded-full"></span>
+                  Inspect the MCP Server
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Test the Model Context Protocol server directly. See how AI agents 
+                  discover and use structured professional data.
+                </p>
+                <Link href="/mcp-test" className="btn-secondary text-sm">
+                  Test MCP Tools →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Architecture Deep-Dive */}
+      <section className="section-padding">
+        <div className="container-max">
+          <h2 className="text-2xl font-bold mb-8 text-center">Built for the Age of AI Agents</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold mb-2">MCP Protocol Implementation</h3>
+              <p className="text-sm text-gray-600">
+                Full Model Context Protocol server with 6 professional data tools, 
+                enabling AI agents to access structured information seamlessly.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold mb-2">Agent Discovery Standards</h3>
+              <p className="text-sm text-gray-600">
+                Implements /llms.txt, OpenAPI specs, structured data, and JSON-LD 
+                for comprehensive AI agent discoverability.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+              </div>
+              <h3 className="font-semibold mb-2">Dual-Interface Design</h3>
+              <p className="text-sm text-gray-600">
+                Same data, two interfaces: beautiful web UI for humans, 
+                structured APIs for AI agents and automation.
+              </p>
             </div>
           </div>
         </div>

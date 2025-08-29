@@ -9,10 +9,10 @@ import {
   generateJsonLd,
 } from "@/lib/metadata-generators";
 import { getCurrentRole } from "@/lib/data-helpers";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import PerformanceHints from "@/components/PerformanceHints";
-import data from "../../content/data.json";
+import Navigation from "@/components/ui/Navigation";
+import Footer from "@/components/ui/Footer";
+import PerformanceHints from "@/components/ui/PerformanceHints";
+import data from "@/lib/data";
 
 // Optimized font loading
 const inter = Inter({

@@ -144,7 +144,7 @@ describe('Chat API Route - Tool Call Processing', () => {
   });
 
   test('should format tool error messages correctly', () => {
-    const formatToolError = (error: any, toolName: string): string => {
+    const formatToolError = (error: any, _toolName: string): string => {
       const message = error instanceof Error ? error.message : 'Unknown error';
       return `Error: Failed to execute tool - ${message}`;
     };

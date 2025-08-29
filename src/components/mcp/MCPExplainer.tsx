@@ -15,10 +15,10 @@ export default function MCPExplainer({ variant = 'homepage' }: MCPExplainerProps
             </svg>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-900 mb-1">What's MCP?</h4>
+            <h4 className="font-semibold text-gray-900 mb-1">What&apos;s MCP?</h4>
             <p className="text-sm text-gray-600">
               Model Context Protocol - the emerging standard for AI agents to securely access external data and tools. 
-              Think of it as "API design for the AI era."
+              Think of it as &quot;API design for the AI era.&quot;
             </p>
           </div>
         </div>
@@ -38,8 +38,8 @@ export default function MCPExplainer({ variant = 'homepage' }: MCPExplainerProps
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">The Future of AI-Human Integration</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            MCP is Anthropic's open standard that's revolutionizing how AI agents access external data and tools. 
-            It's like REST APIs, but designed specifically for the age of AI.
+            MCP is Anthropic&apos;s open standard that&apos;s revolutionizing how AI agents access external data and tools. 
+            It&apos;s like REST APIs, but designed specifically for the age of AI.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export default function MCPExplainer({ variant = 'homepage' }: MCPExplainerProps
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">×</span>
-                  <span>AI agents can't reliably access external data</span>
+                  <span>AI agents can&apos;t reliably access external data</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500 mt-1">×</span>
@@ -128,12 +128,12 @@ export default function MCPExplainer({ variant = 'homepage' }: MCPExplainerProps
           <svg className="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
-          What's MCP?
+          What&apos;s MCP?
         </div>
         <h3 className="text-lg font-semibold text-gray-900 mb-2">Model Context Protocol</h3>
         <p className="text-sm text-gray-600">
           The emerging standard that lets AI agents securely access external tools and data - 
-          think "REST APIs designed for the AI era"
+          think &quot;REST APIs designed for the AI era&quot;
         </p>
       </div>
 

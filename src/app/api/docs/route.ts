@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import data from "../../../../content/data.json";
+import data from "@/lib/data";
 import { formatLinkedInUrl } from "@/lib/data-helpers";
 
 // Generate OpenAPI spec for the new MCP server

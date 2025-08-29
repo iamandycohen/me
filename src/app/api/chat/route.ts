@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Prepare conversation history with system message
-    let conversationMessages: ChatCompletionMessageParam[] = [
+    const conversationMessages: ChatCompletionMessageParam[] = [
       SYSTEM_MESSAGE,
       ...messages,
     ];

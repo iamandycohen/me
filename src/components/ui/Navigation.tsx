@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, memo } from "react";
 import { usePathname } from "next/navigation";
 import { getDisplayName } from "@/lib/data-helpers";
-import data from "../../content/data.json";
+import data from "@/lib/data";
 
 const displayName = getDisplayName(data.contact);
 
@@ -48,8 +48,8 @@ function Navigation() {
     { name: "Projects", href: "/projects" },
     { name: "Community", href: "/community" },
     { name: "Contact", href: "/contact" },
-    { name: "Chat", href: "/chat" },
-    { name: "MCP Test", href: "/mcp-test" },
+    { name: "AI Chat", href: "/chat" },
+    { name: "AI Tools Demo", href: "/mcp-test" },
   ];
 
   const toggleMobileMenu = () => {

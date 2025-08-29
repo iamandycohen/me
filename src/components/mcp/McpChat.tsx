@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { clsx } from 'clsx';
 import ReactMarkdown from 'react-markdown';
 
@@ -17,13 +17,23 @@ interface ToolCallStatus {
   error?: string;
 }
 
-export default function McpChat() {
+export interface McpChatRef {
+  setInput: (input: string) => void;
+}
+
+const McpChat = forwardRef<McpChatRef>((props, ref) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [toolCalls, setToolCalls] = useState<ToolCallStatus[]>([]);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
+
+  useImperativeHandle(ref, () => ({
+    setInput: (newInput: string) => {
+      setInput(newInput);
+    }
+  }));
 
   const scrollToBottom = () => {
     if (messagesContainerRef.current) {
@@ -207,8 +217,8 @@ export default function McpChat() {
       <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
         {messages.length === 0 && (
           <div className="text-center text-gray-500 py-8">
-            <p>Ask me anything about Andy's background, projects, or experience!</p>
-            <p className="text-sm mt-2">Try: "What projects has Andy worked on?"</p>
+            <p>Ask me anything about Andy&apos;s background, projects, or experience!</p>
+            <p className="text-sm mt-2">Try: &quot;What projects has Andy worked on?&quot;</p>
           </div>
         )}
         
@@ -373,4 +383,8 @@ export default function McpChat() {
       </form>
     </div>
   );
-}
+});
+
+McpChat.displayName = 'McpChat';
+
+export default McpChat;

@@ -1,5 +1,5 @@
 import { getDisplayName } from "@/lib/data-helpers";
-import data from "../../content/data.json";
+import data from "@/lib/data";
 
 const displayName = getDisplayName(data.contact);
 

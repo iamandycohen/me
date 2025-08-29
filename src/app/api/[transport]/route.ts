@@ -2,7 +2,7 @@ import { createMcpHandler } from "mcp-handler";
 import { z } from "zod";
 import { type CommunityData } from "@/types";
 import { TOOL_DESCRIPTIONS } from "@/lib/mcp-tools";
-import data from "../../../../content/data.json";
+import data from "@/lib/data";
 
 const handler = createMcpHandler(
   (server) => {
