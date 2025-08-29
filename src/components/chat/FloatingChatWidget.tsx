@@ -50,7 +50,8 @@ export default function FloatingChatWidget() {
     "Tell me about Andy's professional experience",
     "What are Andy's key technical skills?",
     "Show me Andy's recent projects",
-    "What's Andy's community involvement?"
+    "What's Andy's community involvement?",
+    "Tell me about the human side of Andy",
   ];
 
   const handleQuestionSelect = (question: string) => {

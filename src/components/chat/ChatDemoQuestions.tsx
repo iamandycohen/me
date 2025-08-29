@@ -22,6 +22,11 @@ const DEMO_QUESTIONS: DemoQuestion[] = [
     icon: "🏆"
   },
   {
+    question: "Tell me about the human side of Andy",
+    explanation: "Uses 'bio' tool to share personal journey, values, and philosophy behind the work",
+    icon: "🧑"
+  },
+  {
     question: "Create a brief executive summary of Andy's background",
     explanation: "Combines multiple MCP tools (bio, resume, projects) intelligently",
     icon: "📋"
