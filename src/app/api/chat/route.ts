@@ -102,7 +102,6 @@ export async function POST(request: NextRequest) {
         try {
           while (loopCount < MAX_TOOL_LOOPS) {
             loopCount++;
-            console.log(`🔄 Loop iteration ${loopCount}/${MAX_TOOL_LOOPS}`);
 
             let response;
             let useNonStreaming = FORCE_NON_STREAMING;
@@ -131,11 +130,7 @@ export async function POST(request: NextRequest) {
             }
 
             if (useNonStreaming) {
-              console.log("🔧 Using non-streaming mode");
               if (!FORCE_NON_STREAMING) {
-                console.log(
-                  "⚠️ Streaming not available, falling back to non-streaming mode"
-                );
                 controller.enqueue(
                   encoder.encode(
                     `data: ${JSON.stringify({
@@ -187,9 +182,6 @@ export async function POST(request: NextRequest) {
 
               // If no tool calls, we're completely done
               if (toolCalls.length === 0) {
-                console.log(
-                  "✅ Non-streaming: No tool calls, conversation complete"
-                );
                 break;
               }
 
@@ -276,7 +268,6 @@ export async function POST(request: NextRequest) {
               // Continue loop to get AI's response to tool results
             } else {
               // Handle streaming response
-              console.log("🚀 Using streaming mode");
               let currentAssistantMessage = "";
               const toolCalls: OpenAI.Chat.Completions.ChatCompletionMessageToolCall[] =
                 [];
@@ -426,7 +417,6 @@ export async function POST(request: NextRequest) {
           }
 
           // Send completion marker
-          console.log("✅ Loop completed, sending [DONE]");
           controller.enqueue(encoder.encode(`data: [DONE]\n\n`));
           controller.close();
         } catch (error) {

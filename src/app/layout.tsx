@@ -12,6 +12,7 @@ import { getCurrentRole } from "@/lib/data-helpers";
 import Navigation from "@/components/ui/Navigation";
 import Footer from "@/components/ui/Footer";
 import PerformanceHints from "@/components/ui/PerformanceHints";
+import FloatingChatWidget from "@/components/chat/FloatingChatWidget";
 import data from "@/lib/data";
 
 // Optimized font loading
@@ -74,6 +75,9 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+
+        {/* Global floating chat widget */}
+        <FloatingChatWidget />
 
         {/* Optimized analytics loading */}
         {process.env.NEXT_PUBLIC_GA_ID && (

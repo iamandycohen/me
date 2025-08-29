@@ -23,11 +23,18 @@ export default function ChatPage() {
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
               AI Assistant with MCP Tools
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-4">
               Ask me anything about Andy&apos;s professional background, technical expertise, 
               project experience, or community contributions. I have access to detailed 
               information and can provide specific insights about his career journey.
             </p>
+            
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-2xl mx-auto mb-6">
+              <p className="text-sm text-blue-700">
+                💡 <strong>Pro tip:</strong> The AI assistant is now available on every page via the floating chat icon in the bottom-right corner. 
+                This dedicated page offers a full-screen experience for longer conversations.
+              </p>
+            </div>
             
             <div className="max-w-2xl mx-auto">
               <MCPExplainer variant="compact" />
