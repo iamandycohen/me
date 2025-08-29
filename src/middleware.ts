@@ -199,6 +199,5 @@ export const config = {
     '/api/chat/:path*',
     '/api/mcp/:path*', 
     '/api/docs/:path*',
-    // Note: sse and websocket paths don't exist in your current setup
   ],
 };

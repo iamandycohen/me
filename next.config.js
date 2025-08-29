@@ -89,7 +89,7 @@ const nextConfig = {
   async headers() {
     return [
       // CORS for MCP endpoints is now handled in middleware.ts
-      // Performance and security headers
+      // Performance and security headers + Agent Discovery
       {
         source: '/(.*)',
         headers: [
@@ -104,6 +104,23 @@ const nextConfig = {
           {
             key: 'X-Content-Type-Options',
             value: 'nosniff'
+          },
+          // Agent Discovery Headers (static, always present)
+          {
+            key: 'X-MCP-Server',
+            value: 'available'
+          },
+          {
+            key: 'X-MCP-Endpoint',
+            value: '/api/mcp'
+          },
+          {
+            key: 'X-AI-Agent-Instructions',
+            value: '/llms.txt'
+          },
+          {
+            key: 'X-API-Documentation',
+            value: '/api/docs'
           },
           // Preload critical resources
           {
