@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
-import { listMcpTools, callMcpTool, convertMcpToolToOpenAI } from '@/lib/mcp';
+import { listMcpTools, callMcpTool, convertMcpToolToOpenAI } from '@/lib/mcp-sdk';
 import { MCP_TOOLS } from '@/lib/mcp-tools';
 import { validateChatRequest, validateRequestSize } from '@/lib/input-validation';
 import { createSecureError, handleOpenAIError, handleMCPError, createStreamError, ErrorType } from '@/lib/error-handler';
