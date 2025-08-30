@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { X, MessageCircle, Minimize2 } from 'lucide-react';
+import { X, MessageCircle, Minimize2, ChevronDown, ChevronUp } from 'lucide-react';
 import McpChat from '@/components/mcp/McpChat';
 
 export default function FloatingChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [isStarterQuestionsExpanded, setIsStarterQuestionsExpanded] = useState(true);
   const chatRef = useRef<{ setInput: (input: string) => void }>(null);
 
   // Close on escape key
@@ -58,6 +59,12 @@ export default function FloatingChatWidget() {
     if (chatRef.current) {
       chatRef.current.setInput(question);
     }
+    // Auto-collapse starter questions on mobile after selection
+    setIsStarterQuestionsExpanded(false);
+  };
+
+  const toggleStarterQuestions = () => {
+    setIsStarterQuestionsExpanded(!isStarterQuestionsExpanded);
   };
 
   return (
@@ -161,21 +168,48 @@ export default function FloatingChatWidget() {
           </div>
 
           {/* Mobile Welcome */}
-          <div className="p-4 border-b border-gray-100 bg-gray-50">
-            <p className="text-sm text-gray-600 mb-3">
-              Hi! I&apos;m Andy&apos;s AI assistant. Ask me anything about his professional background, projects, or experience.
-            </p>
+          <div className="border-b border-gray-100 bg-gray-50">
+            <div className="p-4">
+              <p className="text-sm text-gray-600 mb-3">
+                Hi! I&apos;m Andy&apos;s AI assistant. Ask me anything about his professional background, projects, or experience.
+              </p>
+            </div>
             
-            <div className="grid grid-cols-1 gap-2">
-              {starterQuestions.map((question, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleQuestionSelect(question)}
-                  className="text-sm bg-white border border-gray-200 rounded-lg px-3 py-2 hover:bg-blue-50 hover:border-blue-200 transition-colors text-gray-700 hover:text-blue-700 text-left"
+            {/* Collapsible Starter Questions */}
+            <div className="border-t border-gray-200">
+              <button
+                onClick={toggleStarterQuestions}
+                className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-100 transition-colors"
+                aria-expanded={isStarterQuestionsExpanded}
+                aria-controls="mobile-starter-questions"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-medium text-gray-700">Starter Questions</span>
+                  <span className="text-xs text-gray-500">({starterQuestions.length})</span>
+                </div>
+                {isStarterQuestionsExpanded ? (
+                  <ChevronUp size={16} className="text-gray-500" />
+                ) : (
+                  <ChevronDown size={16} className="text-gray-500" />
+                )}
+              </button>
+              
+              {isStarterQuestionsExpanded && (
+                <div 
+                  id="mobile-starter-questions"
+                  className="px-4 pb-4 space-y-2 animate-in slide-in-from-top-2 duration-200"
                 >
-                  {question}
-                </button>
-              ))}
+                  {starterQuestions.map((question, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleQuestionSelect(question)}
+                      className="w-full text-sm bg-white border border-gray-200 rounded-lg px-3 py-2 hover:bg-blue-50 hover:border-blue-200 transition-colors text-gray-700 hover:text-blue-700 text-left"
+                    >
+                      {question}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 

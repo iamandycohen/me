@@ -112,7 +112,7 @@ describe('MCP Tool Utilities', () => {
 
       const result = convertMcpToolToOpenAI(mcpTool);
 
-      expect((result as any).function.parameters).toEqual({
+      expect((result as { function: { parameters: unknown } }).function.parameters).toEqual({
         type: 'object',
         properties: {
           config: {
@@ -144,7 +144,7 @@ describe('MCP Tool Utilities', () => {
 
       const result = convertMcpToolToOpenAI(mcpTool);
 
-      expect((result as any).function.parameters).toEqual({
+      expect((result as { function: { parameters: unknown } }).function.parameters).toEqual({
         type: 'object',
         properties: {},
       });

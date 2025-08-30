@@ -14,16 +14,20 @@ A modern, AI-native professional portfolio showcasing expertise in CMS architect
 
 ### 🤖 **AI-First Architecture** 
 - **Dual Chat Experiences**: Full-screen AI chat (`/ai-chat`) + floating widget on every page
+- **Native OpenAI MCP Integration**: Direct OpenAI MCP support with intelligent fallback to proxy pattern
 - **Production MCP Server**: Full JSON-RPC 2.0 implementation with official SDK v1.17.4+
 - **6 Professional Tools**: Contact, biography, resume, projects, community contributions, and complete profile access
 - **Real-time Testing**: Interactive MCP testing suite at `/ai-tools` with live demonstrations
 - **Agent Discovery**: Multiple pathways for AI agents to discover and interact with professional data
 - **Comprehensive API**: RESTful endpoints plus structured chat completions
+- **Performance Optimized**: Smart routing between native and proxy MCP integration for optimal speed
 
 ### ⚡ **Developer Experience**
 - **Complete Testing**: Jest with React Testing Library for full coverage
 - **Type Safety**: End-to-end TypeScript with runtime validation
+- **Advanced Debug System**: Comprehensive logging with conditional output and performance tracking
 - **Production Ready**: Redis caching, rate limiting, error handling, and monitoring
+- **Flexible MCP Configuration**: Support for any MCP server with proper URL composition
 - **Open Source**: Full implementation available for learning and contribution
 
 ## 🚀 AI-Native Architecture
@@ -37,8 +41,9 @@ This portfolio showcases modern AI-native development by providing **multiple in
 - **Live Demonstrations**: Interactive MCP testing at `/ai-tools`
 
 ### **Agent & API Interfaces:**
+- **Native MCP Integration**: Direct OpenAI MCP support for optimal performance
 - **MCP Server**: Production JSON-RPC 2.0 server with 6 professional tools
-- **Chat API**: OpenAI-powered conversational access with full context
+- **Chat API**: OpenAI-powered conversational access with intelligent MCP routing
 - **REST Endpoints**: Traditional API access for structured data
 - **Agent Discovery**: Multiple discovery mechanisms (llms.txt, OpenAPI, structured data)
 
@@ -51,6 +56,13 @@ This portfolio showcases modern AI-native development by providing **multiple in
 
 This architecture demonstrates how modern websites can seamlessly serve humans, AI agents, and traditional APIs from a unified codebase.
 
+### **Performance & Reliability:**
+- **Intelligent MCP Routing**: Automatically uses OpenAI native MCP when available, falls back to proxy pattern for local development
+- **Comprehensive Debug System**: Structured logging with conditional output (`DEBUG=true/false/auto`)
+- **Flexible Server Configuration**: Support for any MCP server via `CHAT_MCP_SERVER_URL` + `CHAT_MCP_SERVER_ENDPOINT`
+- **Enhanced UX**: Animated loading states and real-time feedback during AI interactions
+- **Production Monitoring**: Performance tracking, error handling, and telemetry throughout the request lifecycle
+
 ## 🛠 Built With
 
 **Core Framework:**
@@ -60,7 +72,8 @@ This architecture demonstrates how modern websites can seamlessly serve humans, 
 
 **AI Integration:**
 - **Model Context Protocol (MCP)** - Official SDK v1.17.4+ for AI agent communication
-- **OpenAI API** - Chat completions and AI-powered interactions
+- **OpenAI Native MCP** - Direct OpenAI MCP integration with automatic fallback
+- **OpenAI API** - Chat completions and AI-powered interactions with gpt-5 support
 - **MCP Handler** - Custom server implementation for Vercel Edge Runtime
 
 **Development & Testing:**
@@ -78,6 +91,12 @@ This architecture demonstrates how modern websites can seamlessly serve humans, 
 - **Heroicons** - Professional icon library
 - **Zod** - Runtime type validation
 - **Lucide React** - Additional UI icons
+
+**Development & Debugging:**
+- **Advanced Debug System** - Conditional logging with performance tracking and structured output
+- **Environment Validation** - Automatic configuration checking with helpful warnings
+- **MCP URL Composition** - Flexible base URL + endpoint configuration for any MCP server
+- **Ngrok Integration** - Built-in support for local development tunneling
 
 ## 🎯 Features for Visitors
 
@@ -156,6 +175,10 @@ cd me
 # Install dependencies  
 npm install
 
+# Set up environment variables
+npm run setup:env
+# Then edit .env.local with your API keys
+
 # Start development server
 npm run dev
 
@@ -174,6 +197,9 @@ npm run test:watch
 - `npm run lint:fix` - Fix linting issues automatically
 - `npm run type-check` - Run TypeScript type checking
 - `npm test` - Run Jest test suite
+- `npm run setup:env` - Set up environment variables from template
+- `npm run setup:ngrok` - Set up ngrok tunnel for local MCP development
+- `npm run env:check` - Check environment variable configuration
 - `npm run mcp:test` - Test MCP server endpoints
 - `npm run redis:check` - Check Redis connection
 - `npm run ratelimits:check` - Check rate limiting status
@@ -184,17 +210,161 @@ npm run test:watch
 - **MCP Protocol Testing** for AI agent integration
 - **TypeScript Integration** for type-safe testing
 
-**Environment Setup:**
+## 🔧 Environment Setup
+
+### Quick Start (Recommended)
 ```bash
-# Required for AI chat functionality
-OPENAI_API_KEY=your_openai_api_key
+# 1. Copy the template to get started quickly
+npm run setup:env
 
-# Optional: Redis for production caching/rate limiting
-REDIS_URL=redis://localhost:6379
-
-# Optional: Production monitoring
-VERCEL_ENV=development
+# 2. Edit .env.local and add your API keys
+# 3. Start development
+npm run dev
 ```
+
+### Manual Setup
+```bash
+# Copy template file
+cp .env.local.template .env.local
+
+# Edit .env.local with your values
+```
+
+### Environment Variables
+
+#### Required Variables
+| Variable | Description | Where to Get |
+|----------|-------------|--------------|
+| `OPENAI_API_KEY` | OpenAI API key for chat functionality | [OpenAI Platform](https://platform.openai.com/api-keys) |
+
+#### Optional Variables (with defaults)
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `REDIS_URL` | _(none)_ | Redis URL for enhanced rate limiting and caching |
+| `SITE_URL` | `https://www.iamandycohen.com` | Site URL for absolute URLs |
+| `CHAT_MCP_SERVER_URL` | _(uses SITE_URL)_ | **Public** base URL for MCP server (e.g., `https://example.com`) |
+| `CHAT_MCP_SERVER_ENDPOINT` | `/api/mcp` | MCP server endpoint path |
+| `DEBUG` | `auto` | Enable debug logging (`true`/`false`, auto-enabled in dev) |
+| `LLM_MODEL` | `gpt-4o-mini` | OpenAI model to use |
+| `LLM_TEMPERATURE` | `0.2` | AI response creativity (0.0-2.0) |
+| `LLM_MAX_TOOL_LOOPS` | `6` | Maximum tool execution loops |
+| `LLM_FORCE_NON_STREAMING` | `false` | Disable streaming responses |
+| `RATE_LIMIT_WINDOW_MS` | `60000` | Rate limit window (milliseconds) |
+| `RATE_LIMIT_CHAT` | `10` | Chat API requests per window |
+| `RATE_LIMIT_MCP` | `50` | MCP API requests per window |
+| `RATE_LIMIT_API` | `100` | Other API requests per window |
+| `NEXT_PUBLIC_GA_ID` | _(none)_ | Google Analytics ID |
+
+### Configuration Files
+- **`.env.local.template`** - Minimal setup template (copy to `.env.local`)
+- **`.env.example`** - Complete reference with all variables and documentation
+- **`.env.local`** - Your actual configuration (gitignored)
+
+### Redis Setup (Optional)
+Redis enhances rate limiting and provides caching. The app works without it but with reduced functionality.
+
+**Local Development:**
+```bash
+# Install Redis locally or use Docker
+docker run -d -p 6379:6379 redis:alpine
+
+# Set in .env.local
+REDIS_URL=redis://localhost:6379
+```
+
+**Production:**
+Use a Redis provider like [Upstash](https://upstash.com/) or [Redis Cloud](https://redis.com/redis-enterprise-cloud/).
+
+### MCP Server URL Configuration
+
+For **OpenAI native MCP integration** to work, the `CHAT_MCP_SERVER_URL` must be **publicly accessible** to OpenAI's servers:
+
+**✅ Valid Configuration:**
+```bash
+# Production deployment
+CHAT_MCP_SERVER_URL=https://www.iamandycohen.com
+CHAT_MCP_SERVER_ENDPOINT=/api/mcp
+
+# Staging/preview deployment  
+CHAT_MCP_SERVER_URL=https://your-app.vercel.app
+CHAT_MCP_SERVER_ENDPOINT=/api/mcp
+
+# Development with ngrok tunnel
+CHAT_MCP_SERVER_URL=https://abc123.ngrok.io
+CHAT_MCP_SERVER_ENDPOINT=/api/mcp
+
+# External MCP server
+CHAT_MCP_SERVER_URL=https://external-mcp-server.com
+CHAT_MCP_SERVER_ENDPOINT=/mcp
+```
+
+**❌ Invalid URLs (OpenAI can't reach these):**
+```bash
+# These will cause 424 "Failed Dependency" errors
+CHAT_MCP_SERVER_URL=http://localhost:3000
+CHAT_MCP_SERVER_URL=http://127.0.0.1:3000
+CHAT_MCP_SERVER_URL=http://192.168.1.100:3000
+```
+
+**Development Setup:**
+1. **Option 1**: Use ngrok for local development (recommended)
+   ```bash
+   # Quick setup with helper script
+   npm run setup:ngrok
+   
+   # Or manual setup:
+   # 1. Install ngrok: https://ngrok.com/
+   # 2. Run: ngrok http 3000
+   # 3. Set CHAT_MCP_SERVER_URL=https://abc123.ngrok.io in .env.local
+   ```
+
+2. **Option 2**: Deploy to staging and use that URL
+3. **Option 3**: Leave unset to use proxy pattern (slower but works locally)
+
+### Debug System
+
+The application includes a comprehensive debug system for development and troubleshooting:
+
+**Debug Configuration:**
+```bash
+# Auto-enable debug logging in development, disable in production
+DEBUG=auto
+
+# Force enable debug logging
+DEBUG=true
+
+# Force disable debug logging  
+DEBUG=false
+```
+
+**Debug Features:**
+- **Conditional Logging**: Debug messages only appear when enabled
+- **Performance Tracking**: Automatic timing measurements with `debug.perf()`
+- **Structured Output**: Categorized logging with timestamps and context
+- **Production Safe**: Logger functions always work, debug functions are conditional
+- **Request Tracing**: Full request lifecycle monitoring in chat API
+
+### Verification
+```bash
+# Check environment variable configuration
+npm run env:check
+
+# Check Redis connection
+npm run redis:check
+
+# Check rate limiting configuration  
+npm run ratelimits:check
+
+# Environment warnings will automatically appear when starting the dev server
+npm run dev
+```
+
+### Automatic Environment Validation
+The app automatically checks your environment configuration when starting:
+- **Startup warnings** appear in the console for missing required/optional variables
+- **Non-blocking** - app starts even with missing optional variables
+- **Development only** - warnings don't appear in production
+- **One-time check** - runs once at server startup via `next.config.js`
 
 ## 📞 Connect
 

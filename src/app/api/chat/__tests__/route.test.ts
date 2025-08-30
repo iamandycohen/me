@@ -12,20 +12,20 @@ describe('Chat API Route - Loop Breaker', () => {
   // Helper to simulate tool calling scenarios
   const simulateToolLoop = (toolCallCount: number): number => {
     let loopCount = 0;
-    
+
     // Simulate the loop logic from the API route
     while (loopCount < MAX_TOOL_LOOPS) {
       loopCount++;
-      
+
       // Simulate tool calls - if no tools, break
       if (toolCallCount === 0) {
         break;
       }
-      
+
       // Decrease tool call count to simulate completion
       toolCallCount = Math.max(0, toolCallCount - 1);
     }
-    
+
     return loopCount;
   };
 
@@ -61,7 +61,7 @@ describe('Chat API Route - Loop Breaker', () => {
 describe('Chat API Route - Request Validation', () => {
   test('should validate required messages parameter', () => {
     const validateMessages = (body: unknown): { valid: boolean; error?: string } => {
-      if (!body || typeof body !== 'object' || !('messages' in body) || !Array.isArray((body as any).messages)) {
+      if (!body || typeof body !== 'object' || !('messages' in body) || !Array.isArray((body as { messages: unknown }).messages)) {
         return { valid: false, error: 'Messages array is required' };
       }
       return { valid: true };
@@ -73,17 +73,17 @@ describe('Chat API Route - Request Validation', () => {
       .toEqual({ valid: true });
 
     // Invalid cases
-    expect(validateMessages({})).toEqual({ 
-      valid: false, 
-      error: 'Messages array is required' 
+    expect(validateMessages({})).toEqual({
+      valid: false,
+      error: 'Messages array is required'
     });
-    expect(validateMessages({ messages: null })).toEqual({ 
-      valid: false, 
-      error: 'Messages array is required' 
+    expect(validateMessages({ messages: null })).toEqual({
+      valid: false,
+      error: 'Messages array is required'
     });
-    expect(validateMessages({ messages: 'not an array' })).toEqual({ 
-      valid: false, 
-      error: 'Messages array is required' 
+    expect(validateMessages({ messages: 'not an array' })).toEqual({
+      valid: false,
+      error: 'Messages array is required'
     });
   });
 
@@ -96,13 +96,13 @@ describe('Chat API Route - Request Validation', () => {
     };
 
     expect(checkApiKey('sk-test')).toEqual({ valid: true });
-    expect(checkApiKey(undefined)).toEqual({ 
-      valid: false, 
-      error: 'OpenAI API key not configured' 
+    expect(checkApiKey(undefined)).toEqual({
+      valid: false,
+      error: 'OpenAI API key not configured'
     });
-    expect(checkApiKey('')).toEqual({ 
-      valid: false, 
-      error: 'OpenAI API key not configured' 
+    expect(checkApiKey('')).toEqual({
+      valid: false,
+      error: 'OpenAI API key not configured'
     });
   });
 });
@@ -117,9 +117,9 @@ describe('Chat API Route - Tool Call Processing', () => {
         const args = JSON.parse(argsString);
         return { success: true, args };
       } catch (error) {
-        return { 
-          success: false, 
-          error: 'Invalid tool arguments provided' 
+        return {
+          success: false,
+          error: 'Invalid tool arguments provided'
         };
       }
     };
@@ -127,19 +127,19 @@ describe('Chat API Route - Tool Call Processing', () => {
     // Valid cases
     expect(parseToolArguments('')).toEqual({ success: true, args: {} });
     expect(parseToolArguments('{}')).toEqual({ success: true, args: {} });
-    expect(parseToolArguments('{"param": "value"}')).toEqual({ 
-      success: true, 
-      args: { param: 'value' } 
+    expect(parseToolArguments('{"param": "value"}')).toEqual({
+      success: true,
+      args: { param: 'value' }
     });
 
     // Invalid cases
-    expect(parseToolArguments('invalid json')).toEqual({ 
-      success: false, 
-      error: 'Invalid tool arguments provided' 
+    expect(parseToolArguments('invalid json')).toEqual({
+      success: false,
+      error: 'Invalid tool arguments provided'
     });
-    expect(parseToolArguments('{"unclosed": ')).toEqual({ 
-      success: false, 
-      error: 'Invalid tool arguments provided' 
+    expect(parseToolArguments('{"unclosed": ')).toEqual({
+      success: false,
+      error: 'Invalid tool arguments provided'
     });
   });
 
@@ -151,10 +151,10 @@ describe('Chat API Route - Tool Call Processing', () => {
 
     expect(formatToolError(new Error('Connection failed'), 'test_tool'))
       .toBe('Error: Failed to execute tool - Connection failed');
-    
+
     expect(formatToolError('string error', 'test_tool'))
       .toBe('Error: Failed to execute tool - Unknown error');
-    
+
     expect(formatToolError(null, 'test_tool'))
       .toBe('Error: Failed to execute tool - Unknown error');
   });
