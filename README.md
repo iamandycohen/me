@@ -13,14 +13,17 @@ A modern, AI-native professional portfolio showcasing expertise in CMS architect
 - **Interactive AI**: Floating chat widget available on every page for immediate assistance
 
 ### 🤖 **AI-First Architecture** 
+- **Triple Chat Implementation**: Three different AI chat modes each optimized for different use cases
+  - **Proxy Mode**: Server-side MCP execution with real-time tool call streaming
+  - **Native Mode**: OpenAI handles MCP tools directly with post-completion results  
+  - **Agents Mode**: OpenAI Agents SDK with enhanced streaming and tool interaction
 - **Dual Chat Experiences**: Full-screen AI chat (`/ai-chat`) + floating widget on every page
-- **Native OpenAI MCP Integration**: Direct OpenAI MCP support with intelligent fallback to proxy pattern
 - **Production MCP Server**: Full JSON-RPC 2.0 implementation with official SDK v1.17.4+
 - **6 Professional Tools**: Contact, biography, resume, projects, community contributions, and complete profile access
 - **Real-time Testing**: Interactive MCP testing suite at `/ai-tools` with live demonstrations
 - **Agent Discovery**: Multiple pathways for AI agents to discover and interact with professional data
 - **Comprehensive API**: RESTful endpoints plus structured chat completions
-- **Performance Optimized**: Smart routing between native and proxy MCP integration for optimal speed
+- **Intelligent Mode Selection**: Automatic fallback and optimal routing for different deployment scenarios
 
 ### ⚡ **Developer Experience**
 - **Complete Testing**: Jest with React Testing Library for full coverage
@@ -56,12 +59,36 @@ This portfolio showcases modern AI-native development by providing **multiple in
 
 This architecture demonstrates how modern websites can seamlessly serve humans, AI agents, and traditional APIs from a unified codebase.
 
-### **Performance & Reliability:**
-- **Intelligent MCP Routing**: Automatically uses OpenAI native MCP when available, falls back to proxy pattern for local development
-- **Comprehensive Debug System**: Structured logging with conditional output (`DEBUG=true/false/auto`)
-- **Flexible Server Configuration**: Support for any MCP server via `CHAT_MCP_SERVER_URL` + `CHAT_MCP_SERVER_ENDPOINT`
-- **Enhanced UX**: Animated loading states and real-time feedback during AI interactions
-- **Production Monitoring**: Performance tracking, error handling, and telemetry throughout the request lifecycle
+### **Triple Chat Architecture:**
+
+This portfolio features **3 distinct chat implementations**, each optimized for different scenarios:
+
+#### **🔄 Proxy Mode** (Default)
+- **Server-side MCP execution** with full control over tool calls
+- **Real-time streaming** of tool execution status and results  
+- **Works locally** without requiring public URLs
+- **Enhanced debugging** with detailed tool call logging
+- **Best for development** and when you need full control over the AI interaction
+
+#### **🎯 Native Mode** 
+- **OpenAI handles MCP tools directly** using their native MCP integration
+- **Requires publicly accessible MCP server** (production deployments, ngrok for local)
+- **Tool calls execute on OpenAI's infrastructure** with results shown after completion
+- **Optimal performance** for production with reduced server load
+- **Best for production** when MCP server is publicly accessible
+
+#### **🤖 Agents Mode**
+- **OpenAI Agents SDK** with enhanced streaming capabilities  
+- **Real-time tool interaction updates** with improved UX
+- **Advanced agent orchestration** for complex multi-step tasks
+- **Production-ready** with comprehensive error handling
+- **Best for complex conversations** requiring multiple tool interactions
+
+#### **Smart Mode Selection:**
+- **Intelligent fallback**: Automatically selects best available mode based on configuration
+- **Environment awareness**: Uses appropriate mode for local development vs production
+- **User selectable**: Manual mode switching available in chat interface
+- **Graceful degradation**: Falls back to proxy mode if other modes unavailable
 
 ## 🛠 Built With
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import {
   X,
   MessageCircle,
@@ -16,6 +17,7 @@ import data from "@/lib/data";
 const firstName = getFirstName(data.contact);
 
 export default function FloatingChatWidget() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isStarterQuestionsExpanded, setIsStarterQuestionsExpanded] =
@@ -34,6 +36,11 @@ export default function FloatingChatWidget() {
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen]);
+
+  // Hide floating widget on dedicated chat page to prevent duplicate McpChat instances
+  if (pathname === "/ai-chat") {
+    return null;
+  }
 
   const toggleChat = () => {
     if (!isOpen) {

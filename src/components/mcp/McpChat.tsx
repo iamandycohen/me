@@ -11,12 +11,14 @@ import { clsx } from "clsx";
 import ReactMarkdown from "react-markdown";
 import { getFirstName } from "@/lib/data-helpers";
 import data from "@/lib/data";
+import ChatModeSelector, { type ChatMode } from "@/components/chat/ChatModeSelector";
 
 interface Message {
   role: "user" | "assistant" | "system";
   content: string;
   timestamp: number;
   isError?: boolean;
+  id?: string;
 }
 
 interface ToolCallStatus {
@@ -40,12 +42,15 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [toolCalls, setToolCalls] = useState<ToolCallStatus[]>([]);
-    const messagesContainerRef = useRef<HTMLDivElement>(null);
-    const abortControllerRef = useRef<AbortController | null>(null);
+      const [chatMode, setChatMode] = useState<ChatMode>("proxy");
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
+  const streamingRef = useRef<boolean>(false);
 
     const clearChatHandler = () => {
       setMessages([]);
       setToolCalls([]);
+      streamingRef.current = false; // Reset streaming guard on clear
       if (abortControllerRef.current) {
         abortControllerRef.current.abort();
         setIsLoading(false);
@@ -70,9 +75,18 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
       scrollToBottom();
     }, [messages, toolCalls]);
 
-    const handleSubmit = async (e: React.FormEvent) => {
-      e.preventDefault();
-      if (!input.trim() || isLoading) return;
+      const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim() || isLoading) return;
+    
+    // Prevent double execution (React StrictMode/concurrent features)
+    if (streamingRef.current) {
+      return;
+    }
+    streamingRef.current = true;
+    
+    // Clear previous tool calls when starting new conversation
+    setToolCalls([]);
 
       const userMessage: Message = {
         role: "user",
@@ -100,6 +114,7 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
               role,
               content,
             })),
+            mode: chatMode,
           }),
           signal: abortController.signal,
         });
@@ -114,13 +129,14 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
         }
 
         const decoder = new TextDecoder();
-        const assistantMessage: Message = {
-          role: "assistant",
-          content: "",
-          timestamp: Date.now(),
-        };
+            const assistantMessage: Message = {
+      role: "assistant",
+      content: "",
+      timestamp: Date.now(),
+    };
 
-        setMessages((prev) => [...prev, assistantMessage]);
+    const assistantMessageId = `assistant-${Date.now()}`;
+    setMessages((prev) => [...prev, { ...assistantMessage, id: assistantMessageId }]);
 
         try {
           while (true) {
@@ -150,7 +166,6 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
                       return updated;
                     });
                   } else if (parsed.system) {
-                    // Handle system messages (e.g., fallback notifications)
                     setMessages((prev) => [
                       ...prev,
                       {
@@ -207,8 +222,8 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
         ]);
       } finally {
         setIsLoading(false);
-        setToolCalls([]);
         abortControllerRef.current = null;
+        streamingRef.current = false; // Reset streaming guard
       }
     };
 
@@ -217,6 +232,7 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
         abortControllerRef.current.abort();
         setIsLoading(false);
         setToolCalls([]);
+        streamingRef.current = false; // Reset streaming guard on stop
       }
     };
 
@@ -228,15 +244,25 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
       <div className="flex flex-col h-full">
         {/* Header - only show if not in floating widget */}
         {!hideHeader && (
-          <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50 rounded-t-lg">
-            <h3 className="font-semibold text-gray-900">AI Assistant</h3>
-            <button
-              onClick={clearChat}
-              className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
-              disabled={isLoading}
-            >
-              Clear Chat
-            </button>
+          <div className="border-b border-gray-200 bg-gray-50 rounded-t-lg">
+            <div className="flex items-center justify-between p-4">
+              <h3 className="font-semibold text-gray-900">AI Assistant</h3>
+              <button
+                onClick={clearChat}
+                className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+                disabled={isLoading}
+              >
+                Clear Chat
+              </button>
+            </div>
+            {/* Chat Mode Selector */}
+            <div className="px-4 pb-3">
+              <ChatModeSelector
+                selectedMode={chatMode}
+                onModeChange={setChatMode}
+                disabled={isLoading}
+              />
+            </div>
           </div>
         )}
 
@@ -245,6 +271,17 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
           ref={messagesContainerRef}
           className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0"
         >
+          {/* Mode indicator for floating widget */}
+          {hideHeader && (
+            <div className="flex items-center justify-center mb-4">
+              <div className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded-full">
+                {chatMode === "proxy" && "🔧 Proxy Mode"}
+                {chatMode === "native" && "🤖 Native Mode"}  
+                {chatMode === "agents" && "🚀 Agents Mode"}
+              </div>
+            </div>
+          )}
+
           {messages.length === 0 && (
             <div className="text-center text-gray-500 py-8">
               <p>
@@ -255,12 +292,17 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
                 Try: &quot;What projects has {getFirstName(data.contact)} worked
                 on?&quot;
               </p>
+              {hideHeader && (
+                <p className="text-xs mt-3 text-gray-400">
+                  Currently using {chatMode} mode
+                </p>
+              )}
             </div>
           )}
 
           {messages.map((message, index) => (
             <div
-              key={index}
+              key={message.id || `${message.role}-${message.timestamp}-${index}`}
               className={clsx(
                 "flex",
                 message.role === "user"
