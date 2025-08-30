@@ -315,6 +315,7 @@ describe("/api/[transport] MCP route", () => {
 
   describe("Module Structure", () => {
     test("should export GET and POST handlers", () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
       const route = require("../route");
       
       // Verify the module exports the required handlers

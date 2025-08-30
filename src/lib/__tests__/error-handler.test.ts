@@ -33,7 +33,7 @@ describe('Error Handler', () => {
 
   describe('createSecureError', () => {
     test('should create secure error response with default message', () => {
-      const response = createSecureError(ErrorType.VALIDATION);
+      createSecureError(ErrorType.VALIDATION);
       
       expect(NextResponse.json).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -48,7 +48,7 @@ describe('Error Handler', () => {
 
     test('should use custom user message when provided', () => {
       const customMessage = 'Custom validation error';
-      const response = createSecureError(ErrorType.VALIDATION, undefined, customMessage);
+      createSecureError(ErrorType.VALIDATION, undefined, customMessage);
       
       expect(NextResponse.json).toHaveBeenCalledWith(
         expect.objectContaining({

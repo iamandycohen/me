@@ -3,4 +3,6 @@ allowlist:
   - npm test
   - npx jest
   - grep
+  - npm run build
+  
   

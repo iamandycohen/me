@@ -178,7 +178,7 @@ describe('/api/docs route', () => {
     test('should return JSON response', async () => {
       const mockRequest = {} as NextRequest;
       
-      const response = await GET(mockRequest);
+      await GET(mockRequest);
       
       // Verify NextResponse.json was called (indicating JSON response)
       expect(mockNextResponse.json).toHaveBeenCalledWith(
