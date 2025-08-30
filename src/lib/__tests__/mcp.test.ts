@@ -1,3 +1,19 @@
+// Mock the MCP SDK to avoid ES modules issues in Jest
+jest.mock('../mcp-sdk', () => ({
+  convertMcpToolToOpenAI: (mcpTool: any) => ({
+    type: 'function',
+    function: {
+      name: mcpTool.name,
+      description: mcpTool.description || `Calls the ${mcpTool.name} tool`,
+      parameters: mcpTool.inputSchema || {
+        type: 'object',
+        properties: {},
+        required: []
+      }
+    }
+  })
+}));
+
 import { convertMcpToolToOpenAI } from '../mcp-sdk';
 import { MCPTool } from '@/types';
 
