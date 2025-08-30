@@ -12,6 +12,8 @@ import {
 import McpChat, { McpChatRef } from "@/components/mcp/McpChat";
 import { getFirstName } from "@/lib/data-helpers";
 import data from "@/lib/data";
+import { ChatHandlerFactory } from "@/lib/chat-handlers/chat-handler-factory";
+import type { ChatMode } from "@/lib/chat-handlers/types";
 
 // Constants for reuse throughout the component
 const firstName = getFirstName(data.contact);
@@ -22,6 +24,7 @@ export default function FloatingChatWidget() {
   const [isMinimized, setIsMinimized] = useState(false);
   const [isStarterQuestionsExpanded, setIsStarterQuestionsExpanded] =
     useState(true);
+  const [chatMode, setChatMode] = useState<ChatMode>(ChatHandlerFactory.getDefaultMode());
   const chatRef = useRef<McpChatRef>(null);
 
   // Close on escape key
@@ -105,33 +108,67 @@ export default function FloatingChatWidget() {
       {isOpen && !isMinimized && (
         <div className="fixed bottom-6 right-6 z-50 w-96 max-h-[80vh] h-[min(600px,80vh)] bg-white rounded-lg shadow-2xl border border-gray-200 flex flex-col animate-slide-in-bottom">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-blue-600 text-white rounded-t-lg">
-            <div className="flex items-center space-x-2">
-              <MessageCircle size={20} />
-              <h3 className="font-semibold">AI Assistant</h3>
+          <div className="bg-blue-600 text-white rounded-t-lg">
+            {/* Main header row */}
+            <div className="flex items-center justify-between p-4">
+              <div className="flex items-center space-x-2">
+                <MessageCircle size={20} />
+                <h3 className="font-semibold">AI Assistant</h3>
+              </div>
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => chatRef.current?.clearChat?.()}
+                  className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700 text-sm"
+                  aria-label="Clear chat"
+                >
+                  Clear
+                </button>
+                <button
+                  onClick={minimizeChat}
+                  className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700"
+                  aria-label="Minimize chat"
+                >
+                  <Minimize2 size={16} />
+                </button>
+                <button
+                  onClick={closeChat}
+                  className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700"
+                  aria-label="Close chat"
+                >
+                  <X size={16} />
+                </button>
+              </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={() => chatRef.current?.clearChat?.()}
-                className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700 text-sm"
-                aria-label="Clear chat"
-              >
-                Clear
-              </button>
-              <button
-                onClick={minimizeChat}
-                className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700"
-                aria-label="Minimize chat"
-              >
-                <Minimize2 size={16} />
-              </button>
-              <button
-                onClick={closeChat}
-                className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700"
-                aria-label="Close chat"
-              >
-                <X size={16} />
-              </button>
+            
+            {/* Mode switcher row */}
+            <div className="px-4 pb-3 border-t border-blue-500">
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-blue-100">Mode:</span>
+                <div className="flex gap-1">
+                  {ChatHandlerFactory.getAvailableModes().map((mode) => (
+                    <button
+                      key={mode}
+                      onClick={() => setChatMode(mode)}
+                      className={`px-2 py-1 text-xs rounded transition-colors ${
+                        chatMode === mode
+                          ? "bg-white text-blue-700 font-medium"
+                          : "bg-blue-500 text-blue-100 hover:bg-blue-400"
+                      }`}
+                      title={ChatHandlerFactory.getModeDescription(mode)}
+                    >
+                      {mode === "proxy" && "🔧"}
+                      {mode === "native" && "🤖"}
+                      {mode === "agents" && "🚀"}
+                      <span className="ml-1 hidden sm:inline">
+                        {ChatHandlerFactory.getModeLabel(mode).replace(" Mode", "")}
+                      </span>
+                      <span className="ml-1 sm:hidden">
+                        {mode.charAt(0).toUpperCase()}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -165,7 +202,12 @@ export default function FloatingChatWidget() {
 
             {/* Chat Interface */}
             <div className="flex-1 min-h-0 overflow-hidden">
-              <McpChat ref={chatRef} hideHeader={true} />
+              <McpChat 
+                ref={chatRef} 
+                hideHeader={true} 
+                chatMode={chatMode}
+                onModeChange={setChatMode}
+              />
             </div>
           </div>
         </div>
@@ -183,26 +225,57 @@ export default function FloatingChatWidget() {
       {isOpen && !isMinimized && (
         <div className="md:hidden fixed inset-0 z-50 bg-white flex flex-col">
           {/* Mobile Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-blue-600 text-white">
-            <div className="flex items-center space-x-2">
-              <MessageCircle size={20} />
-              <h3 className="font-semibold">AI Assistant</h3>
+          <div className="bg-blue-600 text-white">
+            {/* Main mobile header row */}
+            <div className="flex items-center justify-between p-4">
+              <div className="flex items-center space-x-2">
+                <MessageCircle size={20} />
+                <h3 className="font-semibold">AI Assistant</h3>
+              </div>
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => chatRef.current?.clearChat?.()}
+                  className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700 text-sm"
+                  aria-label="Clear chat"
+                >
+                  Clear
+                </button>
+                <button
+                  onClick={closeChat}
+                  className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700"
+                  aria-label="Close chat"
+                >
+                  <X size={20} />
+                </button>
+              </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={() => chatRef.current?.clearChat?.()}
-                className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700 text-sm"
-                aria-label="Clear chat"
-              >
-                Clear
-              </button>
-              <button
-                onClick={closeChat}
-                className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700"
-                aria-label="Close chat"
-              >
-                <X size={20} />
-              </button>
+            
+            {/* Mobile mode switcher row */}
+            <div className="px-4 pb-3 border-t border-blue-500">
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-blue-100">Mode:</span>
+                <div className="flex gap-2">
+                  {ChatHandlerFactory.getAvailableModes().map((mode) => (
+                    <button
+                      key={mode}
+                      onClick={() => setChatMode(mode)}
+                      className={`px-3 py-1.5 text-sm rounded transition-colors ${
+                        chatMode === mode
+                          ? "bg-white text-blue-700 font-medium"
+                          : "bg-blue-500 text-blue-100 hover:bg-blue-400"
+                      }`}
+                      title={ChatHandlerFactory.getModeDescription(mode)}
+                    >
+                      <span className="flex items-center gap-1">
+                        {mode === "proxy" && "🔧"}
+                        {mode === "native" && "🤖"}
+                        {mode === "agents" && "🚀"}
+                        <span>{ChatHandlerFactory.getModeLabel(mode).replace(" Mode", "")}</span>
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -220,7 +293,7 @@ export default function FloatingChatWidget() {
               <button
                 onClick={toggleStarterQuestions}
                 className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-100 transition-colors"
-                aria-expanded={isStarterQuestionsExpanded}
+                {...({ "aria-expanded": isStarterQuestionsExpanded })}
                 aria-controls="mobile-starter-questions"
               >
                 <div className="flex items-center gap-2">
@@ -259,7 +332,12 @@ export default function FloatingChatWidget() {
 
           {/* Mobile Chat */}
           <div className="flex-1 min-h-0 overflow-hidden">
-            <McpChat ref={chatRef} hideHeader={true} />
+            <McpChat 
+              ref={chatRef} 
+              hideHeader={true} 
+              chatMode={chatMode}
+              onModeChange={setChatMode}
+            />
           </div>
         </div>
       )}

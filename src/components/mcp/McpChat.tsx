@@ -34,16 +34,28 @@ export interface McpChatRef {
 
 interface McpChatProps {
   hideHeader?: boolean;
+  chatMode?: ChatMode;
+  onModeChange?: (mode: ChatMode) => void;
 }
 
 const McpChat = forwardRef<McpChatRef, McpChatProps>(
-  ({ hideHeader = false }, ref) => {
+  ({ hideHeader = false, chatMode: externalChatMode, onModeChange }, ref) => {
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [toolCalls, setToolCalls] = useState<ToolCallStatus[]>([]);
-      const [chatMode, setChatMode] = useState<ChatMode>("proxy");
+      const [internalChatMode, setInternalChatMode] = useState<ChatMode>("proxy");
   const messagesContainerRef = useRef<HTMLDivElement>(null);
+  
+  // Use external mode if provided, otherwise use internal state
+  const chatMode = externalChatMode || internalChatMode;
+  const setChatMode = (mode: ChatMode) => {
+    if (onModeChange) {
+      onModeChange(mode);
+    } else {
+      setInternalChatMode(mode);
+    }
+  };
   const abortControllerRef = useRef<AbortController | null>(null);
   const streamingRef = useRef<boolean>(false);
 
@@ -361,10 +373,7 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
                           </h4>
                         ),
                         p: ({ children }) => (
-                          <p
-                            className="mb-2 last:mb-0"
-                            style={{ whiteSpace: "normal" }}
-                          >
+                          <p className="mb-2 last:mb-0 whitespace-normal">
                             {children}
                           </p>
                         ),
@@ -379,10 +388,7 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
                           </ol>
                         ),
                         li: ({ children }) => (
-                          <li
-                            className="text-sm leading-snug py-0 my-0"
-                            style={{ whiteSpace: "normal" }}
-                          >
+                          <li className="text-sm leading-snug py-0 my-0 whitespace-normal">
                             {children}
                           </li>
                         ),
