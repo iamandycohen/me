@@ -1,7 +1,11 @@
 import { NextRequest } from "next/server";
 import OpenAI from "openai";
 // Import both native and proxy MCP integration
-import { listMcpTools, callMcpTool, convertMcpToolToOpenAI } from "@/lib/mcp-sdk";
+import {
+  listMcpTools,
+  callMcpTool,
+  convertMcpToolToOpenAI,
+} from "@/lib/mcp-sdk";
 import {
   validateChatRequest,
   validateRequestSize,
@@ -13,6 +17,13 @@ import {
   ErrorType,
 } from "@/lib/error-handler";
 import { debug, logger } from "@/lib/debug";
+import { getDisplayName, getFirstName } from "@/lib/data-helpers";
+import data from "@/lib/data";
+
+// Constants for reuse throughout the route
+const displayName = getDisplayName(data.contact);
+const firstName = getFirstName(data.contact);
+
 import type {
   ChatCompletionMessageParam,
   ChatCompletionToolMessageParam,
@@ -20,7 +31,7 @@ import type {
 
 // Type definitions for MCP tool results
 interface MCPTextContent {
-  type: 'text';
+  type: "text";
   text: string;
 }
 
@@ -38,7 +49,7 @@ interface StreamError {
 
 // Type guard functions
 function isStreamError(error: unknown): error is StreamError {
-  return error != null && typeof error === 'object';
+  return error != null && typeof error === "object";
 }
 
 // Type definitions for tool calls
@@ -48,7 +59,7 @@ type BaseToolCall = {
 };
 
 type FunctionToolCall = BaseToolCall & {
-  type: 'function';
+  type: "function";
   function: {
     name: string;
     arguments: string;
@@ -56,9 +67,14 @@ type FunctionToolCall = BaseToolCall & {
 };
 
 function isFunctionToolCall(toolCall: unknown): toolCall is FunctionToolCall {
-  return toolCall != null && typeof toolCall === 'object' &&
-    'type' in toolCall && (toolCall as { type: string }).type === 'function' &&
-    'function' in toolCall && Boolean((toolCall as { function?: { name?: string } }).function?.name);
+  return (
+    toolCall != null &&
+    typeof toolCall === "object" &&
+    "type" in toolCall &&
+    (toolCall as { type: string }).type === "function" &&
+    "function" in toolCall &&
+    Boolean((toolCall as { function?: { name?: string } }).function?.name)
+  );
 }
 
 const openai = new OpenAI({
@@ -66,9 +82,9 @@ const openai = new OpenAI({
 });
 
 // Simplified system message for native MCP integration
-const SYSTEM_MESSAGE = `You are an AI assistant on Andy Cohen's personal website. You have access to comprehensive information about Andy Cohen, a software engineering leader and Sitecore XM Cloud architect.
+const SYSTEM_MESSAGE = `You are an AI assistant on ${displayName}'s personal website. You have access to comprehensive information about ${displayName}, a software engineering leader and Sitecore XM Cloud architect.
 
-When users ask about Andy or request information about his background, experience, projects, or achievements, use the available MCP tools to fetch accurate, current information. The MCP server provides access to:
+When users ask about ${firstName} or request information about his background, experience, projects, or achievements, use the available MCP tools to fetch accurate, current information. The MCP server provides access to:
 - Contact information and professional details
 - Biography (short and full versions)
 - Work experience and career history
@@ -83,7 +99,10 @@ const MODEL = process.env.LLM_MODEL || "gpt-4o-mini";
 const FORCE_NON_STREAMING = process.env.LLM_FORCE_NON_STREAMING === "true";
 
 // Log configuration in debug mode
-debug.log("CHAT-CONFIG", `Model: ${MODEL}, Temperature: ${TEMPERATURE}, Max Loops: ${MAX_TOOL_LOOPS}, Non-Streaming: ${FORCE_NON_STREAMING}`);
+debug.log(
+  "CHAT-CONFIG",
+  `Model: ${MODEL}, Temperature: ${TEMPERATURE}, Max Loops: ${MAX_TOOL_LOOPS}, Non-Streaming: ${FORCE_NON_STREAMING}`
+);
 
 export async function POST(request: NextRequest) {
   const startTime = Date.now();
@@ -146,45 +165,79 @@ export async function POST(request: NextRequest) {
       debug.log("MCP-NATIVE", "Attempting native MCP integration");
 
       // Construct MCP server URL from base URL + endpoint (must be publicly accessible to OpenAI)
-      const mcpServerBaseUrl = process.env.CHAT_MCP_SERVER_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://www.iamandycohen.com';
-      const mcpServerEndpoint = process.env.CHAT_MCP_SERVER_ENDPOINT || '/api/mcp';
+      const mcpServerBaseUrl =
+        process.env.CHAT_MCP_SERVER_URL ||
+        process.env.NEXT_PUBLIC_SITE_URL ||
+        "https://www.iamandycohen.com";
+      const mcpServerEndpoint =
+        process.env.CHAT_MCP_SERVER_ENDPOINT || "/api/mcp";
 
       // Use URL constructor to properly combine base URL and endpoint
-      const mcpServerUrl = new URL(mcpServerEndpoint, mcpServerBaseUrl).toString();
-      debug.log("MCP-NATIVE", `Using MCP server: ${mcpServerUrl} (base: ${mcpServerBaseUrl}, endpoint: ${mcpServerEndpoint})`);
+      const mcpServerUrl = new URL(
+        mcpServerEndpoint,
+        mcpServerBaseUrl
+      ).toString();
+      debug.log(
+        "MCP-NATIVE",
+        `Using MCP server: ${mcpServerUrl} (base: ${mcpServerBaseUrl}, endpoint: ${mcpServerEndpoint})`
+      );
 
       // Validate that the URL is publicly accessible
-      if (mcpServerBaseUrl.includes('localhost') || mcpServerBaseUrl.includes('127.0.0.1')) {
-        throw new Error('MCP server URL must be publicly accessible to OpenAI (no localhost URLs)');
+      if (
+        mcpServerBaseUrl.includes("localhost") ||
+        mcpServerBaseUrl.includes("127.0.0.1")
+      ) {
+        throw new Error(
+          "MCP server URL must be publicly accessible to OpenAI (no localhost URLs)"
+        );
       }
 
       mcpTools = [
         {
           type: "mcp" as const,
           server_label: "andy-cohen-portfolio",
-          server_description: "Andy Cohen's professional portfolio MCP server providing access to contact info, bio, resume, projects, and community contributions.",
+          server_description: `${displayName}'s professional portfolio MCP server providing access to contact info, bio, resume, projects, and community contributions.`,
           server_url: mcpServerUrl,
           require_approval: "never" as const,
-        }
+        },
       ];
 
       useNativeMCP = true;
-      debug.perf("MCP-NATIVE", "Native MCP integration configured", mcpStartTime);
+      debug.perf(
+        "MCP-NATIVE",
+        "Native MCP integration configured",
+        mcpStartTime
+      );
       logger.info(`Native MCP integration enabled: ${mcpServerUrl}`);
-
     } catch (error) {
-      debug.warn("MCP-NATIVE", "Native MCP integration not available, falling back to proxy pattern");
-      debug.log("MCP-NATIVE", `Fallback reason: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      debug.warn(
+        "MCP-NATIVE",
+        "Native MCP integration not available, falling back to proxy pattern"
+      );
+      debug.log(
+        "MCP-NATIVE",
+        `Fallback reason: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`
+      );
 
       // Fall back to proxy pattern
       try {
         debug.log("MCP-PROXY", "Loading MCP tools via proxy");
         const mcpToolsList = await listMcpTools();
         tools = mcpToolsList.map(convertMcpToolToOpenAI);
-        debug.perf("MCP-PROXY", `Proxy MCP integration loaded ${tools.length} tools`, mcpStartTime);
+        debug.perf(
+          "MCP-PROXY",
+          `Proxy MCP integration loaded ${tools.length} tools`,
+          mcpStartTime
+        );
         logger.info(`MCP proxy integration enabled with ${tools.length} tools`);
       } catch (proxyError) {
-        debug.error("MCP-PROXY", "Both native and proxy MCP integration failed", proxyError);
+        debug.error(
+          "MCP-PROXY",
+          "Both native and proxy MCP integration failed",
+          proxyError
+        );
         logger.warn("MCP integration unavailable, continuing without tools");
       }
     }
@@ -214,10 +267,15 @@ export async function POST(request: NextRequest) {
                 const openaiStartTime = Date.now();
 
                 if (useNativeMCP) {
-                  debug.log("OPENAI-NATIVE", "Calling OpenAI Responses API with native MCP");
+                  debug.log(
+                    "OPENAI-NATIVE",
+                    "Calling OpenAI Responses API with native MCP"
+                  );
 
                   // Use the new responses.create() API with native MCP integration
-                  const userInput = conversationMessages[conversationMessages.length - 1]?.content || "";
+                  const userInput =
+                    conversationMessages[conversationMessages.length - 1]
+                      ?.content || "";
 
                   const responseResult = await openai.responses.create({
                     model: MODEL,
@@ -226,23 +284,48 @@ export async function POST(request: NextRequest) {
                     temperature: TEMPERATURE,
                   });
 
-                  debug.perf("OPENAI-NATIVE", "OpenAI response received", openaiStartTime);
+                  debug.perf(
+                    "OPENAI-NATIVE",
+                    "OpenAI response received",
+                    openaiStartTime
+                  );
 
                   // Log MCP interactions for debugging
                   if (responseResult.output) {
-                    const mcpListTools = responseResult.output.filter(item => item.type === 'mcp_list_tools');
-                    const mcpCalls = responseResult.output.filter(item => item.type === 'mcp_call');
+                    const mcpListTools = responseResult.output.filter(
+                      (item) => item.type === "mcp_list_tools"
+                    );
+                    const mcpCalls = responseResult.output.filter(
+                      (item) => item.type === "mcp_call"
+                    );
 
                     if (mcpListTools.length > 0) {
-                      debug.log("MCP-NATIVE", `Listed ${mcpListTools[0].tools?.length || 0} tools from server`);
-                      logger.success(`MCP discovered ${mcpListTools[0].tools?.length || 0} tools`);
+                      debug.log(
+                        "MCP-NATIVE",
+                        `Listed ${
+                          mcpListTools[0].tools?.length || 0
+                        } tools from server`
+                      );
+                      logger.success(
+                        `MCP discovered ${
+                          mcpListTools[0].tools?.length || 0
+                        } tools`
+                      );
                     }
 
                     if (mcpCalls.length > 0) {
-                      debug.log("MCP-NATIVE", `Made ${mcpCalls.length} tool calls`);
+                      debug.log(
+                        "MCP-NATIVE",
+                        `Made ${mcpCalls.length} tool calls`
+                      );
                       logger.info(`MCP executed ${mcpCalls.length} tool calls`);
                       mcpCalls.forEach((call, i) => {
-                        debug.log("MCP-NATIVE", `${i + 1}. ${call.name}(${call.arguments}) → ${call.output || call.error}`);
+                        debug.log(
+                          "MCP-NATIVE",
+                          `${i + 1}. ${call.name}(${call.arguments}) → ${
+                            call.output || call.error
+                          }`
+                        );
                       });
                     }
                   }
@@ -264,22 +347,30 @@ export async function POST(request: NextRequest) {
 
                   // Native MCP handles everything - we're done
                   break;
-
                 } else {
                   // Use traditional chat.completions.create with proxy pattern
-                  debug.log("OPENAI-PROXY", "Calling OpenAI streaming API with proxy MCP");
+                  debug.log(
+                    "OPENAI-PROXY",
+                    "Calling OpenAI streaming API with proxy MCP"
+                  );
                   response = await openai.chat.completions.create({
                     model: MODEL,
-                    messages: [{ role: "system", content: SYSTEM_MESSAGE }, ...conversationMessages],
+                    messages: [
+                      { role: "system", content: SYSTEM_MESSAGE },
+                      ...conversationMessages,
+                    ],
                     tools: tools.length > 0 ? tools : undefined,
                     tool_choice: tools.length > 0 ? "auto" : undefined,
                     temperature: TEMPERATURE,
                     stream: true,
                     stream_options: { include_usage: true },
                   });
-                  debug.perf("OPENAI-PROXY", "OpenAI streaming response received", openaiStartTime);
+                  debug.perf(
+                    "OPENAI-PROXY",
+                    "OpenAI streaming response received",
+                    openaiStartTime
+                  );
                 }
-
               } catch (streamError: unknown) {
                 // If streaming fails (e.g., unverified organization), fall back to non-streaming
                 if (
@@ -310,7 +401,9 @@ export async function POST(request: NextRequest) {
               }
 
               const openaiNonStreamStartTime = Date.now();
-              console.log(`🤖 [${openaiNonStreamStartTime}] Chat API: Calling OpenAI non-streaming API...`);
+              console.log(
+                `🤖 [${openaiNonStreamStartTime}] Chat API: Calling OpenAI non-streaming API...`
+              );
               const nonStreamResponse = await openai.chat.completions.create({
                 model: MODEL,
                 messages: conversationMessages,
@@ -319,7 +412,11 @@ export async function POST(request: NextRequest) {
                 temperature: TEMPERATURE,
                 stream: false,
               });
-              console.log(`✅ [${Date.now()}] Chat API: OpenAI non-streaming response received (+${Date.now() - openaiNonStreamStartTime}ms)`);
+              console.log(
+                `✅ [${Date.now()}] Chat API: OpenAI non-streaming response received (+${
+                  Date.now() - openaiNonStreamStartTime
+                }ms)`
+              );
 
               // Simulate streaming for non-stream response
               const content =
@@ -383,8 +480,8 @@ export async function POST(request: NextRequest) {
                   const mcpResult = toolResult as MCPToolResult;
                   const toolContent = mcpResult.content
                     ? mcpResult.content
-                      .map((item: MCPTextContent) => item.text)
-                      .join("\n")
+                        .map((item: MCPTextContent) => item.text)
+                        .join("\n")
                     : JSON.stringify(toolResult);
 
                   toolMessages.push({
@@ -403,23 +500,30 @@ export async function POST(request: NextRequest) {
                   );
                 } catch (toolError) {
                   console.error(
-                    `Error executing tool ${isFunctionToolCall(toolCall) ? toolCall.function.name : (toolCall as BaseToolCall).id}:`,
+                    `Error executing tool ${
+                      isFunctionToolCall(toolCall)
+                        ? toolCall.function.name
+                        : (toolCall as BaseToolCall).id
+                    }:`,
                     toolError
                   );
                   toolMessages.push({
                     role: "tool",
                     tool_call_id: (toolCall as BaseToolCall).id,
-                    content: `Error: Failed to execute tool - ${toolError instanceof Error
-                      ? toolError.message
-                      : "Unknown error"
-                      }`,
+                    content: `Error: Failed to execute tool - ${
+                      toolError instanceof Error
+                        ? toolError.message
+                        : "Unknown error"
+                    }`,
                   });
 
                   controller.enqueue(
                     encoder.encode(
                       `data: ${JSON.stringify({
                         toolCall: {
-                          name: isFunctionToolCall(toolCall) ? toolCall.function.name : 'unknown',
+                          name: isFunctionToolCall(toolCall)
+                            ? toolCall.function.name
+                            : "unknown",
                           status: "error",
                           error:
                             toolError instanceof Error
@@ -437,10 +541,16 @@ export async function POST(request: NextRequest) {
             } else {
               // Handle streaming response
               let currentAssistantMessage = "";
-              const toolCalls: Array<{ id: string; type: 'function'; function: { name: string; arguments: string } }> = [];
+              const toolCalls: Array<{
+                id: string;
+                type: "function";
+                function: { name: string; arguments: string };
+              }> = [];
 
               const streamIteratorStartTime = Date.now();
-              console.log(`🔄 [${streamIteratorStartTime}] Chat API: Starting to iterate over stream chunks...`);
+              console.log(
+                `🔄 [${streamIteratorStartTime}] Chat API: Starting to iterate over stream chunks...`
+              );
               let chunkCount = 0;
               let firstChunkTime: number | null = null;
 
@@ -448,12 +558,18 @@ export async function POST(request: NextRequest) {
                 chunkCount++;
                 if (firstChunkTime === null) {
                   firstChunkTime = Date.now();
-                  console.log(`🎯 [${firstChunkTime}] Chat API: First chunk received (+${firstChunkTime - streamIteratorStartTime}ms)`);
+                  console.log(
+                    `🎯 [${firstChunkTime}] Chat API: First chunk received (+${
+                      firstChunkTime - streamIteratorStartTime
+                    }ms)`
+                  );
                 }
 
                 // Reduce logging frequency for better performance
                 if (chunkCount % 50 === 0) {
-                  console.log(`📊 [${Date.now()}] Chat API: Processed ${chunkCount} chunks`);
+                  console.log(
+                    `📊 [${Date.now()}] Chat API: Processed ${chunkCount} chunks`
+                  );
                 }
 
                 const delta = chunk.choices[0]?.delta;
@@ -500,7 +616,11 @@ export async function POST(request: NextRequest) {
               }
 
               const streamEndTime = Date.now();
-              console.log(`🏁 [${streamEndTime}] Chat API: Stream iteration completed. Total chunks: ${chunkCount}, Duration: ${streamEndTime - streamIteratorStartTime}ms`);
+              console.log(
+                `🏁 [${streamEndTime}] Chat API: Stream iteration completed. Total chunks: ${chunkCount}, Duration: ${
+                  streamEndTime - streamIteratorStartTime
+                }ms`
+              );
 
               // Add assistant message to conversation
               const assistantMessage: ChatCompletionMessageParam = {
@@ -550,8 +670,8 @@ export async function POST(request: NextRequest) {
                   const mcpResult = toolResult as MCPToolResult;
                   const toolContent = mcpResult.content
                     ? mcpResult.content
-                      .map((item: MCPTextContent) => item.text)
-                      .join("\n")
+                        .map((item: MCPTextContent) => item.text)
+                        .join("\n")
                     : JSON.stringify(toolResult);
 
                   toolMessages.push({
@@ -570,16 +690,21 @@ export async function POST(request: NextRequest) {
                   );
                 } catch (toolError) {
                   console.error(
-                    `Error executing tool ${isFunctionToolCall(toolCall) ? toolCall.function.name : (toolCall as BaseToolCall).id}:`,
+                    `Error executing tool ${
+                      isFunctionToolCall(toolCall)
+                        ? toolCall.function.name
+                        : (toolCall as BaseToolCall).id
+                    }:`,
                     toolError
                   );
                   toolMessages.push({
                     role: "tool",
                     tool_call_id: (toolCall as BaseToolCall).id,
-                    content: `Error: Failed to execute tool - ${toolError instanceof Error
-                      ? toolError.message
-                      : "Unknown error"
-                      }`,
+                    content: `Error: Failed to execute tool - ${
+                      toolError instanceof Error
+                        ? toolError.message
+                        : "Unknown error"
+                    }`,
                   });
 
                   // Send tool error status to client
@@ -587,7 +712,9 @@ export async function POST(request: NextRequest) {
                     encoder.encode(
                       `data: ${JSON.stringify({
                         toolCall: {
-                          name: isFunctionToolCall(toolCall) ? toolCall.function.name : 'unknown',
+                          name: isFunctionToolCall(toolCall)
+                            ? toolCall.function.name
+                            : "unknown",
                           status: "error",
                           error:
                             toolError instanceof Error

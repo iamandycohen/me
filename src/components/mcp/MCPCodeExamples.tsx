@@ -1,22 +1,29 @@
-import { getConfiguredSiteUrl } from '@/lib/url-helpers';
-import MCPCodeExamplesClient from './MCPCodeExamplesClient';
+import { getConfiguredSiteUrl } from "@/lib/url-helpers";
+import MCPCodeExamplesClient from "./MCPCodeExamplesClient";
+import { getDisplayName, getFirstName } from "@/lib/data-helpers";
+import data from "@/lib/data";
+
+// Constants for reuse throughout the component
+const displayName = getDisplayName(data.contact);
+const firstName = getFirstName(data.contact);
 
 interface CodeExample {
   title: string;
   description: string;
   language: string;
   code: string;
-  category: 'integration' | 'protocol' | 'discovery';
+  category: "integration" | "protocol" | "discovery";
 }
 
 function getCodeExamples(siteUrl: string): CodeExample[] {
   return [
     {
       title: "MCP Client Integration",
-      description: "How to integrate with this MCP server in your AI application",
+      description:
+        "How to integrate with this MCP server in your AI application",
       language: "typescript",
       category: "integration",
-      code: `// Connect to Andy Cohen's MCP server
+      code: `// Connect to ${displayName}'s MCP server
 import { MCPClient } from '@modelcontextprotocol/sdk';
 
 const client = new MCPClient({
@@ -41,14 +48,15 @@ const bio = await client.callTool({
   arguments: { format: 'short' }
 });
 
-console.log('Andy's bio:', bio.content);`
-  },
-  {
-    title: "JSON-RPC Protocol Flow",
-    description: "Raw protocol communication showing MCP's JSON-RPC 2.0 implementation",
-    language: "json",
-    category: "protocol",
-    code: `// 1. Client initializes connection
+console.log('${firstName}\'s bio:', bio.content);`,
+    },
+    {
+      title: "JSON-RPC Protocol Flow",
+      description:
+        "Raw protocol communication showing MCP's JSON-RPC 2.0 implementation",
+      language: "json",
+      category: "protocol",
+      code: `// 1. Client initializes connection
 {
   "jsonrpc": "2.0",
   "method": "initialize",
@@ -64,7 +72,10 @@ console.log('Andy's bio:', bio.content);`
 {
   "jsonrpc": "2.0",
   "result": {
-    "serverInfo": { "name": "AndyCohen-MCP", "version": "1.0" },
+    "serverInfo": { "name": "${firstName.replace(
+      " ",
+      ""
+    )}-MCP", "version": "1.0" },
     "capabilities": {
       "tools": { "listChanged": true },
       "resources": {}
@@ -82,14 +93,15 @@ console.log('Andy's bio:', bio.content);`
     "arguments": { "limit": 3 }
   },
   "id": 2
-}`
-  },
-  {
-    title: "Agent Discovery Standards",
-    description: "Multiple discovery methods for AI agents to find this server",
-    language: "bash",
-    category: "discovery",
-    code: `# 1. LLM Agent Instructions
+}`,
+    },
+    {
+      title: "Agent Discovery Standards",
+      description:
+        "Multiple discovery methods for AI agents to find this server",
+      language: "bash",
+      category: "discovery",
+      code: `# 1. LLM Agent Instructions
 curl ${siteUrl}/llms.txt
 # Returns: Structured instructions for AI agents
 
@@ -109,15 +121,16 @@ curl -H "Content-Type: application/json" \\
 
 # 5. HTTP Headers for Agent Detection
 curl -I ${siteUrl}/
-# Look for: X-MCP-Server: available`
-  },
-  {
-    title: "Advanced Tool Composition",
-    description: "How AI agents can chain multiple MCP tools for complex queries",
-    language: "typescript",
-    category: "integration",
-    code: `// AI agent workflow for complex query:
-// "Create an executive summary of Andy's background"
+# Look for: X-MCP-Server: available`,
+    },
+    {
+      title: "Advanced Tool Composition",
+      description:
+        "How AI agents can chain multiple MCP tools for complex queries",
+      language: "typescript",
+      category: "integration",
+      code: `// AI agent workflow for complex query:
+// "Create an executive summary of ${firstName}'s background"
 
 async function createExecutiveSummary() {
   // 1. Get basic info
@@ -148,8 +161,8 @@ async function createExecutiveSummary() {
   });
 }
 
-// This is exactly what happens in the chat interface!`
-    }
+// This is exactly what happens in the chat interface!`,
+    },
   ];
 }
 
@@ -160,7 +173,9 @@ export default function MCPCodeExamples() {
   return (
     <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
       <div className="mb-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Code Examples & Integration</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">
+          Code Examples & Integration
+        </h3>
         <p className="text-gray-600">
           See how developers and AI agents can integrate with this MCP server
         </p>
@@ -173,10 +188,13 @@ export default function MCPCodeExamples() {
         <div className="flex items-start gap-3">
           <span className="text-green-600 text-lg">✨</span>
           <div>
-            <h4 className="font-medium text-green-900 mb-1">Production Ready</h4>
+            <h4 className="font-medium text-green-900 mb-1">
+              Production Ready
+            </h4>
             <p className="text-sm text-green-700">
-              This MCP server is running in production right now. The chat interface above uses these exact patterns 
-              to provide AI-powered assistance with real-time tool calls.
+              This MCP server is running in production right now. The chat
+              interface above uses these exact patterns to provide AI-powered
+              assistance with real-time tool calls.
             </p>
           </div>
         </div>

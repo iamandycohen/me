@@ -1,4 +1,10 @@
-'use client';
+"use client";
+
+import { getFirstName } from "@/lib/data-helpers";
+import data from "@/lib/data";
+
+// Constants for reuse throughout the component
+const firstName = getFirstName(data.contact);
 
 interface DemoQuestion {
   question: string;
@@ -12,33 +18,40 @@ interface ChatDemoQuestionsProps {
 
 const DEMO_QUESTIONS: DemoQuestion[] = [
   {
-    question: "What projects has Andy worked on recently?",
-    explanation: "Calls the 'projects' MCP tool to get real engineering project data",
-    icon: "🔧"
+    question: `What projects has ${firstName} worked on recently?`,
+    explanation:
+      "Calls the 'projects' MCP tool to get real engineering project data",
+    icon: "🔧",
   },
   {
-    question: "Show me Andy's community involvement and MVP awards",
-    explanation: "Uses 'community' tool to fetch awards, conferences, and contributions",
-    icon: "🏆"
+    question: `Show me ${firstName}'s community involvement and MVP awards`,
+    explanation:
+      "Uses 'community' tool to fetch awards, conferences, and contributions",
+    icon: "🏆",
   },
   {
-    question: "Tell me about the human side of Andy",
-    explanation: "Uses 'bio' tool to share personal journey, values, and philosophy behind the work",
-    icon: "🧑"
+    question: `Tell me about the human side of ${firstName}`,
+    explanation:
+      "Uses 'bio' tool to share personal journey, values, and philosophy behind the work",
+    icon: "🧑",
   },
   {
-    question: "Create a brief executive summary of Andy's background",
-    explanation: "Combines multiple MCP tools (bio, resume, projects) intelligently",
-    icon: "📋"
+    question: `Create a brief executive summary of ${firstName}'s background`,
+    explanation:
+      "Combines multiple MCP tools (bio, resume, projects) intelligently",
+    icon: "📋",
   },
   {
-    question: "What's Andy's current role and recent experience?",
-    explanation: "Fetches live resume data via 'resume' tool with latest positions",
-    icon: "💼"
-  }
+    question: `What's ${firstName}'s current role and recent experience?`,
+    explanation:
+      "Fetches live resume data via 'resume' tool with latest positions",
+    icon: "💼",
+  },
 ];
 
-export default function ChatDemoQuestions({ onQuestionSelect }: ChatDemoQuestionsProps) {
+export default function ChatDemoQuestions({
+  onQuestionSelect,
+}: ChatDemoQuestionsProps) {
   return (
     <div className="mb-6">
       <div className="flex items-center gap-2 mb-3">
@@ -46,9 +59,10 @@ export default function ChatDemoQuestions({ onQuestionSelect }: ChatDemoQuestion
         <h3 className="font-semibold text-gray-900">See MCP Tools in Action</h3>
       </div>
       <p className="text-sm text-gray-600 mb-4">
-        Click any question below to see the AI assistant call live MCP tools and fetch real data:
+        Click any question below to see the AI assistant call live MCP tools and
+        fetch real data:
       </p>
-      
+
       <div className="grid gap-2">
         {DEMO_QUESTIONS.map((demo, index) => (
           <button
@@ -64,29 +78,33 @@ export default function ChatDemoQuestions({ onQuestionSelect }: ChatDemoQuestion
                 <div className="font-medium text-sm text-gray-900 mb-1">
                   {demo.question}
                 </div>
-                <div className="text-xs text-gray-600">
-                  {demo.explanation}
-                </div>
+                <div className="text-xs text-gray-600">{demo.explanation}</div>
               </div>
-              <svg 
-                className="w-4 h-4 text-gray-400 group-hover:text-blue-500 transition-colors" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className="w-4 h-4 text-gray-400 group-hover:text-blue-500 transition-colors"
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </div>
           </button>
         ))}
       </div>
-      
+
       <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
         <div className="flex items-start gap-2">
           <span className="text-yellow-600 mt-0.5">💡</span>
           <div className="text-xs text-yellow-800">
-            <strong>Watch for tool calls!</strong> You&apos;ll see yellow indicators when the AI calls MCP tools, 
-            followed by structured JSON responses that get converted to natural language.
+            <strong>Watch for tool calls!</strong> You&apos;ll see yellow
+            indicators when the AI calls MCP tools, followed by structured JSON
+            responses that get converted to natural language.
           </div>
         </div>
       </div>

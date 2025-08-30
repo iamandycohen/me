@@ -1,26 +1,38 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect } from 'react';
-import { X, MessageCircle, Minimize2, ChevronDown, ChevronUp } from 'lucide-react';
-import McpChat, { McpChatRef } from '@/components/mcp/McpChat';
+import { useState, useRef, useEffect } from "react";
+import {
+  X,
+  MessageCircle,
+  Minimize2,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
+import McpChat, { McpChatRef } from "@/components/mcp/McpChat";
+import { getFirstName } from "@/lib/data-helpers";
+import data from "@/lib/data";
+
+// Constants for reuse throughout the component
+const firstName = getFirstName(data.contact);
 
 export default function FloatingChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [isStarterQuestionsExpanded, setIsStarterQuestionsExpanded] = useState(true);
+  const [isStarterQuestionsExpanded, setIsStarterQuestionsExpanded] =
+    useState(true);
   const chatRef = useRef<McpChatRef>(null);
 
   // Close on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
+      if (e.key === "Escape" && isOpen) {
         setIsOpen(false);
         setIsMinimized(false);
       }
     };
 
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen]);
 
   const toggleChat = () => {
@@ -48,11 +60,11 @@ export default function FloatingChatWidget() {
 
   // Suggested starter questions
   const starterQuestions = [
-    "Tell me about Andy's professional experience",
-    "What are Andy's key technical skills?",
-    "Show me Andy's recent projects",
-    "What's Andy's community involvement?",
-    "Tell me about the human side of Andy",
+    `Tell me about ${firstName}'s professional experience`,
+    `What are ${firstName}'s key technical skills?`,
+    `Show me ${firstName}'s recent projects`,
+    `What's ${firstName}'s community involvement?`,
+    `Tell me about the human side of ${firstName}`,
   ];
 
   const handleQuestionSelect = (question: string) => {
@@ -121,9 +133,10 @@ export default function FloatingChatWidget() {
             {/* Welcome Message & Starter Questions */}
             <div className="flex-shrink-0 p-4 border-b border-gray-100 bg-gray-50">
               <p className="text-sm text-gray-600 mb-3">
-                Hi! I&apos;m Andy&apos;s AI assistant. Ask me anything about his professional background, projects, or experience.
+                Hi! I&apos;m {firstName}&apos;s AI assistant. Ask me anything
+                about his professional background, projects, or experience.
               </p>
-              
+
               {/* Starter Questions */}
               <div className="space-y-2">
                 <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">
@@ -153,7 +166,10 @@ export default function FloatingChatWidget() {
 
       {/* Mobile Overlay for better UX on small screens */}
       {isOpen && !isMinimized && (
-        <div className="md:hidden fixed inset-0 bg-black bg-opacity-20 z-40" onClick={closeChat} />
+        <div
+          className="md:hidden fixed inset-0 bg-black bg-opacity-20 z-40"
+          onClick={closeChat}
+        />
       )}
 
       {/* Mobile Full Screen Chat */}
@@ -187,21 +203,26 @@ export default function FloatingChatWidget() {
           <div className="flex-shrink-0 border-b border-gray-100 bg-gray-50">
             <div className="p-4">
               <p className="text-sm text-gray-600 mb-3">
-                Hi! I&apos;m Andy&apos;s AI assistant. Ask me anything about his professional background, projects, or experience.
+                Hi! I&apos;m {firstName}&apos;s AI assistant. Ask me anything
+                about his professional background, projects, or experience.
               </p>
             </div>
-            
+
             {/* Collapsible Starter Questions */}
             <div className="border-t border-gray-200">
               <button
                 onClick={toggleStarterQuestions}
                 className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-100 transition-colors"
-                aria-expanded={isStarterQuestionsExpanded.toString()}
+                aria-expanded={isStarterQuestionsExpanded}
                 aria-controls="mobile-starter-questions"
               >
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium text-gray-700">Starter Questions</span>
-                  <span className="text-xs text-gray-500">({starterQuestions.length})</span>
+                  <span className="text-sm font-medium text-gray-700">
+                    Starter Questions
+                  </span>
+                  <span className="text-xs text-gray-500">
+                    ({starterQuestions.length})
+                  </span>
                 </div>
                 {isStarterQuestionsExpanded ? (
                   <ChevronUp size={16} className="text-gray-500" />
@@ -209,9 +230,9 @@ export default function FloatingChatWidget() {
                   <ChevronDown size={16} className="text-gray-500" />
                 )}
               </button>
-              
+
               {isStarterQuestionsExpanded && (
-                <div 
+                <div
                   id="mobile-starter-questions"
                   className="px-4 pb-4 space-y-2 animate-in slide-in-from-top-2 duration-200"
                 >
