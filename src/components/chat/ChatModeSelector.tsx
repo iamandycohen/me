@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { clsx } from "clsx";
 
-export type ChatMode = "proxy" | "native" | "agents";
+export type ChatMode = "agents" | "proxy" | "native";
 
 interface ChatModeSelectorProps {
   selectedMode: ChatMode;
@@ -12,36 +12,37 @@ interface ChatModeSelectorProps {
 }
 
 const MODE_CONFIG = {
+  agents: {
+    label: "Agents Mode",
+    shortLabel: "Agents",
+    description: "OpenAI Agents SDK with enhanced tool interaction",
+    icon: "🚀",
+    features: ["Agents SDK", "Enhanced interaction", "Clean responses"],
+    recommended: true,
+  },
   proxy: {
     label: "Proxy Mode",
     shortLabel: "Proxy",
     description: "Direct MCP integration with real-time tool call updates",
     icon: "🔧",
     features: ["Real-time tool updates", "Fast response", "Full transparency"],
-    recommended: true,
+    recommended: false,
   },
   native: {
     label: "Native Mode",
     shortLabel: "Native",
-    description: "OpenAI handles MCP tools directly (tool calls shown after completion)",
+    description:
+      "OpenAI handles MCP tools directly (tool calls shown after completion)",
     icon: "🤖",
     features: ["OpenAI managed", "Tool summary", "Post-completion view"],
     recommended: false,
   },
-  agents: {
-    label: "Agents Mode",
-    shortLabel: "Agents",
-    description: "OpenAI Agents SDK with enhanced tool interaction",
-    icon: "🚀",
-    features: ["Agents SDK", "Enhanced interaction", "Real-time updates"],
-    recommended: false,
-  },
 } as const;
 
-export default function ChatModeSelector({ 
-  selectedMode, 
-  onModeChange, 
-  disabled = false 
+export default function ChatModeSelector({
+  selectedMode,
+  onModeChange,
+  disabled = false,
 }: ChatModeSelectorProps) {
   const [showDetails, setShowDetails] = useState(false);
 
@@ -71,15 +72,17 @@ export default function ChatModeSelector({
                   <span className="text-xs">{config.icon}</span>
                   {config.shortLabel}
                   {config.recommended && selectedMode !== mode && (
-                    <span className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full" 
-                          title="Recommended" />
+                    <span
+                      className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full"
+                      title="Recommended"
+                    />
                   )}
                 </span>
               </button>
             );
           })}
         </div>
-        
+
         <button
           onClick={() => setShowDetails(!showDetails)}
           className="ml-2 text-gray-500 hover:text-gray-700 text-xs"
@@ -94,7 +97,9 @@ export default function ChatModeSelector({
         <div className="absolute top-full left-0 right-0 mt-2 p-4 bg-white rounded-lg border shadow-lg z-10">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h4 className="text-sm font-semibold text-gray-900">Chat Modes</h4>
+              <h4 className="text-sm font-semibold text-gray-900">
+                Chat Modes
+              </h4>
               <button
                 onClick={() => setShowDetails(false)}
                 className="text-gray-400 hover:text-gray-600"
@@ -102,7 +107,7 @@ export default function ChatModeSelector({
                 ✕
               </button>
             </div>
-            
+
             <div className="space-y-3">
               {(Object.keys(MODE_CONFIG) as ChatMode[]).map((mode) => {
                 const config = MODE_CONFIG[mode];
@@ -154,16 +159,19 @@ export default function ChatModeSelector({
                 );
               })}
             </div>
-            
+
             <div className="text-xs text-gray-500 border-t pt-3">
               <p>
-                <strong>Proxy Mode:</strong> Best for seeing exactly what&apos;s happening with tool calls in real-time.
+                <strong>Agents Mode:</strong> Recommended - Uses OpenAI&apos;s
+                latest Agents SDK for the most intelligent responses.
               </p>
               <p className="mt-1">
-                <strong>Native Mode:</strong> OpenAI manages everything, but you&apos;ll see tool results only after completion.
+                <strong>Proxy Mode:</strong> Good for debugging - Shows exactly
+                what&apos;s happening with tool calls in real-time.
               </p>
               <p className="mt-1">
-                <strong>Agents Mode:</strong> Experimental mode using OpenAI&apos;s new Agents SDK (may have compatibility issues).
+                <strong>Native Mode:</strong> Basic mode - OpenAI manages
+                everything, shows tool results after completion.
               </p>
             </div>
           </div>

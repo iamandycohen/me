@@ -11,7 +11,10 @@ import { clsx } from "clsx";
 import ReactMarkdown from "react-markdown";
 import { getFirstName } from "@/lib/data-helpers";
 import data from "@/lib/data";
-import ChatModeSelector, { type ChatMode } from "@/components/chat/ChatModeSelector";
+import ChatModeSelector, {
+  type ChatMode,
+} from "@/components/chat/ChatModeSelector";
+import { ChatHandlerFactory } from "@/lib/chat-handlers/chat-handler-factory";
 
 interface Message {
   role: "user" | "assistant" | "system";
@@ -44,20 +47,22 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [toolCalls, setToolCalls] = useState<ToolCallStatus[]>([]);
-      const [internalChatMode, setInternalChatMode] = useState<ChatMode>("proxy");
-  const messagesContainerRef = useRef<HTMLDivElement>(null);
-  
-  // Use external mode if provided, otherwise use internal state
-  const chatMode = externalChatMode || internalChatMode;
-  const setChatMode = (mode: ChatMode) => {
-    if (onModeChange) {
-      onModeChange(mode);
-    } else {
-      setInternalChatMode(mode);
-    }
-  };
-  const abortControllerRef = useRef<AbortController | null>(null);
-  const streamingRef = useRef<boolean>(false);
+    const [internalChatMode, setInternalChatMode] = useState<ChatMode>(
+      ChatHandlerFactory.getDefaultMode()
+    );
+    const messagesContainerRef = useRef<HTMLDivElement>(null);
+
+    // Use external mode if provided, otherwise use internal state
+    const chatMode = externalChatMode || internalChatMode;
+    const setChatMode = (mode: ChatMode) => {
+      if (onModeChange) {
+        onModeChange(mode);
+      } else {
+        setInternalChatMode(mode);
+      }
+    };
+    const abortControllerRef = useRef<AbortController | null>(null);
+    const streamingRef = useRef<boolean>(false);
 
     const clearChatHandler = () => {
       setMessages([]);
@@ -87,18 +92,18 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
       scrollToBottom();
     }, [messages, toolCalls]);
 
-      const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim() || isLoading) return;
-    
-    // Prevent double execution (React StrictMode/concurrent features)
-    if (streamingRef.current) {
-      return;
-    }
-    streamingRef.current = true;
-    
-    // Clear previous tool calls when starting new conversation
-    setToolCalls([]);
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      if (!input.trim() || isLoading) return;
+
+      // Prevent double execution (React StrictMode/concurrent features)
+      if (streamingRef.current) {
+        return;
+      }
+      streamingRef.current = true;
+
+      // Clear previous tool calls when starting new conversation
+      setToolCalls([]);
 
       const userMessage: Message = {
         role: "user",
@@ -141,14 +146,17 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
         }
 
         const decoder = new TextDecoder();
-            const assistantMessage: Message = {
-      role: "assistant",
-      content: "",
-      timestamp: Date.now(),
-    };
+        const assistantMessage: Message = {
+          role: "assistant",
+          content: "",
+          timestamp: Date.now(),
+        };
 
-    const assistantMessageId = `assistant-${Date.now()}`;
-    setMessages((prev) => [...prev, { ...assistantMessage, id: assistantMessageId }]);
+        const assistantMessageId = `assistant-${Date.now()}`;
+        setMessages((prev) => [
+          ...prev,
+          { ...assistantMessage, id: assistantMessageId },
+        ]);
 
         try {
           while (true) {
@@ -288,7 +296,7 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
             <div className="flex items-center justify-center mb-4">
               <div className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded-full">
                 {chatMode === "proxy" && "🔧 Proxy Mode"}
-                {chatMode === "native" && "🤖 Native Mode"}  
+                {chatMode === "native" && "🤖 Native Mode"}
                 {chatMode === "agents" && "🚀 Agents Mode"}
               </div>
             </div>
@@ -314,7 +322,9 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
 
           {messages.map((message, index) => (
             <div
-              key={message.id || `${message.role}-${message.timestamp}-${index}`}
+              key={
+                message.id || `${message.role}-${message.timestamp}-${index}`
+              }
               className={clsx(
                 "flex",
                 message.role === "user"

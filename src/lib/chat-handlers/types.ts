@@ -1,6 +1,6 @@
 import type { ChatCompletionMessageParam } from "openai/resources/chat/completions";
 
-export type ChatMode = "proxy" | "native" | "agents";
+export type ChatMode = "agents" | "proxy" | "native";
 
 export interface ChatHandlerConfig {
   model: string;
