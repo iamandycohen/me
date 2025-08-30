@@ -121,16 +121,23 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
       abortControllerRef.current = abortController;
 
       try {
+        const messagesToSend = [...messages, userMessage]
+          .filter(msg =>
+            msg.content.trim().length > 0 && // Filter out empty messages
+            msg.role !== "system" // Filter out system messages (tool status, etc.)
+          )
+          .map(({ role, content }) => ({
+            role,
+            content,
+          }));
+
         const response = await fetch("/api/chat", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            messages: [...messages, userMessage].map(({ role, content }) => ({
-              role,
-              content,
-            })),
+            messages: messagesToSend,
             mode: chatMode,
           }),
           signal: abortController.signal,
@@ -233,9 +240,8 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
           ...prev,
           {
             role: "system",
-            content: `Error: ${
-              error instanceof Error ? error.message : "Unknown error"
-            }. Please try again.`,
+            content: `Error: ${error instanceof Error ? error.message : "Unknown error"
+              }. Please try again.`,
             timestamp: Date.now(),
             isError: true,
           },
@@ -330,8 +336,8 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
                 message.role === "user"
                   ? "justify-end"
                   : message.role === "system"
-                  ? "justify-center"
-                  : "justify-start"
+                    ? "justify-center"
+                    : "justify-start"
               )}
             >
               <div
@@ -340,10 +346,10 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
                   message.role === "user"
                     ? "bg-blue-600 text-white"
                     : message.role === "system"
-                    ? message.isError
-                      ? "bg-red-50 text-red-800 border border-red-200"
-                      : "bg-yellow-50 text-yellow-800 border border-yellow-200"
-                    : "bg-gray-100 text-gray-900"
+                      ? message.isError
+                        ? "bg-red-50 text-red-800 border border-red-200"
+                        : "bg-yellow-50 text-yellow-800 border border-yellow-200"
+                      : "bg-gray-100 text-gray-900"
                 )}
               >
                 <div className="whitespace-pre-wrap break-words">
@@ -466,8 +472,8 @@ const McpChat = forwardRef<McpChatRef, McpChatProps>(
                           toolCall.status === "completed"
                             ? "bg-green-500"
                             : toolCall.status === "error"
-                            ? "bg-red-500"
-                            : "bg-yellow-500"
+                              ? "bg-red-500"
+                              : "bg-yellow-500"
                         )}
                       />
                       <span className="text-yellow-700">{toolCall.name}</span>

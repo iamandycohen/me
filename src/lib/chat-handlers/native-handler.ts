@@ -1,13 +1,23 @@
 import OpenAI from "openai";
-import { BaseChatHandler } from "./base-handler";
+import { BaseChatHandler, type HandlerMetadata } from "./base-handler";
 import type { ChatHandlerConfig, ChatRequest } from "./types";
-import { debug, logger } from "@/lib/debug";
+import { logger } from "@/lib/debug";
 import { getDisplayName } from "@/lib/data-helpers";
 import data from "@/lib/data";
 
 export class NativeChatHandler extends BaseChatHandler {
   private openai: OpenAI;
   private displayName = getDisplayName(data.contact);
+
+  // Handler configuration
+  protected metadata: HandlerMetadata = {
+    name: "NATIVE-HANDLER",
+    displayName: "Native MCP Mode",
+    emoji: "🔧",
+    showToolDiscovery: true,
+    showRealTimeTools: false, // OpenAI handles tools
+    showToolSummary: true, // Show post-execution
+  };
 
   constructor() {
     super();
@@ -23,26 +33,13 @@ export class NativeChatHandler extends BaseChatHandler {
   ): Promise<void> {
     try {
       // Show informative message about native mode
-      this.streamSystem(
+      this.startSession(
         controller,
-        "🔧 Native MCP Mode: OpenAI is handling tool calls directly. Tool execution details will be shown after completion.",
-        "info"
+        "OpenAI is handling tool calls directly. Tool execution details will be shown after completion"
       );
 
-      // Construct MCP server URL
-      const mcpServerBaseUrl =
-        process.env.CHAT_MCP_SERVER_URL ||
-        process.env.NEXT_PUBLIC_SITE_URL ||
-        "https://www.iamandycohen.com";
-      const mcpServerEndpoint = process.env.CHAT_MCP_SERVER_ENDPOINT || "/api/mcp";
-      const mcpServerUrl = new URL(mcpServerEndpoint, mcpServerBaseUrl).toString();
-
-      debug.log("MCP-NATIVE", `Using MCP server: ${mcpServerUrl}`);
-
-      // Validate that the URL is publicly accessible
-      if (mcpServerBaseUrl.includes("localhost") || mcpServerBaseUrl.includes("127.0.0.1")) {
-        throw new Error("MCP server URL must be publicly accessible to OpenAI (no localhost URLs)");
-      }
+      // Get validated MCP server URL
+      const mcpServerUrl = this.getMcpServerUrl();
 
       const mcpTools = [
         {
@@ -54,20 +51,23 @@ export class NativeChatHandler extends BaseChatHandler {
         },
       ];
 
-      // Get the user input from the last message
-      const userInput = request.messages[request.messages.length - 1]?.content || "";
+      // Format the full conversation history
+      const conversationText = request.messages.map(msg => {
+        const role = msg.role === 'assistant' ? 'Assistant' : 'User';
+        return `${role}: ${msg.content}`;
+      }).join('\n\n');
 
-      debug.log("NATIVE-HANDLER", "Calling OpenAI Responses API with native MCP");
+      this.debugLog(`Calling OpenAI Responses API with native MCP, conversation length: ${request.messages.length} messages`);
 
       // Use the responses.create() API with native MCP integration
       const responseResult = await this.openai.responses.create({
         model: config.model,
         tools: mcpTools,
-        input: `${config.systemMessage}\n\nUser: ${userInput}`,
+        input: `${config.systemMessage}\n\n${conversationText}`,
         temperature: config.temperature,
       });
 
-      debug.log("NATIVE-HANDLER", "OpenAI response received");
+      this.debugLog("OpenAI response received");
 
       // Log and display MCP interactions
       if (responseResult.output) {
@@ -80,41 +80,29 @@ export class NativeChatHandler extends BaseChatHandler {
 
         if (mcpListTools.length > 0) {
           const toolCount = mcpListTools[0].tools?.length || 0;
-          debug.log("MCP-NATIVE", `Listed ${toolCount} tools from server`);
+          this.debugLog(`Listed ${toolCount} tools from server`);
           logger.success(`MCP discovered ${toolCount} tools`);
-          
-          this.streamSystem(
-            controller,
-            `✅ Discovered ${toolCount} available tools from MCP server`,
-            "info"
-          );
+
+          this.reportToolDiscovery(controller, toolCount);
         }
 
         if (mcpCalls.length > 0) {
-          debug.log("MCP-NATIVE", `Made ${mcpCalls.length} tool calls`);
+          this.debugLog(`Made ${mcpCalls.length} tool calls`);
           logger.info(`MCP executed ${mcpCalls.length} tool calls`);
 
-          // Show tool call summary
-          this.streamSystem(
-            controller,
-            `🔧 Executed ${mcpCalls.length} tool call${mcpCalls.length > 1 ? 's' : ''}:`,
-            "info"
-          );
+          // Convert to ToolCallResult format
+          const toolCallResults = mcpCalls.map(call => ({
+            name: call.name,
+            success: !call.error,
+            error: call.error || undefined
+          }));
 
+          // Log individual calls
           mcpCalls.forEach((call, i) => {
-            debug.log(
-              "MCP-NATIVE",
-              `${i + 1}. ${call.name}(${call.arguments}) → ${call.output || call.error}`
-            );
-            
-            const status = call.error ? "❌" : "✅";
-            const result = call.error ? `Error: ${call.error}` : "Success";
-            this.streamSystem(
-              controller,
-              `  ${status} ${call.name}() - ${result}`,
-              call.error ? "error" : "info"
-            );
+            this.debugLog(`${i + 1}. ${call.name}(${call.arguments}) → ${call.output || call.error}`);
           });
+
+          this.reportSessionSummary(controller, toolCallResults);
         }
       }
 
@@ -125,25 +113,21 @@ export class NativeChatHandler extends BaseChatHandler {
       }
 
       logger.info("Native MCP response completed successfully");
+      this.completeSession(controller);
       this.streamDone(controller);
     } catch (error) {
       logger.error("Error in native chat handler:", error);
-      
+
       if (error instanceof Error && error.message.includes("localhost")) {
         this.streamSystem(
           controller,
           "❌ Configuration Error: MCP server must be publicly accessible. Please check your deployment URL.",
           "error"
         );
+        this.streamDone(controller);
       } else {
-        this.streamSystem(
-          controller,
-          `❌ Native MCP Error: ${error instanceof Error ? error.message : "Unknown error"}. Please try switching to Proxy mode.`,
-          "error"
-        );
+        this.streamHandlerError(controller, error, ["Agents", "Proxy"]);
       }
-      
-      this.streamDone(controller);
     }
   }
 }

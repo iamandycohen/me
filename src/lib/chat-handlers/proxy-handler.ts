@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import { BaseChatHandler } from "./base-handler";
+import { BaseChatHandler, type HandlerMetadata } from "./base-handler";
 import type { ChatHandlerConfig, ChatRequest } from "./types";
 import type {
   ChatCompletionMessageParam,
@@ -10,7 +10,7 @@ import {
   callMcpTool,
   convertMcpToolToOpenAI,
 } from "@/lib/mcp-sdk";
-import { debug, logger } from "@/lib/debug";
+import { logger } from "@/lib/debug";
 
 interface MCPTextContent {
   type: "text";
@@ -49,6 +49,16 @@ function isFunctionToolCall(toolCall: unknown): toolCall is FunctionToolCall {
 export class ProxyChatHandler extends BaseChatHandler {
   private openai: OpenAI;
 
+  // Handler configuration
+  protected metadata: HandlerMetadata = {
+    name: "PROXY-HANDLER",
+    displayName: "Proxy Mode",
+    emoji: "⚡",
+    showToolDiscovery: true,
+    showRealTimeTools: true, // We control execution
+    showToolSummary: false, // Already shown real-time
+  };
+
   constructor() {
     super();
     this.openai = new OpenAI({
@@ -62,12 +72,20 @@ export class ProxyChatHandler extends BaseChatHandler {
     controller: ReadableStreamDefaultController<Uint8Array>
   ): Promise<void> {
     try {
+      // Show informative message about proxy mode
+      this.startSession(
+        controller,
+        "Direct MCP integration with real-time tool call updates"
+      );
+
       // Load MCP tools via proxy pattern using the MCP SDK
-      debug.log("MCP-PROXY", "Loading MCP tools via MCP SDK");
+      this.debugLog("Loading MCP tools via MCP SDK");
       const mcpToolsList = await listMcpTools();
       const tools = mcpToolsList.map(convertMcpToolToOpenAI);
-      debug.log("MCP-PROXY", `Loaded ${tools.length} tools via MCP SDK`);
+      this.debugLog(`Loaded ${tools.length} tools via MCP SDK`);
       logger.info(`MCP proxy integration enabled with ${tools.length} tools`);
+
+      this.reportToolDiscovery(controller, tools.length);
 
       const conversationMessages: ChatCompletionMessageParam[] = [
         ...request.messages,
@@ -76,10 +94,7 @@ export class ProxyChatHandler extends BaseChatHandler {
 
       while (loopCount < config.maxToolLoops) {
         loopCount++;
-        debug.log(
-          "PROXY-HANDLER",
-          `Loop ${loopCount} of ${config.maxToolLoops}`
-        );
+        this.debugLog(`Loop ${loopCount} of ${config.maxToolLoops}`);
 
         let useStreaming = true;
 
@@ -129,17 +144,11 @@ export class ProxyChatHandler extends BaseChatHandler {
         }
       }
 
+      this.completeSession(controller);
       this.streamDone(controller);
     } catch (error) {
       logger.error("Error in proxy chat handler:", error);
-      this.streamSystem(
-        controller,
-        `Error: ${
-          error instanceof Error ? error.message : "Unknown error"
-        }. Please try again.`,
-        "error"
-      );
-      this.streamDone(controller);
+      this.streamHandlerError(controller, error, ["Agents", "Native"]);
     }
   }
 
@@ -289,7 +298,7 @@ export class ProxyChatHandler extends BaseChatHandler {
         let toolArgs: Record<string, unknown> = {};
 
         // Show tool execution starting
-        this.streamSystem(controller, `🔧 Calling ${toolName}...`, "info");
+        this.reportToolExecution(controller, toolName, "start");
 
         if (toolCall.function.arguments) {
           try {
@@ -301,11 +310,7 @@ export class ProxyChatHandler extends BaseChatHandler {
               tool_call_id: toolCall.id,
               content: "Error: Invalid tool arguments provided",
             });
-            this.streamSystem(
-              controller,
-              `❌ ${toolName} failed: Invalid arguments`,
-              "error"
-            );
+            this.reportToolExecution(controller, toolName, "error", "Invalid arguments");
             continue;
           }
         }
@@ -314,8 +319,8 @@ export class ProxyChatHandler extends BaseChatHandler {
         const mcpResult = toolResult as MCPToolResult;
         const toolContent = mcpResult.content
           ? mcpResult.content
-              .map((item: MCPTextContent) => item.text)
-              .join("\n")
+            .map((item: MCPTextContent) => item.text)
+            .join("\n")
           : JSON.stringify(toolResult);
 
         toolMessages.push({
@@ -325,7 +330,7 @@ export class ProxyChatHandler extends BaseChatHandler {
         });
 
         // Show tool execution completed
-        this.streamSystem(controller, `✅ ${toolName} completed`, "info");
+        this.reportToolExecution(controller, toolName, "complete");
       } catch (toolError) {
         logger.error(
           `Error executing tool ${toolCall.function.name}:`,
@@ -334,17 +339,15 @@ export class ProxyChatHandler extends BaseChatHandler {
         toolMessages.push({
           role: "tool",
           tool_call_id: toolCall.id,
-          content: `Error: Failed to execute tool - ${
-            toolError instanceof Error ? toolError.message : "Unknown error"
-          }`,
+          content: `Error: Failed to execute tool - ${toolError instanceof Error ? toolError.message : "Unknown error"
+            }`,
         });
 
-        this.streamSystem(
+        this.reportToolExecution(
           controller,
-          `❌ ${toolCall.function.name} failed: ${
-            toolError instanceof Error ? toolError.message : "Unknown error"
-          }`,
-          "error"
+          toolCall.function.name,
+          "error",
+          toolError instanceof Error ? toolError.message : "Unknown error"
         );
       }
     }
