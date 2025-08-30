@@ -170,7 +170,7 @@ export async function POST(request: NextRequest) {
 
       useNativeMCP = true;
       debug.perf("MCP-NATIVE", "Native MCP integration configured", mcpStartTime);
-      logger.info(`Native MCP integration enabled: ${mcpServerUrl}/api/mcp`);
+      logger.info(`Native MCP integration enabled: ${mcpServerUrl}`);
 
     } catch (error) {
       debug.warn("MCP-NATIVE", "Native MCP integration not available, falling back to proxy pattern");

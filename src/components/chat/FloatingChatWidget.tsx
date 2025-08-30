@@ -2,13 +2,13 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { X, MessageCircle, Minimize2, ChevronDown, ChevronUp } from 'lucide-react';
-import McpChat from '@/components/mcp/McpChat';
+import McpChat, { McpChatRef } from '@/components/mcp/McpChat';
 
 export default function FloatingChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isStarterQuestionsExpanded, setIsStarterQuestionsExpanded] = useState(true);
-  const chatRef = useRef<{ setInput: (input: string) => void }>(null);
+  const chatRef = useRef<McpChatRef>(null);
 
   // Close on escape key
   useEffect(() => {
@@ -84,7 +84,7 @@ export default function FloatingChatWidget() {
 
       {/* Chat Widget */}
       {isOpen && !isMinimized && (
-        <div className="fixed bottom-6 right-6 z-50 w-96 h-[600px] bg-white rounded-lg shadow-2xl border border-gray-200 flex flex-col animate-slide-in-bottom">
+        <div className="fixed bottom-6 right-6 z-50 w-96 max-h-[80vh] h-[min(600px,80vh)] bg-white rounded-lg shadow-2xl border border-gray-200 flex flex-col animate-slide-in-bottom">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-blue-600 text-white rounded-t-lg">
             <div className="flex items-center space-x-2">
@@ -92,6 +92,13 @@ export default function FloatingChatWidget() {
               <h3 className="font-semibold">AI Assistant</h3>
             </div>
             <div className="flex items-center space-x-2">
+              <button
+                onClick={() => chatRef.current?.clearChat?.()}
+                className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700 text-sm"
+                aria-label="Clear chat"
+              >
+                Clear
+              </button>
               <button
                 onClick={minimizeChat}
                 className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700"
@@ -110,9 +117,9 @@ export default function FloatingChatWidget() {
           </div>
 
           {/* Chat Content */}
-          <div className="flex-1 flex flex-col">
+          <div className="flex-1 flex flex-col min-h-0">
             {/* Welcome Message & Starter Questions */}
-            <div className="p-4 border-b border-gray-100 bg-gray-50">
+            <div className="flex-shrink-0 p-4 border-b border-gray-100 bg-gray-50">
               <p className="text-sm text-gray-600 mb-3">
                 Hi! I&apos;m Andy&apos;s AI assistant. Ask me anything about his professional background, projects, or experience.
               </p>
@@ -137,8 +144,8 @@ export default function FloatingChatWidget() {
             </div>
 
             {/* Chat Interface */}
-            <div className="flex-1 min-h-0">
-              <McpChat ref={chatRef} />
+            <div className="flex-1 min-h-0 overflow-hidden">
+              <McpChat ref={chatRef} hideHeader={true} />
             </div>
           </div>
         </div>
@@ -158,17 +165,26 @@ export default function FloatingChatWidget() {
               <MessageCircle size={20} />
               <h3 className="font-semibold">AI Assistant</h3>
             </div>
-            <button
-              onClick={closeChat}
-              className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700"
-              aria-label="Close chat"
-            >
-              <X size={20} />
-            </button>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => chatRef.current?.clearChat?.()}
+                className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700 text-sm"
+                aria-label="Clear chat"
+              >
+                Clear
+              </button>
+              <button
+                onClick={closeChat}
+                className="text-white hover:text-gray-200 transition-colors p-1 rounded hover:bg-blue-700"
+                aria-label="Close chat"
+              >
+                <X size={20} />
+              </button>
+            </div>
           </div>
 
           {/* Mobile Welcome */}
-          <div className="border-b border-gray-100 bg-gray-50">
+          <div className="flex-shrink-0 border-b border-gray-100 bg-gray-50">
             <div className="p-4">
               <p className="text-sm text-gray-600 mb-3">
                 Hi! I&apos;m Andy&apos;s AI assistant. Ask me anything about his professional background, projects, or experience.
@@ -180,7 +196,7 @@ export default function FloatingChatWidget() {
               <button
                 onClick={toggleStarterQuestions}
                 className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-100 transition-colors"
-                aria-expanded={isStarterQuestionsExpanded}
+                aria-expanded={isStarterQuestionsExpanded.toString()}
                 aria-controls="mobile-starter-questions"
               >
                 <div className="flex items-center gap-2">
@@ -214,8 +230,8 @@ export default function FloatingChatWidget() {
           </div>
 
           {/* Mobile Chat */}
-          <div className="flex-1 min-h-0">
-            <McpChat ref={chatRef} />
+          <div className="flex-1 min-h-0 overflow-hidden">
+            <McpChat ref={chatRef} hideHeader={true} />
           </div>
         </div>
       )}

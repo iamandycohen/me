@@ -19,9 +19,14 @@ interface ToolCallStatus {
 
 export interface McpChatRef {
   setInput: (input: string) => void;
+  clearChat: () => void;
 }
 
-const McpChat = forwardRef<McpChatRef>((props, ref) => {
+interface McpChatProps {
+  hideHeader?: boolean;
+}
+
+const McpChat = forwardRef<McpChatRef, McpChatProps>(({ hideHeader = false }, ref) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -29,10 +34,20 @@ const McpChat = forwardRef<McpChatRef>((props, ref) => {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
 
+  const clearChatHandler = () => {
+    setMessages([]);
+    setToolCalls([]);
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+      setIsLoading(false);
+    }
+  };
+
   useImperativeHandle(ref, () => ({
     setInput: (newInput: string) => {
       setInput(newInput);
-    }
+    },
+    clearChat: clearChatHandler
   }));
 
   const scrollToBottom = () => {
@@ -193,24 +208,24 @@ const McpChat = forwardRef<McpChatRef>((props, ref) => {
   };
 
   const clearChat = () => {
-    setMessages([]);
-    setToolCalls([]);
-    handleStop();
+    clearChatHandler();
   };
 
   return (
-    <div className="flex flex-col h-full max-h-[600px] border border-gray-200 rounded-lg bg-white shadow-sm">
-      {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50 rounded-t-lg">
-        <h3 className="font-semibold text-gray-900">AI Assistant</h3>
-        <button
-          onClick={clearChat}
-          className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
-          disabled={isLoading}
-        >
-          Clear Chat
-        </button>
-      </div>
+    <div className="flex flex-col h-full">
+      {/* Header - only show if not in floating widget */}
+      {!hideHeader && (
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50 rounded-t-lg">
+          <h3 className="font-semibold text-gray-900">AI Assistant</h3>
+          <button
+            onClick={clearChat}
+            className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+            disabled={isLoading}
+          >
+            Clear Chat
+          </button>
+        </div>
+      )}
 
       {/* Messages */}
       <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
@@ -337,48 +352,27 @@ const McpChat = forwardRef<McpChatRef>((props, ref) => {
           </div>
         )}
 
-        {/* Enhanced Loading indicator with animations */}
-        {isLoading && toolCalls.length === 0 && (
-          <div className="flex justify-start">
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg px-4 py-3 text-sm">
-              <div className="flex items-center gap-3">
-                {/* Animated green pulsing dot */}
-                <div className="relative">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <div className="absolute inset-0 w-3 h-3 bg-green-400 rounded-full animate-ping"></div>
-                </div>
-
-                {/* Animated text with wave effect */}
-                <div className="flex items-center">
-                  <span className="text-green-700 font-medium mr-1">Thinking</span>
-                  <div className="flex gap-1">
-                    <span className="text-green-600 animate-bounce" style={{ animationDelay: '0ms' }}>.</span>
-                    <span className="text-green-600 animate-bounce" style={{ animationDelay: '150ms' }}>.</span>
-                    <span className="text-green-600 animate-bounce" style={{ animationDelay: '300ms' }}>.</span>
-                  </div>
-                </div>
-
-                {/* Wave animation bars */}
-                <div className="flex items-center gap-1 ml-2">
-                  <div className="w-1 bg-green-400 rounded-full animate-pulse" style={{ height: '8px', animationDelay: '0ms' }}></div>
-                  <div className="w-1 bg-green-500 rounded-full animate-pulse" style={{ height: '12px', animationDelay: '100ms' }}></div>
-                  <div className="w-1 bg-green-400 rounded-full animate-pulse" style={{ height: '6px', animationDelay: '200ms' }}></div>
-                  <div className="w-1 bg-green-500 rounded-full animate-pulse" style={{ height: '10px', animationDelay: '300ms' }}></div>
-                  <div className="w-1 bg-green-400 rounded-full animate-pulse" style={{ height: '8px', animationDelay: '400ms' }}></div>
-                </div>
-              </div>
-
-              {/* Subtle progress bar animation */}
-              <div className="mt-2 h-1 bg-green-100 rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-green-400 to-blue-400 rounded-full animate-pulse w-full opacity-60"></div>
-              </div>
-            </div>
-          </div>
-        )}
+                 {/* Loading indicator */}
+         {isLoading && toolCalls.length === 0 && (
+           <div className="flex justify-start">
+             <div className="flex items-center gap-2 text-sm">
+               <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+               {/* Animated text with wave effect */}
+               <div className="flex items-center">
+                 <span className="text-green-700 font-medium mr-1">Thinking</span>
+                 <div className="flex gap-1">
+                   <span className="text-green-600 animate-bounce">.</span>
+                   <span className="text-green-600 animate-bounce [animation-delay:150ms]">.</span>
+                   <span className="text-green-600 animate-bounce [animation-delay:300ms]">.</span>
+                 </div>
+               </div>
+             </div>
+           </div>
+         )}
       </div>
 
       {/* Input Form */}
-      <form onSubmit={handleSubmit} className="p-4 border-t border-gray-200 bg-gray-50">
+      <form onSubmit={handleSubmit} className="flex-shrink-0 p-4 border-t border-gray-200 bg-gray-50">
         <div className="flex gap-3">
           <input
             type="text"
