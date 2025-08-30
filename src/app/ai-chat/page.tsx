@@ -1,15 +1,36 @@
-"use client";
-
-import { useState } from "react";
+import { generatePageMetadata } from "@/lib/metadata-generators";
 import MCPExplainer from "@/components/mcp/MCPExplainer";
 import ChatInterface from "@/components/chat/ChatInterface";
 import data from "@/lib/data";
-import { getFirstName } from "@/lib/data-helpers";
-import ChatModesExplainer, { ChatModesExplainerTrigger } from "@/components/chat/ChatModesExplainer";
+import { getDisplayName, getFirstName } from "@/lib/data-helpers";
+import ChatModesExplainerWrapper from "@/components/chat/ChatModesExplainerWrapper";
 
-// Metadata is handled in layout.tsx since this is a client component
+export const metadata = generatePageMetadata(
+  "AI Chat",
+  `Chat with an AI assistant that has access to detailed information about ${getDisplayName(
+    data.contact
+  )}'s professional background, projects, and experience via live Model Context Protocol tools.`,
+  data.contact,
+  {
+    keywords: [
+      "AI chat",
+      "AI assistant",
+      getDisplayName(data.contact),
+      "professional",
+      "experience",
+      "MCP",
+      "Model Context Protocol",
+      "AI tools",
+      "proxy mode",
+      "native mode", 
+      "agents mode",
+      "chat implementations",
+    ],
+  },
+  "/ai-chat"
+);
+
 export default function ChatPage() {
-  const [showModesExplainer, setShowModesExplainer] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 py-8">
@@ -38,7 +59,7 @@ export default function ChatPage() {
               <div className="max-w-2xl">
                 <MCPExplainer variant="compact" />
               </div>
-              <ChatModesExplainerTrigger onClick={() => setShowModesExplainer(true)} />
+              <ChatModesExplainerWrapper />
             </div>
           </div>
 
@@ -76,11 +97,6 @@ export default function ChatPage() {
           </div>
         </div>
       </div>
-      
-      <ChatModesExplainer 
-        isOpen={showModesExplainer} 
-        onClose={() => setShowModesExplainer(false)} 
-      />
     </div>
   );
 }

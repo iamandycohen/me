@@ -1,5 +1,3 @@
-"use client";
-
 import { getFirstName } from "@/lib/data-helpers";
 import data from "@/lib/data";
 
