@@ -1,5 +1,22 @@
+// Run environment checks on startup (with guard to prevent duplicates)
+if (process.env.NODE_ENV === 'development' && !process.env.NEXT_PHASE && !process.env.__ENV_CHECK_DONE) {
+  process.env.__ENV_CHECK_DONE = 'true';
+  
+  try {
+    const { checkEnvironmentVariables } = require('./scripts/check-env-startup');
+    checkEnvironmentVariables();
+  } catch (error) {
+    console.error('Failed to run environment checks:', error);
+  }
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Performance optimizations
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: ['@heroicons/react', 'clsx', 'tailwind-merge'],
+  },
   // Advanced image optimization
   images: {
     formats: ['image/webp', 'image/avif'],
@@ -8,11 +25,6 @@ const nextConfig = {
     minimumCacheTTL: 31536000, // 1 year
     dangerouslyAllowSVG: false,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-  },
-  // Performance optimizations
-  experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['@heroicons/react', 'clsx', 'tailwind-merge'],
   },
   // Compiler optimizations
   compiler: {

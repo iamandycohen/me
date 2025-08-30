@@ -17,7 +17,9 @@
     "mcp:test": "curl -X POST http://localhost:3000/api/mcp -H \"Content-Type: application/json\" -H \"Accept: application/json, text/event-stream\" -d @mcp-test-payload.json",
     "mcp:client": "node node_modules/@modelcontextprotocol/sdk/dist/esm/examples/client/simpleStreamableHttp.js",
     "redis:check": "node scripts/check-redis.js",
-    "ratelimits:check": "node scripts/check-rate-limits.js"
+    "ratelimits:check": "node scripts/check-rate-limits.js",
+    "setup:env": "node scripts/setup-env.js",
+    "env:check": "node -e \"require('./scripts/check-env-startup').checkEnvironmentVariables()\""
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

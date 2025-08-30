@@ -156,6 +156,10 @@ cd me
 # Install dependencies  
 npm install
 
+# Set up environment variables
+npm run setup:env
+# Then edit .env.local with your API keys
+
 # Start development server
 npm run dev
 
@@ -174,6 +178,8 @@ npm run test:watch
 - `npm run lint:fix` - Fix linting issues automatically
 - `npm run type-check` - Run TypeScript type checking
 - `npm test` - Run Jest test suite
+- `npm run setup:env` - Set up environment variables from template
+- `npm run env:check` - Check environment variable configuration
 - `npm run mcp:test` - Test MCP server endpoints
 - `npm run redis:check` - Check Redis connection
 - `npm run ratelimits:check` - Check rate limiting status
@@ -184,17 +190,89 @@ npm run test:watch
 - **MCP Protocol Testing** for AI agent integration
 - **TypeScript Integration** for type-safe testing
 
-**Environment Setup:**
+## 🔧 Environment Setup
+
+### Quick Start (Recommended)
 ```bash
-# Required for AI chat functionality
-OPENAI_API_KEY=your_openai_api_key
+# 1. Copy the template to get started quickly
+npm run setup:env
 
-# Optional: Redis for production caching/rate limiting
-REDIS_URL=redis://localhost:6379
-
-# Optional: Production monitoring
-VERCEL_ENV=development
+# 2. Edit .env.local and add your API keys
+# 3. Start development
+npm run dev
 ```
+
+### Manual Setup
+```bash
+# Copy template file
+cp .env.local.template .env.local
+
+# Edit .env.local with your values
+```
+
+### Environment Variables
+
+#### Required Variables
+| Variable | Description | Where to Get |
+|----------|-------------|--------------|
+| `OPENAI_API_KEY` | OpenAI API key for chat functionality | [OpenAI Platform](https://platform.openai.com/api-keys) |
+
+#### Optional Variables (with defaults)
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `REDIS_URL` | _(none)_ | Redis URL for enhanced rate limiting and caching |
+| `SITE_URL` | `https://www.iamandycohen.com` | Site URL for absolute URLs |
+| `LLM_MODEL` | `gpt-4o-mini` | OpenAI model to use |
+| `LLM_TEMPERATURE` | `0.2` | AI response creativity (0.0-2.0) |
+| `LLM_MAX_TOOL_LOOPS` | `6` | Maximum tool execution loops |
+| `LLM_FORCE_NON_STREAMING` | `false` | Disable streaming responses |
+| `RATE_LIMIT_WINDOW_MS` | `60000` | Rate limit window (milliseconds) |
+| `RATE_LIMIT_CHAT` | `10` | Chat API requests per window |
+| `RATE_LIMIT_MCP` | `50` | MCP API requests per window |
+| `RATE_LIMIT_API` | `100` | Other API requests per window |
+| `NEXT_PUBLIC_GA_ID` | _(none)_ | Google Analytics ID |
+
+### Configuration Files
+- **`.env.local.template`** - Minimal setup template (copy to `.env.local`)
+- **`.env.example`** - Complete reference with all variables and documentation
+- **`.env.local`** - Your actual configuration (gitignored)
+
+### Redis Setup (Optional)
+Redis enhances rate limiting and provides caching. The app works without it but with reduced functionality.
+
+**Local Development:**
+```bash
+# Install Redis locally or use Docker
+docker run -d -p 6379:6379 redis:alpine
+
+# Set in .env.local
+REDIS_URL=redis://localhost:6379
+```
+
+**Production:**
+Use a Redis provider like [Upstash](https://upstash.com/) or [Redis Cloud](https://redis.com/redis-enterprise-cloud/).
+
+### Verification
+```bash
+# Check environment variable configuration
+npm run env:check
+
+# Check Redis connection
+npm run redis:check
+
+# Check rate limiting configuration  
+npm run ratelimits:check
+
+# Environment warnings will automatically appear when starting the dev server
+npm run dev
+```
+
+### Automatic Environment Validation
+The app automatically checks your environment configuration when starting:
+- **Startup warnings** appear in the console for missing required/optional variables
+- **Non-blocking** - app starts even with missing optional variables
+- **Development only** - warnings don't appear in production
+- **One-time check** - runs once at server startup via `next.config.js`
 
 ## 📞 Connect
 

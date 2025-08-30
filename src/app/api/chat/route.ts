@@ -21,8 +21,6 @@ import type {
   ChatCompletionToolMessageParam,
 } from "openai/resources/chat/completions";
 
-
-
 // Type definitions for MCP tool results
 interface MCPTextContent {
   type: 'text';
@@ -47,12 +45,10 @@ function isStreamError(error: unknown): error is StreamError {
 }
 
 function isFunctionToolCall(toolCall: unknown): toolCall is { id: string; type: 'function'; function: { name: string; arguments: string } } {
-  return toolCall != null && typeof toolCall === 'object' && 
-         'type' in toolCall && (toolCall as any).type === 'function' && 
-         'function' in toolCall && (toolCall as any).function?.name;
+  return toolCall != null && typeof toolCall === 'object' &&
+    'type' in toolCall && (toolCall as any).type === 'function' &&
+    'function' in toolCall && (toolCall as any).function?.name;
 }
-
-
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -222,7 +218,7 @@ export async function POST(request: NextRequest) {
               const toolMessages: ChatCompletionToolMessageParam[] = [];
               for (const toolCall of toolCalls) {
                 if (!isFunctionToolCall(toolCall)) continue;
-                
+
                 try {
                   const toolName = toolCall.function.name;
                   let toolArgs: Record<string, unknown> = {};
@@ -248,8 +244,8 @@ export async function POST(request: NextRequest) {
                   const mcpResult = toolResult as MCPToolResult;
                   const toolContent = mcpResult.content
                     ? mcpResult.content
-                        .map((item: MCPTextContent) => item.text)
-                        .join("\n")
+                      .map((item: MCPTextContent) => item.text)
+                      .join("\n")
                     : JSON.stringify(toolResult);
 
                   toolMessages.push({
@@ -274,11 +270,10 @@ export async function POST(request: NextRequest) {
                   toolMessages.push({
                     role: "tool",
                     tool_call_id: (toolCall as any).id,
-                    content: `Error: Failed to execute tool - ${
-                      toolError instanceof Error
-                        ? toolError.message
-                        : "Unknown error"
-                    }`,
+                    content: `Error: Failed to execute tool - ${toolError instanceof Error
+                      ? toolError.message
+                      : "Unknown error"
+                      }`,
                   });
 
                   controller.enqueue(
@@ -303,7 +298,7 @@ export async function POST(request: NextRequest) {
             } else {
               // Handle streaming response
               let currentAssistantMessage = "";
-              const toolCalls: Array<{id: string; type: 'function'; function: {name: string; arguments: string}}> = [];
+              const toolCalls: Array<{ id: string; type: 'function'; function: { name: string; arguments: string } }> = [];
 
               for await (const chunk of response!) {
                 const delta = chunk.choices[0]?.delta;
@@ -366,7 +361,7 @@ export async function POST(request: NextRequest) {
 
               for (const toolCall of toolCalls) {
                 if (!isFunctionToolCall(toolCall)) continue;
-                
+
                 try {
                   const toolName = toolCall.function.name;
                   let toolArgs: Record<string, unknown> = {};
@@ -392,8 +387,8 @@ export async function POST(request: NextRequest) {
                   const mcpResult = toolResult as MCPToolResult;
                   const toolContent = mcpResult.content
                     ? mcpResult.content
-                        .map((item: MCPTextContent) => item.text)
-                        .join("\n")
+                      .map((item: MCPTextContent) => item.text)
+                      .join("\n")
                     : JSON.stringify(toolResult);
 
                   toolMessages.push({
@@ -418,11 +413,10 @@ export async function POST(request: NextRequest) {
                   toolMessages.push({
                     role: "tool",
                     tool_call_id: (toolCall as any).id,
-                    content: `Error: Failed to execute tool - ${
-                      toolError instanceof Error
-                        ? toolError.message
-                        : "Unknown error"
-                    }`,
+                    content: `Error: Failed to execute tool - ${toolError instanceof Error
+                      ? toolError.message
+                      : "Unknown error"
+                      }`,
                   });
 
                   // Send tool error status to client
