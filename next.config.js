@@ -117,6 +117,19 @@ const nextConfig = {
             key: 'X-Content-Type-Options',
             value: 'nosniff'
           },
+          // MCP Server Advertisement Headers
+          {
+            key: 'X-MCP-Server',
+            value: 'available'
+          },
+          {
+            key: 'X-MCP-Endpoint',
+            value: '/api/mcp'
+          },
+          {
+            key: 'X-MCP-Protocol-Version',
+            value: '2025-03-26'
+          },
           // Preload critical resources
           {
             key: 'Link',
