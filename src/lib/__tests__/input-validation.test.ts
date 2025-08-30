@@ -159,6 +159,21 @@ describe('Input Validation', () => {
       expect(result.success).toBe(false);
       expect(result.error).toBe('Request body must be a valid JSON object');
     });
+
+    test('should handle exception during schema parsing (coverage for catch block)', () => {
+      // Mock a scenario where safeParse throws an exception
+      const originalSafeParse = ChatRequestSchema.safeParse;
+      jest.spyOn(ChatRequestSchema, 'safeParse').mockImplementation(() => {
+        throw new Error('Mock parsing error');
+      });
+
+      const result = validateChatRequest({ messages: [{ role: 'user', content: 'test' }] });
+      expect(result.success).toBe(false);
+      expect(result.error).toBe('Invalid request format');
+
+      // Restore the original method
+      ChatRequestSchema.safeParse = originalSafeParse;
+    });
   });
 
   describe('validateMcpToolArgs', () => {
@@ -202,6 +217,21 @@ describe('Input Validation', () => {
       const result = validateMcpToolArgs(complexArgs);
       expect(result.success).toBe(true);
       expect(result.data).toEqual(complexArgs);
+    });
+
+    test('should handle exception during schema parsing (coverage for catch block)', () => {
+      // Mock a scenario where safeParse throws an exception
+      const originalSafeParse = McpToolArgsSchema.safeParse;
+      jest.spyOn(McpToolArgsSchema, 'safeParse').mockImplementation(() => {
+        throw new Error('Mock parsing error');
+      });
+
+      const result = validateMcpToolArgs({ valid: 'object' });
+      expect(result.success).toBe(false);
+      expect(result.error).toBe('Invalid tool arguments format');
+
+      // Restore the original method
+      McpToolArgsSchema.safeParse = originalSafeParse;
     });
   });
 

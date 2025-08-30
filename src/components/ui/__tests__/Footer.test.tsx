@@ -1,11 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import Footer from '../Footer';
-import { getDisplayName } from '@/lib/data-helpers';
-import data from '@/lib/data';
 
-// Mock the data helpers
+// Mock the data helpers BEFORE importing the component
 jest.mock('@/lib/data-helpers', () => ({
-  getDisplayName: jest.fn()
+  getDisplayName: jest.fn(() => 'John Doe') // Default return value
 }));
 
 jest.mock('@/lib/data', () => ({
@@ -18,6 +15,10 @@ jest.mock('@/lib/data', () => ({
     website: 'https://testuser.com'
   }
 }));
+
+// Import after mocking
+import Footer from '../Footer';
+import { getDisplayName } from '@/lib/data-helpers';
 
 const mockGetDisplayName = getDisplayName as jest.MockedFunction<typeof getDisplayName>;
 

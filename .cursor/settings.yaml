@@ -1,0 +1,6 @@
+allowlist:
+  - cd
+  - npm test
+  - npx jest
+  - grep
+  

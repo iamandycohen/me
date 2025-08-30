@@ -1,9 +1,5 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { usePathname } from 'next/navigation';
-import Navigation from '../Navigation';
-import { getDisplayName } from '@/lib/data-helpers';
-import data from '@/lib/data';
 
 // Mock Next.js components and hooks
 jest.mock('next/navigation', () => ({
@@ -20,14 +16,22 @@ jest.mock('next/link', () => {
   };
 });
 
-// Mock the data helpers
-jest.mock('@/lib/data-helpers');
+// Mock the data helpers BEFORE importing the component
+jest.mock('@/lib/data-helpers', () => ({
+  getDisplayName: jest.fn(() => 'John Doe') // Default return value
+}));
+
 jest.mock('@/lib/data', () => ({
   contact: {
     name: 'Test User',
     email: 'test@example.com'
   }
 }));
+
+// Import after mocking
+import { usePathname } from 'next/navigation';
+import Navigation from '../Navigation';
+import { getDisplayName } from '@/lib/data-helpers';
 
 const mockUsePathname = usePathname as jest.MockedFunction<typeof usePathname>;
 const mockGetDisplayName = getDisplayName as jest.MockedFunction<typeof getDisplayName>;

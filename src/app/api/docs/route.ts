@@ -2,7 +2,29 @@ import { NextRequest, NextResponse } from "next/server";
 import data from "@/lib/data";
 import { formatLinkedInUrl } from "@/lib/data-helpers";
 
-// Generate OpenAPI spec for the new MCP server
+/**
+ * Generate OpenAPI 3.0 specification for the Model Context Protocol (MCP) server
+ * 
+ * PURPOSE:
+ * This function generates comprehensive API documentation for the MCP server endpoints
+ * that are implemented in `/api/[transport]/route.ts`. The documentation describes:
+ * 
+ * 1. The actual MCP transport endpoints (/api/mcp, /api/sse, etc.)
+ * 2. The JSON-RPC 2.0 protocol structure used by MCP
+ * 3. Available MCP tools (contact, bio, resume, projects, community, full-profile)
+ * 4. Request/response schemas that match the real implementation
+ * 5. Session management via Mcp-Session-Id headers
+ * 6. Multiple transport support (HTTP streaming, SSE fallback)
+ * 
+ * WHAT IT DOCUMENTS:
+ * - /api/[transport] route that handles MCP protocol requests
+ * - Real MCP tools defined in /lib/mcp-tools.ts
+ * - Session management implemented in the transport layer
+ * - Professional data structure from /lib/data.ts
+ * 
+ * This ensures the OpenAPI spec accurately reflects the actual API implementation
+ * rather than being a theoretical or outdated documentation.
+ */
 function generateMcpServerOpenApiSpec() {
   return {
     openapi: "3.0.0",
@@ -629,6 +651,21 @@ Sessions are automatically managed using the \`Mcp-Session-Id\` header:
   };
 }
 
+/**
+ * GET /api/docs
+ * 
+ * Returns OpenAPI 3.0 specification documenting the MCP server implementation.
+ * 
+ * This endpoint serves as the single source of truth for API documentation,
+ * describing the actual endpoints, schemas, and protocols implemented by
+ * the /api/[transport] route and related MCP infrastructure.
+ * 
+ * Use this for:
+ * - API documentation websites (Swagger UI, Redoc, etc.)
+ * - Client code generation
+ * - API testing and validation
+ * - Integration planning
+ */
 export async function GET(_request: NextRequest) {
   const openApiSpec = generateMcpServerOpenApiSpec();
   return NextResponse.json(openApiSpec);
