@@ -47,9 +47,11 @@ function showNextSteps() {
   console.log('\n📋 Next Steps:');
   console.log(`   1. Edit ${TARGET_FILE} and add your environment variables:`);
   console.log('      - OPENAI_API_KEY: Get from https://platform.openai.com/api-keys');
+  console.log('      - CHAT_MCP_SERVER_URL: Public URL for MCP server (for native integration)');
+  console.log('      - CHAT_MCP_SERVER_ENDPOINT: MCP endpoint path (default: /api/mcp)');
   console.log('      - REDIS_URL: Optional, for enhanced rate limiting');
   console.log('   2. Start the development server: npm run dev');
-  console.log('   3. Check configuration: npm run redis:check');
+  console.log('   3. Check configuration: npm run env:check');
   console.log('\n💡 Tips:');
   console.log(`   - See ${TEMPLATE_FILE} for quick setup`);
   console.log('   - See .env.example for all available options');

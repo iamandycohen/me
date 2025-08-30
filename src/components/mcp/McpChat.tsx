@@ -108,7 +108,7 @@ const McpChat = forwardRef<McpChatRef>((props, ref) => {
           for (const line of lines) {
             if (line.startsWith('data: ')) {
               const data = line.slice(6);
-              
+
               if (data === '[DONE]') {
                 setIsLoading(false);
                 return;
@@ -116,7 +116,7 @@ const McpChat = forwardRef<McpChatRef>((props, ref) => {
 
               try {
                 const parsed = JSON.parse(data);
-                
+
                 if (parsed.content) {
                   assistantMessage.content += parsed.content;
                   setMessages((prev) => {
@@ -139,8 +139,8 @@ const McpChat = forwardRef<McpChatRef>((props, ref) => {
                   setToolCalls((prev) => {
                     const existing = prev.find(tc => tc.name === parsed.toolCall.name);
                     if (existing) {
-                      return prev.map(tc => 
-                        tc.name === parsed.toolCall.name 
+                      return prev.map(tc =>
+                        tc.name === parsed.toolCall.name
                           ? { ...tc, ...parsed.toolCall }
                           : tc
                       );
@@ -165,15 +165,14 @@ const McpChat = forwardRef<McpChatRef>((props, ref) => {
         console.log('Request was aborted');
         return;
       }
-      
+
       console.error('Error in chat request:', error);
       setMessages((prev) => [
         ...prev,
         {
           role: 'system',
-          content: `Error: ${
-            error instanceof Error ? error.message : 'Unknown error'
-          }. Please try again.`,
+          content: `Error: ${error instanceof Error ? error.message : 'Unknown error'
+            }. Please try again.`,
           timestamp: Date.now(),
           isError: true,
         },
@@ -221,17 +220,17 @@ const McpChat = forwardRef<McpChatRef>((props, ref) => {
             <p className="text-sm mt-2">Try: &quot;What projects has Andy worked on?&quot;</p>
           </div>
         )}
-        
+
         {messages.map((message, index) => (
           <div
             key={index}
             className={clsx(
               'flex',
-              message.role === 'user' 
-                ? 'justify-end' 
+              message.role === 'user'
+                ? 'justify-end'
                 : message.role === 'system'
-                ? 'justify-center'
-                : 'justify-start'
+                  ? 'justify-center'
+                  : 'justify-start'
             )}
           >
             <div
@@ -240,10 +239,10 @@ const McpChat = forwardRef<McpChatRef>((props, ref) => {
                 message.role === 'user'
                   ? 'bg-blue-600 text-white'
                   : message.role === 'system'
-                  ? message.isError
-                    ? 'bg-red-50 text-red-800 border border-red-200'
-                    : 'bg-yellow-50 text-yellow-800 border border-yellow-200'
-                  : 'bg-gray-100 text-gray-900'
+                    ? message.isError
+                      ? 'bg-red-50 text-red-800 border border-red-200'
+                      : 'bg-yellow-50 text-yellow-800 border border-yellow-200'
+                    : 'bg-gray-100 text-gray-900'
               )}
             >
               <div className="whitespace-pre-wrap break-words">
@@ -323,8 +322,8 @@ const McpChat = forwardRef<McpChatRef>((props, ref) => {
                         toolCall.status === 'completed'
                           ? 'bg-green-500'
                           : toolCall.status === 'error'
-                          ? 'bg-red-500'
-                          : 'bg-yellow-500'
+                            ? 'bg-red-500'
+                            : 'bg-yellow-500'
                       )}
                     />
                     <span className="text-yellow-700">{toolCall.name}</span>
@@ -338,13 +337,40 @@ const McpChat = forwardRef<McpChatRef>((props, ref) => {
           </div>
         )}
 
-        {/* Loading indicator */}
+        {/* Enhanced Loading indicator with animations */}
         {isLoading && toolCalls.length === 0 && (
           <div className="flex justify-start">
-            <div className="bg-gray-100 rounded-lg px-4 py-2 text-sm text-gray-600">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse" />
-                <span>Thinking...</span>
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg px-4 py-3 text-sm">
+              <div className="flex items-center gap-3">
+                {/* Animated green pulsing dot */}
+                <div className="relative">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                  <div className="absolute inset-0 w-3 h-3 bg-green-400 rounded-full animate-ping"></div>
+                </div>
+
+                {/* Animated text with wave effect */}
+                <div className="flex items-center">
+                  <span className="text-green-700 font-medium mr-1">Thinking</span>
+                  <div className="flex gap-1">
+                    <span className="text-green-600 animate-bounce" style={{ animationDelay: '0ms' }}>.</span>
+                    <span className="text-green-600 animate-bounce" style={{ animationDelay: '150ms' }}>.</span>
+                    <span className="text-green-600 animate-bounce" style={{ animationDelay: '300ms' }}>.</span>
+                  </div>
+                </div>
+
+                {/* Wave animation bars */}
+                <div className="flex items-center gap-1 ml-2">
+                  <div className="w-1 bg-green-400 rounded-full animate-pulse" style={{ height: '8px', animationDelay: '0ms' }}></div>
+                  <div className="w-1 bg-green-500 rounded-full animate-pulse" style={{ height: '12px', animationDelay: '100ms' }}></div>
+                  <div className="w-1 bg-green-400 rounded-full animate-pulse" style={{ height: '6px', animationDelay: '200ms' }}></div>
+                  <div className="w-1 bg-green-500 rounded-full animate-pulse" style={{ height: '10px', animationDelay: '300ms' }}></div>
+                  <div className="w-1 bg-green-400 rounded-full animate-pulse" style={{ height: '8px', animationDelay: '400ms' }}></div>
+                </div>
+              </div>
+
+              {/* Subtle progress bar animation */}
+              <div className="mt-2 h-1 bg-green-100 rounded-full overflow-hidden">
+                <div className="h-full bg-gradient-to-r from-green-400 to-blue-400 rounded-full animate-pulse w-full opacity-60"></div>
               </div>
             </div>
           </div>

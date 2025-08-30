@@ -52,6 +52,28 @@ function checkEnvironmentVariables() {
     warnings.push('  Setup: For local development: redis://localhost:6379');
   }
   
+  // Check CHAT_MCP_SERVER_URL for native integration (optional but important)
+  const mcpServerUrl = process.env.CHAT_MCP_SERVER_URL || process.env.NEXT_PUBLIC_SITE_URL;
+  const mcpServerEndpoint = process.env.CHAT_MCP_SERVER_ENDPOINT || '/api/mcp';
+  
+  if (!mcpServerUrl) {
+    warnings.push('CHAT_MCP_SERVER_URL is not configured - Required for OpenAI native MCP integration');
+    warnings.push('  Setup: Must be publicly accessible URL (e.g., https://your-app.vercel.app)');
+  } else if (mcpServerUrl.includes('localhost') || mcpServerUrl.includes('127.0.0.1')) {
+    warnings.push('CHAT_MCP_SERVER_URL points to localhost - OpenAI cannot reach local URLs');
+    warnings.push('  Setup: Use ngrok tunnel or deploy to staging for native MCP integration');
+    warnings.push('  Alternative: Leave unset to use proxy pattern (slower but works locally)');
+  } else {
+    // Show the combined URL for verification
+    try {
+      const fullMcpUrl = new URL(mcpServerEndpoint, mcpServerUrl).toString();
+      console.log(`✅ MCP Server URL: ${fullMcpUrl}`);
+    } catch (error) {
+      warnings.push('CHAT_MCP_SERVER_URL or CHAT_MCP_SERVER_ENDPOINT has invalid format');
+      warnings.push(`  Current: base="${mcpServerUrl}", endpoint="${mcpServerEndpoint}"`);
+    }
+  }
+  
   // Display results
   console.log('🔍 [ENV-CHECK] Environment Variable Status:\n');
   
