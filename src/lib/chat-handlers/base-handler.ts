@@ -1,4 +1,4 @@
-import type { ChatHandler, ChatHandlerConfig, ChatRequest, ChatStreamData } from "./types";
+import type { ChatHandler, ChatHandlerConfig, ChatRequest, ChatStreamData, DebugLogData } from "./types";
 import { debug } from "@/lib/debug";
 
 export interface ToolCallResult {
@@ -95,7 +95,7 @@ export abstract class BaseChatHandler implements ChatHandler {
   }
 
   // Standardized debug logging
-  protected debugLog(message: string, data?: any): void {
+  protected debugLog(message: string, data?: DebugLogData): void {
     if (data !== undefined) {
       debug.log(this.metadata.name, message, data);
     } else {
