@@ -62,7 +62,7 @@ describe('/api/docs route', () => {
       const mockRequest = {} as NextRequest;
       
       await GET(mockRequest);
-      const spec = mockNextResponse.json.mock.calls[0][0];
+      const spec = mockNextResponse.json.mock.calls[0][0] as any;
       
       expect(spec.info.title).toBe('Test User - MCP Server API');
       expect(spec.info.version).toBe('1.0.0');
@@ -78,7 +78,7 @@ describe('/api/docs route', () => {
       const mockRequest = {} as NextRequest;
       
       await GET(mockRequest);
-      const spec = mockNextResponse.json.mock.calls[0][0];
+      const spec = mockNextResponse.json.mock.calls[0][0] as any;
       
       // Should document the /api/mcp endpoint (main transport)
       expect(spec.paths).toHaveProperty('/api/mcp');
@@ -92,7 +92,7 @@ describe('/api/docs route', () => {
       const mockRequest = {} as NextRequest;
       
       await GET(mockRequest);
-      const spec = mockNextResponse.json.mock.calls[0][0];
+      const spec = mockNextResponse.json.mock.calls[0][0] as any;
       
       // Should have server definitions
       expect(spec.servers).toBeDefined();
@@ -112,7 +112,7 @@ describe('/api/docs route', () => {
       const mockRequest = {} as NextRequest;
       
       await GET(mockRequest);
-      const spec = mockNextResponse.json.mock.calls[0][0];
+      const spec = mockNextResponse.json.mock.calls[0][0] as any;
       
       // Should have schemas section with tool definitions
       expect(spec.components).toHaveProperty('schemas');
@@ -139,7 +139,7 @@ describe('/api/docs route', () => {
       const mockRequest = {} as NextRequest;
       
       await GET(mockRequest);
-      const spec = mockNextResponse.json.mock.calls[0][0];
+      const spec = mockNextResponse.json.mock.calls[0][0] as any;
       
       const mcpPost = spec.paths['/api/mcp'].post;
       
@@ -157,7 +157,7 @@ describe('/api/docs route', () => {
       const mockRequest = {} as NextRequest;
       
       await GET(mockRequest);
-      const spec = mockNextResponse.json.mock.calls[0][0];
+      const spec = mockNextResponse.json.mock.calls[0][0] as any;
       
       // Should document session headers used by actual implementation
       const mcpPost = spec.paths['/api/mcp'].post;
