@@ -1,5 +1,5 @@
 import { BaseChatHandler, type HandlerMetadata } from "./base-handler";
-import type { ChatHandlerConfig, ChatRequest } from "./types";
+import type { ChatHandlerConfig, ChatRequest, AgentStreamResult } from "./types";
 import { logger } from "@/lib/debug";
 import { getDisplayName } from "@/lib/data-helpers";
 import data from "@/lib/data";
@@ -237,7 +237,7 @@ export class AgentsChatHandler extends BaseChatHandler {
       // If no content was streamed, try to get the final result from the stream result
       // This is a fallback for when the agent delivers content all at once
       if (streamResult && typeof streamResult === 'object' && 'messages' in streamResult) {
-        const messages = (streamResult as any).messages;
+        const messages = (streamResult as unknown as AgentStreamResult).messages;
         if (Array.isArray(messages) && messages.length > 0) {
           const lastMessage = messages[messages.length - 1];
           if (lastMessage && lastMessage.content && typeof lastMessage.content === 'string') {
