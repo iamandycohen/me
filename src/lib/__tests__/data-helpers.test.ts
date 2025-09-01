@@ -16,10 +16,8 @@ describe('Data Helpers', () => {
   const mockContact: Contact = {
     name: 'John Michael Smith',
     email: 'john@example.com',
-    phone: '+1-555-0123',
     location: 'San Francisco, CA',
-    linkedin: 'linkedin.com/in/johnsmith',
-    website: 'https://johnsmith.com'
+    linkedin: 'linkedin.com/in/johnsmith'
   };
 
   const mockRole: Role = {
@@ -27,8 +25,7 @@ describe('Data Helpers', () => {
     company: 'Tech Company',
     period: '2020 - Present',
     description: 'Building awesome software',
-    technologies: ['React', 'TypeScript', 'Node.js'],
-    achievements: ['Led team of 5 developers', 'Increased performance by 40%']
+    highlights: ['Led team of 5 developers', 'Increased performance by 40%']
   };
 
   const mockBio: Bio = {

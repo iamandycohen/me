@@ -107,7 +107,10 @@ describe('Debug Utilities', () => {
   describe('debug logging with DEBUG=false', () => {
     beforeEach(() => {
       process.env.DEBUG = 'false';
-      process.env.NODE_ENV = 'production';
+      Object.defineProperty(process.env, 'NODE_ENV', {
+        value: 'production',
+        configurable: true
+      });
     });
 
     test('debug.log should not log anything', () => {
@@ -156,7 +159,10 @@ describe('Debug Utilities', () => {
   describe('debug logging in development mode', () => {
     beforeEach(() => {
       delete process.env.DEBUG;
-      process.env.NODE_ENV = 'development';
+      Object.defineProperty(process.env, 'NODE_ENV', {
+        value: 'development',
+        configurable: true
+      });
     });
 
     test('should enable debug logging by default in development', () => {
