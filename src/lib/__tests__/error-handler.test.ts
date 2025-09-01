@@ -60,7 +60,10 @@ describe('Error Handler', () => {
     });
 
     test('should include details in development mode', () => {
-      process.env.NODE_ENV = 'development';
+      Object.defineProperty(process.env, 'NODE_ENV', {
+        value: 'development',
+        configurable: true
+      });
       const details = 'Detailed error information';
       
       createSecureError(ErrorType.INTERNAL, undefined, undefined, details);
@@ -74,7 +77,10 @@ describe('Error Handler', () => {
     });
 
     test('should not include details in production mode', () => {
-      process.env.NODE_ENV = 'production';
+      Object.defineProperty(process.env, 'NODE_ENV', {
+        value: 'production',
+        configurable: true
+      });
       const details = 'Sensitive information';
       
       createSecureError(ErrorType.INTERNAL, undefined, undefined, details);
@@ -348,7 +354,7 @@ describe('Error Handler', () => {
   describe('timestamp formatting', () => {
     test('should use ISO timestamp format', () => {
       const mockDate = '2023-01-01T12:00:00.000Z';
-      jest.spyOn(Date.prototype, 'toISOString').mockReturnValue(mockDate);
+      const toISOStringSpy = jest.spyOn(Date.prototype, 'toISOString').mockReturnValue(mockDate);
       
       createSecureError(ErrorType.INTERNAL);
       
@@ -359,7 +365,7 @@ describe('Error Handler', () => {
         expect.any(Object)
       );
       
-      Date.prototype.toISOString.mockRestore();
+      toISOStringSpy.mockRestore();
     });
   });
 });

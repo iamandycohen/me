@@ -4,7 +4,7 @@ jest.mock('../mcp-sdk', () => ({
     type: 'function',
     function: {
       name: mcpTool.name,
-      description: mcpTool.description || `Calls the ${mcpTool.name} tool`,
+      description: mcpTool.description || `Execute the ${mcpTool.name} tool`,
       parameters: mcpTool.inputSchema || {
         type: 'object',
         properties: {},
@@ -31,6 +31,11 @@ describe('MCP Tool Utilities', () => {
           },
           required: ['param1'],
         },
+        outputSchema: {
+          type: 'object',
+          properties: {},
+          required: [],
+        },
       };
 
       const result = convertMcpToolToOpenAI(mcpTool);
@@ -56,6 +61,16 @@ describe('MCP Tool Utilities', () => {
       const mcpTool: MCPTool = {
         name: 'simple_tool',
         description: 'A simple tool without parameters',
+        inputSchema: {
+          type: 'object',
+          properties: {},
+          required: [],
+        },
+        outputSchema: {
+          type: 'object',
+          properties: {},
+          required: [],
+        },
       };
 
       const result = convertMcpToolToOpenAI(mcpTool);
@@ -77,11 +92,18 @@ describe('MCP Tool Utilities', () => {
     test('should handle MCP tool without description', () => {
       const mcpTool: MCPTool = {
         name: 'undescribed_tool',
+        description: 'Tool without description',
         inputSchema: {
           type: 'object',
           properties: {
             value: { type: 'string' },
           },
+          required: [],
+        },
+        outputSchema: {
+          type: 'object',
+          properties: {},
+          required: [],
         },
       };
 
@@ -91,12 +113,13 @@ describe('MCP Tool Utilities', () => {
         type: 'function',
         function: {
           name: 'undescribed_tool',
-          description: 'Calls the undescribed_tool tool',
+          description: 'Execute the undescribed_tool tool',
           parameters: {
             type: 'object',
             properties: {
               value: { type: 'string' },
             },
+            required: [],
           },
         },
       });
@@ -123,6 +146,11 @@ describe('MCP Tool Utilities', () => {
             },
           },
           required: ['config'],
+        },
+        outputSchema: {
+          type: 'object',
+          properties: {},
+          required: [],
         },
       };
 
@@ -155,6 +183,12 @@ describe('MCP Tool Utilities', () => {
         inputSchema: {
           type: 'object',
           properties: {},
+          required: [],
+        },
+        outputSchema: {
+          type: 'object',
+          properties: {},
+          required: [],
         },
       };
 
@@ -163,6 +197,7 @@ describe('MCP Tool Utilities', () => {
       expect((result as { function: { parameters: unknown } }).function.parameters).toEqual({
         type: 'object',
         properties: {},
+        required: [],
       });
     });
   });
