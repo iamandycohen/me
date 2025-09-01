@@ -113,7 +113,7 @@ describe('MCP Tool Utilities', () => {
         type: 'function',
         function: {
           name: 'undescribed_tool',
-          description: 'Execute the undescribed_tool tool',
+          description: 'Tool without description',
           parameters: {
             type: 'object',
             properties: {
