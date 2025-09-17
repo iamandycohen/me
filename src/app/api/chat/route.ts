@@ -13,6 +13,7 @@ import { debug, logger } from "@/lib/debug";
 import { getDisplayName, getFirstName } from "@/lib/data-helpers";
 import data from "@/lib/data";
 import { ChatHandlerFactory, type ChatMode } from "@/lib/chat-handlers";
+import { rateLimiters, getClientIP } from "@/lib/rate-limit";
 
 // Constants for reuse throughout the route
 const displayName = getDisplayName(data.contact);
@@ -64,6 +65,31 @@ export async function POST(request: NextRequest) {
         "Service configuration error"
       );
     }
+
+    // Rate limiting (using same Redis as MCP handler)
+    const clientIP = getClientIP(request);
+    const rateLimit = await rateLimiters.chat(clientIP);
+    
+    if (!rateLimit.success) {
+      logger.warn(`Chat rate limit exceeded for IP: ${clientIP}`);
+      return new Response(
+        JSON.stringify({ 
+          error: 'Too Many Requests', 
+          message: 'Chat rate limit exceeded. Please try again later.',
+          retryAfter: 60
+        }),
+        { 
+          status: 429,
+          headers: {
+            'Content-Type': 'application/json',
+            ...rateLimit.headers,
+            'Retry-After': '60',
+          }
+        }
+      );
+    }
+
+    debug.log("CHAT-API", `Rate limit check passed: ${rateLimit.remaining}/${rateLimit.limit} remaining`);
 
     // Validate request size before parsing
     const sizeValidation = validateRequestSize(request);
@@ -131,6 +157,7 @@ export async function POST(request: NextRequest) {
         "Content-Type": "text/event-stream",
         "Cache-Control": "no-cache",
         Connection: "keep-alive",
+        ...rateLimit.headers, // Include rate limit headers in successful responses
       },
     });
   } catch (error) {

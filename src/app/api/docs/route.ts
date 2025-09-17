@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import data from "@/lib/data";
 import { formatLinkedInUrl } from "@/lib/data-helpers";
+import { rateLimiters, getClientIP } from "@/lib/rate-limit";
 
 /**
  * Generate OpenAPI 3.0 specification for the Model Context Protocol (MCP) server
@@ -666,7 +667,45 @@ Sessions are automatically managed using the \`Mcp-Session-Id\` header:
  * - API testing and validation
  * - Integration planning
  */
-export async function GET(_request: NextRequest) {
-  const openApiSpec = generateMcpServerOpenApiSpec();
-  return NextResponse.json(openApiSpec);
+export async function GET(request: NextRequest) {
+  try {
+    // Rate limiting (using same Redis as MCP handler)
+    const clientIP = getClientIP(request);
+    const rateLimit = await rateLimiters.docs(clientIP);
+    
+    if (!rateLimit.success) {
+      return new Response(
+        JSON.stringify({ 
+          error: 'Too Many Requests', 
+          message: 'Documentation rate limit exceeded. Please try again later.',
+          retryAfter: 60
+        }),
+        { 
+          status: 429,
+          headers: {
+            'Content-Type': 'application/json',
+            ...rateLimit.headers,
+            'Retry-After': '60',
+          }
+        }
+      );
+    }
+
+    const openApiSpec = generateMcpServerOpenApiSpec();
+    
+    return NextResponse.json(openApiSpec, {
+      headers: {
+        ...rateLimit.headers, // Include rate limit headers in successful responses
+      },
+    });
+  } catch (error) {
+    console.error('Error in docs route:', error);
+    return new Response(
+      JSON.stringify({ error: 'Internal Server Error' }),
+      { 
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
+  }
 }
