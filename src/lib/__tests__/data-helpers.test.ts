@@ -8,7 +8,7 @@ import {
   truncateDescription,
   formatRoleTitle,
   getRoleDuration,
-  getProfessionalTagline
+  getProfessionalTagline,
 } from '../data-helpers';
 import type { Contact, Role, Bio } from '@/types';
 
@@ -17,7 +17,7 @@ describe('Data Helpers', () => {
     name: 'John Michael Smith',
     email: 'john@example.com',
     location: 'San Francisco, CA',
-    linkedin: 'linkedin.com/in/johnsmith'
+    linkedin: 'linkedin.com/in/johnsmith',
   };
 
   const mockRole: Role = {
@@ -25,12 +25,13 @@ describe('Data Helpers', () => {
     company: 'Tech Company',
     period: '2020 - Present',
     description: 'Building awesome software',
-    highlights: ['Led team of 5 developers', 'Increased performance by 40%']
+    highlights: ['Led team of 5 developers', 'Increased performance by 40%'],
   };
 
   const mockBio: Bio = {
+    tagline: 'Senior Software Engineer | Tech Innovator',
     short: 'Passionate software engineer with 5+ years experience.',
-    full: 'A passionate software engineer with over 5 years of experience building scalable web applications.'
+    full: 'A passionate software engineer with over 5 years of experience building scalable web applications.',
   };
 
   describe('name extraction functions', () => {
@@ -53,7 +54,10 @@ describe('Data Helpers', () => {
     });
 
     test('getLastName should handle multiple middle names', () => {
-      const complexNameContact = { ...mockContact, name: 'John Michael Patrick Smith Jr.' };
+      const complexNameContact = {
+        ...mockContact,
+        name: 'John Michael Patrick Smith Jr.',
+      };
       expect(getLastName(complexNameContact)).toBe('Jr.');
     });
 
@@ -69,7 +73,9 @@ describe('Data Helpers', () => {
     });
 
     test('formatRoleTitle should combine title and company', () => {
-      expect(formatRoleTitle(mockRole)).toBe('Senior Software Engineer at Tech Company');
+      expect(formatRoleTitle(mockRole)).toBe(
+        'Senior Software Engineer at Tech Company'
+      );
     });
 
     test('getRoleDuration should detect current role', () => {
@@ -90,7 +96,9 @@ describe('Data Helpers', () => {
 
   describe('formatLinkedInUrl', () => {
     test('should add https prefix when missing', () => {
-      expect(formatLinkedInUrl('linkedin.com/in/johnsmith')).toBe('https://linkedin.com/in/johnsmith');
+      expect(formatLinkedInUrl('linkedin.com/in/johnsmith')).toBe(
+        'https://linkedin.com/in/johnsmith'
+      );
     });
 
     test('should preserve existing https prefix', () => {
@@ -106,22 +114,24 @@ describe('Data Helpers', () => {
 
   describe('getBioParagraphs', () => {
     test('should split bio text by double newlines', () => {
-      const bioText = 'First paragraph.\n\nSecond paragraph.\n\nThird paragraph.';
+      const bioText =
+        'First paragraph.\n\nSecond paragraph.\n\nThird paragraph.';
       const result = getBioParagraphs(bioText);
       expect(result).toEqual([
         'First paragraph.',
         'Second paragraph.',
-        'Third paragraph.'
+        'Third paragraph.',
       ]);
     });
 
     test('should filter out empty paragraphs', () => {
-      const bioText = 'First paragraph.\n\n\n\nSecond paragraph.\n\n   \n\nThird paragraph.';
+      const bioText =
+        'First paragraph.\n\n\n\nSecond paragraph.\n\n   \n\nThird paragraph.';
       const result = getBioParagraphs(bioText);
       expect(result).toEqual([
         'First paragraph.',
         'Second paragraph.',
-        'Third paragraph.'
+        'Third paragraph.',
       ]);
     });
 
@@ -138,7 +148,8 @@ describe('Data Helpers', () => {
 
   describe('truncateDescription', () => {
     test('should truncate long text with ellipsis', () => {
-      const longText = 'This is a very long description that should be truncated';
+      const longText =
+        'This is a very long description that should be truncated';
       const result = truncateDescription(longText, 20);
       expect(result).toBe('This is a very long...');
     });
@@ -153,7 +164,9 @@ describe('Data Helpers', () => {
       const text = 'This is a text that is exactly fifty characters long!';
       expect(text).toHaveLength(53); // Verify our test text is > 50 chars
       const result = truncateDescription(text);
-      expect(result).toBe('This is a text that is exactly fifty characters lo...');
+      expect(result).toBe(
+        'This is a text that is exactly fifty characters lo...'
+      );
     });
 
     test('should handle text exactly at max length', () => {
@@ -173,11 +186,13 @@ describe('Data Helpers', () => {
   describe('getProfessionalTagline', () => {
     test('should combine role and bio information', () => {
       const result = getProfessionalTagline(mockRole, mockBio);
-      expect(result).toBe('Senior Software Engineer at Tech Company. Passionate software engineer with 5+ years experience.');
+      expect(result).toBe(
+        'Senior Software Engineer at Tech Company. Passionate software engineer with 5+ years experience.'
+      );
     });
 
     test('should handle role with no bio', () => {
-      const emptyBio = { short: '', full: '' };
+      const emptyBio = { tagline: '', short: '', full: '' };
       const result = getProfessionalTagline(mockRole, emptyBio);
       expect(result).toBe('Senior Software Engineer at Tech Company. ');
     });
