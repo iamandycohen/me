@@ -6,8 +6,8 @@
     "location": "Golden Valley, MN"
   },
   "bio": {
-    "short": "Founding architect of Sitecore XM Cloud - building enterprise-grade software that scales. Leading CMS development in the Age of AI.",
-    "full": "I'm the founding architect of Sitecore XM Cloud, where with the help of an army of Jedi masters, I had the privilege of designing and building the system from concept to global SaaS launch. I've been building software since I was 8 years old, when I taught myself to code by reading PC magazines my mom brought home from work. That early start gave me a deep understanding of how software systems evolve and what it takes to build things that truly last.\n\nXM Cloud was truly a team effort. Nick Wesselman was the founding Product Manager who conceived the vision and provided the initial push to get the project off the ground, with Dave O'Flanagan and Roger Connolly sponsoring and championing the initiative. I led the architectural design, proof of concept, implementation, and production launch. When Nick moved on, Justin Vogt stepped in as Product Manager and did phenomenal work maintaining momentum and owning the vision. Along the way, I learned immensely from brilliant developers and architects, most notably Alistair Deneys and Charlie Turano, whose insights shaped both the technical approach and my own growth as an architect. After launch, I focused on optimization and redesign, cutting costs significantly while re-architecting tenancy and infrastructure to save millions. I also drove the cultural shift to continuous delivery, fundamentally changing how we ship software and scale our systems.\n\nMy specialty is building enterprise-grade software that scales - specifically the content management systems themselves: the engines, APIs, and infrastructure that enable content management at enterprise scale. From those early programming days to building applicant tracking systems, time management tools, and eventually enterprise CMS solutions, I've consistently built the robust, scalable foundations that others build upon.\n\nAt Altudo, I'm working on the future of CMS in the Age of AI - developing agentic workflows and AI-driven experiences that transform how content management works. I'm not just adding AI features; I'm reimagining how these systems can use AI to speed up implementation, improve authoring experiences, and deliver intelligent content orchestration.\n\nThroughout my career, I've specialized in architecture and product development across consulting and product companies - from building internal tools at TempWorks and ILM to designing enterprise solutions at Horizontal Integration, Perficient, and Avanade, before leading development at Sitecore.\n\nMy approach combines decades of hands-on development with engineering expertise, AI innovation, and product strategy. Having grown up alongside the evolution of software development, I understand both the fundamentals and the cutting edge. I focus on building systems that scale to serve millions while enabling developers and content creators to achieve more. I thrive at the intersection of engineering and AI - designing next-generation CMS systems, building great developer experiences, and defining how content management evolves in an AI-driven world.\n\nWhether it's enterprise systems serving millions of users or innovative AI workflows that transform content operations, I believe in building solid foundations that last and enable others to create extraordinary digital experiences."
+    "short": "Founding architect of Sitecore XM Cloud - building enterprise-grade software that scales. Focused on where AI, products, platforms, and experience come together to redefine what's possible.",
+    "full": "I'm the founding architect of Sitecore XM Cloud, where I designed and built the system from concept to global SaaS launch. I've been building software since I was 8 years old, when I taught myself to code by reading PC magazines my mom brought home from work. That early start gave me a deep understanding of how software systems evolve and what it takes to build things that truly last.\n\nXM Cloud was truly a team effort. Nick Wesselman was the founding Product Manager who conceived the vision and provided the initial push to get the project off the ground, with Dave O'Flanagan and Roger Connolly sponsoring and championing the initiative. I led the architectural design, proof of concept, implementation, and production launch. When Nick moved on, Justin Vogt stepped in as Product Manager and did phenomenal work maintaining momentum and owning the vision. Along the way, I learned immensely from brilliant developers and architects, most notably Alistair Deneys and Charlie Turano, whose insights shaped both the technical approach and my own growth as an architect. After launch, I focused on optimization and redesign, cutting costs significantly while re-architecting tenancy and infrastructure to save millions. I also drove the cultural shift to continuous delivery, fundamentally changing how we ship software and scale our systems.\n\nMy specialty is building enterprise-grade software that scales - specifically the content management systems themselves: the engines, APIs, and infrastructure that enable content management at enterprise scale. From those early programming days to building applicant tracking systems, time management tools, and eventually enterprise CMS solutions, I've consistently built the robust, scalable foundations that others build upon.\n\nMost recently at Altudo, I worked on building momentum in the DXP space, from FastLane for XM Cloud to workflows that helped teams move faster and with more intent. I'm proud of what we made possible.\n\nNow I'm focused on what comes next... where AI, products and platforms, and experience come together to redefine what's possible in how we build, connect, and create online. The next generation won't just manage content or launch campaigns. It will anticipate, adapt, and transform how organizations work and how they serve people.\n\nThroughout my career, I've specialized in architecture and product development across consulting and product companies - from building internal tools at TempWorks and ILM to designing enterprise solutions at Horizontal Integration, Perficient, and Avanade, before leading development at Sitecore.\n\nMy approach combines decades of hands-on development with engineering expertise, AI innovation, and product strategy. Having grown up alongside the evolution of software development, I understand both the fundamentals and the cutting edge. I focus on building systems that scale to serve millions while enabling developers and content creators to achieve more. I thrive at the intersection of engineering and AI - designing next-generation systems, building great developer experiences, and defining how digital experiences evolve in an AI-driven world.\n\nWhether it's enterprise systems serving millions of users or innovative AI workflows that transform operations, I believe in building solid foundations that last and enable others to create extraordinary digital experiences. AI isn't just a hash tag for me. It brings about so much opportunity when used with intent. Building products isn't what I do... it's who I am. I happen to have a bit of free time, so reach out!"
   },
   "professional": {
     "keywords": [
@@ -60,14 +60,14 @@
     {
       "title": "Vice President | Chief Architect",
       "company": "Altudo",
-      "period": "Sep 2024 - Present",
+      "period": "Sep 2024 - Oct 2025",
       "highlights": [
-        "Leading CMS architecture strategies for the Age of AI",
-        "Pioneering agentic AI workflows that transform content management systems",
-        "Designing next-generation digital experience systems with AI integration",
-        "Defining the future of content management through AI-driven innovation"
+        "Built momentum in the DXP space with FastLane for XM Cloud",
+        "Developed workflows that helped teams move faster and with more intent",
+        "Pioneered agentic AI workflows that transform content management systems",
+        "Advanced next-generation digital experience systems with AI integration"
       ],
-      "description": "Leading the evolution of content management systems in the Age of AI. Pioneering agentic workflows and intelligent architectures that fundamentally transform how CMS systems operate, scale, and deliver value to enterprise clients."
+      "description": "Led the evolution of content management systems in the Age of AI. Built momentum in the DXP space, from FastLane for XM Cloud to workflows that helped teams move faster and with more intent."
     },
     {
       "title": "Senior Director, Engineering – XM Cloud",
@@ -193,6 +193,178 @@
       ]
     }
   ],
+  "thoughtLeadership": [
+    {
+      "title": "The Next Great DXP Will Sell Transformation, Not Software",
+      "url": "https://cmscritic.com/the-next-great-dxp-will-sell-transformation-not-software",
+      "platform": "CMS Critic",
+      "type": "article",
+      "date": "October 1, 2025",
+      "summary": "Feature wars are a dead end. The next wave of DXPs will win by changing how teams ship, learn, and govern. This article shows how to anchor platform strategy to measurable business transformation and cultural adoption, not just tools.",
+      "highlights": [
+        "Defines a value chain for DXP that ties product, engineering, and change management",
+        "Illustrates a transformation roadmap with operating model shifts, not just feature rollouts",
+        "Outlines leadership metrics that prove impact across speed, quality, and margin"
+      ],
+      "topics": [
+        "DXP",
+        "Product Strategy",
+        "Org Change",
+        "Operating Model",
+        "SaaS"
+      ]
+    },
+    {
+      "title": "Lipstick on a Pig: Why Most Agents Aren't",
+      "url": "https://www.linkedin.com/pulse/lipstick-pig-why-most-agents-arent-andy-cohen-grotc/",
+      "platform": "LinkedIn",
+      "type": "article",
+      "date": "September 20, 2025",
+      "summary": "Many so called agents are thin scripts wearing AI makeup. Real agents reason, plan, and coordinate tools across changing contexts. This piece offers a litmus test for agentic credibility and explains why orchestration matters more than wrappers.",
+      "highlights": [
+        "Agent credibility checklist across autonomy, memory, tool use, and recovery",
+        "Patterns for safe delegation and guardrails in production environments",
+        "How to separate marketing claims from operational reality"
+      ],
+      "topics": ["AI Agents", "Orchestration", "Safety", "Production Readiness"]
+    },
+    {
+      "title": "Commits Don't Lie: XM Cloud's Future in Plain Sight",
+      "url": "https://www.linkedin.com/pulse/commits-dont-lie-xm-clouds-future-plain-sight-andy-cohen-qgnsc/",
+      "platform": "LinkedIn",
+      "type": "article",
+      "date": "September 19, 2025",
+      "summary": "Roadmaps whisper. Repos shout. By reading dependency shifts, module seams, and deployment scripts, you can forecast where a platform is headed. This article decodes XM Cloud commit signals to surface strategy early.",
+      "highlights": [
+        "Commit signal taxonomy across naming, dependencies, and platform seams",
+        "How to distinguish refactor noise from roadmap intent",
+        "Practical tips for investors, partners, and customers reading public repos"
+      ],
+      "topics": [
+        "SaaS Architecture",
+        "Engineering Signals",
+        "Roadmap Intelligence"
+      ]
+    },
+    {
+      "title": "Twelve Lessons I'm Still Learning: A Letter to My Younger Self",
+      "url": "https://www.linkedin.com/pulse/twelve-lessons-im-still-learning-letter-my-younger-self-andy-cohen-oh5sc/",
+      "platform": "LinkedIn",
+      "type": "article",
+      "date": "September 14, 2025",
+      "summary": "Leadership is a practice, not a promotion. These twelve lessons cover clarity under pressure, bias for delivery, and the discipline of kind feedback. It is a pocket guide for staying human while building hard things.",
+      "highlights": [
+        "Trade careful for clear when stakes are rising",
+        "Build systems that make the right thing easy",
+        "Coach in verbs and numbers, not vibes"
+      ],
+      "topics": ["Leadership", "Career", "Execution", "Culture"]
+    },
+    {
+      "title": "The Future of Architects and Product Managers in the Age of AI",
+      "url": "https://www.linkedin.com/pulse/future-architects-product-managers-age-ai-andy-cohen-qawsc/",
+      "platform": "LinkedIn",
+      "type": "article",
+      "date": "September 5, 2025",
+      "summary": "Architecture is shifting from diagram stewardship to outcome ownership. As AI automates scaffolding, the winning architects act like product managers who shape bets, measure impact, and tune loops.",
+      "highlights": [
+        "Outcome first design with experiment cadence and product telemetry",
+        "From reference diagrams to performance contracts and SLOs",
+        "Skills map for the architect to PM evolution"
+      ],
+      "topics": ["Architecture", "Product Management", "AI", "SLOs"]
+    },
+    {
+      "title": "Agent-to-Agent Personalization: Trust, First Impressions, and the Grudge Factor",
+      "url": "https://cmscritic.com/agent-to-agent-personalization-trust-first-impressions-and-the-grudge-factor",
+      "platform": "CMS Critic",
+      "type": "article",
+      "date": "September 5, 2025",
+      "summary": "Agents will increasingly serve other agents. Personalization must account for machine to machine trust, first contact rituals, and long memory. This article proposes patterns that reduce nondeterminism and build cooperative behavior.",
+      "highlights": [
+        "First impression protocols for agent handshakes",
+        "Managing memory, reputation, and forgiveness across agents",
+        "Designing for graceful failure and negotiated retries"
+      ],
+      "topics": ["Personalization", "AI Agents", "Trust", "Governance"]
+    },
+    {
+      "title": "Building to Standards That Don't Exist Yet",
+      "url": "https://www.linkedin.com/pulse/building-standards-dont-exist-yet-andy-cohen-1hgyc/",
+      "platform": "LinkedIn",
+      "type": "article",
+      "date": "August 26, 2025",
+      "summary": "On the frontier there are no recipes. This article lays out how to build responsibly when patterns are immature, including how to design seams, isolate risk, and write standards that can survive version two.",
+      "highlights": [
+        "Seam first architecture with well lit escape hatches",
+        "Risk isolation by domain, not by team",
+        "Drafting living standards that converge with use"
+      ],
+      "topics": ["Standards", "Architecture", "Governance", "Experimentation"]
+    },
+    {
+      "title": "The CMS is Dead. Long Live Structured Vibing.",
+      "url": "https://www.linkedin.com/pulse/cms-dead-long-live-structured-vibing-andy-cohen-ashpc/",
+      "platform": "LinkedIn",
+      "type": "article",
+      "date": "August 20, 2025",
+      "summary": "Rigid content models cannot keep up with adaptive experiences. Structured vibing pairs typed content with generative flexibility so teams can keep control while the system improvises within safe bounds.",
+      "highlights": [
+        "Explains structure plus improvisation as a governance model",
+        "Shows how tokens and policies set creative lanes for AI",
+        "Maps use cases from content ops to on site orchestration"
+      ],
+      "topics": ["CMS", "AI Content", "Design Tokens", "Governance"]
+    },
+    {
+      "title": "Forget DevEx, The Future is AgEx",
+      "url": "https://www.linkedin.com/pulse/forget-devex-future-agex-andy-cohen-ms8hc/",
+      "platform": "LinkedIn",
+      "type": "article",
+      "date": "August 20, 2025",
+      "summary": "Developers are no longer the only first class users of platforms. Agents are. AgEx focuses on giving agents clear tools, contracts, and feedback loops so they can work with us and for us at scale.",
+      "highlights": [
+        "Designing APIs and events for agent consumption",
+        "Operational contracts for agent behavior and cost control",
+        "Metrics that track agent productivity and safety"
+      ],
+      "topics": ["DevEx", "AgEx", "APIs", "Observability", "Cost"]
+    },
+    {
+      "title": "Accelerators Done Right: From Sales Demos to Real Delivery",
+      "url": "https://www.linkedin.com/pulse/accelerators-done-right-from-sales-demos-real-delivery-andy-cohen-brxfc/",
+      "platform": "LinkedIn",
+      "type": "article",
+      "date": "August 20, 2025",
+      "summary": "Most accelerators stop at the sizzle. This article details how to build accelerators that compress delivery time in production through reusable components, automation, and ops ready defaults.",
+      "highlights": [
+        "Separates demo kits from delivery accelerators with entry and exit criteria",
+        "Defines reusable backbone assets across components, scaffolding, and CI",
+        "Links accelerator value to margin, quality, and ramp time"
+      ],
+      "topics": ["Accelerators", "Delivery", "SaaS", "Reuse", "CI/CD"]
+    },
+    {
+      "title": "Three Lessons from Building and Scaling XM Cloud",
+      "url": "https://www.linkedin.com/pulse/three-lessons-from-building-scaling-xm-cloud-andy-cohen-fjjqc/",
+      "platform": "LinkedIn",
+      "type": "article",
+      "date": "August 19, 2025",
+      "summary": "Behind the scenes of launching and scaling XM Cloud. Three lessons on aligning architecture with unit economics, turning continuous delivery into culture, and designing for cost aware growth.",
+      "highlights": [
+        "Architecture choices tied directly to margin and tenancy economics",
+        "Culture of continuous delivery as an operating system for teams",
+        "Pragmatic patterns for scale without runaway complexity"
+      ],
+      "topics": [
+        "SaaS",
+        "XM Cloud",
+        "Cost Optimization",
+        "Continuous Delivery",
+        "Tenancy"
+      ]
+    }
+  ],
   "community": {
     "mvpStatus": "Sitecore MVP",
     "mvpAwards": [
@@ -241,11 +413,7 @@
         "location": "Antwerp, Belgium",
         "date": "April 2025",
         "sessionTitle": "Full Circle: The Architect of XM Cloud builds an XM Cloud Site (as a partner for the first time)",
-        "topics": [
-          "XM Cloud",
-          "Architecture",
-          "Partner Implementation"
-        ],
+        "topics": ["XM Cloud", "Architecture", "Partner Implementation"],
         "description": "A unique perspective presentation where the founding architect of XM Cloud demonstrates building an XM Cloud site as a partner implementation, offering insights into both the platform creation and practical implementation challenges.",
         "sessionizeUrl": "https://sessionize.com/iamandycohen"
       },
@@ -255,11 +423,7 @@
         "location": "Bangalore,India",
         "date": "2024",
         "sessionTitle": "💘Heart to Heart with an XM Cloud Architect💘 (with Liz)",
-        "topics": [
-          "XM Cloud Architecture",
-          "Candid Review",
-          "Collaboration"
-        ],
+        "topics": ["XM Cloud Architecture", "Candid Review", "Collaboration"],
         "description": "Collaborative presentation with Liz Nelson offering a candid review of the XM Cloud journey, sharing wins, losses, and insights from the founding architect's perspective alongside implementation expertise.",
         "videoUrl": "https://www.youtube.com/watch?v=IEbZIOVPzW4&list=PLvwdDTmlDsRwv59ccvK5sodnaLLu9_AfT&index=9"
       },
@@ -269,11 +433,7 @@
         "location": "Dublin, Ireland",
         "date": "April 2024",
         "sessionTitle": "Building for Resiliency",
-        "topics": [
-          "System Architecture",
-          "Scalability",
-          "Performance"
-        ],
+        "topics": ["System Architecture", "Scalability", "Performance"],
         "description": "Explored architectural patterns and best practices for building resilient, scalable CMS systems that can withstand high traffic loads and provide consistent performance under varying conditions.",
         "videoUrl": "https://youtu.be/3zLjcHzGT9E?si=BNfEocwSaqBpd7oj&t=33",
         "sessionizeUrl": "https://sessionize.com/andy-cohen"
@@ -375,11 +535,7 @@
         "location": "Budapest, Hungary",
         "date": "April 2022",
         "sessionTitle": "XM Cloud - Build and Deploy in less than 5 minutes",
-        "topics": [
-          "Historic Demo",
-          "XM Cloud Launch",
-          "Live Deployment"
-        ],
+        "topics": ["Historic Demo", "XM Cloud Launch", "Live Deployment"],
         "description": "Historic live demonstration of Sitecore's next generation product, XM Cloud. The very first public demonstration of XM Cloud Deploy, successfully deploying Sitecore from an empty cloud environment in just over 5 minutes. This session introduced the Sitecore community to what XM Cloud is, what it isn't, and marked the beginning of the SaaS journey for Sitecore.",
         "videoUrl": "https://youtu.be/Sm4X6EG8fCU?si=grZaN16g-2V9sHaF&t=44",
         "documentationUrl": "https://www.flux-digital.com/blog/sugcon-2022-thoughts-takeaways/",
