@@ -1,18 +1,15 @@
-import { getInitials } from "@/lib/utils";
-import { generatePageMetadata } from "@/lib/metadata-generators";
-import { getCurrentRole, formatLinkedInUrl } from "@/lib/data-helpers";
-import data from "../../../content/data.json";
-
-// Get current role using utility
-const currentRole = getCurrentRole(data.resume);
+import { getInitials } from '@/lib/utils';
+import { generatePageMetadata } from '@/lib/metadata-generators';
+import { formatLinkedInUrl } from '@/lib/data-helpers';
+import data from '../../../content/data.json';
 
 // Generate metadata using utility
 export const metadata = generatePageMetadata(
-  "Contact",
+  'Contact',
   `Get in touch with ${data.contact.name}`,
   data.contact,
   {},
-  "/contact"
+  '/contact'
 );
 
 export default function Contact() {
@@ -47,7 +44,8 @@ export default function Contact() {
                         {data.contact.name}
                       </h2>
                       <p className="text-gray-600">
-                        {currentRole.title} at {currentRole.company}
+                        Founding Architect of Sitecore XM Cloud | Product &
+                        Innovation Leader
                       </p>
                     </div>
                   </div>
@@ -144,25 +142,46 @@ export default function Contact() {
               <div className="space-y-8">
                 <div className="card">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                    Current Focus
+                    Open to New Opportunities
                   </h3>
                   <p className="text-gray-700 mb-6 leading-relaxed">
-                    {currentRole.description}
+                    I&apos;m exploring roles in AI-native product development,
+                    platform architecture, and innovation leadership. I help
+                    teams build systems that serve both humans and AI
+                    agents—leveraging structured data, intelligent
+                    orchestration, and modern development practices.
                   </p>
 
                   <div>
                     <h4 className="text-lg font-medium text-gray-900 mb-3">
-                      Recent Highlights
+                      Areas of Focus
                     </h4>
                     <ul className="space-y-3">
-                      {currentRole.highlights.map((highlight, index) => (
-                        <li key={index} className="flex items-start gap-3">
-                          <div className="flex-shrink-0 w-2 h-2 bg-primary-500 rounded-full mt-2.5"></div>
-                          <span className="text-gray-700 leading-relaxed">
-                            {highlight}
-                          </span>
-                        </li>
-                      ))}
+                      <li className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-2 h-2 bg-primary-500 rounded-full mt-2.5"></div>
+                        <span className="text-gray-700 leading-relaxed">
+                          AI-native architecture and agentic workflow design
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-2 h-2 bg-primary-500 rounded-full mt-2.5"></div>
+                        <span className="text-gray-700 leading-relaxed">
+                          Digital experience platforms and content management
+                          systems
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-2 h-2 bg-primary-500 rounded-full mt-2.5"></div>
+                        <span className="text-gray-700 leading-relaxed">
+                          Product strategy and innovation leadership
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-2 h-2 bg-primary-500 rounded-full mt-2.5"></div>
+                        <span className="text-gray-700 leading-relaxed">
+                          Technical thought leadership and community building
+                        </span>
+                      </li>
                     </ul>
                   </div>
                 </div>
