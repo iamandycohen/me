@@ -1,7 +1,18 @@
 import { NextResponse } from 'next/server';
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { Contact, Bio, Professional, Role, Project, CommunityData, ExpertiseArea, MVPAward, Presentation } from '@/types';
+import {
+  Contact,
+  Bio,
+  Professional,
+  Role,
+  Project,
+  CommunityData,
+  ExpertiseArea,
+  MVPAward,
+  Presentation,
+  ThoughtLeadership,
+} from '@/types';
 
 // Main data interface
 interface PortfolioData {
@@ -11,15 +22,16 @@ interface PortfolioData {
   resume: Role[];
   projects: Project[];
   community: CommunityData;
+  thoughtLeadership?: ThoughtLeadership[];
 }
 
 export async function GET() {
   try {
     const dataPath = join(process.cwd(), 'content', 'data.json');
     const data = JSON.parse(readFileSync(dataPath, 'utf8'));
-    
+
     const markdown = generateMarkdown(data);
-    
+
     return new NextResponse(markdown, {
       headers: {
         'Content-Type': 'text/plain; charset=utf-8',
@@ -34,6 +46,8 @@ export async function GET() {
 function generateMarkdown(data: PortfolioData): string {
   let md = `# ${data.contact?.name || 'Professional Portfolio'}\n\n`;
   md += `*Complete professional profile for AI consumption*\n\n`;
+  md += `**Current Status:** Founding Architect of Sitecore XM Cloud | Product & Innovation Leader\n`;
+  md += `**Availability:** Open to new opportunities in AI-native product development, platform architecture, and innovation leadership\n\n`;
 
   // Contact Information
   if (data.contact) {
@@ -58,7 +72,7 @@ function generateMarkdown(data: PortfolioData): string {
   // Professional Profile
   if (data.professional) {
     md += `## Professional Profile\n\n`;
-    
+
     if (data.professional.expertise?.length) {
       md += `### Core Expertise\n\n`;
       data.professional.expertise.forEach((item: string) => {
@@ -66,12 +80,12 @@ function generateMarkdown(data: PortfolioData): string {
       });
       md += `\n`;
     }
-    
+
     if (data.professional.skills?.length) {
       md += `### Technical Skills\n\n`;
       md += `${data.professional.skills.join(', ')}\n\n`;
     }
-    
+
     if (data.professional.keywords?.length) {
       md += `### Keywords\n\n`;
       md += `${data.professional.keywords.join(', ')}\n\n`;
@@ -84,11 +98,11 @@ function generateMarkdown(data: PortfolioData): string {
     data.resume.forEach((job: Role) => {
       md += `### ${job.title} - ${job.company}\n`;
       md += `**Period:** ${job.period}\n\n`;
-      
+
       if (job.description) {
         md += `${job.description}\n\n`;
       }
-      
+
       if (job.highlights?.length) {
         md += `**Key Achievements:**\n`;
         job.highlights.forEach((highlight: string) => {
@@ -107,11 +121,11 @@ function generateMarkdown(data: PortfolioData): string {
       if (project.period) {
         md += `**Period:** ${project.period}\n\n`;
       }
-      
+
       if (project.description) {
         md += `${project.description}\n\n`;
       }
-      
+
       if (project.highlights?.length) {
         md += `**Project Highlights:**\n`;
         project.highlights.forEach((highlight: string) => {
@@ -122,10 +136,38 @@ function generateMarkdown(data: PortfolioData): string {
     });
   }
 
+  // Thought Leadership & Articles
+  if (data.thoughtLeadership?.length) {
+    md += `## Thought Leadership & Articles\n\n`;
+    md += `Published ${data.thoughtLeadership.length} articles on AI, digital experience platforms, and software architecture.\n\n`;
+
+    data.thoughtLeadership.forEach((article: ThoughtLeadership) => {
+      md += `### ${article.title}\n`;
+      md += `**Platform:** ${article.platform} | **Date:** ${article.date} | **Type:** ${article.type}\n`;
+      md += `**URL:** ${article.url}\n\n`;
+
+      if (article.summary) {
+        md += `${article.summary}\n\n`;
+      }
+
+      if (article.highlights?.length) {
+        md += `**Key Insights:**\n`;
+        article.highlights.forEach((highlight: string) => {
+          md += `- ${highlight}\n`;
+        });
+        md += `\n`;
+      }
+
+      if (article.topics?.length) {
+        md += `**Topics:** ${article.topics.join(', ')}\n\n`;
+      }
+    });
+  }
+
   // Community Leadership
   if (data.community) {
     md += `## Community Leadership\n\n`;
-    
+
     // MVP Status
     if (data.community.mvpStatus) {
       md += `### MVP Recognition\n\n`;
@@ -134,7 +176,7 @@ function generateMarkdown(data: PortfolioData): string {
         md += `**Profile:** ${data.community.mvpProfileUrl}\n`;
       }
       md += `\n`;
-      
+
       if (data.community.mvpAwards?.length) {
         md += `**Award History:**\n`;
         data.community.mvpAwards.forEach((award: MVPAward) => {
@@ -153,24 +195,26 @@ function generateMarkdown(data: PortfolioData): string {
       data.community.presentations.forEach((pres: Presentation) => {
         md += `#### ${pres.sessionTitle || pres.title}\n`;
         md += `**Event:** ${pres.title} | **Location:** ${pres.location} | **Date:** ${pres.date}\n\n`;
-        
+
         if (pres.description) {
           md += `${pres.description}\n\n`;
         }
-        
+
         if (pres.topics?.length) {
           md += `**Topics:** ${pres.topics.join(', ')}\n`;
         }
-        
+
         // Links
         const links = [];
         if (pres.videoUrl) links.push(`[Video](${pres.videoUrl})`);
-        if (pres.sessionizeUrl) links.push(`[Sessionize](${pres.sessionizeUrl})`);
-        if (pres.documentationUrl) links.push(`[Documentation](${pres.documentationUrl})`);
+        if (pres.sessionizeUrl)
+          links.push(`[Sessionize](${pres.sessionizeUrl})`);
+        if (pres.documentationUrl)
+          links.push(`[Documentation](${pres.documentationUrl})`);
         if (links.length) {
           md += `**Links:** ${links.join(' | ')}\n`;
         }
-        
+
         md += `\n`;
       });
     }
@@ -181,11 +225,16 @@ function generateMarkdown(data: PortfolioData): string {
       md += `#### ${data.community.featuredMedia.title}\n`;
       md += `**Episode:** ${data.community.featuredMedia.episode}\n\n`;
       md += `${data.community.featuredMedia.description}\n\n`;
-      
+
       const mediaLinks = [];
-      if (data.community.featuredMedia.podcastUrl) mediaLinks.push(`[Podcast](${data.community.featuredMedia.podcastUrl})`);
-      if (data.community.featuredMedia.videoUrl) mediaLinks.push(`[Video](${data.community.featuredMedia.videoUrl})`);
-      if (data.community.featuredMedia.blogUrl) mediaLinks.push(`[Blog](${data.community.featuredMedia.blogUrl})`);
+      if (data.community.featuredMedia.podcastUrl)
+        mediaLinks.push(
+          `[Podcast](${data.community.featuredMedia.podcastUrl})`
+        );
+      if (data.community.featuredMedia.videoUrl)
+        mediaLinks.push(`[Video](${data.community.featuredMedia.videoUrl})`);
+      if (data.community.featuredMedia.blogUrl)
+        mediaLinks.push(`[Blog](${data.community.featuredMedia.blogUrl})`);
       if (mediaLinks.length) {
         md += `**Links:** ${mediaLinks.join(' | ')}\n\n`;
       }
@@ -194,9 +243,11 @@ function generateMarkdown(data: PortfolioData): string {
     // Additional Media Resources
     if (data.community.mediaResources?.podcasts?.length) {
       md += `### Podcast Appearances\n\n`;
-      data.community.mediaResources.podcasts.forEach((podcast: { title: string; url: string; description: string }) => {
-        md += `- **${podcast.title}**: ${podcast.description} - [Listen](${podcast.url})\n`;
-      });
+      data.community.mediaResources.podcasts.forEach(
+        (podcast: { title: string; url: string; description: string }) => {
+          md += `- **${podcast.title}**: ${podcast.description} - [Listen](${podcast.url})\n`;
+        }
+      );
       md += `\n`;
     }
 
