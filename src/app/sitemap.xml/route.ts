@@ -16,6 +16,7 @@ export async function GET(_request: NextRequest) {
     { path: "/", priority: 1.0, changefreq: "daily" },
     { path: "/resume", priority: 0.8, changefreq: "daily" },
     { path: "/projects", priority: 0.8, changefreq: "daily" },
+    { path: "/articles", priority: 0.9, changefreq: "weekly" },
     { path: "/contact", priority: 0.8, changefreq: "daily" },
     { path: "/community", priority: 0.8, changefreq: "daily" },
     { path: "/ai-chat", priority: 0.8, changefreq: "daily" },

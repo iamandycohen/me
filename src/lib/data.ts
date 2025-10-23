@@ -4,4 +4,4 @@ import data from "../../content/data.json";
 export default data;
 
 // Named exports for common data sections for convenience
-export const { contact, bio, professional, resume, projects, community } = data;
+export const { contact, bio, professional, resume, projects, community, thoughtLeadership } = data;
