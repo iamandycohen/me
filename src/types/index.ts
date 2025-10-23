@@ -31,6 +31,7 @@ export interface Professional {
 
 // Biography information
 export interface Bio {
+  tagline: string;
   short: string;
   full: string;
 }

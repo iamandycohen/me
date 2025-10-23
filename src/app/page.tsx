@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import MCPServerSection from '@/components/mcp/MCPServerSection';
 import MCPExplainer from '@/components/mcp/MCPExplainer';
-import { getBioParagraphs } from '@/lib/data-helpers';
+import { getBioParagraphs, getCurrentActiveRole } from '@/lib/data-helpers';
 import { addSitecoreLinks } from '@/lib/utils';
 import data from '@/lib/data';
 
@@ -11,6 +11,12 @@ import data from '@/lib/data';
 
 export default function Home() {
   const bioParagraphs = getBioParagraphs(data.bio.full);
+  const currentRole = getCurrentActiveRole(data.resume);
+
+  // Determine the title to display
+  const displayTitle = currentRole
+    ? `${currentRole.title} at ${currentRole.company}`
+    : data.bio.tagline;
 
   return (
     <>
@@ -39,8 +45,7 @@ export default function Home() {
                   <span className="gradient-text">{data.contact.name}</span>
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-600 mb-8">
-                  Founding Architect of Sitecore XM Cloud | Product & Innovation
-                  Leader
+                  {displayTitle}
                 </p>
                 <p className="text-lg text-gray-700 mb-8 leading-relaxed max-w-3xl lg:max-w-none prose-custom">
                   {addSitecoreLinks(data.bio.short)}
