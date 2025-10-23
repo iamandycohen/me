@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useState, memo } from "react";
-import { usePathname } from "next/navigation";
-import { getDisplayName } from "@/lib/data-helpers";
-import data from "@/lib/data";
+import Link from 'next/link';
+import { useState, memo } from 'react';
+import { usePathname } from 'next/navigation';
+import { getDisplayName } from '@/lib/data-helpers';
+import data from '@/lib/data';
 
 const displayName = getDisplayName(data.contact);
 
@@ -27,29 +27,31 @@ function Navigation() {
 
   // Map pathnames to their source files
   const getGitHubUrl = (currentPath: string) => {
-    const baseUrl = "https://github.com/iamandycohen/me/blob/main/src/app";
+    const baseUrl = 'https://github.com/iamandycohen/me/blob/main/src/app';
     const pathMap: { [key: string]: string } = {
-      "/": "page.tsx",
-      "/resume": "resume/page.tsx",
-      "/projects": "projects/page.tsx",
-      "/community": "community/page.tsx",
-      "/contact": "contact/page.tsx",
-      "/ai-chat": "ai-chat/page.tsx",
-      "/ai-tools": "ai-tools/page.tsx",
+      '/': 'page.tsx',
+      '/resume': 'resume/page.tsx',
+      '/projects': 'projects/page.tsx',
+      '/articles': 'articles/page.tsx',
+      '/community': 'community/page.tsx',
+      '/contact': 'contact/page.tsx',
+      '/ai-chat': 'ai-chat/page.tsx',
+      '/ai-tools': 'ai-tools/page.tsx',
     };
 
-    const filePath = pathMap[currentPath] || "page.tsx";
+    const filePath = pathMap[currentPath] || 'page.tsx';
     return `${baseUrl}/${filePath}`;
   };
 
   const navigation = [
-    { name: "About", href: "/" },
-    { name: "Resume", href: "/resume" },
-    { name: "Projects", href: "/projects" },
-    { name: "Community", href: "/community" },
-    { name: "Contact", href: "/contact" },
-    { name: "AI Chat", href: "/ai-chat" },
-    { name: "AI Tools Demo", href: "/ai-tools" },
+    { name: 'About', href: '/' },
+    { name: 'Resume', href: '/resume' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Articles', href: '/articles' },
+    { name: 'Community', href: '/community' },
+    { name: 'Contact', href: '/contact' },
+    { name: 'AI Chat', href: '/ai-chat' },
+    { name: 'AI Tools Demo', href: '/ai-tools' },
   ];
 
   const toggleMobileMenu = () => {
@@ -96,17 +98,17 @@ function Navigation() {
           >
             <div
               className={`w-6 h-0.5 bg-gray-600 transition-all duration-300 ${
-                isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
+                isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
               }`}
             ></div>
             <div
               className={`w-6 h-0.5 bg-gray-600 transition-all duration-300 ${
-                isMobileMenuOpen ? "opacity-0" : ""
+                isMobileMenuOpen ? 'opacity-0' : ''
               }`}
             ></div>
             <div
               className={`w-6 h-0.5 bg-gray-600 transition-all duration-300 ${
-                isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
+                isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
               }`}
             ></div>
           </button>
@@ -116,8 +118,8 @@ function Navigation() {
         <div
           className={`md:hidden transition-all duration-300 ease-in-out ${
             isMobileMenuOpen
-              ? "max-h-96 opacity-100"
-              : "max-h-0 opacity-0 overflow-hidden"
+              ? 'max-h-96 opacity-100'
+              : 'max-h-0 opacity-0 overflow-hidden'
           }`}
         >
           <div className="py-4 border-t border-gray-200">

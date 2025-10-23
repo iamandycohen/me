@@ -131,6 +131,18 @@ export interface ProjectsResponse {
   projects: Project[];
 }
 
+// Thought Leadership entry
+export interface ThoughtLeadership {
+  title: string;
+  url: string;
+  platform: string;
+  type: string;
+  date: string;
+  summary: string;
+  highlights: string[];
+  topics: string[];
+}
+
 // API Input types
 export interface BioInput {
   format?: 'short' | 'full';
@@ -142,4 +154,4 @@ export interface ResumeInput {
 
 export interface ProjectsInput {
   limit?: number;
-} 
+}
