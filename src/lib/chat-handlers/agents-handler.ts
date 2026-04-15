@@ -48,8 +48,7 @@ export class AgentsChatHandler extends BaseChatHandler {
       this.debugLog(`Hosted MCP tool created`);
 
       // Create the agent with hosted MCP tool
-      // Use a supported model - default to gpt-4o-mini if gpt-5 isn't supported
-      const modelName = config.model === "gpt-5" ? "gpt-4o-mini" : config.model;
+      const modelName = config.model;
 
       this.debugLog(`Creating agent with:`, {
         name: `${this.displayName} AI Assistant`,
