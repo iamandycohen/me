@@ -32,7 +32,7 @@ export class ChatHandlerFactory {
   }
 
   static getDefaultMode(): ChatMode {
-    return "agents";
+    return "proxy";
   }
 
   static getModeDescription(mode: ChatMode): string {
