@@ -28,11 +28,11 @@ export class ChatHandlerFactory {
   }
 
   static getAvailableModes(): ChatMode[] {
-    return ["agents", "proxy", "native"];
+    return ["proxy", "agents", "native"];
   }
 
   static getDefaultMode(): ChatMode {
-    return "agents";
+    return "proxy";
   }
 
   static getModeDescription(mode: ChatMode): string {

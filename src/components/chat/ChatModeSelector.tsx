@@ -12,20 +12,20 @@ interface ChatModeSelectorProps {
 }
 
 const MODE_CONFIG = {
-  agents: {
-    label: "Agents Mode",
-    shortLabel: "Agents",
-    description: "OpenAI Agents SDK with enhanced tool interaction",
-    icon: "🚀",
-    features: ["Agents SDK", "Enhanced interaction", "Clean responses"],
-    recommended: true,
-  },
   proxy: {
     label: "Proxy Mode",
     shortLabel: "Proxy",
     description: "Direct MCP integration with real-time tool call updates",
     icon: "🔧",
     features: ["Real-time tool updates", "Fast response", "Full transparency"],
+    recommended: true,
+  },
+  agents: {
+    label: "Agents Mode",
+    shortLabel: "Agents",
+    description: "OpenAI Agents SDK with enhanced tool interaction",
+    icon: "🚀",
+    features: ["Agents SDK", "Enhanced interaction", "Clean responses"],
     recommended: false,
   },
   native: {
@@ -162,12 +162,12 @@ export default function ChatModeSelector({
 
             <div className="text-xs text-gray-500 border-t pt-3">
               <p>
-                <strong>Agents Mode:</strong> Recommended - Uses OpenAI&apos;s
-                latest Agents SDK for the most intelligent responses.
+                <strong>Proxy Mode:</strong> Recommended - Streams tokens
+                in real-time via MCP with full tool call transparency.
               </p>
               <p className="mt-1">
-                <strong>Proxy Mode:</strong> Good for debugging - Shows exactly
-                what&apos;s happening with tool calls in real-time.
+                <strong>Agents Mode:</strong> Uses OpenAI&apos;s Agents SDK
+                for enhanced tool interaction and clean responses.
               </p>
               <p className="mt-1">
                 <strong>Native Mode:</strong> Basic mode - OpenAI manages
