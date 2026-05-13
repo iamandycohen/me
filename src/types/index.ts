@@ -1,19 +1,3 @@
-// MCP Tool definition
-export interface MCPTool {
-  name: string;
-  description: string;
-  inputSchema: {
-    type: string;
-    properties: Record<string, unknown>;
-    required: string[];
-  };
-  outputSchema: {
-    type: string;
-    properties: Record<string, unknown>;
-    required: string[];
-  };
-}
-
 // Contact information
 export interface Contact {
   name: string;
@@ -103,7 +87,7 @@ export interface CommunityData {
     description: string;
     blogUrl: string;
     podcastUrl: string;
-    videoUrl: string;
+    videoUrl?: string;
   };
   mediaResources: {
     podcasts: Array<{
@@ -113,23 +97,6 @@ export interface CommunityData {
     }>;
   };
   expertiseAreas?: ExpertiseArea[];
-}
-
-// API Response types
-export interface ContactResponse {
-  contact: Contact;
-}
-
-export interface BioResponse {
-  bio: string;
-}
-
-export interface ResumeResponse {
-  resume: Role[];
-}
-
-export interface ProjectsResponse {
-  projects: Project[];
 }
 
 // Thought Leadership entry
@@ -142,17 +109,4 @@ export interface ThoughtLeadership {
   summary: string;
   highlights: string[];
   topics: string[];
-}
-
-// API Input types
-export interface BioInput {
-  format?: 'short' | 'full';
-}
-
-export interface ResumeInput {
-  limit?: number;
-}
-
-export interface ProjectsInput {
-  limit?: number;
 }

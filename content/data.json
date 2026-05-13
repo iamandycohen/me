@@ -59,17 +59,17 @@
   },
   "resume": [
     {
-  "title": "Head of AI and Agentic Experience",
-  "company": "Kajoo + TechGuilds",
-  "period": "Oct 2025 - Present",
-  "highlights": [
-    "Leading the design and delivery of agentic orchestration platforms",
-    "Building AI-augmented workflows that accelerate product and software development",
-    "Translating emerging AI capabilities into scalable, shippable products",
-    "Defining the next generation of developer and agentic experience"
-  ],
-  "description": "Leading AI and agentic platform development, with a focus on orchestration, applied AI systems, and products that ship. Driving the evolution beyond composable systems toward agent-driven workflows that reduce friction, create leverage, and scale."
-  },
+      "title": "Head of AI and Agentic Experience",
+      "company": "Kajoo + TechGuilds",
+      "period": "Oct 2025 - Present",
+      "highlights": [
+        "Leading the design and delivery of agentic orchestration platforms",
+        "Building AI-augmented workflows that accelerate product and software development",
+        "Translating emerging AI capabilities into scalable, shippable products",
+        "Defining the next generation of developer and agentic experience"
+      ],
+      "description": "Leading AI and agentic platform development, with a focus on orchestration, applied AI systems, and products that ship. Driving the evolution beyond composable systems toward agent-driven workflows that reduce friction, create leverage, and scale."
+    },
     {
       "title": "Vice President | Chief Architect",
       "company": "Altudo",
@@ -207,6 +207,28 @@
     }
   ],
   "thoughtLeadership": [
+    {
+      "title": "Seeing the Agentic Forest Through the Trees: Andy Cohen on Taming the AI Wilderness",
+      "url": "https://cmscritic.com/seeing-the-agentic-forest-through-the-trees-andy-cohen-on-taming-the-ai-wilderness",
+      "platform": "CMS Critic",
+      "type": "podcast",
+      "date": "May 10, 2026",
+      "summary": "Featured guest on The Critic's Corner podcast with host Matt Garrepy. A wide-ranging conversation tracing the path from a Commodore 64 kid and Mount Diablo park ranger to founding architect of Sitecore XM Cloud, and into today's work leading agentic platform development at Kajoo and TechGuilds. Covers the realities of the agentic enterprise, the risks of vibe coding, and why fundamentals matter more than ever. Listen on Apple Podcasts: https://podcasts.apple.com/us/podcast/seeing-the-agentic-forest-through-the-ai-trees/id1801794414?i=1000766962858",
+      "highlights": [
+        "Why AI isn't displacing work, it's shifting and expanding it",
+        "Drawing the boundary between deterministic tools and probabilistic agents",
+        "Hybrid skills for a generation whose first instinct is to ask the model",
+        "Apple Podcasts episode: https://podcasts.apple.com/us/podcast/seeing-the-agentic-forest-through-the-ai-trees/id1801794414?i=1000766962858"
+      ],
+      "topics": [
+        "Agentic AI",
+        "Kajoo Agentic",
+        "XM Cloud",
+        "Vibe Coding",
+        "Developer Experience",
+        "Podcast"
+      ]
+    },
     {
       "title": "The Next Great DXP Will Sell Transformation, Not Software",
       "url": "https://cmscritic.com/the-next-great-dxp-will-sell-transformation-not-software",
@@ -382,9 +404,15 @@
     "mvpStatus": "Sitecore MVP",
     "mvpAwards": [
       {
+        "year": "2026",
+        "type": "Technology",
+        "status": "Current",
+        "description": "Recognized as a 2026 Sitecore Technology MVP for ongoing technical leadership, community contributions, and thought leadership across XM Cloud, agentic AI, and the future of content management."
+      },
+      {
         "year": "2025",
         "type": "Honorary",
-        "status": "Current",
+        "status": "Alumni",
         "description": "Named as a 2025 Honorary MVP, a rarely awarded distinction recognizing exceptional contributions to the Sitecore ecosystem.",
         "announcementUrl": "https://www.sitecore.com/company/newsroom/press-releases/2025/01/sitecore-announces-2025-most-valuable-professionals",
         "quote": "Andy Cohen dedicated five years to Sitecore, establishing himself as a prominent figure within the community. As one of the principal architects of XM Cloud, he championed its development from the outset. In recognition of his significant contributions, we are honored to present Andy with the Honorary MVP award.",
@@ -572,12 +600,11 @@
       }
     ],
     "featuredMedia": {
-      "title": "The Sitecore Water Cooler Podcast",
-      "episode": "The New Age of Building a Sitecore Solution",
-      "description": "Featured guest discussing how XM Cloud and modern architectural patterns are transforming CMS development and implementation strategies for enterprise clients.",
-      "blogUrl": "https://www.americaneagle.com/insights/blog/post/the-sitecore-water-cooler-podcast-the-new-age-of-building-a-sitecore-solution",
-      "podcastUrl": "https://dcs-spotify.megaphone.fm/AAE6951160485.mp3?key=37f9b5eca2f6c86d79b3149a23f7e33f&request_event_id=d2ecdaa9-8b66-443e-97ca-28006aecfe9c&session_id=d2ecdaa9-8b66-443e-97ca-28006aecfe9c&source=3&timetoken=1756008698_5C371E112A7630CE481F28B3B9833EA2",
-      "videoUrl": "https://www.youtube.com/watch?v=nBZFVywp_L4"
+      "title": "The Critic's Corner Podcast",
+      "episode": "Seeing the Agentic Forest Through the Trees: Andy Cohen on Taming the AI Wilderness",
+      "description": "Featured guest with host Matt Garrepy on CMS Critic's The Critic's Corner. A wide-ranging conversation from Commodore 64 beginnings and Mount Diablo park ranger days to architecting Sitecore XM Cloud, plus today's work leading agentic platform development at Kajoo and TechGuilds. Covers the realities of the agentic enterprise, the risks of vibe coding, and why fundamentals matter more than ever.",
+      "blogUrl": "https://cmscritic.com/seeing-the-agentic-forest-through-the-trees-andy-cohen-on-taming-the-ai-wilderness",
+      "podcastUrl": "https://podcasts.apple.com/us/podcast/seeing-the-agentic-forest-through-the-ai-trees/id1801794414?i=1000766962858"
     },
     "expertiseAreas": [
       {

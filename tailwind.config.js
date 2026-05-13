@@ -9,15 +9,38 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-jetbrains-mono)', 'Courier New', 'monospace'],
+        serif: ['var(--font-fraunces)', 'Georgia', 'serif'],
       },
       colors: {
+        // Editorial palette
+        paper: '#FBFAF6', // warm off-white
+        ink: '#1A1A1A', // near-black for text
+        accent: {
+          DEFAULT: '#8C5A2B', // muted terracotta
+          soft: '#C49A6C',
+        },
         primary: {
-          50: '#f0f9ff',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          900: '#1e3a8a',
+          50: '#f7f3ee',
+          100: '#efe7dc',
+          200: '#e2d2bd',
+          300: '#cdb393',
+          400: '#b08e62',
+          500: '#8C5A2B',
+          600: '#7a4d24',
+          700: '#65401e',
+          800: '#4d3017',
+          900: '#3b2611',
+        },
+        secondary: {
+          50: '#f5f2ed',
+          100: '#e9e3d8',
+          200: '#d2c6b1',
+          300: '#b8a585',
+          400: '#9c845e',
+          500: '#7d6743',
+          600: '#624f33',
+          700: '#4a3b27',
+          900: '#2c2316',
         },
         gray: {
           50: '#f9fafb',
@@ -32,28 +55,18 @@ module.exports = {
           900: '#111827',
         },
       },
-      spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
+      letterSpacing: {
+        wider: '0.08em',
+        widest: '0.18em',
       },
       maxWidth: {
         '8xl': '88rem',
+        prose: '68ch',
       },
-      animation: {
-        'slide-in-bottom': 'slideInBottom 0.2s ease-out',
-        'scale-in': 'scaleIn 0.15s ease-out',
-      },
-      keyframes: {
-        slideInBottom: {
-          '0%': { transform: 'translateY(100%)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-        scaleIn: {
-          '0%': { transform: 'scale(0.95)', opacity: '0' },
-          '100%': { transform: 'scale(1)', opacity: '1' },
-        },
+      typography: {
+        // light optical sizing for Fraunces is handled via CSS axis usage
       },
     },
   },
   plugins: [],
-} 
+};
