@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
-import type { Contact, Role, Bio } from "@/types";
-import { MCPTool } from "@/types";
-import { getDisplayName, formatLinkedInUrl } from "./data-helpers";
-import { absoluteUrl, getConfiguredSiteUrl } from "./url-helpers";
+import type { Metadata } from 'next';
+import type { Contact, Role, Bio } from '@/types';
+import { getDisplayName, formatLinkedInUrl } from './data-helpers';
+import { absoluteUrl, getConfiguredSiteUrl } from './url-helpers';
 
 // Professional data interface for type safety
 interface ProfessionalData {
@@ -19,12 +18,12 @@ export function generateJsonLd(
   professional: ProfessionalData
 ) {
   return {
-    "@context": "https://schema.org",
-    "@type": "Person",
+    '@context': 'https://schema.org',
+    '@type': 'Person',
     name: contact.name,
     image: {
-      "@type": "ImageObject",
-      url: `${getConfiguredSiteUrl()}/headshot.png`,
+      '@type': 'ImageObject',
+      url: `${getConfiguredSiteUrl()}/headshot.jpg`,
       width: 800,
       height: 800,
       caption: `Professional headshot of ${contact.name}`,
@@ -32,7 +31,7 @@ export function generateJsonLd(
     },
     jobTitle: currentRole.title,
     worksFor: {
-      "@type": "Organization",
+      '@type': 'Organization',
       name: currentRole.company,
     },
     description: bio.short,
@@ -41,31 +40,14 @@ export function generateJsonLd(
     sameAs: [formatLinkedInUrl(contact.linkedin)],
     knowsAbout: professional.skills,
     hasOccupation: {
-      "@type": "Occupation",
+      '@type': 'Occupation',
       name: currentRole.title,
       occupationLocation: {
-        "@type": "Place",
+        '@type': 'Place',
         name: contact.location,
       },
       skills: professional.expertise,
     },
-    additionalProperty: [
-      {
-        "@type": "PropertyValue",
-        name: "MCP Server Endpoint",
-        value: "/api/mcp",
-      },
-      {
-        "@type": "PropertyValue",
-        name: "Agent Documentation",
-        value: "/llms.txt",
-      },
-      {
-        "@type": "PropertyValue",
-        name: "API Documentation",
-        value: "/api/docs",
-      },
-    ],
   };
 }
 
@@ -81,37 +63,21 @@ export function generateBaseMetadata(
   return {
     metadataBase: new URL(getConfiguredSiteUrl()),
     title: {
-      default: `${displayName} - AI-Native Professional Portfolio`,
-      template: `%s | ${displayName}`,
+      default: `${displayName} — ${currentRole.title}`,
+      template: `%s · ${displayName}`,
     },
     description: `${displayName}. ${bio.short}`,
     keywords: professional.keywords,
     authors: [{ name: contact.name }],
 
-    // AI/Agent discovery meta tags (moved from manual head)
-    other: {
-      "ai:mcp-server": "/api/mcp",
-      "ai:description":
-        "Professional information accessible via MCP tools and structured data",
-      "ai:type": "professional-portfolio",
-      "mcp:endpoint": "/api/mcp",
-      "llms:document": "/llms.txt",
-      "openapi:spec": "/api/docs",
-      // LLM Discovery Meta Tags (from manual head)
-      "llm-agent-resources": "/llms.txt,/llms-full.txt,/api/mcp",
-      "ai-agent-friendly": "true",
-      "mcp-server": "/api/mcp",
-    },
-
-    // OpenGraph for social sharing
     openGraph: {
-      title: `${displayName} - AI-Native Professional Portfolio`,
-      description: `${currentRole.title} building systems that scale. ${bio.short}`,
-      type: "profile",
+      title: `${displayName} — ${currentRole.title}`,
+      description: bio.short,
+      type: 'profile',
       url: getConfiguredSiteUrl(),
       images: [
         {
-          url: "/headshot.png",
+          url: '/headshot.jpg',
           width: 800,
           height: 800,
           alt: `Professional headshot of ${contact.name}`,
@@ -119,27 +85,15 @@ export function generateBaseMetadata(
       ],
     },
 
-    // Twitter Card for enhanced Twitter/X sharing
     twitter: {
-      card: "summary",
-      title: `${displayName} - AI-Native Professional Portfolio`,
-      description: `${currentRole.title} building systems that scale. ${bio.short}`,
-      images: ["/headshot.png"],
+      card: 'summary',
+      title: `${displayName} — ${currentRole.title}`,
+      description: bio.short,
+      images: ['/headshot.jpg'],
     },
 
-    // Additional alternates (moved from manual head)
     alternates: {
-      canonical: absoluteUrl("/"),
-      types: {
-        "text/plain": [
-          { url: "/llms.txt", title: "LLM Agent Information" },
-          { url: "/llms-full.txt", title: "Complete Profile for LLMs" },
-        ],
-        "application/json": [
-          { url: "/api/mcp", title: "MCP Server Endpoint" },
-          { url: "/api/docs", title: "OpenAPI Specification" },
-        ],
-      },
+      canonical: absoluteUrl('/'),
     },
   };
 }
@@ -150,7 +104,7 @@ export function generatePageMetadata(
   description: string,
   contact: Contact,
   additional: Partial<Metadata> = {},
-  path: string = ""
+  path: string = ''
 ): Metadata {
   return {
     title: pageTitle,
@@ -158,11 +112,11 @@ export function generatePageMetadata(
     openGraph: {
       title: `${pageTitle} | ${contact.name}`,
       description,
-      siteName: `${contact.name} - Professional Portfolio`,
+      siteName: `${contact.name}`,
       url: absoluteUrl(path),
       images: [
         {
-          url: "/headshot.png",
+          url: '/headshot.jpg',
           width: 800,
           height: 800,
           alt: `Professional headshot of ${contact.name}`,
@@ -170,246 +124,14 @@ export function generatePageMetadata(
       ],
     },
     twitter: {
-      card: "summary",
+      card: 'summary',
       title: `${pageTitle} | ${contact.name}`,
       description,
-      images: ["/headshot.png"],
+      images: ['/headshot.jpg'],
     },
     alternates: {
       canonical: absoluteUrl(path),
     },
     ...additional,
-  };
-}
-
-// Generate OpenAPI specification
-export function generateOpenApiSpec(
-  contact: Contact,
-  currentRole: Role,
-  _mcpTools: MCPTool[]
-) {
-  return {
-    openapi: "3.0.0",
-    info: {
-      title: `${contact.name} - MCP Server API`,
-      version: "1.0.0",
-      description: `Model Context Protocol (MCP) server for accessing professional information about ${contact.name}. Implements JSON-RPC 2.0 with tools for contact, bio, resume, projects, and full profile data.`,
-      contact: {
-        name: contact.name,
-        email: contact.email,
-        url: formatLinkedInUrl(contact.linkedin),
-      },
-    },
-    servers: [
-      {
-        url: getConfiguredSiteUrl(),
-        description: "Production/Development server",
-      },
-    ],
-    paths: {
-      "/api/mcp": {
-        get: {
-          summary: "Get MCP server information",
-          description:
-            "Returns basic information about the MCP server capabilities and available tools",
-          tags: ["MCP Server"],
-          responses: {
-            "200": {
-              description: "Server information",
-              content: {
-                "application/json": {
-                  schema: {
-                    type: "object",
-                    properties: {
-                      name: { type: "string", example: "andy-cohen-portfolio" },
-                      version: { type: "string", example: "1.0.0" },
-                      protocol: { type: "string", example: "mcp" },
-                      description: { type: "string" },
-                      capabilities: {
-                        type: "object",
-                        properties: {
-                          tools: {
-                            type: "object",
-                            properties: {
-                              listChanged: { type: "boolean", example: false },
-                            },
-                          },
-                        },
-                      },
-                      tools: { type: "number", example: 5 },
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-        post: {
-          summary: "Execute MCP JSON-RPC requests",
-          description:
-            "Handle MCP protocol requests including initialize, tools/list, and tools/call methods",
-          tags: ["MCP Server"],
-          requestBody: {
-            required: true,
-            content: {
-              "application/json": {
-                schema: {
-                  type: "object",
-                  properties: {
-                    jsonrpc: { type: "string", example: "2.0" },
-                    method: {
-                      type: "string",
-                      enum: ["initialize", "tools/list", "tools/call"],
-                      example: "tools/list",
-                    },
-                    id: { type: "number", example: 1 },
-                    params: { type: "object" },
-                  },
-                  required: ["jsonrpc", "method", "id"],
-                },
-                examples: {
-                  initialize: {
-                    summary: "Initialize MCP session",
-                    value: {
-                      jsonrpc: "2.0",
-                      method: "initialize",
-                      id: 1,
-                      params: {
-                        clientInfo: { name: "test-client", version: "1.0.0" },
-                        protocolVersion: "2025-03-26",
-                      },
-                    },
-                  },
-                  tools_list: {
-                    summary: "List available tools",
-                    value: {
-                      jsonrpc: "2.0",
-                      method: "tools/list",
-                      id: 2,
-                    },
-                  },
-                  tools_call: {
-                    summary: "Call a tool",
-                    value: {
-                      jsonrpc: "2.0",
-                      method: "tools/call",
-                      id: 3,
-                      params: {
-                        name: "contact",
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          },
-          responses: {
-            "200": {
-              description: "JSON-RPC response",
-              content: {
-                "application/json": {
-                  schema: {
-                    type: "object",
-                    properties: {
-                      jsonrpc: { type: "string", example: "2.0" },
-                      id: { type: "number" },
-                      result: { type: "object" },
-                    },
-                  },
-                },
-              },
-            },
-            "400": {
-              description: "Invalid JSON-RPC request",
-              content: {
-                "application/json": {
-                  schema: {
-                    type: "object",
-                    properties: {
-                      jsonrpc: { type: "string", example: "2.0" },
-                      id: { type: "number" },
-                      error: {
-                        type: "object",
-                        properties: {
-                          code: { type: "number" },
-                          message: { type: "string" },
-                        },
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-      "/mcp-test": {
-        get: {
-          summary: "Visual MCP testing interface",
-          description:
-            "Interactive web interface for testing MCP tools with live examples",
-          tags: ["Testing"],
-          responses: {
-            "200": {
-              description: "HTML testing interface",
-            },
-          },
-        },
-      },
-    },
-    components: {
-      schemas: {
-        Contact: {
-          type: "object",
-          properties: {
-            name: { type: "string", example: contact.name },
-            email: { type: "string", example: contact.email },
-            linkedin: { type: "string", example: contact.linkedin },
-            location: { type: "string", example: contact.location },
-          },
-        },
-        Bio: {
-          type: "object",
-          properties: {
-            bio: { type: "string", example: "Professional biography..." },
-          },
-        },
-        Resume: {
-          type: "object",
-          properties: {
-            resume: {
-              type: "array",
-              items: {
-                type: "object",
-                properties: {
-                  title: { type: "string", example: currentRole.title },
-                  company: { type: "string", example: currentRole.company },
-                  period: { type: "string", example: currentRole.period },
-                  highlights: {
-                    type: "array",
-                    items: { type: "string" },
-                    example: currentRole.highlights.slice(0, 2),
-                  },
-                  description: {
-                    type: "string",
-                    example: currentRole.description.substring(0, 50) + "...",
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-    tags: [
-      {
-        name: "MCP Server",
-        description: "Model Context Protocol server implementing JSON-RPC 2.0",
-      },
-      {
-        name: "Testing",
-        description: "Testing and documentation interfaces",
-      },
-    ],
   };
 }

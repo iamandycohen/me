@@ -1,33 +1,34 @@
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import Script from "next/script";
-import "@/styles/globals.css";
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
+import { Inter, Fraunces } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import Script from 'next/script';
+import '@/styles/globals.css';
 import {
   generateBaseMetadata,
   generateJsonLd,
-} from "@/lib/metadata-generators";
-import { getCurrentRole } from "@/lib/data-helpers";
-import Navigation from "@/components/ui/Navigation";
-import Footer from "@/components/ui/Footer";
-import PerformanceHints from "@/components/ui/PerformanceHints";
-import FloatingChatWidget from "@/components/chat/FloatingChatWidget";
-import data from "@/lib/data";
+} from '@/lib/metadata-generators';
+import { getCurrentRole } from '@/lib/data-helpers';
+import Navigation from '@/components/ui/Navigation';
+import Footer from '@/components/ui/Footer';
+import PerformanceHints from '@/components/ui/PerformanceHints';
+import data from '@/lib/data';
 
-// Optimized font loading
+// Body sans
 const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
   preload: true,
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-jetbrains-mono",
-  preload: false, // Only preload primary font
+// Editorial display serif (headlines, pull quotes)
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-fraunces',
+  axes: ['opsz', 'SOFT'],
+  preload: true,
 });
 
 // Get current role for dynamic content
@@ -55,12 +56,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className={`min-h-screen bg-white ${inter.className}`}>
-        {/* Performance hints for third-party resources */}
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+      <body className={`min-h-screen bg-paper text-ink ${inter.className}`}>
         <PerformanceHints />
 
-        {/* JSON-LD Structured Data */}
         <Script
           id="json-ld"
           type="application/ld+json"
@@ -70,16 +69,12 @@ export default function RootLayout({
           }}
         />
 
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen">
           <Navigation />
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
 
-        {/* Global floating chat widget */}
-        <FloatingChatWidget />
-
-        {/* Optimized analytics loading */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics
             gaId={process.env.NEXT_PUBLIC_GA_ID}

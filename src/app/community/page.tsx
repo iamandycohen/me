@@ -1,10 +1,9 @@
-import { generatePageMetadata } from "@/lib/metadata-generators";
-import { getDisplayName } from "@/lib/data-helpers";
-import data from "@/lib/data";
-import CommunityTabs from "./_components/CommunityTabs";
-import { MVPAward, Presentation } from "@/types";
+import { generatePageMetadata } from '@/lib/metadata-generators';
+import { getDisplayName } from '@/lib/data-helpers';
+import data from '@/lib/data';
+import CommunityTabs from './_components/CommunityTabs';
+import { MVPAward, Presentation } from '@/types';
 
-// Type definitions for community data
 interface Podcast {
   title: string;
   url: string;
@@ -14,122 +13,76 @@ interface Podcast {
 const displayName = getDisplayName(data.contact);
 
 export const metadata = generatePageMetadata(
-  "Community Leadership",
-  `Community recognition and thought leadership by ${data.contact.name} - MVP awards, conference presentations, and media appearances in enterprise CMS.`,
+  'Community Leadership',
+  `Community recognition and thought leadership by ${data.contact.name} — MVP awards, conference presentations, and media appearances in enterprise CMS.`,
   data.contact,
   {
-    other: {
-      "ai:content-type": "community,recognition,leadership",
-      "ai:achievement-types": "mvp-awards,presentations,media",
-      "professional:community-leadership": "true",
-    },
     openGraph: {
-      title: `${displayName}'s Community Leadership - Recognition & Impact`,
+      title: `${displayName}'s Community Leadership — Recognition & Impact`,
       description: `MVP awards, conference presentations, and thought leadership in enterprise CMS by ${data.contact.name}.`,
     },
   },
-  "/community"
+  '/community'
 );
 
-// Helper function to add Sitecore links
-const addSitecoreLinks = (text: string) => {
-  return text.replace(
-    /Sitecore XM Cloud/g,
-    '<a href="https://www.sitecore.com/products/content-management/managed-cloud" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700 underline">Sitecore XM Cloud</a>'
-  );
-};
-
-// Extract community data
 const mvpAwards = data.community?.mvpAwards;
-const mvpProfileUrl = data.community?.mvpProfileUrl || "#";
+const mvpProfileUrl = data.community?.mvpProfileUrl || '#';
 const presentations = data.community?.presentations || [];
-const featuredMedia = data.community?.featuredMedia || {};
+const featuredMedia = data.community?.featuredMedia;
 const podcasts = data.community?.mediaResources?.podcasts || [];
 
 export default function Community() {
-  // Create tab content components
   const MVPAwardsContent = () => (
-    <div className="space-y-8">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          Sitecore MVP Recognition
-        </h2>
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <a
-            href={mvpProfileUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-primary-600 hover:text-primary-700 text-sm font-medium"
-          >
-            View Official MVP Profile
-            <svg
-              className="w-3 h-3"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-          </a>
-        </div>
+    <div>
+      <div className="mb-12 max-w-2xl">
+        <p className="eyebrow mb-4">Sitecore</p>
+        <h2 className="mb-4">MVP recognition.</h2>
+        <a
+          href={mvpProfileUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link-underline text-sm"
+        >
+          View official MVP profile →
+        </a>
       </div>
 
-      {mvpAwards &&
-        mvpAwards.map((award: MVPAward, _index: number) => (
-          <div
-            key={award.year}
-            className={`rounded-lg border p-8 shadow-sm ${
-              award.status === "Current"
-                ? "bg-gradient-to-r from-yellow-50 to-orange-50 border-yellow-200"
-                : "bg-white border-gray-200"
-            }`}
-          >
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0">
-                <div
-                  className={`w-16 h-16 rounded-lg flex items-center justify-center text-2xl ${
-                    award.status === "Current"
-                      ? "bg-yellow-100 text-yellow-700"
-                      : "bg-blue-100 text-blue-700"
-                  }`}
-                >
-                  🏆
-                </div>
+      <ol className="space-y-12">
+        {mvpAwards &&
+          mvpAwards.map((award: MVPAward) => (
+            <li
+              key={award.year}
+              className="grid md:grid-cols-12 gap-6 md:gap-10 pb-12 border-b border-ink/10 last:border-b-0 last:pb-0"
+            >
+              <div className="md:col-span-3">
+                <p className="font-serif text-3xl md:text-4xl text-accent leading-none">
+                  {award.year}
+                </p>
+                <p className="text-sm text-ink/60 mt-2">{award.type} MVP</p>
+                {award.status === 'Current' && (
+                  <p className="mt-3 inline-block text-xs uppercase tracking-widest text-accent border border-accent/40 px-2 py-0.5 rounded-full">
+                    Current
+                  </p>
+                )}
               </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3">
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    {award.year} {award.type} MVP
-                  </h3>
-                  {award.status === "Current" && (
-                    <span className="px-3 py-1 bg-yellow-200 text-yellow-800 text-sm font-medium rounded-full">
-                      Current
-                    </span>
-                  )}
-                </div>
+
+              <div className="md:col-span-9">
                 <p
-                  className="text-gray-700 leading-relaxed mb-4"
+                  className="text-base md:text-lg text-ink/80 leading-relaxed mb-5 text-pretty"
                   dangerouslySetInnerHTML={{
-                    __html: addSitecoreLinks(award.description),
+                    __html: addSitecoreLinksHtml(award.description),
                   }}
                 />
 
                 {award.quote && (
-                  <blockquote className="text-gray-700 italic leading-relaxed border-l-4 border-yellow-400 pl-4 mb-4">
-                    &ldquo;
+                  <blockquote className="border-l-2 border-accent/50 pl-6 my-6 font-serif italic text-lg md:text-xl text-ink/80 leading-relaxed">
                     <span
                       dangerouslySetInnerHTML={{
-                        __html: addSitecoreLinks(award.quote),
+                        __html: `“${addSitecoreLinksHtml(award.quote)}”`,
                       }}
                     />
-                    &rdquo;
                     {award.quoteSource && (
-                      <cite className="block text-sm text-gray-600 mt-2 not-italic">
+                      <cite className="block text-sm text-ink/60 mt-3 not-italic font-sans">
                         — {award.quoteSource}
                       </cite>
                     )}
@@ -141,262 +94,167 @@ export default function Community() {
                     href={award.announcementUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-primary-600 hover:text-primary-700 text-sm font-medium"
+                    className="link-underline text-sm"
                   >
-                    Official Announcement
-                    <svg
-                      className="w-3 h-3"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
+                    Official announcement →
                   </a>
                 )}
               </div>
-            </div>
-          </div>
-        ))}
+            </li>
+          ))}
+      </ol>
     </div>
   );
 
   const PresentationsContent = () => (
     <div>
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          Conference Presentations
-        </h2>
-        <p className="text-gray-600">
+      <div className="mb-12 max-w-2xl">
+        <p className="eyebrow mb-4">Stage</p>
+        <h2 className="mb-4">Conference presentations.</h2>
+        <p className="text-ink/70 leading-relaxed">
           Technical presentations and live demonstrations at industry
           conferences and community events.
         </p>
       </div>
 
-      <div className="space-y-8">
+      <ol className="space-y-12">
         {presentations.map((presentation: Presentation, index: number) => (
-          <div
+          <li
             key={index}
-            className={`bg-white rounded-lg border border-gray-200 p-8 shadow-sm ${
-              presentation.isHistoric ? "border-yellow-300 bg-yellow-50" : ""
-            }`}
+            className="grid md:grid-cols-12 gap-6 md:gap-10 pb-12 border-b border-ink/10 last:border-b-0 last:pb-0"
           >
-            <div className="flex flex-col lg:flex-row lg:items-start gap-6">
-              <div className="flex-1">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      {presentation.title}
-                    </h3>
-                    <p className="text-lg font-medium text-gray-800 mb-2">
-                      {presentation.sessionTitle}
-                    </p>
-                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-600 mb-3">
-                      <span>{presentation.organization}</span>
-                      <span className="hidden sm:inline">•</span>
-                      <span>{presentation.location}</span>
-                      <span className="hidden sm:inline">•</span>
-                      <span>{presentation.date}</span>
-                      {presentation.isHistoric && (
-                        <span className="text-yellow-600 text-sm font-medium">
-                          (Historic)
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
+            <div className="md:col-span-3">
+              <p className="text-sm font-medium text-accent tracking-wide">
+                {presentation.date}
+              </p>
+              <p className="text-sm text-ink/60 mt-1">
+                {presentation.organization}
+              </p>
+              <p className="text-sm text-ink/50 mt-0.5">
+                {presentation.location}
+              </p>
+              {presentation.isHistoric && (
+                <p className="mt-3 inline-block text-xs uppercase tracking-widest text-accent border border-accent/40 px-2 py-0.5 rounded-full">
+                  Historic
+                </p>
+              )}
+              {presentation.isUpcoming && (
+                <p className="mt-3 inline-block text-xs uppercase tracking-widest text-accent border border-accent/40 px-2 py-0.5 rounded-full">
+                  Upcoming
+                </p>
+              )}
+            </div>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+            <article className="md:col-span-9">
+              <h3 className="font-serif text-xl md:text-2xl text-ink mb-2 leading-tight">
+                {presentation.sessionTitle}
+              </h3>
+              <p className="text-ink/60 italic mb-5">{presentation.title}</p>
+
+              {presentation.topics && presentation.topics.length > 0 && (
+                <ul className="flex flex-wrap gap-x-3 gap-y-1 text-xs uppercase tracking-widest text-ink/50 mb-5">
                   {presentation.topics.map((topic: string, i: number) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
-                    >
-                      {topic}
-                    </span>
+                    <li key={i}>{topic}</li>
                   ))}
                   {presentation.isLiveDemo && (
-                    <span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">
-                      Live Demo
-                    </span>
+                    <li className="text-accent">Live demo</li>
                   )}
-                </div>
+                </ul>
+              )}
 
-                <p
-                  className="text-gray-700 mb-4"
-                  dangerouslySetInnerHTML={{
-                    __html: addSitecoreLinks(presentation.description),
-                  }}
-                />
+              <p
+                className="text-base text-ink/80 leading-relaxed mb-5 text-pretty"
+                dangerouslySetInnerHTML={{
+                  __html: addSitecoreLinksHtml(presentation.description),
+                }}
+              />
 
-                {presentation.documentationQuote && (
-                  <blockquote className="border-l-4 border-gray-300 pl-4 text-gray-700 italic mb-4">
-                    &ldquo;{presentation.documentationQuote}
-                    &rdquo;
-                    {presentation.documentationSource && (
-                      <cite className="block text-sm text-gray-600 mt-1 not-italic">
-                        — {presentation.documentationSource}
-                      </cite>
-                    )}
-                  </blockquote>
+              {presentation.documentationQuote && (
+                <blockquote className="border-l-2 border-ink/20 pl-6 my-5 font-serif italic text-ink/75 leading-relaxed">
+                  &ldquo;{presentation.documentationQuote}&rdquo;
+                  {presentation.documentationSource && (
+                    <cite className="block text-sm text-ink/60 mt-2 not-italic font-sans">
+                      — {presentation.documentationSource}
+                    </cite>
+                  )}
+                </blockquote>
+              )}
+
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm pt-2">
+                {presentation.videoUrl && (
+                  <a
+                    href={presentation.videoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline"
+                  >
+                    Watch video →
+                  </a>
                 )}
-
-                <div className="flex flex-wrap gap-4">
-                  {presentation.videoUrl && (
-                    <a
-                      href={presentation.videoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors"
-                    >
-                      <svg
-                        className="w-4 h-4"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Watch Video
-                    </a>
-                  )}
-                  {presentation.sessionizeUrl && (
-                    <a
-                      href={presentation.sessionizeUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors"
-                    >
-                      Session Details
-                      <svg
-                        className="w-3 h-3"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    </a>
-                  )}
-                  {presentation.documentationUrl && (
-                    <a
-                      href={presentation.documentationUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 text-sm font-medium rounded-lg hover:bg-blue-200 transition-colors"
-                    >
-                      Read More
-                      <svg
-                        className="w-3 h-3"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    </a>
-                  )}
-                </div>
+                {presentation.sessionizeUrl && (
+                  <a
+                    href={presentation.sessionizeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline"
+                  >
+                    Session details →
+                  </a>
+                )}
+                {presentation.documentationUrl && (
+                  <a
+                    href={presentation.documentationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline"
+                  >
+                    Read more →
+                  </a>
+                )}
               </div>
-            </div>
-          </div>
+            </article>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   );
 
   const MediaContent = () => (
     <div>
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          Media & Podcasts
-        </h2>
-        <p className="text-gray-600">
-          Featured podcast appearances and media coverage discussing CMS
-          architecture and technology leadership.
+      <div className="mb-12 max-w-2xl">
+        <p className="eyebrow mb-4">On the air</p>
+        <h2 className="mb-4">Media &amp; podcasts.</h2>
+        <p className="text-ink/70 leading-relaxed">
+          Featured podcast appearances and media coverage on CMS architecture
+          and technology leadership.
         </p>
       </div>
 
-      {/* Featured Media */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 p-8 shadow-sm mb-8">
-        <div className="flex items-start gap-4">
-          <div className="flex-shrink-0">
-            <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center text-2xl">
-              🎙️
-            </div>
+      {featuredMedia && (
+        <article className="mb-16 grid md:grid-cols-12 gap-6 md:gap-10 pb-12 border-b border-ink/10">
+          <div className="md:col-span-3">
+            <p className="eyebrow mb-2">Featured</p>
+            <p className="text-sm text-ink/60">{featuredMedia.episode}</p>
           </div>
-          <div className="flex-1">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+          <div className="md:col-span-9">
+            <h3 className="font-serif text-2xl md:text-3xl text-ink mb-4 leading-tight text-balance">
               {featuredMedia.title}
             </h3>
-            <p className="text-lg text-blue-700 font-medium mb-3">
-              {featuredMedia.episode}
-            </p>
             <p
-              className="text-gray-700 leading-relaxed mb-4"
+              className="text-base md:text-lg text-ink/80 leading-relaxed mb-6 text-pretty"
               dangerouslySetInnerHTML={{
-                __html: addSitecoreLinks(featuredMedia.description || ""),
+                __html: addSitecoreLinksHtml(featuredMedia.description || ''),
               }}
             />
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
               {featuredMedia.podcastUrl && (
                 <a
                   href={featuredMedia.podcastUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors"
+                  className="link-underline"
                 >
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.617.82L4.066 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.066l4.317-3.82z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Listen to Podcast
-                </a>
-              )}
-              {featuredMedia.videoUrl && (
-                <a
-                  href={featuredMedia.videoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Watch Video
+                  Listen to podcast →
                 </a>
               )}
               {featuredMedia.blogUrl && (
@@ -404,99 +262,80 @@ export default function Community() {
                   href={featuredMedia.blogUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-200 transition-colors"
+                  className="link-underline"
                 >
-                  Read Blog Post
-                  <svg
-                    className="w-3 h-3"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
+                  Read blog post →
                 </a>
               )}
             </div>
           </div>
-        </div>
-      </div>
+        </article>
+      )}
 
-      {/* Additional Podcasts */}
-      <div className="space-y-6">
-        {podcasts.map((podcast: Podcast, index: number) => (
-          <div
-            key={index}
-            className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm"
-          >
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">
-              {podcast.title}
-            </h4>
-            <p className="text-gray-600 mb-3">{podcast.description}</p>
-            <a
-              href={podcast.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-primary-600 hover:text-primary-700 text-sm font-medium"
+      {podcasts.length > 0 && (
+        <ol className="space-y-10">
+          {podcasts.map((podcast: Podcast, index: number) => (
+            <li
+              key={index}
+              className="grid md:grid-cols-12 gap-6 md:gap-10 pb-10 border-b border-ink/10 last:border-b-0 last:pb-0"
             >
-              Listen Now
-              <svg
-                className="w-3 h-3"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </a>
-          </div>
-        ))}
-      </div>
+              <div className="md:col-span-3">
+                <p className="text-sm font-medium text-accent tracking-wide">
+                  Podcast
+                </p>
+              </div>
+              <div className="md:col-span-9">
+                <h4 className="font-serif text-xl text-ink mb-3 leading-tight">
+                  {podcast.title}
+                </h4>
+                <p className="text-ink/70 leading-relaxed mb-4">
+                  {podcast.description}
+                </p>
+                <a
+                  href={podcast.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline text-sm"
+                >
+                  Listen now →
+                </a>
+              </div>
+            </li>
+          ))}
+        </ol>
+      )}
     </div>
   );
 
-  // Create tabs data
   const tabs = [
     {
-      id: "mvp-awards",
-      label: "MVP Awards",
-      icon: "🏆",
+      id: 'mvp-awards',
+      label: 'MVP Awards',
       content: <MVPAwardsContent />,
     },
     {
-      id: "presentations",
-      label: "Presentations",
-      icon: "🎤",
+      id: 'presentations',
+      label: 'Presentations',
       content: <PresentationsContent />,
     },
     {
-      id: "media",
-      label: "Media & Podcasts",
-      icon: "🎧",
+      id: 'media',
+      label: 'Media',
       content: <MediaContent />,
     },
   ];
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-blue-50 to-indigo-50">
+      <section className="pt-20 md:pt-28 lg:pt-32">
         <div className="container-max">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Community Leadership
+          <div className="max-w-3xl">
+            <p className="eyebrow mb-6">Community</p>
+            <h1 className="text-balance mb-6">
+              Leadership{' '}
+              <span className="italic text-ink/60">in the field.</span>
             </h1>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-ink/70 leading-relaxed max-w-2xl">
               Recognition and contributions to the enterprise CMS community
               through technical leadership, education, and innovation.
             </p>
@@ -504,14 +343,21 @@ export default function Community() {
         </div>
       </section>
 
-      {/* Community Content */}
       <section className="section-padding">
         <div className="container-max">
-          <div className="max-w-6xl mx-auto">
-            <CommunityTabs tabs={tabs} />
-          </div>
+          <CommunityTabs tabs={tabs} />
         </div>
       </section>
     </>
+  );
+}
+
+// Local helper: returns HTML string with Sitecore XM Cloud mentions linkified.
+// Used by sections that render data containing inline HTML (server component).
+function addSitecoreLinksHtml(text: string): string {
+  if (!text) return '';
+  return text.replace(
+    /(Sitecore XM Cloud|XM Cloud)/g,
+    '<a href="https://www.sitecore.com/products/xm-cloud" target="_blank" rel="noopener noreferrer" class="text-accent underline decoration-accent/30 hover:decoration-accent underline-offset-4 transition-all">$1</a>'
   );
 }

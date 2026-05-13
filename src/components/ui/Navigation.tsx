@@ -35,8 +35,6 @@ function Navigation() {
       '/articles': 'articles/page.tsx',
       '/community': 'community/page.tsx',
       '/contact': 'contact/page.tsx',
-      '/ai-chat': 'ai-chat/page.tsx',
-      '/ai-tools': 'ai-tools/page.tsx',
     };
 
     const filePath = pathMap[currentPath] || 'page.tsx';
@@ -50,8 +48,6 @@ function Navigation() {
     { name: 'Articles', href: '/articles' },
     { name: 'Community', href: '/community' },
     { name: 'Contact', href: '/contact' },
-    { name: 'AI Chat', href: '/ai-chat' },
-    { name: 'AI Tools Demo', href: '/ai-tools' },
   ];
 
   const toggleMobileMenu = () => {
@@ -59,10 +55,10 @@ function Navigation() {
   };
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
+    <nav className="bg-paper/85 backdrop-blur border-b border-ink/5 sticky top-0 z-50">
       <div className="container-max">
-        <div className="flex justify-center md:justify-between items-center py-4 relative">
-          <Link href="/" className="text-lg font-bold text-gray-900">
+        <div className="flex justify-center md:justify-between items-center py-5 relative">
+          <Link href="/" className="font-serif text-lg tracking-tight text-ink">
             {displayName}
           </Link>
 
@@ -72,42 +68,41 @@ function Navigation() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
+                className="text-sm text-ink/70 hover:text-ink transition-colors"
               >
                 {item.name}
               </Link>
             ))}
-            {/* Separator */}
-            <div className="h-5 w-px bg-gray-300"></div>
+            <div className="h-4 w-px bg-ink/15"></div>
             <a
               href={getGitHubUrl(pathname)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors font-medium"
+              className="inline-flex items-center gap-2 text-sm text-ink/70 hover:text-ink transition-colors"
               title="View page source on GitHub"
             >
-              View page on <GitHubIcon />
+              Source <GitHubIcon />
             </a>
           </div>
 
           {/* Hamburger Menu Button */}
           <button
             onClick={toggleMobileMenu}
-            className="md:hidden absolute right-0 flex flex-col justify-center items-center w-8 h-8 space-y-1"
+            className="md:hidden absolute right-0 flex flex-col justify-center items-center w-8 h-8 space-y-1.5"
             aria-label="Toggle navigation menu"
           >
             <div
-              className={`w-6 h-0.5 bg-gray-600 transition-all duration-300 ${
+              className={`w-6 h-px bg-ink transition-all duration-300 ${
                 isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
               }`}
             ></div>
             <div
-              className={`w-6 h-0.5 bg-gray-600 transition-all duration-300 ${
+              className={`w-6 h-px bg-ink transition-all duration-300 ${
                 isMobileMenuOpen ? 'opacity-0' : ''
               }`}
             ></div>
             <div
-              className={`w-6 h-0.5 bg-gray-600 transition-all duration-300 ${
+              className={`w-6 h-px bg-ink transition-all duration-300 ${
                 isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
               }`}
             ></div>
@@ -122,27 +117,26 @@ function Navigation() {
               : 'max-h-0 opacity-0 overflow-hidden'
           }`}
         >
-          <div className="py-4 border-t border-gray-200">
+          <div className="py-4 border-t border-ink/10">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors font-medium"
+                className="block px-4 py-3 text-ink/70 hover:text-ink hover:bg-ink/5 transition-colors"
               >
                 {item.name}
               </Link>
             ))}
-            {/* Separator */}
-            <div className="mx-4 my-2 h-px bg-gray-200"></div>
+            <div className="mx-4 my-2 h-px bg-ink/10"></div>
             <a
               href={getGitHubUrl(pathname)}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2 px-4 py-3 text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors font-medium"
+              className="flex items-center gap-2 px-4 py-3 text-ink/70 hover:text-ink hover:bg-ink/5 transition-colors"
             >
-              View page on <GitHubIcon />
+              Source <GitHubIcon />
             </a>
           </div>
         </div>

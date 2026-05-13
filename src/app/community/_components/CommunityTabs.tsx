@@ -6,7 +6,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 interface Tab {
   id: string;
   label: string;
-  icon: string;
   content: React.ReactNode;
 }
 
@@ -19,7 +18,6 @@ function CommunityTabsContent({ tabs }: CommunityTabsProps) {
   const searchParams = useSearchParams();
   const tabFromUrl = searchParams.get('tab');
 
-  // Initialize with URL tab or first tab
   const initialTab =
     tabFromUrl && tabs.some((t) => t.id === tabFromUrl)
       ? tabFromUrl
@@ -27,13 +25,11 @@ function CommunityTabsContent({ tabs }: CommunityTabsProps) {
 
   const [activeTab, setActiveTab] = useState(initialTab);
 
-  // Update URL when tab changes
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
     router.push(`/community?tab=${tabId}`, { scroll: false });
   };
 
-  // Sync state with URL changes (e.g., browser back/forward)
   useEffect(() => {
     if (tabFromUrl && tabs.some((t) => t.id === tabFromUrl)) {
       setActiveTab(tabFromUrl);
@@ -41,36 +37,36 @@ function CommunityTabsContent({ tabs }: CommunityTabsProps) {
   }, [tabFromUrl, tabs]);
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-      {/* Tab Navigation */}
-      <div className="border-b border-gray-200">
-        <nav className="flex space-x-0" role="tablist">
+    <div>
+      <div className="border-b border-ink/15 mb-12">
+        <nav className="flex flex-wrap gap-x-10 gap-y-2" role="tablist">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id)}
-                className={`px-6 py-4 text-sm font-medium border-b-2 focus:outline-none transition-all duration-200 ${
-                  isActive
-                    ? 'text-primary-600 bg-gray-50 border-primary-600'
-                    : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50 border-transparent hover:border-gray-300 focus:text-primary-600 focus:border-primary-600'
+                className={`relative pb-4 text-sm uppercase tracking-widest transition-colors focus:outline-none focus-visible:text-accent ${
+                  isActive ? 'text-accent' : 'text-ink/50 hover:text-ink'
                 }`}
                 role="tab"
                 aria-controls={tab.id}
                 aria-selected={isActive ? 'true' : 'false'}
               >
-                {tab.icon} {tab.label}
+                {tab.label}
+                <span
+                  className={`absolute left-0 right-0 -bottom-px h-px transition-colors ${
+                    isActive ? 'bg-accent' : 'bg-transparent'
+                  }`}
+                  aria-hidden="true"
+                />
               </button>
             );
           })}
         </nav>
       </div>
 
-      {/* Tab Content */}
-      <div className="p-8">
-        {tabs.find((tab) => tab.id === activeTab)?.content}
-      </div>
+      <div>{tabs.find((tab) => tab.id === activeTab)?.content}</div>
     </div>
   );
 }
@@ -79,13 +75,11 @@ export default function CommunityTabs({ tabs }: CommunityTabsProps) {
   return (
     <Suspense
       fallback={
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-          <div className="animate-pulse">
-            <div className="h-8 bg-gray-200 rounded w-1/4 mb-4"></div>
-            <div className="space-y-3">
-              <div className="h-4 bg-gray-200 rounded"></div>
-              <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-            </div>
+        <div className="animate-pulse">
+          <div className="h-6 bg-ink/10 rounded w-1/3 mb-12"></div>
+          <div className="space-y-3">
+            <div className="h-4 bg-ink/10 rounded"></div>
+            <div className="h-4 bg-ink/10 rounded w-5/6"></div>
           </div>
         </div>
       }
