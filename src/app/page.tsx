@@ -164,7 +164,7 @@ export default function Home() {
           <div className="max-w-3xl">
             <p className="eyebrow mb-4">Connect</p>
             <h2 className="text-balance mb-8">
-              I have a bit of free time.{' '}
+              Still curious. Still building.{' '}
               <span className="italic text-ink/60">Reach out.</span>
             </h2>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-lg">
