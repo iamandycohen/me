@@ -167,17 +167,6 @@ const nextConfig = {
         destination: '/sitemap.xml',
         permanent: true,
       },
-      // Route rebranding redirects
-      {
-        source: '/chat',
-        destination: '/ai-chat',
-        permanent: true,
-      },
-      {
-        source: '/mcp-test',
-        destination: '/ai-tools',
-        permanent: true,
-      },
     ];
   },
 };
