@@ -26,9 +26,10 @@ export default function Resume() {
             </span>
           </h1>
           <p className="text-lg text-ink/70 leading-relaxed max-w-2xl">
-            From applicant tracking systems written as a kid, to enterprise CMS
-            platforms serving millions — the throughline is engineering
-            craftsmanship and systems that scale.
+            From learning to code as a kid, to shipping applicant tracking and
+            time-management systems, to enterprise CMS platforms serving
+            millions — the throughline is engineering craftsmanship and systems
+            that scale.
           </p>
         </div>
 
