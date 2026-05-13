@@ -29,7 +29,7 @@ export default function Contact() {
           <p className="text-lg text-ink/70 leading-relaxed max-w-2xl">
             CMS platform challenges, AI integration, agentic workflows,
             architecture review — or just a conversation about where things are
-            headed. I&apos;m up for it.
+            headed. Let&apos;s compare notes.
           </p>
         </div>
 

@@ -30,8 +30,8 @@ export default function Articles() {
           <div className="max-w-3xl">
             <p className="eyebrow mb-6">Writing</p>
             <h1 className="text-balance mb-6">
-              Articles{' '}
-              <span className="italic text-ink/60">&amp; insights.</span>
+              Writing{' '}
+              <span className="italic text-ink/60">&amp; arguments.</span>
             </h1>
             <p className="text-lg text-ink/70 leading-relaxed max-w-2xl">
               Exploring the intersection of AI, digital experience platforms,
@@ -135,21 +135,16 @@ export default function Articles() {
               {[
                 'AI & Agents',
                 'Digital Experience Platforms',
-                'Content Management',
-                'Software Architecture',
-                'XM Cloud',
-                'Developer Experience',
-                'Product Strategy',
-                'Digital Transformation',
                 'Platform Engineering',
-                'Enterprise Systems',
-              ].map((topic, index) => (
+                'Software Architecture',
+                'Product Strategy',
+              ].map((topic, index, arr) => (
                 <li
                   key={index}
                   className="font-serif italic text-lg md:text-xl"
                 >
                   {topic}
-                  {index < 9 && (
+                  {index < arr.length - 1 && (
                     <span className="text-accent/60 ml-4" aria-hidden="true">
                       ·
                     </span>
