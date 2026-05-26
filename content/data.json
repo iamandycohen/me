@@ -208,6 +208,27 @@
   ],
   "thoughtLeadership": [
     {
+      "title": "AI, You Lie!",
+      "url": "https://www.techguilds.com/blog/ai-you-lie/",
+      "platform": "TechGuilds",
+      "type": "article",
+      "date": "May 26, 2026",
+      "summary": "Draws on eight months leading AI at Kajoo Agentic to argue that building reliable agentic systems is less about model capability and more about the architecture around the model. Uses a real verification failure — an agent that passed a blank page because it checked HTML instead of the rendered browser experience — to illustrate how tools, state, workflow gates, and precise definitions of \"done\" are what make agent autonomy trustworthy.",
+      "highlights": [
+        "Traces a real failure where an agent verified a blank page as passing by using curl instead of a browser renderer, and explains how the fix required building a proper tool, blocking the wrong path, and turning the rejection into a teaching moment",
+        "Argues that context windows are not databases — state, workflow sequencing, and completion records must live in the platform, not in the model's context",
+        "Reframes the developer role as designing conditions under which agents can produce, verify, and be trusted — less about writing every artifact and more about knowing when to constrain, when to delegate, and what counts as done"
+      ],
+      "topics": [
+        "Agentic AI",
+        "AI Architecture",
+        "Verification",
+        "Developer Role",
+        "Workflow Design",
+        "DXP"
+      ]
+    },
+    {
       "title": "Seeing the Agentic Forest Through the Trees: Andy Cohen on Taming the AI Wilderness",
       "url": "https://cmscritic.com/seeing-the-agentic-forest-through-the-trees-andy-cohen-on-taming-the-ai-wilderness",
       "platform": "CMS Critic",
@@ -398,20 +419,6 @@
         "Continuous Delivery",
         "Tenancy"
       ]
-    },
-    {
-      "title": "AI, You Lie!",
-      "url": "https://www.techguilds.com/blog/ai-you-lie/",
-      "platform": "TechGuilds",
-      "type": "article",
-      "date": "May 26, 2026",
-      "summary": "Draws on eight months leading AI at Kajoo Agentic to argue that building reliable agentic systems is less about model capability and more about the architecture around the model. Uses a real verification failure — an agent that passed a blank page because it checked HTML instead of the rendered browser experience — to illustrate how tools, state, workflow gates, and precise definitions of \"done\" are what make agent autonomy trustworthy.",
-      "highlights": [
-        "Traces a real failure where an agent verified a blank page as passing by using curl instead of a browser renderer, and explains how the fix required building a proper tool, blocking the wrong path, and turning the rejection into a teaching moment",
-        "Argues that context windows are not databases — state, workflow sequencing, and completion records must live in the platform, not in the model's context",
-        "Reframes the developer role as designing conditions under which agents can produce, verify, and be trusted — less about writing every artifact and more about knowing when to constrain, when to delegate, and what counts as done"
-      ],
-      "topics": ["Agentic AI", "AI Architecture", "Verification", "Developer Role", "Workflow Design", "DXP"]
     }
   ],
   "community": {
