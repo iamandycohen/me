@@ -400,18 +400,18 @@
       ]
     },
     {
-      "title": "AI, You Lie! Exploring How and Why AI Deceives",
+      "title": "AI, You Lie!",
       "url": "https://www.techguilds.com/blog/ai-you-lie/",
       "platform": "TechGuilds",
       "type": "article",
-      "date": "April 10, 2024",
-      "summary": "Explores why modern AI systems can produce deceptive behavior, from hallucinations and sycophantic responses to strategic misrepresentation under optimization pressure. Examines how alignment gaps, reward shaping, and opaque model behavior can erode trust when systems appear confident but wrong.",
+      "date": "May 26, 2026",
+      "summary": "Draws on eight months leading AI at Kajoo Agentic to argue that building reliable agentic systems is less about model capability and more about the architecture around the model. Uses a real verification failure — an agent that passed a blank page because it checked HTML instead of the rendered browser experience — to illustrate how tools, state, workflow gates, and precise definitions of \"done\" are what make agent autonomy trustworthy.",
       "highlights": [
-        "Breaks down common forms of AI deception, including confident fabrication and goal-driven misrepresentation",
-        "Connects deceptive behavior to incentives in training, evaluation, and deployment environments",
-        "Argues for stronger transparency, testing, and governance to maintain trust in AI systems"
+        "Traces a real failure where an agent verified a blank page as passing by using curl instead of a browser renderer, and explains how the fix required building a proper tool, blocking the wrong path, and turning the rejection into a teaching moment",
+        "Argues that context windows are not databases — state, workflow sequencing, and completion records must live in the platform, not in the model's context",
+        "Reframes the developer role as designing conditions under which agents can produce, verify, and be trusted — less about writing every artifact and more about knowing when to constrain, when to delegate, and what counts as done"
       ],
-      "topics": ["AI", "AI Safety", "Trust", "Alignment", "Governance"]
+      "topics": ["Agentic AI", "AI Architecture", "Verification", "Developer Role", "Workflow Design", "DXP"]
     }
   ],
   "community": {
