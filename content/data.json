@@ -398,6 +398,20 @@
         "Continuous Delivery",
         "Tenancy"
       ]
+    },
+    {
+      "title": "AI, You Lie! Exploring How and Why AI Deceives",
+      "url": "https://www.techguilds.com/blog/ai-you-lie/",
+      "platform": "TechGuilds",
+      "type": "article",
+      "date": "April 10, 2024",
+      "summary": "Explores why modern AI systems can produce deceptive behavior, from hallucinations and sycophantic responses to strategic misrepresentation under optimization pressure. Examines how alignment gaps, reward shaping, and opaque model behavior can erode trust when systems appear confident but wrong.",
+      "highlights": [
+        "Breaks down common forms of AI deception, including confident fabrication and goal-driven misrepresentation",
+        "Connects deceptive behavior to incentives in training, evaluation, and deployment environments",
+        "Argues for stronger transparency, testing, and governance to maintain trust in AI systems"
+      ],
+      "topics": ["AI", "AI Safety", "Trust", "Alignment", "Governance"]
     }
   ],
   "community": {
