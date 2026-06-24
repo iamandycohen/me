@@ -477,7 +477,7 @@
         "sessionTitle": "Full Circle: The Architect of XM Cloud builds an XM Cloud Site (as a partner for the first time)",
         "topics": ["XM Cloud", "Architecture", "Partner Implementation"],
         "description": "A unique perspective presentation where the founding architect of XM Cloud demonstrates building an XM Cloud site as a partner implementation, offering insights into both the platform creation and practical implementation challenges.",
-        "sessionizeUrl": "https://sessionize.com/iamandycohen"
+        "sessionizeUrl": "https://sessionize.com/s/iamandycohen/full-circle-the-architect-of-xm-cloud-builds-an-xm/137164"
       },
       {
         "title": "SUGCON India 2024",
@@ -487,7 +487,8 @@
         "sessionTitle": "💘Heart to Heart with an XM Cloud Architect💘 (with Liz)",
         "topics": ["XM Cloud Architecture", "Candid Review", "Collaboration"],
         "description": "Collaborative presentation with Liz Nelson offering a candid review of the XM Cloud journey, sharing wins, losses, and insights from the founding architect's perspective alongside implementation expertise.",
-        "videoUrl": "https://www.youtube.com/watch?v=IEbZIOVPzW4&list=PLvwdDTmlDsRwv59ccvK5sodnaLLu9_AfT&index=9"
+        "videoUrl": "https://www.youtube.com/watch?v=IEbZIOVPzW4&list=PLvwdDTmlDsRwv59ccvK5sodnaLLu9_AfT&index=9",
+        "sessionizeUrl": "https://sessionize.com/s/iamandycohen/heart-to-heart-with-an-xm-cloud-architect/95630"
       },
       {
         "title": "SUGCON Europe 2024",
@@ -498,7 +499,7 @@
         "topics": ["System Architecture", "Scalability", "Performance"],
         "description": "Explored architectural patterns and best practices for building resilient, scalable CMS systems that can withstand high traffic loads and provide consistent performance under varying conditions.",
         "videoUrl": "https://youtu.be/3zLjcHzGT9E?si=BNfEocwSaqBpd7oj&t=33",
-        "sessionizeUrl": "https://sessionize.com/andy-cohen"
+        "sessionizeUrl": "https://sessionize.com/s/iamandycohen/building-for-resiliency/92634"
       },
       {
         "title": "SUGCON ANZ 2023",
@@ -511,7 +512,8 @@
           "Global Implementation",
           "Best Practices"
         ],
-        "description": "Adapted presentation for the Asia-Pacific audience, focusing on regional considerations for building resilient CMS systems and sharing lessons learned from global implementations."
+        "description": "Adapted presentation for the Asia-Pacific audience, focusing on regional considerations for building resilient CMS systems and sharing lessons learned from global implementations.",
+        "sessionizeUrl": "https://sessionize.com/s/iamandycohen/building-for-resiliency/92635"
       },
       {
         "title": "SUGCON India 2023",
@@ -526,7 +528,8 @@
           "Technical Leadership"
         ],
         "description": "Direct guidance from the founding architect of XM Cloud on best practices and design principles for building future-proof applications. A comprehensive walkthrough covering content creation, site design, frontend development, hosting, and system integrations.",
-        "videoUrl": "https://youtu.be/d8u6de7zeAQ?si=ugyOIgvJXv5RUEIm&t=39"
+        "videoUrl": "https://youtu.be/d8u6de7zeAQ?si=ugyOIgvJXv5RUEIm&t=39",
+        "sessionizeUrl": "https://sessionize.com/s/iamandycohen/build-for-xm-cloud-according-to-the-architect-of-x/73388"
       },
       {
         "title": "SUGCON North America 2023",
@@ -542,7 +545,8 @@
         ],
         "description": "Hear directly from the Architect of XM Cloud about how you should be building on XM Cloud to future proof your apps.",
         "videoUrl": "https://www.youtube.com/watch?v=_nkH-HQX-QQ",
-        "isLiveDemo": true
+        "isLiveDemo": true,
+        "sessionizeUrl": "https://sessionize.com/s/iamandycohen/build-for-xm-cloud-according-to-the-architect-of-x/73388"
       },
       {
         "title": "SUGCON Europe 2023",
@@ -558,7 +562,8 @@
         ],
         "description": "Live demonstration of cutting-edge deployment strategies and automation techniques for modern CMS implementations, showcasing CI/CD pipelines and cloud-native deployment patterns through hands-on examples.",
         "videoUrl": "https://www.youtube.com/watch?v=50Vu6Bp--f0&t=23s",
-        "isLiveDemo": true
+        "isLiveDemo": true,
+        "sessionizeUrl": "https://sessionize.com/s/iamandycohen/innovations-in-deploy/67385"
       },
       {
         "title": "SUGCON ANZ 2022",
@@ -576,7 +581,8 @@
         "documentationUrl": "https://cadewhitbourn.com/sitecore/sitecore-user-group-conference-sugcon-anz-2022-reflections-and-key-takeaways/",
         "documentationQuote": "Andy Cohen worked through a demo of XM Cloud. A fair bit of the technical content in this session went beyond me, particularly all the stuff that involved pumping out commands in the CLI. However, it was good to get eyes on the new Cloud portal launchpad where all the composable apps can be accessed. I also noted the mention of Pages, a replacement for Horizon editor. Andy was clear, XM Cloud is headless only, so to be clear, it is headless only.",
         "documentationSource": "Conference Reflection by Cade Whitbourn",
-        "isLiveDemo": true
+        "isLiveDemo": true,
+        "sessionizeUrl": "https://sessionize.com/s/iamandycohen/xm-cloud-developer-experience/67387"
       },
       {
         "title": "Sitecore Symposium 2022",
@@ -604,7 +610,8 @@
         "documentationQuote": "Andy had a few technical issues (as is often the way with complex live demos) but he managed to deploy Sitecore using Cloud deploy in Just over 5 minutes! That's pretty impressive from an empty environment in the cloud.",
         "documentationSource": "Community Documentation by Adam Seabridge (7x Sitecore MVP)",
         "isLiveDemo": true,
-        "isHistoric": true
+        "isHistoric": true,
+        "sessionizeUrl": "https://sessionize.com/s/iamandycohen/xm-cloud-build-and-deploy-in-less-than-5-minutes/67386"
       },
       {
         "title": "Sitecore Symposium 2019",
