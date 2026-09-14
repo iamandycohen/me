@@ -9,6 +9,7 @@ export const {
   bio,
   professional,
   resume,
+  projectsPage,
   projects,
   community,
   thoughtLeadership,

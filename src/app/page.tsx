@@ -19,6 +19,7 @@ export default function Home() {
   const linkedinUrl = formatLinkedInUrl(data.contact.linkedin);
 
   const recent = data.resume.slice(0, 4);
+  const latestProject = data.projects.find((project) => project.featured);
 
   return (
     <>
@@ -111,6 +112,31 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {latestProject && (
+        <section className="pb-16">
+          <div className="container-max">
+            <div className="grid md:grid-cols-12 gap-6 md:gap-10 items-center border-y border-ink/10 py-8">
+              <div className="md:col-span-3">
+                <p className="eyebrow">{latestProject.homepageEyebrow}</p>
+              </div>
+              <div className="md:col-span-6">
+                <h2 className="font-serif text-2xl md:text-3xl mb-2">
+                  {latestProject.title}
+                </h2>
+                <p className="text-ink/65 leading-relaxed">
+                  {latestProject.homepageSummary}
+                </p>
+              </div>
+              <div className="md:col-span-3 md:text-right">
+                <Link href="/projects" className="link-underline">
+                  {latestProject.homepageCta}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── What I'm working on now ──────────────────────────── */}
       <section className="section-padding bg-ink text-paper">

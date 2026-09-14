@@ -24,7 +24,7 @@ Based in ${data.contact.location}.
 
 - [About](${siteUrl}/): Personal site home and bio
 - [Resume](${siteUrl}/resume): Career history and roles
-- [Projects](${siteUrl}/projects): Engineering work beyond software
+- [Projects](${siteUrl}/projects): Software, games, and hands-on engineering projects
 - [Articles](${siteUrl}/articles): Writing on AI, DXP, and software architecture
 - [Community](${siteUrl}/community): MVP awards, presentations, and media
 - [Contact](${siteUrl}/contact): How to get in touch

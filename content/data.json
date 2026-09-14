@@ -191,11 +191,44 @@
       "description": "Built and shipped multiple web-based solutions including applicant tracking, time management, and job application systems while leading development teams, establishing the foundation for enterprise software development expertise."
     }
   ],
+  "projectsPage": {
+    "eyebrow": "Things I build",
+    "title": "Curiosity, made tangible.",
+    "introduction": "From software and interactive worlds to physical spaces, these are projects I built because I wanted to see what was possible.",
+    "philosophy": "Whether it’s a cloud platform, a browser game, or a treehouse, the mindset is the same: stay curious, understand the system, and build something that lasts."
+  },
   "projects": [
+    {
+      "title": "WOPR Terminal",
+      "period": "Sep 2026",
+      "description": "Zork was my first doorway into games, followed by an obsession with Sierra adventures like King’s Quest, Police Quest, and The Black Cauldron. WarGames made computers feel like mysterious worlds waiting behind a modem connection. WOPR Terminal is a playable tribute to that era, built for the browser and command line.",
+      "image": "/wopr-terminal.png",
+      "imageAlt": "WOPR Terminal showing a cyan strategic simulation interface and world map",
+      "imageFit": "contain",
+      "liveUrl": "https://wopr.iamandycohen.com",
+      "sourceUrl": "https://github.com/iamandycohen/wopr-terminal",
+      "archiveUrl": "https://ge97.com/bbslist?phone=510-829-0981",
+      "featured": true,
+      "homepageEyebrow": "Latest project",
+      "homepageSummary": "A playable tribute to the games, modems, and early online communities that first pulled me into computing.",
+      "homepageCta": "Read the story and play →",
+      "highlightsLabel": "Origins and details",
+      "highlights": [
+        "At 13, I created 5:30 Departure, a Hermes BBS in San Ramon, to connect with people and exchange software and technology tips before the web became part of everyday life",
+        "What now takes seconds could take weeks: dial in, leave a message or file, disconnect, and wait for the exchange to travel from system to system",
+        "A cinematic terminal interface with an animated strategic simulation, sound, green-phosphor mode, and a Joshua command session",
+        "Playable Global Thermonuclear War simulation and tic-tac-toe against an AI that cannot be beaten",
+        "Runs as both a browser experience and a command-line application"
+      ]
+    },
     {
       "title": "Treehouse Builder",
       "period": "Sep 2024",
       "description": "During the month between working at Sitecore and Altudo, and with the help of Justin Vogt, I was able to build a treehouse for my children Marty and Caroline.",
+      "image": "/treehouse.jpg",
+      "imageAlt": "Blue and yellow four-season treehouse built twelve feet above the ground",
+      "imageFit": "cover",
+      "highlightsLabel": "Engineering highlights",
       "highlights": [
         "4-season weatherproofing and insulation for year-round use",
         "Structural engineering for 12-foot elevated framework stability",

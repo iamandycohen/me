@@ -34,7 +34,17 @@ export interface Project {
   title: string;
   period: string;
   description: string;
-  link?: string;
+  image: string;
+  imageAlt: string;
+  imageFit?: 'cover' | 'contain';
+  liveUrl?: string;
+  sourceUrl?: string;
+  archiveUrl?: string;
+  featured?: boolean;
+  homepageEyebrow?: string;
+  homepageSummary?: string;
+  homepageCta?: string;
+  highlightsLabel?: string;
   highlights: string[];
 }
 
