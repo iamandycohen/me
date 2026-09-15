@@ -491,8 +491,21 @@
       "podcasts": [
         {
           "title": "The New Age of Building a Sitecore Solution",
-          "url": "https://www.americaneagle.com/insights/blog/post/the-sitecore-water-cooler-podcast-the-new-age-of-building-a-sitecore-solution",
-          "description": "Guest on Americaneagle.com’s The Sitecore Water Cooler with Jon Price and Naim Al, discussing Sitecore XM Cloud, CDP, composability, and the changing way Sitecore solutions are built."
+          "description": "Guest on Americaneagle.com’s The Sitecore Water Cooler with Jon Price and Naim Al, discussing Sitecore XM Cloud, CDP, composability, and the changing way Sitecore solutions are built.",
+          "links": [
+            {
+              "label": "Listen on Apple Podcasts",
+              "url": "https://podcasts.apple.com/us/podcast/the-new-age-of-building-a-sitecore-solution/id1574385623?i=1000562347602"
+            },
+            {
+              "label": "Watch on YouTube",
+              "url": "https://www.youtube.com/watch?v=nBZFVywp_L4"
+            },
+            {
+              "label": "Read on Americaneagle.com",
+              "url": "https://www.americaneagle.com/insights/blog/post/the-sitecore-water-cooler-podcast-the-new-age-of-building-a-sitecore-solution"
+            }
+          ]
         }
       ]
     },
