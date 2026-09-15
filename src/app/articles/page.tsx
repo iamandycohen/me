@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { generatePageMetadata } from '@/lib/metadata-generators';
 import { getDisplayName } from '@/lib/data-helpers';
-import { addSitecoreLinks } from '@/lib/utils';
+import { addProfileLinks } from '@/lib/utils';
 import data from '@/lib/data';
 import { ThoughtLeadership } from '@/types';
 
@@ -75,7 +75,7 @@ export default function Articles() {
                         </h2>
 
                         <p className="text-base md:text-lg text-ink/80 leading-relaxed mb-6 text-pretty">
-                          {addSitecoreLinks(article.summary)}
+                          {addProfileLinks(article.summary)}
                         </p>
 
                         {article.highlights &&

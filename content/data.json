@@ -6,29 +6,31 @@
     "location": "Golden Valley, MN"
   },
   "bio": {
-    "tagline": "Founding Architect of Sitecore XM Cloud | Product & Innovation Leader",
-    "short": "Founding architect of Sitecore XM Cloud - building enterprise-grade software that scales. Focused on where AI, products, platforms, and experience come together to redefine what's possible.",
-    "full": "I'm the founding architect of Sitecore XM Cloud, where I designed and built the system from concept to global SaaS launch. I've been building software since I was 8 years old, when I taught myself to code by reading PC magazines my mom brought home from work. That early start gave me a deep understanding of how software systems evolve and what it takes to build things that truly last.\n\nXM Cloud was truly a team effort. Nick Wesselman was the founding Product Manager who conceived the vision and provided the initial push to get the project off the ground, with Dave O'Flanagan and Roger Connolly sponsoring and championing the initiative. I led the architectural design, proof of concept, implementation, and production launch. When Nick moved on, Justin Vogt stepped in as Product Manager and did phenomenal work maintaining momentum and owning the vision. Along the way, I learned immensely from brilliant developers and architects, most notably Alistair Deneys and Charlie Turano, whose insights shaped both the technical approach and my own growth as an architect. After launch, I focused on optimization and redesign, cutting costs significantly while re-architecting tenancy and infrastructure to save millions. I also drove the cultural shift to continuous delivery, fundamentally changing how we ship software and scale our systems.\n\nMy specialty is building enterprise-grade software that scales - specifically the content management systems themselves: the engines, APIs, and infrastructure that enable content management at enterprise scale. From those early programming days to building applicant tracking systems, time management tools, and eventually enterprise CMS solutions, I've consistently built the robust, scalable foundations that others build upon.\n\nAfter Sitecore, I spent time in the DXP agency world, including a leadership role at Altudo, where I worked on accelerators, workflows, and architectural guidance to help teams move faster and deliver with more intent. That chapter sharpened my view of where delivery breaks down and where leverage actually lives.\n\nToday, I’m Head of AI and Agentic Experience at Kajoo and TechGuilds. My work centers on agentic orchestration, AI-augmented development, and building platforms that turn emerging technology into products that actually ship and scale. I’m interested in what comes after composable. Systems that don’t just manage content or launch campaigns, but anticipate, adapt, and reshape how organizations work.\n\nThroughout my career, I've specialized in architecture and product development across consulting and product companies - from building internal tools at TempWorks and ILM to designing enterprise solutions at Horizontal Integration, Perficient, and Avanade, before leading development at Sitecore.\n\nMy approach combines decades of hands-on development with engineering expertise, AI innovation, and product strategy. Having grown up alongside the evolution of software development, I understand both the fundamentals and the cutting edge. I focus on building systems that scale to serve millions while enabling developers and content creators to achieve more. I thrive at the intersection of engineering and AI - designing next-generation systems, building great developer experiences, and defining how digital experiences evolve in an AI-driven world.\n\nWhether it's enterprise systems serving millions of users or innovative AI workflows that transform operations, I believe in building solid foundations that last and enable others to create extraordinary digital experiences. AI isn't just a hash tag for me. It brings about so much opportunity when used with intent. Building products isn't what I do... it's who I am. I happen to have a bit of free time, so reach out!"
+    "tagline": "Principal, Technical Innovation at Bullhorn | Founding Architect of Sitecore XM Cloud",
+    "short": "Product builder and systems architect working across AI, chat, digital workers, and the platforms behind them. Principal, Technical Innovation at Bullhorn and founding architect of Sitecore XM Cloud.",
+    "full": "I've been building software since I was 8 years old, when I taught myself to code from the PC magazines my mom brought home from work. At 13, I ran 5:30 Departure, a Hermes BBS that connected people and moved software and ideas long before the web became part of everyday life. The technology has changed. The curiosity really hasn't.\n\nAn important early chapter of my career was in staffing software. At TempWorks, I built and shipped applicant tracking, time-management, and job-application systems while leading a development team. It taught me that the most valuable software is rarely technology for its own sake. It understands the work, removes friction, and helps people make better decisions.\n\nAt Sitecore, I became the founding architect of XM Cloud and helped take it from concept to a global SaaS platform. I led the architectural design, proof of concept, implementation, and production launch, then helped rework tenancy and infrastructure to save millions while advancing continuous delivery. It was a team effort, and it reinforced something I've seen throughout my career: durable products emerge when architecture, product thinking, and execution move together.\n\nAfter Sitecore, my work at Altudo, Kajoo, and TechGuilds moved deeper into AI-augmented development and agentic orchestration. I focused on the architecture around the model: tools, state, workflow, verification, and the conditions that make emerging capabilities useful and trustworthy.\n\nIn July 2026, I returned to staffing technology as Principal, Technical Innovation at Bullhorn. I'm building on Bullhorn Amplify across AI, chat, digital workers, and the platform capabilities behind what comes next. It brings together the threads that have shaped my career: real operational workflows, enterprise platforms, developer experience, product design, and software that can increasingly act on a user's behalf.\n\nWhether I'm working on a global cloud platform, a browser game, or a system that helps people get more meaningful work done, the mindset is the same: stay curious, understand the system, and build something that lasts."
   },
   "professional": {
     "keywords": [
       "Andy Cohen",
-      "CMS Architecture",
-      "AI-Driven Content Management",
+      "Bullhorn",
+      "Technical Innovation",
+      "AI-Native Software",
+      "Digital Workers",
+      "Conversational AI",
       "Sitecore XM Cloud",
-      "Software Engineering",
-      "Digital Experience Systems",
+      "Enterprise SaaS",
       "Agentic AI Workflows",
-      "Content Management Development"
+      "Staffing Technology"
     ],
     "expertise": [
-      "CMS Architecture",
-      "AI-Driven Content Management",
-      "Software Engineering",
-      "Digital Experience Systems",
-      "Agentic AI Workflows",
-      "SaaS Development",
-      "Content Management Systems",
+      "AI-Native Product Architecture",
+      "Conversational AI",
+      "Digital Workers",
+      "Agentic Orchestration",
+      "Enterprise SaaS",
+      "Staffing Technology",
+      "Platform Engineering",
       "Developer Experience"
     ],
     "skills": [
@@ -59,16 +61,28 @@
   },
   "resume": [
     {
+      "title": "Principal, Technical Innovation",
+      "company": "Bullhorn",
+      "period": "Jul 2026 - Present",
+      "highlights": [
+        "Building on Bullhorn Amplify across AI, chat, and digital workers",
+        "Designing platform capabilities that move staffing software from systems of record toward systems of action",
+        "Turning real recruiting and sales workflows into useful AI-native experiences",
+        "Making emerging capabilities reliable, scalable, and ready for meaningful work"
+      ],
+      "description": "Working in technical innovation across Bullhorn Amplify, conversational AI, digital workers, and the platform capabilities behind them. Helping shape software that understands staffing workflows, removes repetitive work, and acts on a user's behalf."
+    },
+    {
       "title": "Head of AI and Agentic Experience",
       "company": "Kajoo + TechGuilds",
-      "period": "Oct 2025 - Present",
+      "period": "Oct 2025 - Jul 2026",
       "highlights": [
-        "Leading the design and delivery of agentic orchestration platforms",
-        "Building AI-augmented workflows that accelerate product and software development",
-        "Translating emerging AI capabilities into scalable, shippable products",
-        "Defining the next generation of developer and agentic experience"
+        "Led the design and delivery of agentic orchestration platforms",
+        "Built AI-augmented workflows that accelerated product and software development",
+        "Translated emerging AI capabilities into scalable, shippable products",
+        "Helped define the next generation of developer and agentic experience"
       ],
-      "description": "Leading AI and agentic platform development, with a focus on orchestration, applied AI systems, and products that ship. Driving the evolution beyond composable systems toward agent-driven workflows that reduce friction, create leverage, and scale."
+      "description": "Led AI and agentic platform development with a focus on orchestration, applied AI systems, and products that ship. Advanced agent-driven workflows designed to reduce friction, create leverage, and scale."
     },
     {
       "title": "Vice President | Chief Architect",
@@ -207,7 +221,7 @@
       "imageFit": "contain",
       "liveUrl": "https://wopr.iamandycohen.com",
       "sourceUrl": "https://github.com/iamandycohen/wopr-terminal",
-      "archiveUrl": "https://ge97.com/bbslist?phone=510-829-0981",
+      "archiveUrl": "http://bbslist.textfiles.com/510/#:~:text=510-829-0981",
       "featured": true,
       "homepageEyebrow": "Latest project",
       "homepageSummary": "A playable tribute to the games, modems, and early online communities that first pulled me into computing.",

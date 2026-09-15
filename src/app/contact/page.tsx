@@ -1,6 +1,6 @@
 import { generatePageMetadata } from '@/lib/metadata-generators';
 import { formatLinkedInUrl, getCurrentActiveRole } from '@/lib/data-helpers';
-import { addSitecoreLinks } from '@/lib/utils';
+import { addProfileLinks } from '@/lib/utils';
 import data from '@/lib/data';
 
 export const metadata = generatePageMetadata(
@@ -27,9 +27,9 @@ export default function Contact() {
             Let&apos;s <span className="italic text-ink/60">talk shop.</span>
           </h1>
           <p className="text-lg text-ink/70 leading-relaxed max-w-2xl">
-            CMS platform challenges, AI integration, agentic workflows,
-            architecture review — or just a conversation about where things are
-            headed. Let&apos;s compare notes.
+            AI-native products, chat, digital workers, platform architecture —
+            or just a conversation about where software is headed. Let&apos;s
+            compare notes.
           </p>
         </div>
 
@@ -112,7 +112,7 @@ export default function Contact() {
 
             <p className="text-base md:text-lg text-ink/80 leading-relaxed mb-8 text-pretty">
               {currentRole
-                ? addSitecoreLinks(currentRole.description)
+                ? addProfileLinks(currentRole.description)
                 : "I'm exploring roles in AI-native product development, platform architecture, and innovation leadership. I help teams build systems that serve both humans and AI agents — leveraging structured data, intelligent orchestration, and modern development practices."}
             </p>
 
@@ -129,7 +129,7 @@ export default function Contact() {
                     >
                       —
                     </span>
-                    <span>{addSitecoreLinks(highlight)}</span>
+                    <span>{addProfileLinks(highlight)}</span>
                   </li>
                 ))
               ) : (

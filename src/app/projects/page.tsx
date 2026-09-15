@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { generatePageMetadata } from '@/lib/metadata-generators';
 import { getDisplayName } from '@/lib/data-helpers';
+import { addProfileLinks } from '@/lib/utils';
 import data from '@/lib/data';
 
 const displayName = getDisplayName(data.contact);
@@ -82,7 +83,7 @@ export default function Projects() {
                 <p className="eyebrow mb-3">{project.period}</p>
                 <h2 className="mb-5 text-balance">{project.title}</h2>
                 <p className="text-lg text-ink/80 leading-relaxed mb-8 text-pretty">
-                  {project.description}
+                  {addProfileLinks(project.description)}
                 </p>
 
                 <h3 className="font-serif text-base font-medium text-ink/70 uppercase tracking-widest mb-4">
@@ -97,7 +98,7 @@ export default function Projects() {
                       >
                         —
                       </span>
-                      <span>{highlight}</span>
+                      <span>{addProfileLinks(highlight)}</span>
                     </li>
                   ))}
                 </ul>
