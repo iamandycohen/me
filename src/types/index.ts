@@ -102,8 +102,11 @@ export interface CommunityData {
   mediaResources: {
     podcasts: Array<{
       title: string;
-      url: string;
       description: string;
+      links: Array<{
+        label: string;
+        url: string;
+      }>;
     }>;
   };
   expertiseAreas?: ExpertiseArea[];
