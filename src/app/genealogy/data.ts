@@ -18,7 +18,7 @@ export const publicTree: PublicTreeNode[] = [
     period: 'Present',
     relationship: 'Starting point',
     summary:
-      'Also known as Andy Cohen. This public family-history journey begins with me.',
+      'My birth name is Shannon Jeremiah Meason; I grew up as Andy Cohen after being adopted. This tree follows my biological Meason ancestry.',
     status: 'documented',
     statusLabel: 'Personal knowledge',
   },

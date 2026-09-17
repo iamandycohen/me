@@ -70,6 +70,11 @@ export default function GenealogyTreePage() {
                 gain citations as the publication review continues.
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
+                I was born Shannon Jeremiah Meason and grew up as Andy Cohen
+                after being adopted. This tree follows my biological Meason
+                lineage; it does not replace the Cohen family that raised me.
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-ink/50">
                 Initialed portrait circles hold the place for family photographs
                 while identity, provenance, and permission are confirmed.
               </p>

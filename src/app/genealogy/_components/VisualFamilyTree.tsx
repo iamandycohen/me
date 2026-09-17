@@ -112,8 +112,8 @@ const lineageGenerations: LineageGeneration[] = [
     direct: {
       name: 'Shannon Jeremiah Meason',
       detail:
-        'Also known as Andy Cohen · the starting point for this public journey',
-      status: 'Me',
+        'Birth name · grew up as Andy Cohen · this tree follows my biological Meason ancestry',
+      status: 'Me · birth identity',
     },
   },
 ];

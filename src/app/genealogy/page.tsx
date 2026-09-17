@@ -31,7 +31,9 @@ export default function GenealogyPage() {
         <div className="container-max">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
             <div className="lg:col-span-8">
-              <p className="eyebrow mb-6">Family history · Working prototype</p>
+              <p className="eyebrow mb-6">
+                Family history · Ongoing investigation
+              </p>
               <h1 className="text-balance mb-8">
                 Where the record{' '}
                 <span className="italic text-ink/60">ends.</span>
@@ -63,6 +65,47 @@ export default function GenealogyPage() {
                 relatives who prefer privacy are omitted.
               </p>
             </aside>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20 md:pb-28">
+        <div className="container-max">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <p className="eyebrow mb-4">Why Meason</p>
+              <h2 className="text-balance">
+                I began life with one name and grew up with another.
+              </h2>
+            </div>
+            <article className="prose-editorial max-w-prose lg:col-span-8">
+              <p>
+                I was born Shannon Jeremiah Meason in Montgomery, Alabama, in
+                1978, to Cynthia June Meason. I was adopted by the Cohen family,
+                a Jewish family from the San Francisco Bay Area, and grew up as
+                Andy Cohen.
+              </p>
+              <p>
+                Adoption was never a secret in my family. My parents were always
+                open about it, and I cannot remember a time when I did not know
+                I was adopted. That openness gave me room to be curious—not
+                because I felt that something was being withheld, but because I
+                knew there was another part of my story waiting to be
+                understood.
+              </p>
+              <p>
+                That curiosity became serious research when the internet began
+                making genealogical records accessible. Services such as
+                Ancestry gave me a way to move beyond family fragments and
+                copied names—to follow records, compare competing stories, and
+                reconstruct the Meason line one document at a time.
+              </p>
+              <p>
+                This tree follows my biological Meason lineage. It does not
+                replace the Cohen family that raised me; it helps me understand
+                the history that came before my adoption.
+              </p>
+            </article>
           </div>
         </div>
       </section>
