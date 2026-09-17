@@ -10,16 +10,16 @@ import data from '@/lib/data';
 
 const genealogyHighlights = [
   {
-    marker: '1788–1795',
-    title: 'A possible Thomas trail becomes more precise',
+    marker: '35 profiles audited',
+    title: 'Repetition is not independent proof',
     detail:
-      'The same 300-acre Rough Creek tract connects records in Nelson and Logan Counties—but still names no Benjamin.',
+      'Twenty-five George profiles and ten Thomas profiles repeated the disputed relationships without exposing a record that stated either one.',
   },
   {
-    marker: '1800–1804',
-    title: 'Benjamin gains an original-record foothold',
+    marker: '1810 / 1818',
+    title: 'George carries two birth traditions',
     detail:
-      'Tax returns place him in Nelson County before and after his marriage to Hannah Doom.',
+      'Four adult censuses and a descendant-held family note say about 1810; his photographed grave marker says 1818.',
   },
   {
     marker: 'Two open edges',

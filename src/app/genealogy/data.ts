@@ -56,20 +56,20 @@ export const publicTree: PublicTreeNode[] = [
     href: '/genealogy/tree#franklin-meason',
     period: '1850–1933',
     relationship: 'Second great-grandfather',
-    summary: 'Son of George M. Meason and Martha T. Reed.',
+    summary: 'Son of George M. Meason and Martha Reed.',
     status: 'review',
     statusLabel: 'Family lineage',
   },
   {
     title: 'George M. Meason',
-    href: '/genealogy/tree#george-mansfield-meason',
+    href: '/genealogy/tree#george-m-meason',
     period: 'Birth year disputed · died 1887',
     relationship: 'Third great-grandfather',
     summary:
-      'George M. Meason and Martha T. Reed appear as their own Monroe County household in 1850. The claim that George was a son of Benjamin and Hannah is coherent but not yet proved.',
+      'Four adult censuses and a descendant-held Bible say about 1810, while George’s marker says 1818. His marriage to Martha Reed is documented; the claim that Benjamin and Hannah were his parents is not.',
     status: 'review',
     statusLabel: 'Parentage under review',
-    referenceIds: [25, 26],
+    referenceIds: [25, 26, 30, 32, 33, 34],
     connectionToNext: 'review',
   },
   {
@@ -123,12 +123,12 @@ export const chronology = [
     referenceIds: [5],
   },
   {
-    year: '1811–1816',
+    year: '1811–1817',
     place: 'Bardstown area, Kentucky',
     title: 'Public and church life',
     detail:
-      'Records place Benjamin in civic and Baptist networks. In 1811 he represented the Mill Creek network. In October 1815 he was seated as one of two messengers when the newly organized Salem Church at Bardstown entered the association, and he was appointed to supervise publication of its minutes. He represented Salem again in 1816.',
-    referenceIds: [7, 8, 9, 24],
+      'Records place Benjamin in civic and Baptist networks. In 1811 the annual names him in association work and strongly indicates that “B. Mason” represented Mill Creek. In October 1815 he was seated when the new Salem Church at Bardstown entered the association, then represented Salem again in 1816. Other messengers were selected in 1817; that is not evidence he left the church.',
+    referenceIds: [7, 8, 9, 24, 35],
   },
   {
     year: '1820',
@@ -172,13 +172,40 @@ export const chronology = [
   },
 ];
 
+export const georgeChronology = [
+  {
+    year: '1837',
+    place: 'Clark County, Missouri',
+    title: 'A first marriage, but no parent named',
+    detail:
+      'A recorded minister’s return establishes George M. Meason’s marriage to Elizabeth Hay on November 16. It corrects a copied date and county, but contains no age, parent, guardian, witness, or consent.',
+    referenceIds: [31],
+  },
+  {
+    year: '1840',
+    place: 'Clark County, Missouri',
+    title: 'George marries Martha Reed',
+    detail:
+      'A second recorded return establishes their October 27 marriage and says both lived in Clark County. The original names her only as Martha Reed, without the middle initial repeated in later trees.',
+    referenceIds: [32],
+  },
+  {
+    year: '1850–1887',
+    place: 'Missouri to Texas',
+    title: 'One life, two birth traditions',
+    detail:
+      'Four adult censuses consistently imply birth about 1810, and a descendant-held Bible repeats 1810. George’s photographed marker says 1818. The conflict remains unresolved—and neither chronology names his parents.',
+    referenceIds: [25, 26, 33, 34],
+  },
+];
+
 export const candidateAssessments = [
   {
     name: 'Benjamin as George’s father',
     status: 'Plausible, not proved',
     detail:
-      'George and Benjamin share a coherent Kentucky-to-Missouri pattern, but no reviewed record calls George a son or heir. George’s 1850 census age implies a birth about 1810, while his marker says 1818—a conflict that weakens the household-slot argument.',
-    referenceIds: [1, 25, 26],
+      'George and Benjamin share a coherent Kentucky-to-Missouri pattern, but no reviewed record calls George a son or heir. Four adult censuses and a descendant-held Bible say 1810; his marker says 1818. The earlier chronology keeps the household-slot theory plausible without proving it.',
+    referenceIds: [1, 25, 26, 30, 33, 34],
   },
   {
     name: 'Thomas Meason senior',
@@ -269,10 +296,18 @@ export const evidenceLedger = [
   {
     record: 'George’s census and grave marker',
     establishes:
-      'George M. Meason headed a separate Monroe County household in 1850, and his Texas marker gives an 1818 birth year and 1887 death year.',
+      'George M. Meason’s adult census sequence and a descendant-held Bible give birth about 1810; his Texas marker gives 1818, while the Bible note and marker agree on an 1887 death.',
     limit:
-      'Neither source names George’s parents. The marker’s 1818 birth year conflicts with the census age implying about 1810, so neither date should silently settle the relationship theory.',
-    referenceIds: [25, 26],
+      'None of these sources names George’s parents. The Bible lacks a title page and ownership chain, and the marker’s informant and erection date are unknown.',
+    referenceIds: [25, 26, 33, 34],
+  },
+  {
+    record: 'Public-tree citation audit',
+    establishes:
+      'The disputed relationships are widely repeated: all 25 sampled George profiles named Benjamin and Hannah, and all ten sampled Thomas profiles attached Benjamin.',
+    limit:
+      'None exposed a record stating either parent-child relationship. Repetition across trees is not independent corroboration.',
+    referenceIds: [30],
   },
 ];
 
@@ -298,8 +333,8 @@ export const researchBlockers = [
   {
     title: 'The inherited tree needs record-by-record review',
     detail:
-      'The original records now separate accepted Kentucky and Missouri households from incompatible same-name attachments and weaken the inherited parent assignment.',
-    referenceIds: [1, 10, 12, 14, 18, 19],
+      'A controlled citation audit found the same relationships repeated across 35 sampled profiles without a relationship-specific source. Original records also separate incompatible same-name households from the target family.',
+    referenceIds: [1, 10, 12, 14, 18, 19, 30],
   },
 ];
 
@@ -325,7 +360,7 @@ export const nextResearchSteps = [
   {
     title: 'Recover the Kentucky relationship records',
     detail:
-      'Search Mill Creek and Bardstown Salem membership records for Benjamin’s transition, and retrieve the Doom chancery file that may state Hannah’s precise kinship and the heirs’ residences.',
-    referenceIds: [8, 9, 17, 24],
+      'First obtain the March 1990 Mill Creek article that may identify or reproduce the missing church book; then pursue Salem records and the Doom chancery file that may state Hannah’s precise kinship.',
+    referenceIds: [8, 9, 17, 24, 35, 36],
   },
 ];

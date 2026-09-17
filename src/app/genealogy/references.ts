@@ -348,4 +348,88 @@ export const genealogyReferences: GenealogyReference[] = [
     url: 'https://digital.shsmo.org/digital/collection/plat/id/3370/rec/1',
     accessLabel: 'Open historical plat',
   },
+  {
+    id: 30,
+    title: 'Public member-tree citation audit',
+    citation:
+      'Bounded review of visible citations in 25 public George M. Meason profiles and 10 public Thomas Meason profiles on Ancestry, 17 September 2026.',
+    supports:
+      'Every sampled profile repeated the disputed relationship assigned to it, but none exposed a record that stated the parent-child relationship. The Thomas profiles also carried incompatible death claims.',
+    limitation:
+      'This was a sample of accessible public profiles, not every online tree. Missing citations do not disprove a relationship; the audit shows that numerical agreement is not independent evidence.',
+    url: 'https://www.ancestry.com/search/collections/1030/',
+    accessLabel: 'Search public member trees',
+  },
+  {
+    id: 31,
+    title: 'George M. Meason–Elizabeth Hay marriage return',
+    citation:
+      'Clark County, Missouri, Marriage Book A, manuscript p. 4, entry 11; marriage solemnized 16 November 1837 and recorded 20 November 1837; Ancestry collection 1171, record 9386577.',
+    supports:
+      'George M. Meason and Elizabeth Hay married in Clark County on 16 November 1837. The document is a recorded minister’s return.',
+    limitation:
+      'The return gives no age, parent, guardian, consent, bondsman, witness, or couple signature and therefore does not identify George’s parents.',
+    url: 'https://www.ancestry.com/search/collections/1171/records/9386577',
+    accessLabel: 'Open indexed marriage record',
+  },
+  {
+    id: 32,
+    title: 'George M. Meason–Martha Reed marriage return',
+    citation:
+      'Clark County, Missouri, Marriage Book A, manuscript p. 21, entry 91; marriage solemnized 27 October 1840 and recorded 7 November 1840; Ancestry collection 1171, record 9386657.',
+    supports:
+      'George M. Meason and Martha Reed, both described as residents of Clark County, married on 27 October 1840.',
+    limitation:
+      'The return does not give Martha a middle initial and names no parent, guardian, consent, bondsman, witness, or couple signature.',
+    url: 'https://www.ancestry.com/search/collections/1171/records/9386657',
+    accessLabel: 'Open indexed marriage record',
+  },
+  {
+    id: 33,
+    title: 'George M. Meason census sequence, 1860–1880',
+    citation:
+      '1860 U.S. census, Clay Township, Shelby County, Missouri, p. 192, NARA M653, roll 657; 1870 U.S. census, Marion Township, Monroe County, Missouri, p. 658A, NARA M593, roll 793; 1880 U.S. census, Precinct 2, Dallas County, Texas, p. 157A, ED 60, NARA T9, roll 1299.',
+    supports:
+      'George is reported as age 50, 60, and 70 across the three schedules, consistently implying birth about 1810. The 1880 schedule reports both parents born in Kentucky without naming them.',
+    limitation:
+      'Census ages and parental birthplaces depend on an unknown informant. The schedules do not name George’s parents or prove a relationship to Benjamin.',
+    url: 'https://www.ancestry.com/search/collections/6742/records/10544467',
+    accessLabel: 'Open 1880 indexed census record',
+  },
+  {
+    id: 34,
+    title: 'Nowell–Sedberry descendant family-Bible page',
+    citation:
+      'Publicly shared “NOWELL/SEDBERRY FAMILY BIBLE PAGE 3,” reviewed through Ancestry Public Member Photos and Scanned Documents; shared 19 June 2020.',
+    supports:
+      'A descendant-held lineage note expands George’s middle initial as Mansfield and repeats a 10 May 1810 birth and 11 November 1887 death tradition.',
+    limitation:
+      'The page does not name Benjamin or Hannah as George’s parents. No title page, publication date, repository, or ownership chain was exposed, so it is family testimony rather than contemporary proof.',
+    url: 'https://www.ancestry.com/search/collections/1093/',
+    accessLabel: 'Search public member media',
+  },
+  {
+    id: 35,
+    title: 'Salem Association minutes, 1817',
+    citation:
+      'Minutes of the Salem Association of Baptists, Kentucky, Mill Creek Meeting-House, Nelson County, 26–27 September 1817; Boyce Digital Repository, handle 10392/6313.',
+    supports:
+      'The Salem row names William Kendall and Joseph Lewis as the congregation’s selected messengers in 1817, after Benjamin served in 1815 and 1816.',
+    limitation:
+      'Annual messenger selection is not a complete membership roll. Benjamin’s omission does not prove dismissal, migration, death, or absence from the congregation.',
+    url: 'https://hdl.handle.net/10392/6313',
+    accessLabel: 'Open repository item',
+  },
+  {
+    id: 36,
+    title: 'Mill Creek Baptist Church article locator',
+    citation:
+      'The Nelson County Genealogist, volume 6, number 3 (March 1990), “Mill Creek Baptist Church, Nelson County, KY (1793–1815),” part 1 of 2, apparent pp. 45–48; Nelson County Genealogical Roundtable table of contents.',
+    supports:
+      'The exact issue and article route most likely to reveal whether the missing local church record was transcribed or identify its custodian.',
+    limitation:
+      'The article itself has not been reviewed. Its title proves nothing about Benjamin, membership, transfer, kinship, or the survival of an original record book.',
+    url: 'https://www.ncgrky.com/_files/ugd/399665_4aeda8947d004116a5a1489004c959c3.pdf',
+    accessLabel: 'Open official contents locator',
+  },
 ];

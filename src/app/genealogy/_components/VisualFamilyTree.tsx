@@ -38,17 +38,17 @@ const lineageGenerations: LineageGeneration[] = [
     connectionToNext: 'review',
   },
   {
-    id: 'george-mansfield-meason',
+    id: 'george-m-meason',
     navLabel: 'George',
     label: 'Generation 6 · third great-grandfather',
     direct: {
       name: 'George M. Meason',
-      detail: 'Birth year disputed: about 1810 or 1818 · died 1887',
+      detail: 'Censuses and family note: about 1810 · marker: 1818 · died 1887',
       status: 'Meason line · parentage under review',
     },
     partner: {
-      name: 'Martha T. Reed',
-      detail: '1819–1881',
+      name: 'Martha Reed',
+      detail: 'Married George in Clark County in 1840',
       status: 'Spouse · direct ancestor',
     },
   },

@@ -10,6 +10,7 @@ import {
   candidateAssessments,
   chronology,
   evidenceLedger,
+  georgeChronology,
   nextResearchSteps,
   publicTree,
   researchBlockers,
@@ -122,10 +123,10 @@ export default function GenealogyPage() {
             </div>
             <article className="lg:col-span-8 prose-editorial max-w-prose">
               <p>
-                The family tree I started from gave Benjamin Meason a father:
-                Thomas Meason, born in 1755. The name appeared often enough—and
-                in enough other trees—that it looked like an answer rather than
-                a question.
+                The family tree I started from gave Benjamin Meason a father: a
+                Thomas Meason described in copied trees as born in 1755. The
+                name appeared often enough—and in enough other trees—that it
+                looked like an answer rather than a question.
               </p>
               <p>
                 But when I went looking for the record that actually connected
@@ -134,6 +135,15 @@ export default function GenealogyPage() {
                 original wills naming large Meason families did not include
                 Benjamin at all.
                 <SourceFootnote referenceIds={[18, 19]} />
+              </p>
+              <p>
+                I tested that repetition directly. Every one of 25 sampled
+                George profiles named Benjamin and Hannah as his parents, and
+                all ten sampled Thomas profiles attached Benjamin as a child.
+                None exposed a record stating either relationship. Agreement
+                across trees showed repetition without independent proof in the
+                visible sources.
+                <SourceFootnote referenceIds={[30]} />
               </p>
               <p>
                 The deeper review exposed an earlier break as well. Benjamin is
@@ -192,6 +202,54 @@ export default function GenealogyPage() {
             </div>
             <div className="lg:col-span-8">
               <DocumentedTree nodes={publicTree} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding border-b border-ink/10">
+        <div className="container-max">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <div className="lg:sticky lg:top-28">
+                <p className="eyebrow mb-4">The bridge generation</p>
+                <h2 className="mb-6 text-balance">
+                  George is visible. His parents are not.
+                </h2>
+                <p className="leading-relaxed text-ink/65">
+                  The records now give George a clearer life of his own. They
+                  correct copied dates, document his marriage to Martha Reed,
+                  and explain why his birth year remains disputed. None of them
+                  identifies Benjamin as his father.
+                  <SourceFootnote referenceIds={[25, 26, 31, 32, 33, 34]} />
+                </p>
+              </div>
+            </div>
+            <div className="lg:col-span-8">
+              <ol className="border-t border-ink/15">
+                {georgeChronology.map((event) => (
+                  <li
+                    key={`${event.year}-${event.title}`}
+                    className="grid gap-3 border-b border-ink/10 py-7 sm:grid-cols-12 sm:gap-8"
+                  >
+                    <div className="sm:col-span-3">
+                      <p className="font-serif text-2xl text-accent">
+                        {event.year}
+                      </p>
+                      <p className="mt-1 text-xs uppercase tracking-wider text-ink/45">
+                        {event.place}
+                      </p>
+                    </div>
+                    <div className="sm:col-span-9">
+                      <h3 className="mb-2 text-xl">{event.title}</h3>
+                      <p className="leading-relaxed text-ink/65">
+                        {event.detail}
+                        <SourceFootnote referenceIds={event.referenceIds} />
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
         </div>
@@ -260,8 +318,9 @@ export default function GenealogyPage() {
                 </h2>
                 <p className="text-paper/70 text-lg leading-relaxed mb-5">
                   The tree I inherited connected George to Benjamin, then gave
-                  Benjamin a father: Thomas Meason, born in 1755. Both links
-                  looked settled because they were repeated so often.
+                  Benjamin a father: a Thomas Meason described in copied trees
+                  as born in 1755. Both links looked settled because they were
+                  repeated so often.
                 </p>
                 <p className="text-paper/55 leading-relaxed mb-8">
                   The trouble is that plausible is not the same as proved.
@@ -282,13 +341,12 @@ export default function GenealogyPage() {
                   What changed in this research
                 </p>
                 <p className="font-serif text-xl leading-relaxed text-paper/80 md:text-2xl">
-                  The investigation now has two frontiers. The Monroe County
-                  estate and deed trail may establish whether George was
-                  Benjamin&apos;s son. The 1788 Rough Creek trail may
-                  distinguish Benjamin&apos;s possible Thomas candidates.
-                  Neither record chain has yet supplied the missing
-                  relationship.
-                  <SourceFootnote referenceIds={[20, 21, 22, 23, 25, 28]} />
+                  A controlled audit found 35 public profiles repeating the two
+                  disputed relationships without a record that stated either
+                  one. Four adult censuses and a descendant-held Bible say about
+                  1810, while George&apos;s marker says 1818—but all of that
+                  evidence stops with George. The tree still has two open edges.
+                  <SourceFootnote referenceIds={[25, 26, 30, 33, 34]} />
                 </p>
               </aside>
               <div className="grid gap-px border border-paper/15 bg-paper/15 sm:grid-cols-2">
@@ -412,13 +470,17 @@ export default function GenealogyPage() {
               bridge from Benjamin to George, several weakened parent
               candidates, and no proved parent above Benjamin. That is less tidy
               than the tree I began with—and much closer to the truth.
-              <SourceFootnote referenceIds={[18, 19, 20, 21, 22, 25, 26]} />
+              <SourceFootnote
+                referenceIds={[18, 19, 20, 21, 22, 25, 26, 30, 33, 34]}
+              />
             </p>
             <p className="leading-relaxed text-ink/60 max-w-2xl mb-8">
-              Family Bible entries, letters, photographs, church records, or
-              other material connected to the Mason or Meason families of
-              Nelson, Logan, Ralls, or Monroe Counties may hold the missing
-              connection.
+              One descendant-held Bible now takes the family story back to
+              George, but not beyond him. Other Bible entries, letters,
+              photographs, church records, or material connected to the Mason or
+              Meason families of Nelson, Logan, Ralls, or Monroe Counties may
+              hold the missing connection.
+              <SourceFootnote referenceIds={[34]} />
             </p>
             <Link href="/contact" className="btn-primary">
               Share a family lead
