@@ -32,6 +32,8 @@ function Navigation() {
       '/': 'page.tsx',
       '/resume': 'resume/page.tsx',
       '/projects': 'projects/page.tsx',
+      '/genealogy': 'genealogy/page.tsx',
+      '/genealogy/tree': 'genealogy/tree/page.tsx',
       '/articles': 'articles/page.tsx',
       '/community': 'community/page.tsx',
       '/contact': 'contact/page.tsx',
@@ -45,6 +47,7 @@ function Navigation() {
     { name: 'About', href: '/' },
     { name: 'Resume', href: '/resume' },
     { name: 'Projects', href: '/projects' },
+    { name: 'Genealogy', href: '/genealogy' },
     { name: 'Articles', href: '/articles' },
     { name: 'Community', href: '/community' },
     { name: 'Contact', href: '/contact' },
@@ -63,7 +66,7 @@ function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-x-5 lg:gap-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}

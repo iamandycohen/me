@@ -16,13 +16,19 @@ jest.mock('@/lib/data', () => ({
   },
 }));
 
+let mockPathname = '/';
+
 jest.mock('next/navigation', () => ({
-  usePathname: () => '/',
+  usePathname: () => mockPathname,
 }));
 
 import Navigation from '../Navigation';
 
 describe('Navigation', () => {
+  beforeEach(() => {
+    mockPathname = '/';
+  });
+
   it('renders display name as home link', () => {
     render(<Navigation />);
     const home = screen.getAllByRole('link', { name: /Test User/i })[0];
@@ -31,13 +37,19 @@ describe('Navigation', () => {
 
   it('renders the expected nav items (and no AI Chat/Tools)', () => {
     render(<Navigation />);
-    ['About', 'Resume', 'Projects', 'Articles', 'Community', 'Contact'].forEach(
-      (label) => {
-        expect(
-          screen.getAllByRole('link', { name: label })[0]
-        ).toBeInTheDocument();
-      }
-    );
+    [
+      'About',
+      'Resume',
+      'Projects',
+      'Genealogy',
+      'Articles',
+      'Community',
+      'Contact',
+    ].forEach((label) => {
+      expect(
+        screen.getAllByRole('link', { name: label })[0]
+      ).toBeInTheDocument();
+    });
     expect(
       screen.queryByRole('link', { name: /AI Chat/i })
     ).not.toBeInTheDocument();
@@ -54,6 +66,28 @@ describe('Navigation', () => {
       'https://github.com/iamandycohen/me/blob/main/src/app/page.tsx'
     );
     expect(source).toHaveAttribute('target', '_blank');
+  });
+
+  it('links the genealogy page to its source file', () => {
+    mockPathname = '/genealogy';
+    render(<Navigation />);
+
+    const source = screen.getAllByRole('link', { name: /Source/i })[0];
+    expect(source).toHaveAttribute(
+      'href',
+      'https://github.com/iamandycohen/me/blob/main/src/app/genealogy/page.tsx'
+    );
+  });
+
+  it('links the dedicated genealogy tree to its source file', () => {
+    mockPathname = '/genealogy/tree';
+    render(<Navigation />);
+
+    const source = screen.getAllByRole('link', { name: /Source/i })[0];
+    expect(source).toHaveAttribute(
+      'href',
+      'https://github.com/iamandycohen/me/blob/main/src/app/genealogy/tree/page.tsx'
+    );
   });
 
   it('toggles the mobile menu', () => {

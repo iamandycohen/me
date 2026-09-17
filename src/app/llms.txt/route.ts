@@ -25,6 +25,8 @@ Based in ${data.contact.location}.
 - [About](${siteUrl}/): Personal site home and bio
 - [Resume](${siteUrl}/resume): Career history and roles
 - [Projects](${siteUrl}/projects): Software, games, and hands-on engineering projects
+- [Genealogy](${siteUrl}/genealogy): A working family tree and the open Meason investigation
+- [Working family tree](${siteUrl}/genealogy/tree): The direct Meason line and its unresolved frontier
 - [Articles](${siteUrl}/articles): Writing on AI, DXP, and software architecture
 - [Community](${siteUrl}/community): MVP awards, presentations, and media
 - [Contact](${siteUrl}/contact): How to get in touch
