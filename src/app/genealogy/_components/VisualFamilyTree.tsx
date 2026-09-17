@@ -17,32 +17,34 @@ interface LineageGeneration {
   label: string;
   direct: Person;
   partner?: Person;
+  connectionToNext?: 'documented' | 'review';
 }
 
 const lineageGenerations: LineageGeneration[] = [
   {
     id: 'benjamin-meason',
     navLabel: 'Benjamin',
-    label: 'Generation 7 · fourth great-grandfather',
+    label: 'Generation 7 · claimed fourth great-grandfather',
     direct: {
       name: 'Benjamin Meason',
       detail: 'Born about 1776 · living in Monroe County in 1850',
-      status: 'Meason line · documented',
+      status: 'Life documented · relationship unproved',
     },
     partner: {
       name: 'Hannah Doom',
       detail: 'Married Benjamin in Kentucky in 1801',
-      status: 'Spouse · direct ancestor',
+      status: 'Spouse · claimed direct ancestor',
     },
+    connectionToNext: 'review',
   },
   {
     id: 'george-mansfield-meason',
     navLabel: 'George',
     label: 'Generation 6 · third great-grandfather',
     direct: {
-      name: 'George Mansfield Meason',
-      detail: '1810–1887',
-      status: 'Meason line',
+      name: 'George M. Meason',
+      detail: 'Birth year disputed: about 1810 or 1818 · died 1887',
+      status: 'Meason line · parentage under review',
     },
     partner: {
       name: 'Martha T. Reed',
@@ -271,11 +273,22 @@ function LineageRow({
       </div>
 
       {!isLast ? (
-        <div
-          className="grid md:grid-cols-[minmax(0,1fr)_3rem_minmax(0,0.72fr)]"
-          aria-hidden="true"
-        >
-          <div className="mx-auto h-14 w-px border-l border-ink/30" />
+        <div className="grid md:grid-cols-[minmax(0,1fr)_3rem_minmax(0,0.72fr)]">
+          <div className="relative mx-auto h-16 w-px">
+            <span
+              aria-hidden="true"
+              className={`absolute inset-y-0 left-0 border-l ${
+                generation.connectionToNext === 'review'
+                  ? 'border-dashed border-ink/40'
+                  : 'border-ink/30'
+              }`}
+            />
+            {generation.connectionToNext === 'review' ? (
+              <span className="absolute left-1/2 top-1/2 w-max -translate-x-1/2 -translate-y-1/2 bg-[#f4efe7] px-2 text-[0.58rem] uppercase tracking-widest text-ink/45">
+                claimed relationship · not yet proved
+              </span>
+            ) : null}
+          </div>
         </div>
       ) : null}
     </section>
@@ -286,13 +299,14 @@ export default function VisualFamilyTree() {
   return (
     <figure aria-labelledby="visual-tree-title">
       <figcaption id="visual-tree-title" className="sr-only">
-        A visual pedigree showing the direct Meason family line from Benjamin
+        A visual pedigree showing the working Meason family line from Benjamin
         Meason to Shannon Jeremiah Meason, with spouses shown as secondary
-        connections and Benjamin&apos;s parents marked as unknown.
+        connections, the relationship between Benjamin and George marked as
+        unproved, and Benjamin&apos;s parents marked as unknown.
       </figcaption>
 
       <nav
-        aria-label="Jump to a person in the direct Meason line"
+        aria-label="Jump to a person in the working Meason line"
         className="mb-14 rounded-2xl border border-ink/10 bg-paper/70 p-5 md:mb-20 md:p-6"
       >
         <p className="eyebrow mb-4">Jump through the direct line</p>

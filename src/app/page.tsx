@@ -22,10 +22,10 @@ const genealogyHighlights = [
       'Tax returns place him in Nelson County before and after his marriage to Hannah Doom.',
   },
   {
-    marker: 'Unresolved',
-    title: 'No parent has been proved',
+    marker: 'Two open edges',
+    title: 'The working tree now shows where proof breaks',
     detail:
-      'The public tree stops where the evidence stops instead of turning a plausible name into a fact.',
+      'George’s claimed relationship to Benjamin remains unproved, and no parent has been established for Benjamin.',
   },
 ];
 

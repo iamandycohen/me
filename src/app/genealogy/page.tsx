@@ -61,8 +61,9 @@ export default function GenealogyPage() {
               </p>
               <p className="font-serif text-xl mb-2">In progress</p>
               <p className="text-sm leading-relaxed text-ink/60">
-                Last reviewed September 17, 2026. The direct line is public;
-                relatives who prefer privacy are omitted.
+                Last reviewed September 17, 2026. The working line is public;
+                uncertainty is shown explicitly, and relatives who prefer
+                privacy are omitted.
               </p>
             </aside>
           </div>
@@ -135,6 +136,15 @@ export default function GenealogyPage() {
                 <SourceFootnote referenceIds={[18, 19]} />
               </p>
               <p>
+                The deeper review exposed an earlier break as well. Benjamin is
+                a well-documented historical person, but no record I have
+                reviewed yet calls George M. Meason his son. Their shared
+                Kentucky-to-Missouri pattern makes the relationship plausible;
+                George&apos;s conflicting birth evidence and the absence of a
+                direct relationship record keep it unproved.
+                <SourceFootnote referenceIds={[1, 25, 26]} />
+              </p>
+              <p>
                 I do not want to replace one confident story with another. I
                 want to show the line I can support, the assumptions I have had
                 to let go, and the places where the evidence still refuses to
@@ -161,15 +171,16 @@ export default function GenealogyPage() {
               <div className="lg:sticky lg:top-28">
                 <p className="eyebrow mb-4">My working family tree</p>
                 <h2 className="mb-6 text-balance">
-                  The line as I know it today.
+                  The line—and its two open edges—as I know it today.
                 </h2>
                 <p className="leading-relaxed text-ink/65 mb-5">
                   This is not every person in a family database. It is the
-                  direct path that explains my connection to the question.
+                  working path that explains my connection to the question.
                 </p>
                 <p className="text-sm leading-relaxed text-ink/50">
-                  This view now names the direct line from me to Benjamin while
-                  preserving individual privacy choices elsewhere in the family.
+                  The path reaches George M. Meason, then shows the claimed
+                  relationship to Benjamin as unproved. Benjamin&apos;s parents
+                  remain a separate open question.
                 </p>
                 <Link
                   href="/genealogy/tree"
@@ -242,24 +253,26 @@ export default function GenealogyPage() {
             <div className="lg:col-span-4">
               <div className="lg:sticky lg:top-28">
                 <p className="eyebrow text-accent-soft mb-4">
-                  The answer I inherited
+                  The inherited branch
                 </p>
                 <h2 className="text-paper mb-6 text-balance">
-                  Thomas Meason, born 1755.
+                  Two relationships need proof.
                 </h2>
                 <p className="text-paper/70 text-lg leading-relaxed mb-5">
-                  It is a tidy answer: the right surname, a plausible age, and a
-                  family with roots in Virginia and western Pennsylvania.
+                  The tree I inherited connected George to Benjamin, then gave
+                  Benjamin a father: Thomas Meason, born in 1755. Both links
+                  looked settled because they were repeated so often.
                 </p>
                 <p className="text-paper/55 leading-relaxed mb-8">
-                  The trouble is that plausible is not the same as proved. Once
-                  the same-name men are separated and the original wills are
-                  read, the tidy answer becomes a field of distinct people and
-                  still-unresolved hypotheses.
+                  The trouble is that plausible is not the same as proved.
+                  George and Benjamin form a coherent family hypothesis, but no
+                  reviewed record names their relationship. Above Benjamin,
+                  separating the same-name men and reading the original wills
+                  turns one tidy answer into several distinct candidates.
                 </p>
                 <div className="inline-flex items-center gap-3 rounded-full border border-paper/20 px-4 py-2 text-sm text-paper/70">
                   <span className="h-2 w-2 rounded-full bg-accent-soft" />
-                  No father currently proved
+                  Two documentary edges remain open
                 </div>
               </div>
             </div>
@@ -269,12 +282,13 @@ export default function GenealogyPage() {
                   What changed in this research
                 </p>
                 <p className="font-serif text-xl leading-relaxed text-paper/80 md:text-2xl">
-                  The 1788 Thomas lead did not disappear—it became more precise.
-                  The exact Rough Creek tract now reaches a Thomas Mason in
-                  Logan County in 1795, where another deed names William as the
-                  eldest son of a Thomas Mason. The records sharpen the
-                  hypothesis, but they still do not name Benjamin.
-                  <SourceFootnote referenceIds={[20, 21, 22]} />
+                  The investigation now has two frontiers. The Monroe County
+                  estate and deed trail may establish whether George was
+                  Benjamin&apos;s son. The 1788 Rough Creek trail may
+                  distinguish Benjamin&apos;s possible Thomas candidates.
+                  Neither record chain has yet supplied the missing
+                  relationship.
+                  <SourceFootnote referenceIds={[20, 21, 22, 23, 25, 28]} />
                 </p>
               </aside>
               <div className="grid gap-px border border-paper/15 bg-paper/15 sm:grid-cols-2">
@@ -394,10 +408,11 @@ export default function GenealogyPage() {
           <div className="max-w-3xl">
             <p className="eyebrow mb-4">Research checkpoint · September 2026</p>
             <p className="font-serif text-2xl md:text-3xl leading-snug text-ink/80 text-balance mb-8">
-              I have a documented life, several weakened candidates, and no
-              proved parent. That is less tidy than the tree I began with—and
-              much closer to the truth.
-              <SourceFootnote referenceIds={[18, 19, 20, 21, 22]} />
+              I have a documented life for Benjamin, a plausible but unproved
+              bridge from Benjamin to George, several weakened parent
+              candidates, and no proved parent above Benjamin. That is less tidy
+              than the tree I began with—and much closer to the truth.
+              <SourceFootnote referenceIds={[18, 19, 20, 21, 22, 25, 26]} />
             </p>
             <p className="leading-relaxed text-ink/60 max-w-2xl mb-8">
               Family Bible entries, letters, photographs, church records, or

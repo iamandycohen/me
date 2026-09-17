@@ -7,7 +7,7 @@ import VisualFamilyTree from '../_components/VisualFamilyTree';
 
 export const metadata = generatePageMetadata(
   'My Working Family Tree',
-  'The direct Meason family line as currently supported, including the point where documentary certainty ends.',
+  'The working Meason family line, including the relationships that remain plausible but unproved.',
   data.contact,
   {},
   '/genealogy/tree'
@@ -20,15 +20,15 @@ export default function GenealogyTreePage() {
         <div className="container-max">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
             <div className="lg:col-span-8">
-              <p className="eyebrow mb-6">The documented line</p>
+              <p className="eyebrow mb-6">The working line</p>
               <h1 className="text-balance mb-8">
                 My family tree,{' '}
                 <span className="italic text-ink/60">as I know it today.</span>
               </h1>
               <p className="text-xl md:text-2xl font-serif leading-relaxed text-ink/75 text-balance max-w-3xl">
-                A public view of the direct Meason line—showing what is
-                established, what is still being prepared, and the exact point
-                where the records stop supporting another generation.
+                A public view of the Meason line—showing what is established,
+                what remains a family hypothesis, and the two places where the
+                records stop supporting another relationship.
               </p>
             </div>
             <aside className="lg:col-span-4">
@@ -59,15 +59,16 @@ export default function GenealogyTreePage() {
               <p className="leading-relaxed text-ink/65 mb-5">
                 The larger cards form one continuous Meason spine. Smaller
                 connected cards show the spouses who join that direct line.
-                Solid connections represent relationships I can support; dashed
-                connections show the precise place where the evidence breaks:
-                the identities of Benjamin&apos;s parents.
+                Solid connections represent relationships I can support. One
+                dashed connection marks the still-unproved relationship between
+                George M. Meason and Benjamin; the second marks the unknown
+                identities of Benjamin&apos;s parents.
               </p>
               <p className="text-sm leading-relaxed text-ink/50">
                 This is the direct line as I currently understand it, not every
                 person in the family database. Only spouses needed to explain
-                the ancestral path appear here. Dates and relationships will
-                gain citations as the publication review continues.
+                the working ancestral path appear here. Dates and relationships
+                will gain citations as the publication review continues.
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
                 I was born Shannon Jeremiah Meason and grew up as Andy Cohen
@@ -94,13 +95,15 @@ export default function GenealogyTreePage() {
             </div>
             <div className="md:col-span-8">
               <p className="font-serif text-2xl md:text-3xl leading-snug text-ink/80 text-balance mb-5">
-                Benjamin is not the end of the family. He is the end of what I
-                can currently demonstrate.
+                Benjamin&apos;s life is documented. His place in my direct line
+                is still being tested.
               </p>
               <p className="leading-relaxed text-ink/60 mb-6">
-                A future parent will appear above him only when the evidence can
-                distinguish that person from the other Thomas, William, Joseph,
-                Mason, and Meason identities found in the same records.
+                Before adding a parent above Benjamin, I first need the estate
+                or deed evidence that can prove his claimed relationship to
+                George. Beyond that edge, any future parent must also be
+                distinguished from the other Thomas, William, Joseph, Mason, and
+                Meason identities found in the same records.
               </p>
               <Link href="/genealogy#investigation" className="btn-primary">
                 See the Benjamin investigation

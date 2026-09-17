@@ -17,7 +17,7 @@ const markerStyles: Record<TreeNodeStatus, string> = {
 
 export default function DocumentedTree({ nodes }: { nodes: PublicTreeNode[] }) {
   return (
-    <ol className="relative" aria-label="Documented Meason family line">
+    <ol className="relative" aria-label="Working Meason family line">
       {nodes.map((node, index) => (
         <li
           key={node.href}
@@ -27,7 +27,7 @@ export default function DocumentedTree({ nodes }: { nodes: PublicTreeNode[] }) {
             <span
               aria-hidden="true"
               className={`absolute left-[0.6875rem] top-6 h-[calc(100%-0.5rem)] border-l ${
-                node.status === 'unknown'
+                node.connectionToNext === 'review'
                   ? 'border-dashed border-ink/30'
                   : 'border-ink/20'
               }`}

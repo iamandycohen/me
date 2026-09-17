@@ -9,6 +9,7 @@ export interface PublicTreeNode {
   status: TreeNodeStatus;
   statusLabel: string;
   referenceIds?: readonly number[];
+  connectionToNext?: 'documented' | 'review';
 }
 
 export const publicTree: PublicTreeNode[] = [
@@ -55,30 +56,33 @@ export const publicTree: PublicTreeNode[] = [
     href: '/genealogy/tree#franklin-meason',
     period: '1850–1933',
     relationship: 'Second great-grandfather',
-    summary: 'Son of George Mansfield Meason and Martha T. Reed.',
+    summary: 'Son of George M. Meason and Martha T. Reed.',
     status: 'review',
     statusLabel: 'Family lineage',
   },
   {
-    title: 'George Mansfield Meason',
+    title: 'George M. Meason',
     href: '/genealogy/tree#george-mansfield-meason',
-    period: '19th century',
+    period: 'Birth year disputed · died 1887',
     relationship: 'Third great-grandfather',
     summary:
-      'With Martha T. Reed, George connects the later Meason generations to Benjamin and Hannah.',
+      'George M. Meason and Martha T. Reed appear as their own Monroe County household in 1850. The claim that George was a son of Benjamin and Hannah is coherent but not yet proved.',
     status: 'review',
-    statusLabel: 'Family lineage',
+    statusLabel: 'Parentage under review',
+    referenceIds: [25, 26],
+    connectionToNext: 'review',
   },
   {
     title: 'Benjamin Meason',
     href: '/genealogy/tree#benjamin-meason',
     period: 'Born about 1776 · living in 1850',
-    relationship: 'Fourth great-grandfather',
+    relationship: 'Claimed fourth great-grandfather',
     summary:
-      'His 1801 marriage to Hannah Doom and the family’s Kentucky-to-Missouri migration are supported by original records. The 1850 census is the latest original record currently presented here; the identified will volume remains unread.',
-    status: 'documented',
-    statusLabel: 'Documented line',
-    referenceIds: [1, 2, 11, 13, 23],
+      'Benjamin’s 1801 marriage to Hannah Doom and his Kentucky-to-Missouri migration are supported by original records. His own life is documented; his relationship to George is not.',
+    status: 'review',
+    statusLabel: 'Relationship unproved',
+    referenceIds: [1, 2, 11, 13, 23, 25],
+    connectionToNext: 'review',
   },
   {
     title: 'Benjamin’s parents',
@@ -99,7 +103,7 @@ export const chronology = [
     place: 'Nelson County, Kentucky',
     title: 'An original-record foothold',
     detail:
-      'Tax returns place Benjamin in Nelson County before and after his marriage. Other Mason and Mayson households appear in the same county—and sometimes the same return—but proximity does not establish kinship.',
+      'Tax returns place Benjamin in Nelson County in every year from 1800 through 1804. The 1803 and 1804 returns also record two enslaved people in his taxable household—a part of this family history that should not be omitted. Other Mason and Mayson households appear nearby, but proximity does not establish kinship.',
     referenceIds: [4],
   },
   {
@@ -107,7 +111,7 @@ export const chronology = [
     place: 'Nelson County, Kentucky',
     title: 'Benjamin and Hannah marry',
     detail:
-      'An original bond dated August 18 says Benjamin Mason and Hannah Doom were both over 21. The county register records their marriage on August 27.',
+      'An original bond dated August 18 says Benjamin Mason and Hannah Doom were both over 21, ruling out the often-copied 1783 birth year for Hannah. The county register records their marriage on August 27.',
     referenceIds: [2, 3],
   },
   {
@@ -123,8 +127,8 @@ export const chronology = [
     place: 'Bardstown area, Kentucky',
     title: 'Public and church life',
     detail:
-      'Records place Benjamin in civic and Baptist networks: a likely justice-of-the-peace act, Mill Creek representation in 1811, and service as a Bardstown Salem messenger in 1816.',
-    referenceIds: [7, 8, 9],
+      'Records place Benjamin in civic and Baptist networks. In 1811 he represented the Mill Creek network. In October 1815 he was seated as one of two messengers when the newly organized Salem Church at Bardstown entered the association, and he was appointed to supervise publication of its minutes. He represented Salem again in 1816.',
+    referenceIds: [7, 8, 9, 24],
   },
   {
     year: '1820',
@@ -161,14 +165,21 @@ export const chronology = [
   {
     year: 'After 1850',
     place: 'Monroe County, Missouri',
-    title: 'The next original remains inaccessible',
+    title: 'An estate and burial lead awaits the original',
     detail:
-      'Monroe County Will Book B covers the period immediately after the 1850 census. Its exact digital group and archive reel are identified, but the images are restricted and no Benjamin entry has yet been reviewed.',
-    referenceIds: [23],
+      'A later family account reports that Benjamin’s 1853 will directed burial beside Hannah on a Monroe County farm. The original Will Book B entry remains restricted, and neither its wording, the farm, nor the burial ground has been verified.',
+    referenceIds: [23, 27, 29],
   },
 ];
 
 export const candidateAssessments = [
+  {
+    name: 'Benjamin as George’s father',
+    status: 'Plausible, not proved',
+    detail:
+      'George and Benjamin share a coherent Kentucky-to-Missouri pattern, but no reviewed record calls George a son or heir. George’s 1850 census age implies a birth about 1810, while his marker says 1818—a conflict that weakens the household-slot argument.',
+    referenceIds: [1, 25, 26],
+  },
   {
     name: 'Thomas Meason senior',
     status: 'Strongly excluded',
@@ -255,13 +266,21 @@ export const evidenceLedger = [
       'The deed does not literally call Hannah a daughter or identify her mother.',
     referenceIds: [17],
   },
+  {
+    record: 'George’s census and grave marker',
+    establishes:
+      'George M. Meason headed a separate Monroe County household in 1850, and his Texas marker gives an 1818 birth year and 1887 death year.',
+    limit:
+      'Neither source names George’s parents. The marker’s 1818 birth year conflicts with the census age implying about 1810, so neither date should silently settle the relationship theory.',
+    referenceIds: [25, 26],
+  },
 ];
 
 export const researchBlockers = [
   {
     title: 'The decisive records are not remotely accessible',
     detail:
-      'Benjamin’s reported will and key probate volumes are restricted to archive or affiliate-library access. Search results cannot substitute for the images.',
+      'Benjamin’s reported will and key probate volumes remain restricted to archive or affiliate-library access. Search results and derivative summaries cannot substitute for the original estate images.',
     referenceIds: [23],
   },
   {
@@ -292,21 +311,21 @@ export const nextResearchSteps = [
     referenceIds: [23],
   },
   {
+    title: 'Trace the candidate farm beyond the surname index',
+    detail:
+      'The completed deed-index audit found no relationship statement, and the opened Section 11 parcels do not match Benjamin’s Section 20 patent. Trace Section 20 through counterparties and reverse title to test the reported devised farm and the claimed George relationship.',
+    referenceIds: [13, 25, 28, 29],
+  },
+  {
     title: 'Follow the exact Thomas land chains',
     detail:
-      'The Rough Creek tract now reaches Logan County in 1795. Next, connect—or separate—that seller from the Logan Thomas–William family and the earlier John Minter tract through deeds and estate files.',
+      'Connect—or separate—the Rough Creek seller from the Logan Thomas–William family and the earlier John Minter tract through deeds and estate files.',
     referenceIds: [20, 21, 22],
   },
   {
-    title: 'Find the Kentucky church transition',
+    title: 'Recover the Kentucky relationship records',
     detail:
-      'Search Mill Creek and Bardstown Salem membership, reception, and dismissal records for a family or migration statement.',
-    referenceIds: [8, 9],
-  },
-  {
-    title: 'Retrieve the Doom chancery case',
-    detail:
-      'The 1825 suit behind the heirs deed may state Hannah’s precise relationship and the parties’ residences.',
-    referenceIds: [17],
+      'Search Mill Creek and Bardstown Salem membership records for Benjamin’s transition, and retrieve the Doom chancery file that may state Hannah’s precise kinship and the heirs’ residences.',
+    referenceIds: [8, 9, 17, 24],
   },
 ];

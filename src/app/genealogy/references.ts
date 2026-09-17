@@ -39,13 +39,13 @@ export const genealogyReferences: GenealogyReference[] = [
   },
   {
     id: 4,
-    title: 'Nelson County tax books, 1800–1805',
+    title: 'Nelson County tax books, 1799–1805',
     citation:
-      'Nelson County, Kentucky, tax books; FamilySearch catalog 156788, FHL film 8178, DGS 7763746; original commissioner returns reviewed for 1800–1805.',
+      'Nelson County, Kentucky, tax books; FamilySearch catalog 156788, FHL film 8178, DGS 7763746; both commissioner M-surname runs reviewed for 1799–1805.',
     supports:
-      'Benjamin’s presence in 1800, 1801, 1802, and 1804, along with the spelling variants and property columns recorded in each return.',
+      'Benjamin’s presence in every annual return from 1800 through 1804, including the Mason and Meason spellings; the 1803 and 1804 returns each record two enslaved people in his taxable household.',
     limitation:
-      'Same-return or same-county proximity to other Mason, Mayson, or Meason taxpayers does not establish kinship. The 1805 absence is bounded to the reviewed runs.',
+      'His absences from the fully reviewed 1799 and 1805 runs are bounded annual negatives—not proof of age, migration, death, or kinship. Proximity to other taxpayers does not establish a relationship.',
     url: 'https://www.familysearch.org/en/records/images/search-results?imageGroupNumbers=7763746',
     accessLabel: 'Browse image group',
   },
@@ -275,5 +275,77 @@ export const genealogyReferences: GenealogyReference[] = [
       'The images and full text are restricted to a FamilySearch Center or affiliate library. No Benjamin entry, will contents, or death date has yet been verified from this volume.',
     url: 'https://www.familysearch.org/en/search/catalog/94979',
     accessLabel: 'Open catalog entry',
+  },
+  {
+    id: 24,
+    title: 'Salem Association minutes, 1815',
+    citation:
+      'Minutes of the Salem Association of Baptists, Kentucky, Wilson’s Creek Meeting-House, 13–14 October 1815, printed pp. 1–3; Boyce Digital Repository, handle 10392/6311.',
+    supports:
+      'Benjamin Meason was seated as one of two messengers when the newly organized Salem Church at Bardstown entered the association and was appointed to supervise printing the minutes.',
+    limitation:
+      'The minutes do not call Benjamin a charter member, identify his prior congregation, or state any family relationship.',
+    url: 'https://hdl.handle.net/10392/6311',
+    accessLabel: 'Open repository item',
+  },
+  {
+    id: 25,
+    title: '1850 United States census — George M. Meason household',
+    citation:
+      '1850 U.S. census, District 59, Monroe County, Missouri, p. 119b, dwelling and family 655; NARA microfilm publication M432, roll 407.',
+    supports:
+      'George M. Meason as a separate Monroe County household head, reported age 40 and born in Kentucky, with Martha and children in the household.',
+    limitation:
+      'The schedule does not state relationships or name George’s parents. It does not prove that Benjamin was his father.',
+    url: 'https://archive.org/details/populationschedu0407unix/page/n241/mode/1up',
+    accessLabel: 'Open census image',
+  },
+  {
+    id: 26,
+    title: 'George M. Meason grave marker',
+    citation:
+      'George M. Meason marker, Mount Calvary Cemetery, Dallas, Texas; photographed 19 April 2002 and published with Find a Grave memorial 5786133.',
+    supports:
+      'The marker inscription gives 10 May 1818–11 November 1887 and establishes the burial location represented by the memorial.',
+    limitation:
+      'The marker names no parents, does not expand the middle initial, and gives no birthplace. Its birth year conflicts with census evidence, and its informant and erection date are unknown.',
+    url: 'https://www.findagrave.com/memorial/5786133/george_mansfield-meason',
+    accessLabel: 'Open memorial and marker',
+  },
+  {
+    id: 27,
+    title: 'Reported Benjamin Meason will and burial account',
+    citation:
+      '“Benjamin Meason 1776,” Meason Grampas family compilation, reporting a will written 19 August 1853 and recorded 25 January 1854.',
+    supports:
+      'A research lead that Benjamin requested burial beside Hannah in a reserved square on a Monroe County farm devised to James S. Meason.',
+    limitation:
+      'This is a derivative family account, not the original will. The wording, devise, farm, cemetery name, grave location, and dates remain unverified.',
+    url: 'https://measongrampas.yolasite.com/benjamin-1776.php',
+    accessLabel: 'Open derivative account',
+  },
+  {
+    id: 28,
+    title: 'Monroe County deed-index audit, 1831–1869',
+    citation:
+      'Monroe County, Missouri, direct and indirect deed indexes, 1831–1869; FamilySearch catalog 215468, DGS 8196783; complete regular-M grantor images 92–105 and grantee images 258–272 reviewed.',
+    supports:
+      'A completed page-by-page index audit found James S. Meason as an indexed principal in an 1855 Section 11 deed. An adjacent original also names George M. Meason, but states no kinship.',
+    limitation:
+      'No indexed relationship statement was found. Entries under another principal, clerk variants, and unindexed instruments remain possible; the Section 11 parcels do not match Benjamin’s candidate Section 20 farm.',
+    url: 'https://www.familysearch.org/en/search/catalog/215468',
+    accessLabel: 'Open catalog entry',
+  },
+  {
+    id: 29,
+    title: '1876 Monroe County plat — Township 55 North, Range 11 West',
+    citation:
+      'Illustrated Historical Atlas of Monroe County, Missouri (Edwards Brothers, 1876), p. 45; State Historical Society of Missouri, item 3370.',
+    supports:
+      'Later ownership labels for the two forty-acre halves of Benjamin’s proved 1835 patent tract in the Woodlawn area.',
+    limitation:
+      'The plat does not establish that this was the farm described in the reported will, show the 1853 title chain, or prove the presence or absence of a burial ground.',
+    url: 'https://digital.shsmo.org/digital/collection/plat/id/3370/rec/1',
+    accessLabel: 'Open historical plat',
   },
 ];

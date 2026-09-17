@@ -6,7 +6,8 @@ const legend = [
   },
   {
     label: 'Under review',
-    description: 'Known privately, pending source and privacy review.',
+    description:
+      'A working relationship or detail that remains plausible but unproved.',
     marker: 'border-ink/30 bg-paper',
   },
   {
