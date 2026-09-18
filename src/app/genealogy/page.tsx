@@ -7,7 +7,6 @@ import EvidenceLegend from './_components/EvidenceLegend';
 import ReferencesList from './_components/ReferencesList';
 import SourceFootnote from './_components/SourceFootnote';
 import {
-  candidateAssessments,
   chronology,
   evidenceLedger,
   georgeChronology,
@@ -15,6 +14,7 @@ import {
   nextResearchSteps,
   publicTree,
   researchBlockers,
+  researchThreads,
 } from './data';
 import { genealogyReferences } from './references';
 
@@ -63,7 +63,7 @@ export default function GenealogyPage() {
               </p>
               <p className="font-serif text-xl mb-2">In progress</p>
               <p className="text-sm leading-relaxed text-ink/60">
-                Last reviewed September 17, 2026 CDT. I have three targeted
+                Last reviewed September 18, 2026 CDT. I have three targeted
                 record requests pending; the working line is unchanged, and
                 uncertainty remains explicit.
               </p>
@@ -356,19 +356,25 @@ export default function GenealogyPage() {
                   evidence stops with George. The tree still has two open edges.
                   <SourceFootnote referenceIds={[25, 26, 30, 33, 34]} />
                 </p>
+                <p className="mt-5 leading-relaxed text-paper/60">
+                  A newly reviewed original death certificate spells out
+                  Benjamin Thomas Meason and names Geo M Meason and Martha Reid
+                  as his parents. That resolves the full-name question and
+                  strengthens his placement in their family—but it does not
+                  identify the namesake or close either open ancestral edge.
+                  <SourceFootnote referenceIds={[53, 55]} />
+                </p>
               </aside>
               <div className="grid gap-px border border-paper/15 bg-paper/15 sm:grid-cols-2">
-                {candidateAssessments.map((candidate) => (
-                  <article key={candidate.name} className="bg-ink p-6 md:p-8">
+                {researchThreads.map((thread) => (
+                  <article key={thread.name} className="bg-ink p-6 md:p-8">
                     <p className="text-xs uppercase tracking-widest text-accent-soft mb-3">
-                      {candidate.status}
+                      {thread.category} · {thread.status}
                     </p>
-                    <h3 className="text-paper text-xl mb-4">
-                      {candidate.name}
-                    </h3>
+                    <h3 className="text-paper text-xl mb-4">{thread.name}</h3>
                     <p className="text-paper/60 leading-relaxed text-sm">
-                      {candidate.detail}
-                      <SourceFootnote referenceIds={candidate.referenceIds} />
+                      {thread.detail}
+                      <SourceFootnote referenceIds={thread.referenceIds} />
                     </p>
                   </article>
                 ))}

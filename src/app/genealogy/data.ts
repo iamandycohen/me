@@ -199,9 +199,10 @@ export const georgeChronology = [
   },
 ];
 
-export const candidateAssessments = [
+export const researchThreads = [
   {
     name: 'Benjamin as George’s father',
+    category: 'Relationship hypothesis',
     status: 'Plausible, not proved',
     detail:
       'George and Benjamin share a coherent Kentucky-to-Missouri pattern, but no reviewed record calls George a son or heir. Four adult censuses and a descendant-held Bible say 1810; his marker says 1818. The earlier chronology keeps the household-slot theory plausible without proving it.',
@@ -209,6 +210,7 @@ export const candidateAssessments = [
   },
   {
     name: 'Thomas Meason senior',
+    category: 'Parent candidate',
     status: 'Strongly disfavored',
     detail:
       'His 1779 will names eleven children but not Benjamin. That omission weighs strongly against him as Benjamin’s direct father, but a will need not name every child and is not categorical proof.',
@@ -216,6 +218,7 @@ export const candidateAssessments = [
   },
   {
     name: 'The Hempfield Thomas',
+    category: 'Parent candidate',
     status: 'Strongly disfavored',
     detail:
       'His will explicitly identifies his six youngest children. Benjamin—who would have been a child—is not among them.',
@@ -223,6 +226,7 @@ export const candidateAssessments = [
   },
   {
     name: 'The 1788 Nelson County Thomas',
+    category: 'Parent candidate',
     status: 'Still open',
     detail:
       'An original 1788 deed places Thomas Meason in Nelson County. In 1795, Thomas Mason of Logan County sold the same 300-acre Rough Creek tract. The exact-property match strengthens the identity trail, but neither deed names Benjamin.',
@@ -230,10 +234,19 @@ export const candidateAssessments = [
   },
   {
     name: 'Another Mason or Meason family',
+    category: 'Alternate line',
     status: 'Increasingly important',
     detail:
       'The records expose several distinct same-name families and men later combined in online trees. Benjamin may belong to a different line altogether.',
     referenceIds: [18, 19, 22],
+  },
+  {
+    name: 'Benjamin Thomas “Uncle Ben” Meason',
+    category: 'Naming clue',
+    status: 'Record-grounded indirect clue',
+    detail:
+      'An original 1940 Texas death certificate spells out Benjamin Thomas Meason and names his parents as Geo M Meason and Martha Reid; his daughter Mrs. L. P. Glover was the informant. The record resolves the full-name question and strongly corroborates his placement in George and Martha’s family. The paired name remains only an indirect clue: it does not reveal whom Thomas honored or prove either disputed ancestral relationship.',
+    referenceIds: [33, 53, 55],
   },
 ];
 
@@ -300,6 +313,14 @@ export const evidenceLedger = [
     limit:
       'None of these sources names George’s parents. The Bible lacks a title page and ownership chain, and the marker’s informant and erection date are unknown.',
     referenceIds: [25, 26, 33, 34],
+  },
+  {
+    record: 'Benjamin Thomas Meason death certificate',
+    establishes:
+      'The original 1940 Texas certificate spells out Benjamin Thomas Meason and explicitly names Geo M Meason and Martha Reid as his parents.',
+    limit:
+      'His daughter supplied the biographical information decades after his birth. The certificate does not name George’s parents, identify a Thomas namesake, or prove either disputed ancestral edge.',
+    referenceIds: [55],
   },
   {
     record: 'Public-tree citation audit',
