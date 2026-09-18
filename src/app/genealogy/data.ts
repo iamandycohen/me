@@ -127,8 +127,8 @@ export const chronology = [
     place: 'Bardstown area, Kentucky',
     title: 'Public and church life',
     detail:
-      'Records place Benjamin in civic and Baptist networks. In 1811 the annual names him in association work and strongly indicates that “B. Mason” represented Mill Creek. In October 1815 he was seated when the new Salem Church at Bardstown entered the association, then represented Salem again in 1816. Other messengers were selected in 1817; that is not evidence he left the church.',
-    referenceIds: [7, 8, 9, 24, 35],
+      'Records place Benjamin in civic and Baptist networks. In 1811 the annual names him in association work and strongly indicates that “B. Mason” represented Mill Creek. In October 1815 he was seated when the new Salem Church at Bardstown entered the association; a mission receipt the next day names “Benj. Meason” of Nelson County. He represented Salem again in 1816. Other messengers were selected in 1817; that is not evidence he left the church.',
+    referenceIds: [7, 8, 9, 24, 35, 50],
   },
   {
     year: '1820',
@@ -167,8 +167,8 @@ export const chronology = [
     place: 'Monroe County, Missouri',
     title: 'An estate and burial lead awaits the original',
     detail:
-      'A later family account reports that Benjamin’s 1853 will directed burial beside Hannah on a Monroe County farm. The original Will Book B entry remains restricted, and neither its wording, the farm, nor the burial ground has been verified.',
-    referenceIds: [23, 27, 29],
+      'A later family account reports that Benjamin’s 1853 will directed burial beside Hannah on a Monroe County farm. The original Will Book B entry remains restricted, and a completed deed-index audit did not identify the reported farm or burial ground.',
+    referenceIds: [23, 27, 28, 29],
   },
 ];
 
@@ -286,12 +286,12 @@ export const evidenceLedger = [
     referenceIds: [22],
   },
   {
-    record: '1825 Jacob Doom heirs deed',
+    record: 'Jacob Doom will and heirs’ deed',
     establishes:
-      'Hannah, wife of Benjamin Mason, was formerly a Doom and was an heir or representative of Jacob Doom.',
+      'Jacob’s 1798 will names his wife Abigail and executor Jacob Yoder. The 1825 deed later identifies Hannah, wife of Benjamin Mason, as formerly a Doom and as an heir or representative of Jacob Doom.',
     limit:
-      'The deed does not literally call Hannah a daughter or identify her mother.',
-    referenceIds: [17],
+      'The will handles most children as an unnamed class, so Hannah’s omission is neutral. The deed does not literally call her a daughter or identify her mother.',
+    referenceIds: [2, 17, 49],
   },
   {
     record: 'George’s census and grave marker',
@@ -313,10 +313,10 @@ export const evidenceLedger = [
 
 export const researchBlockers = [
   {
-    title: 'The decisive records are not remotely accessible',
+    title: 'The highest-value records are not remotely accessible',
     detail:
       'Benjamin’s reported will and key probate volumes remain restricted to archive or affiliate-library access. Search results and derivative summaries cannot substitute for the original estate images.',
-    referenceIds: [23],
+    referenceIds: [23, 52],
   },
   {
     title: 'The records often stop one sentence short',
@@ -340,21 +340,45 @@ export const researchBlockers = [
 
 export const nextResearchSteps = [
   {
-    title: 'Recover Benjamin’s Missouri estate',
+    title: 'Await Benjamin’s Missouri estate records',
     detail:
-      'Obtain Monroe Will Book B and the connected probate, settlement, inventory, and bond records.',
+      'I submitted separate Missouri Archives requests for Benjamin’s full recorded will and his connected estate proceedings. Both are awaiting a response; the next step is to review the returned records, not send duplicate requests.',
     referenceIds: [23],
   },
   {
-    title: 'Retrieve the Mill Creek church article',
+    title: 'Await the Mill Creek church article',
     detail:
-      'Obtain the complete March 1990 article, read its notes and source description, and follow only a concrete lead into admissions, dismissals, letters, membership, or family entries.',
-    referenceIds: [36],
+      'I requested the complete March 1990 article from the Nelson County Genealogical Roundtable. When it arrives, I will read its notes and follow only a concrete lead into admissions, dismissals, letters, membership, or family entries.',
+    referenceIds: [36, 52],
   },
   {
-    title: 'Read three publications from Benjamin’s death period',
+    title: 'Reach three access-limited publications',
     detail:
-      'Inspect the October and November 1853 Christian Evangelist issues and the surviving 23 November 1853 Paris Mercury issue for a notice, elder’s sketch, survivors, or estate announcement.',
+      'The October and November 1853 Christian Evangelist issue records and the surviving 23 November 1853 Paris Mercury issue are identified, but their interiors remain inaccessible through the tested public routes. They still need inspection for a notice, elder’s sketch, survivors, or estate announcement.',
     referenceIds: [43, 44, 45],
+  },
+];
+
+export const latestResearchUpdates = [
+  {
+    status: 'Author-reported status',
+    title: 'Three targeted requests are awaiting replies',
+    detail:
+      'I submitted two Missouri Archives requests covering Benjamin’s will and estate proceedings and a third request for the 1990 Mill Creek church article. I have not yet received the records.',
+    referenceIds: [23, 36, 52],
+  },
+  {
+    status: 'Access limited',
+    title: 'The death-period publications remain unread',
+    detail:
+      'The two Christian Evangelist issue files were blocked at download, and the surviving Paris Mercury issue is available on microfilm rather than freely online. These are access boundaries, not negative searches.',
+    referenceIds: [43, 44, 45],
+  },
+  {
+    status: 'No tree change',
+    title: 'The Nelson court-record gap was tested',
+    detail:
+      'A bounded OCR-candidate audit found no 1798–1802 entry connecting Benjamin to the proposed Meason relatives. Because handwriting recognition is incomplete, that result is not a page-by-page absence finding.',
+    referenceIds: [51],
   },
 ];

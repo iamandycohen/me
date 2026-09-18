@@ -112,10 +112,10 @@ export default function GenealogyTreePage() {
               </p>
               <p className="leading-relaxed text-ink/60 mb-6">
                 Before adding a parent above Benjamin, I first need the estate
-                or deed evidence that can prove his claimed relationship to
-                George. Beyond that edge, any future parent must also be
-                distinguished from the other Thomas, William, Joseph, Mason, and
-                Meason identities found in the same records.
+                or deed evidence that can test or establish his claimed
+                relationship to George. Beyond that edge, any future parent must
+                also be distinguished from the other Thomas, William, Joseph,
+                Mason, and Meason identities found in the same records.
               </p>
               <Link href="/genealogy#investigation" className="btn-primary">
                 See the Benjamin investigation

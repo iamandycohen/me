@@ -11,6 +11,7 @@ import {
   chronology,
   evidenceLedger,
   georgeChronology,
+  latestResearchUpdates,
   nextResearchSteps,
   publicTree,
   researchBlockers,
@@ -62,9 +63,9 @@ export default function GenealogyPage() {
               </p>
               <p className="font-serif text-xl mb-2">In progress</p>
               <p className="text-sm leading-relaxed text-ink/60">
-                Last reviewed September 17, 2026. The working line is public;
-                uncertainty is shown explicitly, and relatives who prefer
-                privacy are omitted.
+                Last reviewed September 17, 2026 CDT. I have three targeted
+                record requests pending; the working line is unchanged, and
+                uncertainty remains explicit.
               </p>
             </aside>
           </div>
@@ -127,6 +128,13 @@ export default function GenealogyPage() {
                 Thomas Meason described in copied trees as born in 1755. The
                 name appeared often enough—and in enough other trees—that it
                 looked like an answer rather than a question.
+              </p>
+              <p>
+                The claim did not begin with the internet. A published reader
+                query in 1980 already listed George among Benjamin&apos;s
+                children—but it supplied no record for that relationship and was
+                itself still asking who Benjamin&apos;s parents were.
+                <SourceFootnote referenceIds={[48]} />
               </p>
               <p>
                 But when I went looking for the record that actually connected
@@ -418,6 +426,26 @@ export default function GenealogyPage() {
 
       <section className="section-padding border-y border-ink/10 bg-ink/[0.025]">
         <div className="container-max">
+          <div className="mb-16 md:mb-20">
+            <p className="eyebrow mb-4">Latest research checkpoint</p>
+            <h2 className="mb-8 text-balance">
+              The work moved forward without changing the tree.
+            </h2>
+            <div className="grid gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 md:grid-cols-3">
+              {latestResearchUpdates.map((update) => (
+                <article key={update.title} className="bg-paper p-6 md:p-7">
+                  <p className="mb-3 text-xs uppercase tracking-widest text-accent">
+                    {update.status}
+                  </p>
+                  <h3 className="mb-3 text-lg">{update.title}</h3>
+                  <p className="text-sm leading-relaxed text-ink/60">
+                    {update.detail}
+                    <SourceFootnote referenceIds={update.referenceIds} />
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             <div>
               <p className="eyebrow mb-4">Why the answer is still missing</p>
@@ -441,7 +469,7 @@ export default function GenealogyPage() {
             </div>
             <div>
               <p className="eyebrow mb-4">What I&apos;m pursuing now</p>
-              <h2 className="mb-8 text-balance">Four doors still open.</h2>
+              <h2 className="mb-8 text-balance">Three doors still open.</h2>
               <div className="space-y-4">
                 {nextResearchSteps.map((step) => (
                   <article
