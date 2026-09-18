@@ -500,7 +500,7 @@ export const genealogyReferences: GenealogyReference[] = [
     supports:
       'Identifies a finite denominational issue to inspect for a death notice or life sketch near Benjamin Meason’s reported death.',
     limitation:
-      'The issue interior has not yet been reviewed. Its availability does not establish that it contains a notice about Benjamin.',
+      'The issue record was verified, but its PDF returned HTTP 403 through the tested public route on 17 September 2026. Zero interior pages were reviewed; this is an access boundary, not a negative search.',
     url: 'https://digitalcommons.acu.edu/sc_arc_journals/10/',
     accessLabel: 'Open issue record',
   },
@@ -512,7 +512,7 @@ export const genealogyReferences: GenealogyReference[] = [
     supports:
       'Identifies the second finite denominational issue to inspect for a death notice or life sketch near Benjamin Meason’s reported death.',
     limitation:
-      'The issue interior has not yet been reviewed. Its availability does not establish that it contains a notice about Benjamin.',
+      'The issue record was verified, but its PDF returned HTTP 403 through the tested public route on 17 September 2026. Zero interior pages were reviewed; this is an access boundary, not a negative search.',
     url: 'https://digitalcommons.acu.edu/sc_arc_journals/9/',
     accessLabel: 'Open issue record',
   },
@@ -524,7 +524,7 @@ export const genealogyReferences: GenealogyReference[] = [
     supports:
       'Identifies the surviving local issue nearest Benjamin’s reported death for a bounded notice and estate search.',
     limitation:
-      'The issue has not yet been reviewed, and its survival does not establish that it contains a notice about Benjamin.',
+      'The issue is listed as available on microfilm rather than freely online. The tested public portal exposed no interior pages; this is an access boundary, not a negative search.',
     url: 'https://files.shsmo.org/research/newspapers/counties/Monroe.pdf',
     accessLabel: 'Open official holdings list',
   },
@@ -547,5 +547,61 @@ export const genealogyReferences: GenealogyReference[] = [
       'Shows the shared marker identifying Frank Meason and Nancy A. Meason as husband and wife. Nancy’s dates, 1852–1930, are legible.',
     limitation:
       'Franklin’s terminal year is weathered or obscured in this photograph. The cemetery, marker installation date, photographer, and original file provenance remain to be documented.',
+  },
+  {
+    id: 48,
+    title: 'Nelson County Pioneer reader query, 1980',
+    citation:
+      'The Nelson County Pioneer, volume 4, number 2 (Fall 1980), p. 43, reader query concerning Benjamin Meason and Hannah Doom.',
+    supports:
+      'Shows that the tradition naming George M. among Benjamin and Hannah’s children was in print before online family trees and that Benjamin’s parentage was already an open question.',
+    limitation:
+      'The item is a reader’s query, not a documented answer. It supplies no source for the George–Benjamin relationship or for the parentage claims it repeats.',
+    url: 'https://www.ancestry.com/imageviewer/collections/62282/images/114577_fl4041597_1430854-00020?usePUB=true',
+    accessLabel: 'Open published query image',
+  },
+  {
+    id: 49,
+    title: 'Will of Jacob Doom',
+    citation:
+      'Washington County, Kentucky, Will Book A, pp. 123–126; signed 4 June 1798 and proved 4 September 1798; Ancestry collection 9066, images 318–320.',
+    supports:
+      'Names Jacob’s wife Abigail, appoints Jacob Yoder executor, and directs a future equal division among Jacob’s children or their heirs while naming Sarah Grimes separately as a child and legal heir.',
+    limitation:
+      'Hannah is not named, but most children are deliberately handled as an unnamed class. Her omission therefore neither proves nor disproves that she was Jacob’s daughter, and the will gives no maiden surname for Abigail.',
+    url: 'https://www.ancestry.com/imageviewer/collections/9066/images/004819653_00318?usePUB=true',
+    accessLabel: 'Open will image',
+  },
+  {
+    id: 50,
+    title: 'Baptist Board mission receipt, 1815',
+    citation:
+      'Second Annual Report of the Baptist Board of Foreign Missions for the United States (1815), printed pp. 87 and 95, receipt dated 15 October 1815.',
+    supports:
+      'The receipt identifies “Benj. Meason” of Nelson County, Kentucky, as the person through whose hand a fifty-cent contribution was received immediately after the Salem Association meeting.',
+    limitation:
+      'The receipt gives no parent, relative, or local church and is contextual evidence of Benjamin’s Baptist network, not a membership or kinship record.',
+    url: 'https://archive.org/details/annualreportofba00amer',
+    accessLabel: 'Open digitized annual report',
+  },
+  {
+    id: 51,
+    title: 'Nelson circuit and chancery OCR-candidate audit, 1798–1802',
+    citation:
+      'Nelson County, Kentucky, Circuit Court minutes, 1790–1805, FamilySearch DGS 8188441; chancery and court issue dockets, 1795–1817, DGS 8188442; bounded candidate audit completed 17 September 2026.',
+    supports:
+      'No OCR-located candidate opened in the target years connected Benjamin to Thomas, William, George, John, or Joseph Mason or Meason. The opened Benjamin hits fell in 1805 or 1816–1817 and stated no kinship.',
+    limitation:
+      'The audit used OCR to locate candidates across difficult handwritten volumes whose year filters also leaked. It is not a manual page-by-page surname sweep and cannot establish that no relevant entry exists.',
+  },
+  {
+    id: 52,
+    title: 'Author’s request-status checkpoint',
+    citation:
+      'Author’s research log, 17 September 2026, recording the reported submission of two Missouri Archives requests and one Nelson County Genealogical Roundtable article request.',
+    supports:
+      'Documents the author’s report that the will, broader estate, and Mill Creek article requests were submitted and were awaiting responses at the checkpoint.',
+    limitation:
+      'Confirmation numbers, receipt messages, exact submission times, fees, and recipient responses were not preserved in the reviewed research log. Submission does not establish that any requested record exists or will answer the relationship questions.',
   },
 ];
