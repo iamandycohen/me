@@ -63,9 +63,9 @@ export default function GenealogyPage() {
               </p>
               <p className="font-serif text-xl mb-2">In progress</p>
               <p className="text-sm leading-relaxed text-ink/60">
-                Last reviewed September 18, 2026 CDT. I have three targeted
-                record requests pending; the working line is unchanged, and
-                uncertainty remains explicit.
+                Last reviewed September 18, 2026 CDT. Three newly reviewed death
+                certificates strengthen the direct line below George; the two
+                ancestral relationships above him remain open.
               </p>
             </aside>
           </div>
@@ -346,14 +346,15 @@ export default function GenealogyPage() {
             <div className="lg:col-span-8">
               <aside className="mb-8 border border-paper/15 bg-paper/[0.04] p-6 md:p-8">
                 <p className="eyebrow text-accent-soft mb-3">
-                  What changed in this research
+                  What I learned from the latest records
                 </p>
                 <p className="font-serif text-xl leading-relaxed text-paper/80 md:text-2xl">
-                  A controlled audit found 35 public profiles repeating the two
-                  disputed relationships without a record that stated either
-                  one. Four adult censuses and a descendant-held Bible say about
-                  1810, while George&apos;s marker says 1818—but all of that
-                  evidence stops with George. The tree still has two open edges.
+                  I checked the citations on 35 public profiles and found the
+                  two disputed relationships repeated without a record that
+                  stated either one. Four adult censuses and a descendant-held
+                  Bible say about 1810, while George&apos;s marker says 1818—but
+                  all of that evidence stops with George. The tree still has two
+                  open edges.
                   <SourceFootnote referenceIds={[25, 26, 30, 33, 34]} />
                 </p>
                 <p className="mt-5 leading-relaxed text-paper/60">
@@ -364,15 +365,26 @@ export default function GenealogyPage() {
                   identify the namesake or close either open ancestral edge.
                   <SourceFootnote referenceIds={[53, 55]} />
                 </p>
+                <p className="mt-5 leading-relaxed text-paper/60">
+                  Three more original death certificates name parents across
+                  successive generations from Jimmy through James and Frank to
+                  George and Martha. They make that part of my direct line much
+                  better supported, while leaving George&apos;s parentage
+                  unresolved.
+                  <SourceFootnote referenceIds={[56, 57, 58]} />
+                </p>
               </aside>
               <div className="grid gap-px border border-paper/15 bg-paper/15 sm:grid-cols-2">
                 {researchThreads.map((thread) => (
-                  <article key={thread.name} className="bg-ink p-6 md:p-8">
+                  <article
+                    key={thread.name}
+                    className="bg-ink p-6 last:sm:col-span-2 md:p-8"
+                  >
                     <p className="text-xs uppercase tracking-widest text-accent-soft mb-3">
                       {thread.category} · {thread.status}
                     </p>
                     <h3 className="text-paper text-xl mb-4">{thread.name}</h3>
-                    <p className="text-paper/60 leading-relaxed text-sm">
+                    <p className="max-w-2xl text-paper/60 leading-relaxed text-sm">
                       {thread.detail}
                       <SourceFootnote referenceIds={thread.referenceIds} />
                     </p>
@@ -433,18 +445,21 @@ export default function GenealogyPage() {
       <section className="section-padding border-y border-ink/10 bg-ink/[0.025]">
         <div className="container-max">
           <div className="mb-16 md:mb-20">
-            <p className="eyebrow mb-4">Latest research checkpoint</p>
+            <p className="eyebrow mb-4">What I found most recently</p>
             <h2 className="mb-8 text-balance">
-              The work moved forward without changing the tree.
+              New records strengthened the line and opened another lead.
             </h2>
             <div className="grid gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 md:grid-cols-3">
               {latestResearchUpdates.map((update) => (
-                <article key={update.title} className="bg-paper p-6 md:p-7">
+                <article
+                  key={update.title}
+                  className="bg-paper p-6 last:md:col-span-2 md:p-7"
+                >
                   <p className="mb-3 text-xs uppercase tracking-widest text-accent">
                     {update.status}
                   </p>
                   <h3 className="mb-3 text-lg">{update.title}</h3>
-                  <p className="text-sm leading-relaxed text-ink/60">
+                  <p className="max-w-2xl text-sm leading-relaxed text-ink/60">
                     {update.detail}
                     <SourceFootnote referenceIds={update.referenceIds} />
                   </p>
