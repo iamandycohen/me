@@ -30,7 +30,7 @@ export const publicTree: PublicTreeNode[] = [
     relationship: 'Mother',
     summary: 'The first named generation in my direct Meason line.',
     status: 'review',
-    statusLabel: 'Family lineage',
+    statusLabel: 'Family relationship',
   },
   {
     title: 'James Lawrence Meason',
@@ -39,8 +39,9 @@ export const publicTree: PublicTreeNode[] = [
     relationship: 'Grandfather',
     summary:
       'One of two successive generations carrying the James Lawrence Meason name.',
-    status: 'review',
-    statusLabel: 'Family lineage',
+    status: 'documented',
+    statusLabel: 'Parents named in original record',
+    referenceIds: [56],
   },
   {
     title: 'James Lawrence Meason',
@@ -48,17 +49,20 @@ export const publicTree: PublicTreeNode[] = [
     period: '1892–1949',
     relationship: 'Great-grandfather',
     summary: 'The earlier James Lawrence Meason generation in the direct line.',
-    status: 'review',
-    statusLabel: 'Family lineage',
+    status: 'documented',
+    statusLabel: 'Parents named in original record',
+    referenceIds: [56, 57],
   },
   {
     title: 'Franklin Meason',
     href: '/genealogy/tree#franklin-meason',
     period: '1850–1933',
     relationship: 'Second great-grandfather',
-    summary: 'Son of George M. Meason and Martha Reed.',
-    status: 'review',
-    statusLabel: 'Family lineage',
+    summary:
+      'Recorded as Frank Meason in his death certificate, which names George M. Meason and Martha Reed as his parents.',
+    status: 'documented',
+    statusLabel: 'Parents named in original record',
+    referenceIds: [57, 58],
   },
   {
     title: 'George M. Meason',
@@ -69,7 +73,7 @@ export const publicTree: PublicTreeNode[] = [
       'Four adult censuses and a descendant-held Bible say about 1810, while George’s marker says 1818. His marriage to Martha Reed is documented; the claim that Benjamin and Hannah were his parents is not.',
     status: 'review',
     statusLabel: 'Parentage under review',
-    referenceIds: [25, 26, 30, 32, 33, 34],
+    referenceIds: [25, 26, 30, 32, 33, 34, 58],
     connectionToNext: 'review',
   },
   {
@@ -101,7 +105,7 @@ export const chronology = [
   {
     year: '1800–1804',
     place: 'Nelson County, Kentucky',
-    title: 'An original-record foothold',
+    title: 'A foothold in the original records',
     detail:
       'Tax returns place Benjamin in Nelson County in every year from 1800 through 1804. The 1803 and 1804 returns also record two enslaved people in his taxable household—a part of this family history that should not be omitted. Other Mason and Mayson households appear nearby, but proximity does not establish kinship.',
     referenceIds: [4],
@@ -167,7 +171,7 @@ export const chronology = [
     place: 'Monroe County, Missouri',
     title: 'An estate and burial lead awaits the original',
     detail:
-      'A later family account reports that Benjamin’s 1853 will directed burial beside Hannah on a Monroe County farm. The original Will Book B entry remains restricted, and a completed deed-index audit did not identify the reported farm or burial ground.',
+      'A later family account reports that Benjamin’s 1853 will directed burial beside Hannah on a Monroe County farm. The original Will Book B entry remains restricted, and my search of the deed index did not identify the reported farm or burial ground.',
     referenceIds: [23, 27, 28, 29],
   },
 ];
@@ -243,10 +247,18 @@ export const researchThreads = [
   {
     name: 'Benjamin Thomas “Uncle Ben” Meason',
     category: 'Naming clue',
-    status: 'Record-grounded indirect clue',
+    status: 'Full name confirmed · naming theory open',
     detail:
       'An original 1940 Texas death certificate spells out Benjamin Thomas Meason and names his parents as Geo M Meason and Martha Reid; his daughter Mrs. L. P. Glover was the informant. The record resolves the full-name question and strongly corroborates his placement in George and Martha’s family. The paired name remains only an indirect clue: it does not reveal whom Thomas honored or prove either disputed ancestral relationship.',
-    referenceIds: [33, 53, 55],
+    referenceIds: [33, 53, 54, 55],
+  },
+  {
+    name: 'The elder James Lawrence Meason',
+    category: 'Identity lead',
+    status: 'Connection unproved',
+    detail:
+      'A 1919 Texas death certificate names Benjamin Meason as the father of an older James Lawrence Meason. An 1855 Monroe County deed also names a James L. Meason alongside George M. Meason. I have not yet established that these two James records describe the same man, and neither record states that James and George were brothers. This is a lead to test, not a new person or connection in the tree.',
+    referenceIds: [28, 59],
   },
 ];
 
@@ -279,7 +291,7 @@ export const evidenceLedger = [
     establishes:
       'Two prominent Thomas candidates named extensive groups of children without naming Benjamin.',
     limit:
-      'Negative evidence can weaken candidates, but it does not identify the correct father.',
+      'Their omission makes these candidates less likely, but it does not identify the correct father.',
     referenceIds: [18, 19],
   },
   {
@@ -323,7 +335,15 @@ export const evidenceLedger = [
     referenceIds: [55],
   },
   {
-    record: 'Public-tree citation audit',
+    record: 'Three direct-line death certificates',
+    establishes:
+      'The 1973 certificate names Lawrence Meason and Mary Sledge as Jimmy’s parents; the 1949 certificate names Frank Meason and Nancy A. Huffines as the older James Lawrence Meason’s parents; and the 1933 certificate names George Mason and Martha Reed as Frank Meason’s parents. Together they form a linked set of original records from Jimmy back to George and Martha.',
+    limit:
+      'The parent details were supplied by informants after each person’s birth, so they are strong relationship evidence rather than birth-time proof. Frank’s certificate calls him Frank, not Franklin, and its spelling of names and places still needs to be compared with other records.',
+    referenceIds: [56, 57, 58],
+  },
+  {
+    record: 'What the public trees cite',
     establishes:
       'The disputed relationships are widely repeated: all 25 sampled George profiles named Benjamin and Hannah, and all ten sampled Thomas profiles attached Benjamin.',
     limit:
@@ -354,7 +374,7 @@ export const researchBlockers = [
   {
     title: 'The inherited tree needs record-by-record review',
     detail:
-      'A controlled citation audit found the same relationships repeated across 35 sampled profiles without a relationship-specific source. Original records also separate incompatible same-name households from the target family.',
+      'I checked the citations on 35 public profiles and found the same relationships repeated without a source that actually stated them. Original records also separate incompatible same-name households from the family I am tracing.',
     referenceIds: [1, 10, 12, 14, 18, 19, 30],
   },
 ];
@@ -382,7 +402,21 @@ export const nextResearchSteps = [
 
 export const latestResearchUpdates = [
   {
-    status: 'Author-reported status',
+    status: 'Direct line strengthened',
+    title: 'Three certificates now support the line below George',
+    detail:
+      'Original Texas death certificates name the parents of Jimmy, the older James Lawrence Meason, and Frank Meason. Read together, they strengthen the documented path from Jimmy through James and Frank to George M. Meason and Martha Reed.',
+    referenceIds: [56, 57, 58],
+  },
+  {
+    status: 'Identity lead',
+    title: 'An elder James may belong to the same family cluster',
+    detail:
+      'A 1919 certificate names Benjamin Meason as the father of an elder James Lawrence Meason, while an 1855 deed names a James L. Meason beside George. I still need evidence that the two James records identify the same man and that he was related to George.',
+    referenceIds: [28, 59],
+  },
+  {
+    status: 'Requests pending',
     title: 'Three targeted requests are awaiting replies',
     detail:
       'I submitted two Missouri Archives requests covering Benjamin’s will and estate proceedings and a third request for the 1990 Mill Creek church article. I have not yet received the records.',
@@ -392,14 +426,14 @@ export const latestResearchUpdates = [
     status: 'Access limited',
     title: 'The death-period publications remain unread',
     detail:
-      'The two Christian Evangelist issue files were blocked at download, and the surviving Paris Mercury issue is available on microfilm rather than freely online. These are access boundaries, not negative searches.',
+      'I could not download the two Christian Evangelist issue files, and the surviving Paris Mercury issue is available on microfilm rather than freely online. I have not been able to read them, so they cannot yet tell us whether a notice exists.',
     referenceIds: [43, 44, 45],
   },
   {
     status: 'No tree change',
     title: 'The Nelson court-record gap was tested',
     detail:
-      'A bounded OCR-candidate audit found no 1798–1802 entry connecting Benjamin to the proposed Meason relatives. Because handwriting recognition is incomplete, that result is not a page-by-page absence finding.',
+      'I searched the available handwriting-recognition results for 1798–1802 and found no entry connecting Benjamin to the proposed Meason relatives. I did not read every page, so this does not prove that no such entry exists.',
     referenceIds: [51],
   },
 ];

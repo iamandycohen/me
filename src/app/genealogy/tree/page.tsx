@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { generatePageMetadata } from '@/lib/metadata-generators';
 import data from '@/lib/data';
 import EvidenceLegend from '../_components/EvidenceLegend';
+import SourceFootnote from '../_components/SourceFootnote';
 import VisualFamilyTree from '../_components/VisualFamilyTree';
 
 export const metadata = generatePageMetadata(
@@ -31,7 +32,7 @@ export default function GenealogyTreePage() {
                 records stop supporting another relationship.
               </p>
               <p className="mt-5 text-xs uppercase tracking-[0.16em] text-ink/45">
-                Evidence checkpoint · September 18, 2026
+                Updated · September 18, 2026
               </p>
             </div>
             <aside className="lg:col-span-4">
@@ -71,12 +72,22 @@ export default function GenealogyTreePage() {
                 This is the direct line as I currently understand it, not every
                 person in the family database. Only spouses needed to explain
                 the working ancestral path appear here. Dates and relationships
-                will gain citations as the publication review continues.
+                will gain citations as I continue checking the records for
+                public presentation.
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
                 I was born Shannon Jeremiah Meason and grew up as Andy Cohen
                 after being adopted. This tree follows my biological Meason
                 lineage; it does not replace the Cohen family that raised me.
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-ink/50">
+                Three original Texas death certificates now name parents across
+                successive generations from Jimmy through James and Frank to
+                George and Martha. They strengthen that part of the line, but
+                they do not identify George&apos;s parents. Frank&apos;s
+                certificate records his name as Frank; the longer Franklin form
+                comes from family material and remains labeled accordingly.
+                <SourceFootnote referenceIds={[56, 57, 58]} />
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
                 Working family portraits now accompany me, Cindee, Jimmy, James

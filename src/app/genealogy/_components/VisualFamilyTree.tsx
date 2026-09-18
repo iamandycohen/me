@@ -64,7 +64,7 @@ const lineageGenerations: LineageGeneration[] = [
     direct: {
       name: 'George M. Meason',
       detail: 'Censuses and family note: about 1810 · marker: 1818 · died 1887',
-      status: 'Meason line · parentage under review',
+      status: 'Named as Frank’s father · own parentage unproved',
       evidenceImage: {
         src: '/genealogy/evidence/george-m-meason-marker.jpg',
         alt: 'Broken grave marker for George M. Meason at Mount Calvary Cemetery in Dallas',
@@ -88,7 +88,7 @@ const lineageGenerations: LineageGeneration[] = [
     direct: {
       name: 'Franklin Meason',
       detail: '1850–1933',
-      status: 'Meason line',
+      status: 'Recorded as Frank · parents named in an original record',
       image: {
         src: '/genealogy/people/franklin-meason.jpg',
         alt: 'Portrait attributed to Franklin Meason',
@@ -127,7 +127,7 @@ const lineageGenerations: LineageGeneration[] = [
     direct: {
       name: 'James Lawrence Meason',
       detail: '1892–1949',
-      status: 'Meason line',
+      status: 'Parents named in an original record',
       image: {
         src: '/genealogy/people/james-lawrence-meason-1892.jpg',
         alt: 'Portrait attributed to James Lawrence Meason, born 1892',
@@ -172,7 +172,7 @@ const lineageGenerations: LineageGeneration[] = [
     direct: {
       name: 'James Lawrence Meason',
       detail: '1934–1973',
-      status: 'Meason line',
+      status: 'Parents named in an original record',
       image: {
         src: '/genealogy/people/jimmy-meason-studio-portrait.jpg',
         alt: 'Studio portrait of James Lawrence “Jimmy” Meason',

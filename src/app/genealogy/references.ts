@@ -45,7 +45,7 @@ export const genealogyReferences: GenealogyReference[] = [
     supports:
       'Benjamin’s presence in every annual return from 1800 through 1804, including the Mason and Meason spellings; the 1803 and 1804 returns each record two enslaved people in his taxable household.',
     limitation:
-      'His absences from the fully reviewed 1799 and 1805 runs are bounded annual negatives—not proof of age, migration, death, or kinship. Proximity to other taxpayers does not establish a relationship.',
+      'I found no entry for him in the fully reviewed 1799 and 1805 returns, but those absences do not prove his age, migration, death, or kinship. Proximity to other taxpayers does not establish a relationship.',
     url: 'https://www.familysearch.org/en/records/images/search-results?imageGroupNumbers=7763746',
     accessLabel: 'Browse image group',
   },
@@ -326,11 +326,11 @@ export const genealogyReferences: GenealogyReference[] = [
   },
   {
     id: 28,
-    title: 'Monroe County deed-index audit, 1831–1869',
+    title: 'Monroe County deed-index review, 1831–1869',
     citation:
       'Monroe County, Missouri, direct and indirect deed indexes, 1831–1869; FamilySearch catalog 215468, DGS 8196783; complete regular-M grantor images 92–105 and grantee images 258–272 reviewed.',
     supports:
-      'A completed page-by-page index audit found James S. Meason as an indexed principal in an 1855 Section 11 deed. An adjacent original also names George M. Meason, but states no kinship.',
+      'The page-by-page index review found James S. Meason as an indexed principal in an 1855 Section 11 deed. An adjacent original names J. C. Ripper, George M. Meason, and James L. Meason as joint grantees, but states no kinship.',
     limitation:
       'No indexed relationship statement was found. Entries under another principal, clerk variants, and unindexed instruments remain possible; the Section 11 parcels do not match Benjamin’s candidate Section 20 farm.',
     url: 'https://www.familysearch.org/en/search/catalog/215468',
@@ -350,9 +350,9 @@ export const genealogyReferences: GenealogyReference[] = [
   },
   {
     id: 30,
-    title: 'Public member-tree citation audit',
+    title: 'Public member-tree citation review',
     citation:
-      'Bounded review of visible citations in 25 public George M. Meason profiles and 10 public Thomas Meason profiles on Ancestry, 17 September 2026.',
+      'Review of visible citations in 25 public George M. Meason profiles and 10 public Thomas Meason profiles on Ancestry, 17 September 2026.',
     supports:
       'Every sampled profile repeated the disputed relationship assigned to it, but none exposed a record that stated the parent-child relationship. The Thomas profiles also carried incompatible death claims.',
     limitation:
@@ -436,7 +436,7 @@ export const genealogyReferences: GenealogyReference[] = [
     id: 37,
     title: 'James Lawrence “Jimmy” Meason senior yearbook entry',
     citation:
-      'Family-held scan of a senior yearbook entry for Jimmy Meason; digital image in the author’s collection.',
+      'Family-held scan of a senior yearbook entry for Jimmy Meason; digital image in my family collection.',
     supports:
       'Provides a contemporary school portrait and records Jimmy’s participation in football, basketball, class leadership, the annual staff, and FFA.',
     limitation:
@@ -446,7 +446,7 @@ export const genealogyReferences: GenealogyReference[] = [
     id: 38,
     title: 'Cynthia June “Cindee” Meason formal school portrait',
     citation:
-      'Family photograph preserved in the author’s Google Photos collection; display-resolution copy reviewed 17 September 2026.',
+      'Family photograph preserved in my Google Photos collection; display-resolution copy reviewed 17 September 2026.',
     supports:
       'Provides the working portrait identification and full formal school portrait for Cynthia June “Cindee” Meason (1958–1991). The full image is the source of the tighter portrait-circle crop.',
     limitation:
@@ -456,7 +456,7 @@ export const genealogyReferences: GenealogyReference[] = [
     id: 39,
     title: 'James Lawrence “Jimmy” Meason studio portrait',
     citation:
-      'Family photograph preserved in the author’s Google Photos collection; source filename “20200127_174408.jpg”; display-resolution copy reviewed 17 September 2026.',
+      'Family photograph preserved in my Google Photos collection; source filename “20200127_174408.jpg”; display-resolution copy reviewed 17 September 2026.',
     supports:
       'Provides the working portrait identification for James Lawrence “Jimmy” Meason (1934–1973) and visually agrees with his senior-year portrait.',
     limitation:
@@ -466,7 +466,7 @@ export const genealogyReferences: GenealogyReference[] = [
     id: 40,
     title: 'James Lawrence Meason portrait',
     citation:
-      'Family photograph supplied by the author under the filename “2014-03-02 James Lawrence Meason 001.jpg”; full 939×1203 digital copy reviewed 17 September 2026.',
+      'Family photograph from my family collection under the filename “2014-03-02 James Lawrence Meason 001.jpg”; full 939×1203 digital copy reviewed 17 September 2026.',
     supports:
       'Provides the working identification and full porch photograph for James Lawrence Meason (1892–1949). The handwritten caption reads “James Lawrence Meason,” and the full image is the source of the tighter portrait-circle crop.',
     limitation:
@@ -476,7 +476,7 @@ export const genealogyReferences: GenealogyReference[] = [
     id: 41,
     title: 'Mary Estelle Sledge Meason portrait',
     citation:
-      'Family-tree photograph titled “elizabeth’s Mother,” preserved in the author’s Ancestry media collection; full digital copy reviewed 17 September 2026.',
+      'Family-tree photograph titled “elizabeth’s Mother,” preserved in my Ancestry media collection; full digital copy reviewed 17 September 2026.',
     supports:
       'Provides the working portrait identification and full standing photograph for Mary Estelle Sledge Meason (1896–1952), wife of James Lawrence Meason.',
     limitation:
@@ -486,7 +486,7 @@ export const genealogyReferences: GenealogyReference[] = [
     id: 42,
     title: 'Franklin Meason portrait',
     citation:
-      'Family-tree photograph titled “franklin meason at his home in Richardson, X,” preserved in the author’s Ancestry media collection; full digital copy reviewed 17 September 2026.',
+      'Family-tree photograph titled “franklin meason at his home in Richardson, X,” preserved in my Ancestry media collection; full digital copy reviewed 17 September 2026.',
     supports:
       'Provides the working portrait identification and full seated home photograph for Franklin Meason (1850–1933). The image is the source of the tighter crop used in his portrait circle.',
     limitation:
@@ -500,7 +500,7 @@ export const genealogyReferences: GenealogyReference[] = [
     supports:
       'Identifies a finite denominational issue to inspect for a death notice or life sketch near Benjamin Meason’s reported death.',
     limitation:
-      'The issue record was verified, but its PDF returned HTTP 403 through the tested public route on 17 September 2026. Zero interior pages were reviewed; this is an access boundary, not a negative search.',
+      'I verified the issue record, but the public PDF route returned HTTP 403 on 17 September 2026. I could not inspect any interior pages, so this does not show that no notice exists.',
     url: 'https://digitalcommons.acu.edu/sc_arc_journals/10/',
     accessLabel: 'Open issue record',
   },
@@ -512,7 +512,7 @@ export const genealogyReferences: GenealogyReference[] = [
     supports:
       'Identifies the second finite denominational issue to inspect for a death notice or life sketch near Benjamin Meason’s reported death.',
     limitation:
-      'The issue record was verified, but its PDF returned HTTP 403 through the tested public route on 17 September 2026. Zero interior pages were reviewed; this is an access boundary, not a negative search.',
+      'I verified the issue record, but the public PDF route returned HTTP 403 on 17 September 2026. I could not inspect any interior pages, so this does not show that no notice exists.',
     url: 'https://digitalcommons.acu.edu/sc_arc_journals/9/',
     accessLabel: 'Open issue record',
   },
@@ -522,9 +522,9 @@ export const genealogyReferences: GenealogyReference[] = [
     citation:
       'Paris Mercury, 23 November 1853; State Historical Society of Missouri, Monroe County newspaper holdings, microfilm reel 33369.',
     supports:
-      'Identifies the surviving local issue nearest Benjamin’s reported death for a bounded notice and estate search.',
+      'Identifies the surviving local issue nearest Benjamin’s reported death for a focused notice and estate search.',
     limitation:
-      'The issue is listed as available on microfilm rather than freely online. The tested public portal exposed no interior pages; this is an access boundary, not a negative search.',
+      'The issue is listed as available on microfilm rather than freely online. I could not inspect its interior pages through the public portal, so this does not show that no notice exists.',
     url: 'https://files.shsmo.org/research/newspapers/counties/Monroe.pdf',
     accessLabel: 'Open official holdings list',
   },
@@ -532,7 +532,7 @@ export const genealogyReferences: GenealogyReference[] = [
     id: 46,
     title: 'James Lawrence “Jimmy” Meason and Julie Ann Lipke wedding portrait',
     citation:
-      'Family photograph supplied by the author under the filename “james and julie ann lipke.JPG”; digital copy reviewed 17 September 2026.',
+      'Family photograph from my family collection under the filename “james and julie ann lipke.JPG”; digital copy reviewed 17 September 2026.',
     supports:
       'Provides a working identification of James Lawrence “Jimmy” Meason and Julie Ann Lipke together on their wedding day; the attribution agrees with the family-tree media title “Jimmy and Julie wedding.”',
     limitation:
@@ -542,7 +542,7 @@ export const genealogyReferences: GenealogyReference[] = [
     id: 47,
     title: 'Franklin and Nancy Meason shared grave marker',
     citation:
-      'Family-tree photograph titled “Franklin Meason and Nancy Meason Headstone,” preserved in the author’s Ancestry media collection; digital copy reviewed 17 September 2026.',
+      'Family-tree photograph titled “Franklin Meason and Nancy Meason Headstone,” preserved in my Ancestry media collection; digital copy reviewed 17 September 2026.',
     supports:
       'Shows the shared marker identifying Frank Meason and Nancy A. Meason as husband and wife. Nancy’s dates, 1852–1930, are legible.',
     limitation:
@@ -586,21 +586,21 @@ export const genealogyReferences: GenealogyReference[] = [
   },
   {
     id: 51,
-    title: 'Nelson circuit and chancery OCR-candidate audit, 1798–1802',
+    title: 'Nelson circuit and chancery OCR search, 1798–1802',
     citation:
-      'Nelson County, Kentucky, Circuit Court minutes, 1790–1805, FamilySearch DGS 8188441; chancery and court issue dockets, 1795–1817, DGS 8188442; bounded candidate audit completed 17 September 2026.',
+      'Nelson County, Kentucky, Circuit Court minutes, 1790–1805, FamilySearch DGS 8188441; chancery and court issue dockets, 1795–1817, DGS 8188442; OCR-guided search completed 17 September 2026.',
     supports:
-      'No OCR-located candidate opened in the target years connected Benjamin to Thomas, William, George, John, or Joseph Mason or Meason. The opened Benjamin hits fell in 1805 or 1816–1817 and stated no kinship.',
+      'None of the OCR results I reviewed in the target years connected Benjamin to Thomas, William, George, John, or Joseph Mason or Meason. The Benjamin results I opened fell in 1805 or 1816–1817 and stated no kinship.',
     limitation:
-      'The audit used OCR to locate candidates across difficult handwritten volumes whose year filters also leaked. It is not a manual page-by-page surname sweep and cannot establish that no relevant entry exists.',
+      'I used OCR to locate possible entries in difficult handwritten volumes, and the year filters also returned results from outside the target period. I did not read every page, so a relevant entry could still exist.',
   },
   {
     id: 52,
-    title: 'Author’s request-status checkpoint',
+    title: 'My research-request log',
     citation:
-      'Author’s research log, 17 September 2026, recording the reported submission of two Missouri Archives requests and one Nelson County Genealogical Roundtable article request.',
+      'My research log, 17 September 2026, recording two Missouri Archives requests and one Nelson County Genealogical Roundtable article request.',
     supports:
-      'Documents the author’s report that the will, broader estate, and Mill Creek article requests were submitted and were awaiting responses at the checkpoint.',
+      'Documents that I submitted requests for the will, the broader estate file, and the Mill Creek article, and that I was awaiting responses at this checkpoint.',
     limitation:
       'Confirmation numbers, receipt messages, exact submission times, fees, and recipient responses were not preserved in the reviewed research log. Submission does not establish that any requested record exists or will answer the relationship questions.',
   },
@@ -636,6 +636,54 @@ export const genealogyReferences: GenealogyReference[] = [
     limitation:
       'The parentage fields are direct statements in an original official record, but the information is secondary because the daughter did not witness the 1857 birth. The certificate does not identify whom Thomas honored or establish either disputed ancestral relationship above George.',
     url: 'https://www.familysearch.org/ark:/61903/3:1:33S7-9B9Z-QTS1?view=index',
+    accessLabel: 'Open the original death certificate',
+  },
+  {
+    id: 56,
+    title: 'James Lawrence “Jimmy” Meason 1973 Texas death certificate',
+    citation:
+      'Texas Department of Health, Bureau of Vital Statistics, standard certificate of death no. 01993, James Lawrence Meason, 17 January 1973, Dallas County; “Texas, United States records, images,” FamilySearch, image 733 of 3497; Texas State Registrar Office, image group 005145688.',
+    supports:
+      'The original certificate identifies James Lawrence Meason (1934–1973) and names his parents as Lawrence Meason and Mary Sledge. Read with the names, dates, locality, and existing family evidence, it materially strengthens the direct-line connection to James Lawrence Meason (1892–1949) and Mary Estelle Sledge.',
+    limitation:
+      'The parentage is a direct statement in an original official record, but it is secondary information supplied after the 1934 birth. The certificate gives the father only as Lawrence, not James Lawrence. I link to the original at FamilySearch rather than reproduce it here, and omit residential addresses and cause-and-manner details because they are not needed for the lineage.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:33SQ-GY1S-39R9?view=index',
+    accessLabel: 'Open the original death certificate',
+  },
+  {
+    id: 57,
+    title: 'James Lawrence Meason 1949 Texas death certificate',
+    citation:
+      'Texas Department of Health, Bureau of Vital Statistics, standard certificate of death no. 56380, James Lawrence Meason, 30 October 1949, Dallas County; “Texas, United States records, images,” FamilySearch, image 1952 of 3530; Texas State Registrar Office, image group 005145069.',
+    supports:
+      'The original certificate identifies James Lawrence Meason (1892–1949) and names his parents as Frank Meason and Nancy A. Huffines. Together with the 1973 certificate, it creates an explicit two-certificate chain from Jimmy to the older James Lawrence and then to Frank and Nancy.',
+    limitation:
+      'The parentage is a direct statement in an original official record, but it is secondary information supplied by Mary Meason about an 1892 birth. This certificate does not name Frank’s parents or prove that George M. Meason was Benjamin Meason’s son. I link to the FamilySearch image rather than reproduce the certificate or unnecessary medical and residential details.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:33S7-9YBB-9KDV?view=index',
+    accessLabel: 'Open the original death certificate',
+  },
+  {
+    id: 58,
+    title: 'Frank Meason 1933 Texas death certificate',
+    citation:
+      'Texas State Department of Health, Bureau of Vital Statistics, standard certificate of death no. 27128, Frank Meason, 29 June 1933, Dallas County; “Texas, United States records, images,” FamilySearch, image 678 of 3622; Texas State Registrar Office, image group 005145224.',
+    supports:
+      'The original certificate identifies Frank Meason (1850–1933), names Nancy Ann Huffhines as his wife, and names his parents as George Mason and Martha Reed. Read with James Lawrence Meason’s 1949 certificate, it documents the direct chain from James Lawrence to Frank and then to George and Martha.',
+    limitation:
+      'The parentage is a direct statement in an original official record, but it is secondary information supplied after Frank’s 1850 birth. The certificate calls him Frank rather than Franklin, spells his father’s surname Mason, and contains an age inconsistent with its exact dates. George’s reported Moberly birthplace is not independently proved. The record does not name George’s parents or prove George was Benjamin Meason’s son. I link to FamilySearch rather than reproduce the certificate or unnecessary medical and residential details.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:33S7-9YB1-3G1R?view=index',
+    accessLabel: 'Open the original death certificate',
+  },
+  {
+    id: 59,
+    title: 'Elder James Lawrence Meason 1919 Texas death certificate',
+    citation:
+      'Texas State Board of Health, Bureau of Vital Statistics, standard certificate of death no. 5174, James Lawrence Meason, 12 January 1919, Upshur County; “Texas, United States records, images,” FamilySearch, image 2333 of 3229; Texas State Registrar Office, image group 005145707.',
+    supports:
+      'The original certificate identifies an elder James Lawrence Meason, born about 1820, and names Benjamin Meason as his father. It creates a promising lead for testing whether this man was the James L. Meason who acquired Monroe County land with George M. Meason and J. C. Ripper in 1855.',
+    limitation:
+      'The parentage is secondary information supplied roughly a century after the reported birth. This man has not been proved to be the 1855 James L.; he must not be merged with the separately recorded James S. Meason. The informant, J. R. Meason, is not identified by relationship. The certificate does not mention George or prove that George was Benjamin’s son. I link to FamilySearch rather than reproduce the certificate or unnecessary medical and residential details.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:33SQ-GY14-6WDP?view=index',
     accessLabel: 'Open the original death certificate',
   },
 ];
