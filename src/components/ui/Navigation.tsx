@@ -47,9 +47,9 @@ function Navigation() {
     { name: 'About', href: '/' },
     { name: 'Resume', href: '/resume' },
     { name: 'Projects', href: '/projects' },
-    { name: 'Genealogy', href: '/genealogy' },
     { name: 'Articles', href: '/articles' },
     { name: 'Community', href: '/community' },
+    { name: 'Genealogy', href: '/genealogy' },
     { name: 'Contact', href: '/contact' },
   ];
 

@@ -37,19 +37,30 @@ describe('Navigation', () => {
 
   it('renders the expected nav items (and no AI Chat/Tools)', () => {
     render(<Navigation />);
-    [
+    const expectedLabels = [
       'About',
       'Resume',
       'Projects',
-      'Genealogy',
       'Articles',
       'Community',
+      'Genealogy',
       'Contact',
-    ].forEach((label) => {
+    ];
+
+    expectedLabels.forEach((label) => {
       expect(
         screen.getAllByRole('link', { name: label })[0]
       ).toBeInTheDocument();
     });
+
+    expect(
+      screen
+        .getAllByRole('link')
+        .filter((link) => expectedLabels.includes(link.textContent ?? ''))
+        .slice(0, expectedLabels.length)
+        .map((link) => link.textContent)
+    ).toEqual(expectedLabels);
+
     expect(
       screen.queryByRole('link', { name: /AI Chat/i })
     ).not.toBeInTheDocument();
