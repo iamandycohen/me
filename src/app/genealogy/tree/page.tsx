@@ -31,7 +31,7 @@ export default function GenealogyTreePage() {
                 records stop supporting another relationship.
               </p>
               <p className="mt-5 text-xs uppercase tracking-[0.16em] text-ink/45">
-                Evidence checkpoint · September 17, 2026
+                Evidence checkpoint · September 18, 2026
               </p>
             </div>
             <aside className="lg:col-span-4">

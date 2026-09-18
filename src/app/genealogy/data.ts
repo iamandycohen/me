@@ -199,9 +199,10 @@ export const georgeChronology = [
   },
 ];
 
-export const candidateAssessments = [
+export const researchThreads = [
   {
     name: 'Benjamin as George’s father',
+    category: 'Relationship hypothesis',
     status: 'Plausible, not proved',
     detail:
       'George and Benjamin share a coherent Kentucky-to-Missouri pattern, but no reviewed record calls George a son or heir. Four adult censuses and a descendant-held Bible say 1810; his marker says 1818. The earlier chronology keeps the household-slot theory plausible without proving it.',
@@ -209,6 +210,7 @@ export const candidateAssessments = [
   },
   {
     name: 'Thomas Meason senior',
+    category: 'Parent candidate',
     status: 'Strongly disfavored',
     detail:
       'His 1779 will names eleven children but not Benjamin. That omission weighs strongly against him as Benjamin’s direct father, but a will need not name every child and is not categorical proof.',
@@ -216,6 +218,7 @@ export const candidateAssessments = [
   },
   {
     name: 'The Hempfield Thomas',
+    category: 'Parent candidate',
     status: 'Strongly disfavored',
     detail:
       'His will explicitly identifies his six youngest children. Benjamin—who would have been a child—is not among them.',
@@ -223,6 +226,7 @@ export const candidateAssessments = [
   },
   {
     name: 'The 1788 Nelson County Thomas',
+    category: 'Parent candidate',
     status: 'Still open',
     detail:
       'An original 1788 deed places Thomas Meason in Nelson County. In 1795, Thomas Mason of Logan County sold the same 300-acre Rough Creek tract. The exact-property match strengthens the identity trail, but neither deed names Benjamin.',
@@ -230,10 +234,19 @@ export const candidateAssessments = [
   },
   {
     name: 'Another Mason or Meason family',
+    category: 'Alternate line',
     status: 'Increasingly important',
     detail:
       'The records expose several distinct same-name families and men later combined in online trees. Benjamin may belong to a different line altogether.',
     referenceIds: [18, 19, 22],
+  },
+  {
+    name: 'B. T. “Uncle Ben” Meason',
+    category: 'Naming clue',
+    status: 'Moderate indirect clue',
+    detail:
+      'George and Martha’s youngest recorded child appears in contemporary sources as B. T. and “Uncle Ben,” strongly supporting Benjamin as his first name. Inherited family tradition expands T as Thomas, and James Reed Meason shows that a relational middle name was possible in the family. No independently reviewed contemporary record spells out Thomas; even if correct, the name cannot prove either disputed relationship or identify a particular Thomas.',
+    referenceIds: [33, 53, 54],
   },
 ];
 

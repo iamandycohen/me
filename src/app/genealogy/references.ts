@@ -604,4 +604,26 @@ export const genealogyReferences: GenealogyReference[] = [
     limitation:
       'Confirmation numbers, receipt messages, exact submission times, fees, and recipient responses were not preserved in the reviewed research log. Submission does not establish that any requested record exists or will answer the relationship questions.',
   },
+  {
+    id: 53,
+    title: 'B. T. “Uncle Ben” Meason in Foard County records',
+    citation:
+      'Foard County News, 11 July 1930, 14 June 1934, 3 September 1936, and 14 and 21 March 1940; Southwest Collection/Special Collections Library, Texas Tech University.',
+    supports:
+      'Contemporary coverage identifies the man as B. T. Meason and “Uncle Ben,” calls Ben a brother of James Reed Meason, and gives migration and family details consistent with the Benjamin or Ben in George M. and Martha Meason’s 1860 and 1870 households.',
+    limitation:
+      'The reviewed newspaper items use initials or “Ben” and never expand the T. His obituary does not name his parents, and the early censuses lack relationship columns.',
+    url: 'https://newspapers.swco.ttu.edu/handle/20.500.12255/44107',
+    accessLabel: 'Open the 1936 sibling obituary',
+  },
+  {
+    id: 54,
+    title: 'Benjamin Thomas name tradition and county-history locator',
+    citation:
+      'Imported Meason Family Tree and attached media titles reviewed 18 September 2026; one title attributes a B. T. Meason portrait to Bailey Phelps, They Loved the Land: Foard County History (1969), p. 216.',
+    supports:
+      'Preserves the inherited expansion “Benjamin Thomas Meason” and identifies a specific county-history page that may reveal whether Thomas appeared in print before the later family-tree title.',
+    limitation:
+      'The imported person cites only member trees, and the underlying county-history page has not been reviewed. The media title may be an uploader’s expansion. Even a contemporary Thomas expansion would not identify the intended honoree or prove either disputed ancestral edge.',
+  },
 ];
