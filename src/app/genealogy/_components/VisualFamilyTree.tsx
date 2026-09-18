@@ -94,11 +94,30 @@ const lineageGenerations: LineageGeneration[] = [
         alt: 'Portrait attributed to Franklin Meason',
         referenceId: 42,
       },
+      evidenceImage: {
+        src: '/genealogy/people/franklin-meason-at-home.jpg',
+        alt: 'Full seated portrait attributed to Franklin Meason outside a family home',
+        label: 'Family photograph · Richardson',
+        caption:
+          'The family-tree title identifies Franklin seated at his home in Richardson. The photograph’s exact date and original photographer are still being documented.',
+        fit: 'contain',
+        aspect: 'portrait',
+        referenceId: 42,
+      },
     },
     partner: {
       name: 'Nancy Ann Huffhines',
       detail: '1852–1930',
       status: 'Spouse · direct ancestor',
+      evidenceImage: {
+        src: '/genealogy/evidence/franklin-nancy-meason-marker.jpg',
+        alt: 'Shared grave marker for Frank Meason and Nancy A. Meason',
+        label: 'Shared grave marker',
+        caption:
+          'The marker identifies Frank Meason and his wife, Nancy A. Meason. Nancy’s 1852–1930 dates remain legible; Franklin’s final year is weathered in this photograph.',
+        fit: 'contain',
+        referenceId: 47,
+      },
     },
   },
   {
@@ -114,6 +133,16 @@ const lineageGenerations: LineageGeneration[] = [
         alt: 'Portrait attributed to James Lawrence Meason, born 1892',
         referenceId: 40,
       },
+      evidenceImage: {
+        src: '/genealogy/people/james-lawrence-meason-1892-porch.jpg',
+        alt: 'Full porch photograph attributed to James Lawrence Meason, born 1892',
+        label: 'Family photograph · porch portrait',
+        caption:
+          'This full frame is the source of James’s portrait circle and carries a handwritten identification. The writing is a caption, not a verified autograph; the photograph’s date and place remain unknown.',
+        fit: 'contain',
+        aspect: 'portrait',
+        referenceId: 40,
+      },
     },
     partner: {
       name: 'Mary Estelle Sledge',
@@ -122,6 +151,16 @@ const lineageGenerations: LineageGeneration[] = [
       image: {
         src: '/genealogy/people/mary-estelle-sledge.jpg',
         alt: 'Portrait attributed to Mary Estelle Sledge Meason',
+        referenceId: 41,
+      },
+      evidenceImage: {
+        src: '/genealogy/people/mary-estelle-sledge-standing.jpg',
+        alt: 'Full standing portrait attributed to Mary Estelle Sledge Meason outside a house',
+        label: 'Family photograph',
+        caption:
+          'This is the full frame behind Mary’s portrait circle. The family-tree attribution identifies her as Mary Estelle Sledge Meason; the date and place remain unknown.',
+        fit: 'contain',
+        aspect: 'portrait',
         referenceId: 41,
       },
     },
@@ -385,9 +424,9 @@ function LineageRow({
 }) {
   return (
     <section id={generation.id} className="scroll-mt-28">
+      <GenerationLabel>{generation.label}</GenerationLabel>
       <div className="grid items-center md:grid-cols-[minmax(0,1fr)_3rem_minmax(0,0.72fr)]">
         <div>
-          <GenerationLabel>{generation.label}</GenerationLabel>
           <PersonCard person={generation.direct} />
         </div>
 

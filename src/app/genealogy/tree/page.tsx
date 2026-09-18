@@ -83,10 +83,13 @@ export default function GenealogyTreePage() {
                 and Mary, and Franklin; the historical portraits link to their
                 provenance notes. Jimmy&apos;s complete senior-year entry
                 remains below his cleaner studio portrait, alongside a family
-                wedding photograph of Jimmy and Julie. Initialed circles still
-                mark people for whom a suitable likeness is not available.
-                George&apos;s marker and Benjamin&apos;s signed record remain
-                clearly labeled as evidence rather than portraits.
+                wedding photograph of Jimmy and Julie. Full-frame family
+                photographs add context for Franklin, James, and Mary, while the
+                Franklin–Nancy marker records their shared burial evidence.
+                Initialed circles still mark people for whom a suitable likeness
+                is not available. George&apos;s marker and Benjamin&apos;s
+                signed record remain clearly labeled as evidence rather than
+                portraits.
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
                 <Link href="/genealogy#references" className="link-underline">

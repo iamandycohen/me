@@ -466,31 +466,31 @@ export const genealogyReferences: GenealogyReference[] = [
     id: 40,
     title: 'James Lawrence Meason portrait',
     citation:
-      'Family photograph supplied by the author under the filename “james lawrence meason sr.jpg”; digital copy reviewed 17 September 2026.',
+      'Family photograph supplied by the author under the filename “2014-03-02 James Lawrence Meason 001.jpg”; full 939×1203 digital copy reviewed 17 September 2026.',
     supports:
-      'Provides the working portrait identification for James Lawrence Meason (1892–1949).',
+      'Provides the working identification and full porch photograph for James Lawrence Meason (1892–1949). The handwritten caption reads “James Lawrence Meason,” and the full image is the source of the tighter portrait-circle crop.',
     limitation:
-      'The approximate date, place, photographer, original custodian, and independent identification of the likeness remain to be documented.',
+      'The filename date is not established as the photograph date, and the handwritten caption is not assumed to be James’s autograph. The date, place, photographer, original custodian, and independent identification remain to be documented.',
   },
   {
     id: 41,
     title: 'Mary Estelle Sledge Meason portrait',
     citation:
-      'Family photograph supplied by the author under the filename “mary estelle sledge.jpg”; digital copy reviewed 17 September 2026.',
+      'Family-tree photograph titled “elizabeth’s Mother,” preserved in the author’s Ancestry media collection; full digital copy reviewed 17 September 2026.',
     supports:
-      'Provides the working portrait identification for Mary Estelle Sledge Meason (1896–1952), wife of James Lawrence Meason.',
+      'Provides the working portrait identification and full standing photograph for Mary Estelle Sledge Meason (1896–1952), wife of James Lawrence Meason.',
     limitation:
-      'The approximate date, place, photographer, original custodian, and independent identification of the likeness remain to be documented.',
+      'The title identifies her only through a family relationship. The approximate date, place, photographer, original custodian, and independent identification remain to be documented.',
   },
   {
     id: 42,
     title: 'Franklin Meason portrait',
     citation:
-      'Family photograph supplied by the author under the filename “frank meason.jpg”; digital copy reviewed 17 September 2026.',
+      'Family-tree photograph titled “franklin meason at his home in Richardson, X,” preserved in the author’s Ancestry media collection; full digital copy reviewed 17 September 2026.',
     supports:
-      'Provides the working portrait identification for Franklin Meason (1850–1933).',
+      'Provides the working portrait identification and full seated home photograph for Franklin Meason (1850–1933). The image is the source of the tighter crop used in his portrait circle.',
     limitation:
-      'The approximate date, place, photographer, original custodian, and independent identification of the likeness remain to be documented.',
+      'The exact Richardson location, approximate date, photographer, original custodian, and independent identification remain to be documented.',
   },
   {
     id: 43,
@@ -537,5 +537,15 @@ export const genealogyReferences: GenealogyReference[] = [
       'Provides a working identification of James Lawrence “Jimmy” Meason and Julie Ann Lipke together on their wedding day; the attribution agrees with the family-tree media title “Jimmy and Julie wedding.”',
     limitation:
       'The wedding date and place, photographer, original custodian, and independent identification of both likenesses remain to be documented.',
+  },
+  {
+    id: 47,
+    title: 'Franklin and Nancy Meason shared grave marker',
+    citation:
+      'Family-tree photograph titled “Franklin Meason and Nancy Meason Headstone,” preserved in the author’s Ancestry media collection; digital copy reviewed 17 September 2026.',
+    supports:
+      'Shows the shared marker identifying Frank Meason and Nancy A. Meason as husband and wife. Nancy’s dates, 1852–1930, are legible.',
+    limitation:
+      'Franklin’s terminal year is weathered or obscured in this photograph. The cemetery, marker installation date, photographer, and original file provenance remain to be documented.',
   },
 ];
