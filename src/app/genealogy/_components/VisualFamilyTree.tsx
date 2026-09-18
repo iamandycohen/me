@@ -9,6 +9,7 @@ interface Person {
     src: string;
     alt: string;
     objectPosition?: string;
+    referenceId?: number;
   };
   evidenceImage?: {
     src: string;
@@ -45,6 +46,7 @@ const lineageGenerations: LineageGeneration[] = [
         caption:
           'Benjamin signed this Nelson County guardian bond “Benjn Meason.” It documents his presence and handwriting—not his parents.',
         fit: 'contain',
+        referenceId: 5,
       },
     },
     partner: {
@@ -69,6 +71,7 @@ const lineageGenerations: LineageGeneration[] = [
         caption:
           'George’s marker gives 10 May 1818–11 November 1887. Census and family evidence instead point to birth about 1810, so both traditions remain visible.',
         fit: 'contain',
+        referenceId: 26,
       },
     },
     partner: {
@@ -85,6 +88,11 @@ const lineageGenerations: LineageGeneration[] = [
       name: 'Franklin Meason',
       detail: '1850–1933',
       status: 'Meason line',
+      image: {
+        src: '/genealogy/people/franklin-meason.jpg',
+        alt: 'Portrait attributed to Franklin Meason',
+        referenceId: 42,
+      },
     },
     partner: {
       name: 'Nancy Ann Huffhines',
@@ -100,11 +108,21 @@ const lineageGenerations: LineageGeneration[] = [
       name: 'James Lawrence Meason',
       detail: '1892–1949',
       status: 'Meason line',
+      image: {
+        src: '/genealogy/people/james-lawrence-meason-1892.jpg',
+        alt: 'Portrait attributed to James Lawrence Meason, born 1892',
+        referenceId: 40,
+      },
     },
     partner: {
       name: 'Mary Estelle Sledge',
       detail: '1896–1952',
       status: 'Spouse · direct ancestor',
+      image: {
+        src: '/genealogy/people/mary-estelle-sledge.jpg',
+        alt: 'Portrait attributed to Mary Estelle Sledge Meason',
+        referenceId: 41,
+      },
     },
   },
   {
@@ -116,9 +134,10 @@ const lineageGenerations: LineageGeneration[] = [
       detail: '1934–1973',
       status: 'Meason line',
       image: {
-        src: '/genealogy/people/james-lawrence-meason-1934-yearbook.jpg',
-        alt: 'Senior-year portrait of James Lawrence “Jimmy” Meason',
-        objectPosition: '8% center',
+        src: '/genealogy/people/jimmy-meason-studio-portrait.jpg',
+        alt: 'Studio portrait of James Lawrence “Jimmy” Meason',
+        objectPosition: 'center 22%',
+        referenceId: 39,
       },
       evidenceImage: {
         src: '/genealogy/people/james-lawrence-meason-1934-yearbook.jpg',
@@ -144,6 +163,12 @@ const lineageGenerations: LineageGeneration[] = [
       name: 'Cynthia June Meason',
       detail: '1958–1991',
       status: 'Meason line',
+      image: {
+        src: '/genealogy/people/cynthia-june-meason-school-portrait.jpg',
+        alt: 'Formal school portrait of Cynthia June “Cindee” Meason',
+        objectPosition: 'center 28%',
+        referenceId: 38,
+      },
     },
   },
   {
@@ -155,6 +180,11 @@ const lineageGenerations: LineageGeneration[] = [
       detail:
         'Birth name · grew up as Andy Cohen · this tree follows my biological Meason ancestry',
       status: 'Me · birth identity',
+      image: {
+        src: '/headshot.jpg',
+        alt: 'Andy Cohen',
+        objectPosition: 'center 28%',
+      },
     },
   },
 ];
@@ -262,6 +292,17 @@ function PersonCard({
           >
             {person.detail}
           </p>
+          {person.image?.referenceId ? (
+            <p className="mt-1 text-[0.66rem] text-ink/45">
+              Portrait:{' '}
+              <Link
+                href={`/genealogy#reference-${person.image.referenceId}`}
+                className="link-underline"
+              >
+                reference {person.image.referenceId}
+              </Link>
+            </p>
+          ) : null}
         </div>
       </div>
 

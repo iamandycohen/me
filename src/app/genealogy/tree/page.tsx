@@ -30,6 +30,9 @@ export default function GenealogyTreePage() {
                 what remains a family hypothesis, and the two places where the
                 records stop supporting another relationship.
               </p>
+              <p className="mt-5 text-xs uppercase tracking-[0.16em] text-ink/45">
+                Evidence checkpoint · September 17, 2026
+              </p>
             </div>
             <aside className="lg:col-span-4">
               <Link href="/genealogy" className="link-underline">
@@ -76,11 +79,13 @@ export default function GenealogyTreePage() {
                 lineage; it does not replace the Cohen family that raised me.
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
-                Jimmy&apos;s family-held yearbook portrait now appears in his
-                circle, with the full senior entry preserved below it. Initialed
-                circles still hold places where a verified likeness is not yet
-                available. George&apos;s marker and Benjamin&apos;s signed
-                record remain clearly labeled as evidence rather than portraits.
+                Working family portraits now accompany me, Cindee, Jimmy, James
+                and Mary, and Franklin; the historical portraits link to their
+                provenance notes. Jimmy&apos;s complete senior-year entry
+                remains below his cleaner studio portrait. Initialed circles
+                still mark people for whom a suitable likeness is not available.
+                George&apos;s marker and Benjamin&apos;s signed record remain
+                clearly labeled as evidence rather than portraits.
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
                 <Link href="/genealogy#references" className="link-underline">

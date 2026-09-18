@@ -209,9 +209,9 @@ export const candidateAssessments = [
   },
   {
     name: 'Thomas Meason senior',
-    status: 'Strongly excluded',
+    status: 'Strongly disfavored',
     detail:
-      'His 1779 will names eleven children but not Benjamin. The omission from such an extensive list strongly excludes him as Benjamin’s direct father.',
+      'His 1779 will names eleven children but not Benjamin. That omission weighs strongly against him as Benjamin’s direct father, but a will need not name every child and is not categorical proof.',
     referenceIds: [18],
   },
   {
@@ -346,21 +346,15 @@ export const nextResearchSteps = [
     referenceIds: [23],
   },
   {
-    title: 'Trace the candidate farm beyond the surname index',
+    title: 'Retrieve the Mill Creek church article',
     detail:
-      'The completed deed-index audit found no relationship statement, and the opened Section 11 parcels do not match Benjamin’s Section 20 patent. Trace Section 20 through counterparties and reverse title to test the reported devised farm and the claimed George relationship.',
-    referenceIds: [13, 25, 28, 29],
+      'Obtain the complete March 1990 article, read its notes and source description, and follow only a concrete lead into admissions, dismissals, letters, membership, or family entries.',
+    referenceIds: [36],
   },
   {
-    title: 'Follow the exact Thomas land chains',
+    title: 'Read three publications from Benjamin’s death period',
     detail:
-      'Connect—or separate—the Rough Creek seller from the Logan Thomas–William family and the earlier John Minter tract through deeds and estate files.',
-    referenceIds: [20, 21, 22],
-  },
-  {
-    title: 'Recover the Kentucky relationship records',
-    detail:
-      'First obtain the March 1990 Mill Creek article that may identify or reproduce the missing church book; then pursue Salem records and the Doom chancery file that may state Hannah’s precise kinship.',
-    referenceIds: [8, 9, 17, 24, 35, 36],
+      'Inspect the October and November 1853 Christian Evangelist issues and the surviving 23 November 1853 Paris Mercury issue for a notice, elder’s sketch, survivors, or estate announcement.',
+    referenceIds: [43, 44, 45],
   },
 ];

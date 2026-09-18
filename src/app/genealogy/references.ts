@@ -212,7 +212,7 @@ export const genealogyReferences: GenealogyReference[] = [
     supports:
       'Thomas’s wife Ann and eleven named children, including a son Thomas; Benjamin is absent from the extensive list.',
     limitation:
-      'The omission strongly excludes the testator as Benjamin’s direct father but does not exclude every named son or another family line.',
+      'The omission weighs strongly against the testator as Benjamin’s direct father, but a will need not name every child. It does not categorically exclude him, identify Benjamin’s parents, or exclude another family line.',
     url: 'https://www.ancestry.com/search/collections/8802/records/2042575',
     accessLabel: 'Open indexed probate record',
   },
@@ -441,5 +441,91 @@ export const genealogyReferences: GenealogyReference[] = [
       'Provides a contemporary school portrait and records Jimmy’s participation in football, basketball, class leadership, the annual staff, and FFA.',
     limitation:
       'The surviving image does not show the yearbook title, school, publication year, or page number. Those publication details still need to be identified from the original volume.',
+  },
+  {
+    id: 38,
+    title: 'Cynthia June “Cindee” Meason formal school portrait',
+    citation:
+      'Family photograph preserved in the author’s Google Photos collection; display-resolution copy reviewed 17 September 2026.',
+    supports:
+      'Provides the working portrait identification for Cynthia June “Cindee” Meason (1958–1991).',
+    limitation:
+      'The school, studio, exact date, original print custodian, and photographer have not yet been documented. This is a display-resolution copy rather than the original scan.',
+  },
+  {
+    id: 39,
+    title: 'James Lawrence “Jimmy” Meason studio portrait',
+    citation:
+      'Family photograph preserved in the author’s Google Photos collection; source filename “20200127_174408.jpg”; display-resolution copy reviewed 17 September 2026.',
+    supports:
+      'Provides the working portrait identification for James Lawrence “Jimmy” Meason (1934–1973) and visually agrees with his senior-year portrait.',
+    limitation:
+      'The photographer, studio, original date, and original print custodian have not yet been documented. This is a display-resolution copy rather than the full-resolution scan.',
+  },
+  {
+    id: 40,
+    title: 'James Lawrence Meason portrait',
+    citation:
+      'Family photograph supplied by the author under the filename “james lawrence meason sr.jpg”; digital copy reviewed 17 September 2026.',
+    supports:
+      'Provides the working portrait identification for James Lawrence Meason (1892–1949).',
+    limitation:
+      'The approximate date, place, photographer, original custodian, and independent identification of the likeness remain to be documented.',
+  },
+  {
+    id: 41,
+    title: 'Mary Estelle Sledge Meason portrait',
+    citation:
+      'Family photograph supplied by the author under the filename “mary estelle sledge.jpg”; digital copy reviewed 17 September 2026.',
+    supports:
+      'Provides the working portrait identification for Mary Estelle Sledge Meason (1896–1952), wife of James Lawrence Meason.',
+    limitation:
+      'The approximate date, place, photographer, original custodian, and independent identification of the likeness remain to be documented.',
+  },
+  {
+    id: 42,
+    title: 'Franklin Meason portrait',
+    citation:
+      'Family photograph supplied by the author under the filename “frank meason.jpg”; digital copy reviewed 17 September 2026.',
+    supports:
+      'Provides the working portrait identification for Franklin Meason (1850–1933).',
+    limitation:
+      'The approximate date, place, photographer, original custodian, and independent identification of the likeness remain to be documented.',
+  },
+  {
+    id: 43,
+    title: 'Christian Evangelist, October 1853',
+    citation:
+      'Christian Evangelist, volume 9, number 10 (October 1853); Abilene Christian University Special Collections digital repository.',
+    supports:
+      'Identifies a finite denominational issue to inspect for a death notice or life sketch near Benjamin Meason’s reported death.',
+    limitation:
+      'The issue interior has not yet been reviewed. Its availability does not establish that it contains a notice about Benjamin.',
+    url: 'https://digitalcommons.acu.edu/sc_arc_journals/10/',
+    accessLabel: 'Open issue record',
+  },
+  {
+    id: 44,
+    title: 'Christian Evangelist, November 1853',
+    citation:
+      'Christian Evangelist, volume 9, number 11 (November 1853); Abilene Christian University Special Collections digital repository.',
+    supports:
+      'Identifies the second finite denominational issue to inspect for a death notice or life sketch near Benjamin Meason’s reported death.',
+    limitation:
+      'The issue interior has not yet been reviewed. Its availability does not establish that it contains a notice about Benjamin.',
+    url: 'https://digitalcommons.acu.edu/sc_arc_journals/9/',
+    accessLabel: 'Open issue record',
+  },
+  {
+    id: 45,
+    title: 'Paris Mercury issue locator, 23 November 1853',
+    citation:
+      'Paris Mercury, 23 November 1853; State Historical Society of Missouri, Monroe County newspaper holdings, microfilm reel 33369.',
+    supports:
+      'Identifies the surviving local issue nearest Benjamin’s reported death for a bounded notice and estate search.',
+    limitation:
+      'The issue has not yet been reviewed, and its survival does not establish that it contains a notice about Benjamin.',
+    url: 'https://files.shsmo.org/research/newspapers/counties/Monroe.pdf',
+    accessLabel: 'Open official holdings list',
   },
 ];
