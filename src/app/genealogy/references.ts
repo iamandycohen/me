@@ -448,7 +448,7 @@ export const genealogyReferences: GenealogyReference[] = [
     citation:
       'Family photograph preserved in the author’s Google Photos collection; display-resolution copy reviewed 17 September 2026.',
     supports:
-      'Provides the working portrait identification for Cynthia June “Cindee” Meason (1958–1991).',
+      'Provides the working portrait identification and full formal school portrait for Cynthia June “Cindee” Meason (1958–1991). The full image is the source of the tighter portrait-circle crop.',
     limitation:
       'The school, studio, exact date, original print custodian, and photographer have not yet been documented. This is a display-resolution copy rather than the original scan.',
   },

@@ -219,6 +219,16 @@ const lineageGenerations: LineageGeneration[] = [
         objectPosition: 'center 28%',
         referenceId: 38,
       },
+      evidenceImage: {
+        src: '/genealogy/people/cynthia-june-meason-school-portrait.jpg',
+        alt: 'Full formal school portrait of Cynthia June “Cindee” Meason',
+        label: 'Family photograph · school portrait',
+        caption:
+          'This full frame is the source of Cindee’s portrait circle. The family identification is established, while the school, studio, and exact date are still being documented.',
+        fit: 'contain',
+        aspect: 'portrait',
+        referenceId: 38,
+      },
     },
   },
   {
