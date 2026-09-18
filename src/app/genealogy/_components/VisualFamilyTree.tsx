@@ -8,6 +8,15 @@ interface Person {
   image?: {
     src: string;
     alt: string;
+    objectPosition?: string;
+  };
+  evidenceImage?: {
+    src: string;
+    alt: string;
+    label: string;
+    caption: string;
+    fit?: 'cover' | 'contain';
+    referenceId?: number;
   };
 }
 
@@ -29,6 +38,14 @@ const lineageGenerations: LineageGeneration[] = [
       name: 'Benjamin Meason',
       detail: 'Born about 1776 · living in Monroe County in 1850',
       status: 'Life documented · relationship unproved',
+      evidenceImage: {
+        src: '/genealogy/evidence/benjamin-meason-1802-guardian-bond.jpg',
+        alt: 'Facing pages of the Nelson County bond book; Benjamin Meason’s signature appears on the left-page guardian bond',
+        label: 'Original record · 1802',
+        caption:
+          'Benjamin signed this Nelson County guardian bond “Benjn Meason.” It documents his presence and handwriting—not his parents.',
+        fit: 'contain',
+      },
     },
     partner: {
       name: 'Hannah Doom',
@@ -45,6 +62,14 @@ const lineageGenerations: LineageGeneration[] = [
       name: 'George M. Meason',
       detail: 'Censuses and family note: about 1810 · marker: 1818 · died 1887',
       status: 'Meason line · parentage under review',
+      evidenceImage: {
+        src: '/genealogy/evidence/george-m-meason-marker.jpg',
+        alt: 'Broken grave marker for George M. Meason at Mount Calvary Cemetery in Dallas',
+        label: 'Marker photograph · Dallas',
+        caption:
+          'George’s marker gives 10 May 1818–11 November 1887. Census and family evidence instead point to birth about 1810, so both traditions remain visible.',
+        fit: 'contain',
+      },
     },
     partner: {
       name: 'Martha Reed',
@@ -90,6 +115,20 @@ const lineageGenerations: LineageGeneration[] = [
       name: 'James Lawrence Meason',
       detail: '1934–1973',
       status: 'Meason line',
+      image: {
+        src: '/genealogy/people/james-lawrence-meason-1934-yearbook.jpg',
+        alt: 'Senior-year portrait of James Lawrence “Jimmy” Meason',
+        objectPosition: '8% center',
+      },
+      evidenceImage: {
+        src: '/genealogy/people/james-lawrence-meason-1934-yearbook.jpg',
+        alt: 'Yearbook page with a senior portrait of Jimmy Meason and a list of his school activities',
+        label: 'Family-held yearbook scan',
+        caption:
+          'Jimmy’s senior entry records four years of football, three years of basketball, a year as class president, and work as the annual staff’s sports editor.',
+        fit: 'contain',
+        referenceId: 37,
+      },
     },
     partner: {
       name: 'Julie Ann Lipke',
@@ -155,6 +194,7 @@ function Portrait({
           fill
           sizes={isCompact ? '48px' : '64px'}
           className="object-cover grayscale"
+          style={{ objectPosition: person.image.objectPosition }}
         />
       ) : (
         <span
@@ -224,6 +264,48 @@ function PersonCard({
           </p>
         </div>
       </div>
+
+      {person.evidenceImage ? (
+        <figure className="mt-5 overflow-hidden rounded-xl border border-ink/10 bg-ink/[0.025]">
+          <a
+            href={person.evidenceImage.src}
+            target="_blank"
+            rel="noreferrer"
+            className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            <div className="relative aspect-[4/3] overflow-hidden bg-[#e9e3d9]">
+              <Image
+                src={person.evidenceImage.src}
+                alt={person.evidenceImage.alt}
+                fill
+                sizes="(max-width: 768px) calc(100vw - 4rem), 460px"
+                className={`transition-transform duration-300 group-hover:scale-[1.015] ${
+                  person.evidenceImage.fit === 'contain'
+                    ? 'object-contain'
+                    : 'object-cover object-center'
+                }`}
+              />
+            </div>
+            <span className="sr-only">Open the full-size evidence image.</span>
+          </a>
+          <figcaption className="border-t border-ink/10 px-4 py-3">
+            <span className="mb-1 block text-[0.58rem] font-medium uppercase tracking-[0.16em] text-accent">
+              {person.evidenceImage.label}
+            </span>
+            <span className="block text-xs leading-relaxed text-ink/55">
+              {person.evidenceImage.caption}
+            </span>
+            {person.evidenceImage.referenceId ? (
+              <Link
+                href={`/genealogy#reference-${person.evidenceImage.referenceId}`}
+                className="mt-2 inline-block text-xs link-underline"
+              >
+                Reference {person.evidenceImage.referenceId}
+              </Link>
+            ) : null}
+          </figcaption>
+        </figure>
+      ) : null}
     </article>
   );
 }

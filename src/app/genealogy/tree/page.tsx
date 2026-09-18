@@ -76,8 +76,11 @@ export default function GenealogyTreePage() {
                 lineage; it does not replace the Cohen family that raised me.
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
-                Initialed portrait circles hold the place for family photographs
-                while identity, provenance, and permission are confirmed.
+                Jimmy&apos;s family-held yearbook portrait now appears in his
+                circle, with the full senior entry preserved below it. Initialed
+                circles still hold places where a verified likeness is not yet
+                available. George&apos;s marker and Benjamin&apos;s signed
+                record remain clearly labeled as evidence rather than portraits.
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
                 <Link href="/genealogy#references" className="link-underline">

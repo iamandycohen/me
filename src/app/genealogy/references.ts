@@ -432,4 +432,14 @@ export const genealogyReferences: GenealogyReference[] = [
     url: 'https://www.ncgrky.com/_files/ugd/399665_4aeda8947d004116a5a1489004c959c3.pdf',
     accessLabel: 'Open official contents locator',
   },
+  {
+    id: 37,
+    title: 'James Lawrence “Jimmy” Meason senior yearbook entry',
+    citation:
+      'Family-held scan of a senior yearbook entry for Jimmy Meason; digital image in the author’s collection.',
+    supports:
+      'Provides a contemporary school portrait and records Jimmy’s participation in football, basketball, class leadership, the annual staff, and FFA.',
+    limitation:
+      'The surviving image does not show the yearbook title, school, publication year, or page number. Those publication details still need to be identified from the original volume.',
+  },
 ];
