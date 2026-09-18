@@ -390,7 +390,7 @@ export const genealogyReferences: GenealogyReference[] = [
     citation:
       '1860 U.S. census, Clay Township, Shelby County, Missouri, p. 192, NARA M653, roll 657; 1870 U.S. census, Marion Township, Monroe County, Missouri, p. 658A, NARA M593, roll 793; 1880 U.S. census, Precinct 2, Dallas County, Texas, p. 157A, ED 60, NARA T9, roll 1299.',
     supports:
-      'George is reported as age 50, 60, and 70 across the three schedules, consistently implying birth about 1810. The 1880 schedule reports both parents born in Kentucky without naming them.',
+      'George is reported as age 50, 60, and 70 across the three schedules, consistently implying birth about 1810. The 1880 household includes his son James, age 24, James’s wife Eva, and their daughter Fannie; it also reports both of George’s parents born in Kentucky without naming them.',
     limitation:
       'Census ages and parental birthplaces depend on an unknown informant. The schedules do not name George’s parents or prove a relationship to Benjamin.',
     url: 'https://www.ancestry.com/search/collections/6742/records/10544467',
@@ -680,10 +680,22 @@ export const genealogyReferences: GenealogyReference[] = [
     citation:
       'Texas State Board of Health, Bureau of Vital Statistics, standard certificate of death no. 5174, James Lawrence Meason, 12 January 1919, Upshur County; “Texas, United States records, images,” FamilySearch, image 2333 of 3229; Texas State Registrar Office, image group 005145707.',
     supports:
-      'The original certificate identifies an elder James Lawrence Meason, born about 1820, and names Benjamin Meason as his father. It creates a promising lead for testing whether this man was the James L. Meason who acquired Monroe County land with George M. Meason and J. C. Ripper in 1855.',
+      'The original certificate identifies an elder James Lawrence Meason, born about 1820, and names Benjamin Meason as his father. Read with the 1900 Foard County census, it supports a strong indirect case that this elder James belonged to George M. Meason’s family cluster.',
     limitation:
-      'The parentage is secondary information supplied roughly a century after the reported birth. This man has not been proved to be the 1855 James L.; he must not be merged with the separately recorded James S. Meason. The informant, J. R. Meason, is not identified by relationship. The certificate does not mention George or prove that George was Benjamin’s son. I link to FamilySearch rather than reproduce the certificate or unnecessary medical and residential details.',
+      'The parentage is secondary information supplied roughly a century after the reported birth. The certificate gives its informant only as J. R. Meason and states no relationship. This man has not been proved to be the 1855 James L.; he must not be merged with the separately recorded James S. Meason. The certificate does not mention George or prove that George was Benjamin’s son. I link to FamilySearch rather than reproduce the certificate or unnecessary medical and residential details.',
     url: 'https://www.familysearch.org/ark:/61903/3:1:33SQ-GY14-6WDP?view=index',
     accessLabel: 'Open the original death certificate',
+  },
+  {
+    id: 60,
+    title: '1900 Foard County census — James L. Meason as uncle',
+    citation:
+      '1900 U.S. census, Foard County, Texas, Justice Precinct 1, supervisor’s district 3, enumeration district 27, sheets 7A–7B, dwelling and family 120, lines 44–52, James R. Meason household; enumerated 18 June 1900; National Archives microfilm publication T623.',
+    supports:
+      'The original two-page schedule records James R. Meason with his wife Eva and places a 76-year-old James L. Meason in their household, explicitly describing the elder James as James R.’s uncle. James R.’s age, spouse, birthplace, and family context strongly continue George M. and Martha Reed Meason’s son James and daughter-in-law Eva from the 1880 census.',
+    limitation:
+      '“Uncle” does not specify the paternal or maternal side, a blood or marriage relationship, or a looser family usage. Identifying the 1900 elder James with the 1919 decedent is strongly supported but still requires a cross-record conclusion, and the records disagree about whether he was widowed or single. Nothing in this census identifies him as the James L. in the 1855 Monroe County deed or literally names George as his brother or Benjamin’s son. The authenticated census images remain in the private research archive and are not reproduced here.',
+    url: 'https://www.ancestry.com/imageviewer/collections/7602/images/4118464_00591?pId=43457280',
+    accessLabel: 'Open the census at Ancestry',
   },
 ];

@@ -39,7 +39,7 @@ const lineageGenerations: LineageGeneration[] = [
     direct: {
       name: 'Benjamin Meason',
       detail: 'Born about 1776 · living in Monroe County in 1850',
-      status: 'Life documented · relationship unproved',
+      status: 'Relationship to George · strong indirect evidence',
       evidenceImage: {
         src: '/genealogy/evidence/benjamin-meason-1802-guardian-bond.jpg',
         alt: 'Facing pages of the Nelson County bond book; Benjamin Meason’s signature appears on the left-page guardian bond',
@@ -474,7 +474,7 @@ function LineageRow({
             />
             {generation.connectionToNext === 'review' ? (
               <span className="absolute left-1/2 top-1/2 w-max -translate-x-1/2 -translate-y-1/2 bg-[#f4efe7] px-2 text-[0.58rem] uppercase tracking-widest text-ink/45">
-                claimed relationship · not yet proved
+                strong indirect evidence · not yet proved
               </span>
             ) : null}
           </div>
@@ -490,8 +490,9 @@ export default function VisualFamilyTree() {
       <figcaption id="visual-tree-title" className="sr-only">
         A visual pedigree showing the working Meason family line from Benjamin
         Meason to Shannon Jeremiah Meason, with spouses shown as secondary
-        connections, the relationship between Benjamin and George marked as
-        unproved, and Benjamin&apos;s parents marked as unknown.
+        connections, the strong but indirect relationship evidence between
+        Benjamin and George marked as unproved, and Benjamin&apos;s parents
+        marked as unknown.
       </figcaption>
 
       <nav

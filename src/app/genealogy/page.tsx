@@ -63,9 +63,9 @@ export default function GenealogyPage() {
               </p>
               <p className="font-serif text-xl mb-2">In progress</p>
               <p className="text-sm leading-relaxed text-ink/60">
-                Last reviewed September 18, 2026 CDT. Three newly reviewed death
-                certificates strengthen the direct line below George; the two
-                ancestral relationships above him remain open.
+                Last reviewed September 18, 2026 CDT. A newly reviewed census
+                adds strong indirect evidence for George&apos;s place in
+                Benjamin&apos;s family; the relationship remains unproved.
               </p>
             </aside>
           </div>
@@ -156,11 +156,14 @@ export default function GenealogyPage() {
               <p>
                 The deeper review exposed an earlier break as well. Benjamin is
                 a well-documented historical person, but no record I have
-                reviewed yet calls George M. Meason his son. Their shared
-                Kentucky-to-Missouri pattern makes the relationship plausible;
-                George&apos;s conflicting birth evidence and the absence of a
-                direct relationship record keep it unproved.
-                <SourceFootnote referenceIds={[1, 25, 26]} />
+                reviewed yet calls George M. Meason his son. A 1900 census now
+                calls elder James L. Meason the uncle of George&apos;s strongly
+                identified son James R.; elder James&apos;s 1919 death
+                certificate names Benjamin as his father. That is strong
+                indirect evidence, but the census does not specify the exact
+                kind or side of the uncle relationship, and neither record
+                literally makes George Benjamin&apos;s son.
+                <SourceFootnote referenceIds={[33, 59, 60]} />
               </p>
               <p>
                 I do not want to replace one confident story with another. I
@@ -227,9 +230,13 @@ export default function GenealogyPage() {
                 <p className="leading-relaxed text-ink/65">
                   The records now give George a clearer life of his own. They
                   correct copied dates, document his marriage to Martha Reed,
-                  and explain why his birth year remains disputed. None of them
+                  and explain why his birth year remains disputed. The new
+                  elder-James evidence strengthens the case that he belonged to
+                  Benjamin&apos;s family, but no reviewed record directly
                   identifies Benjamin as his father.
-                  <SourceFootnote referenceIds={[25, 26, 31, 32, 33, 34]} />
+                  <SourceFootnote
+                    referenceIds={[25, 26, 31, 32, 33, 34, 59, 60]}
+                  />
                 </p>
               </div>
             </div>
@@ -332,10 +339,11 @@ export default function GenealogyPage() {
                 </p>
                 <p className="text-paper/55 leading-relaxed mb-8">
                   The trouble is that plausible is not the same as proved.
-                  George and Benjamin form a coherent family hypothesis, but no
-                  reviewed record names their relationship. Above Benjamin,
-                  separating the same-name men and reading the original wills
-                  turns one tidy answer into several distinct candidates.
+                  George and Benjamin now have a strong indirect case through
+                  elder James L. Meason, but no reviewed record directly names
+                  their relationship. Above Benjamin, separating the same-name
+                  men and reading the original wills turns one tidy answer into
+                  several distinct candidates.
                 </p>
                 <div className="inline-flex items-center gap-3 rounded-full border border-paper/20 px-4 py-2 text-sm text-paper/70">
                   <span className="h-2 w-2 rounded-full bg-accent-soft" />
@@ -353,9 +361,10 @@ export default function GenealogyPage() {
                   two disputed relationships repeated without a record that
                   stated either one. Four adult censuses and a descendant-held
                   Bible say about 1810, while George&apos;s marker says 1818—but
-                  all of that evidence stops with George. The tree still has two
-                  open edges.
-                  <SourceFootnote referenceIds={[25, 26, 30, 33, 34]} />
+                  those records stop with George. The newly found uncle evidence
+                  strengthens one edge without closing it. The tree still has
+                  two open edges.
+                  <SourceFootnote referenceIds={[25, 26, 30, 33, 34, 59, 60]} />
                 </p>
                 <p className="mt-5 leading-relaxed text-paper/60">
                   A newly reviewed original death certificate spells out
@@ -372,6 +381,15 @@ export default function GenealogyPage() {
                   better supported, while leaving George&apos;s parentage
                   unresolved.
                   <SourceFootnote referenceIds={[56, 57, 58]} />
+                </p>
+                <p className="mt-5 leading-relaxed text-paper/60">
+                  A 1900 census adds a different kind of evidence: it calls
+                  elder James L. Meason the uncle of George&apos;s apparent son
+                  James R. Elder James&apos;s 1919 certificate names Benjamin as
+                  his father. Together they make the George-to-Benjamin case
+                  substantially stronger, while stopping short of a record that
+                  directly states the relationship.
+                  <SourceFootnote referenceIds={[33, 59, 60]} />
                 </p>
               </aside>
               <div className="grid gap-px border border-paper/15 bg-paper/15 sm:grid-cols-2">
@@ -490,7 +508,9 @@ export default function GenealogyPage() {
             </div>
             <div>
               <p className="eyebrow mb-4">What I&apos;m pursuing now</p>
-              <h2 className="mb-8 text-balance">Three doors still open.</h2>
+              <h2 className="mb-8 text-balance">
+                The next records are specific.
+              </h2>
               <div className="space-y-4">
                 {nextResearchSteps.map((step) => (
                   <article
@@ -515,12 +535,12 @@ export default function GenealogyPage() {
           <div className="max-w-3xl">
             <p className="eyebrow mb-4">Research checkpoint · September 2026</p>
             <p className="font-serif text-2xl md:text-3xl leading-snug text-ink/80 text-balance mb-8">
-              I have a documented life for Benjamin, a plausible but unproved
-              bridge from Benjamin to George, several weakened parent
+              I have a documented life for Benjamin, a strong indirect but still
+              unproved bridge from Benjamin to George, several weakened parent
               candidates, and no proved parent above Benjamin. That is less tidy
               than the tree I began with—and much closer to the truth.
               <SourceFootnote
-                referenceIds={[18, 19, 20, 21, 22, 25, 26, 30, 33, 34]}
+                referenceIds={[18, 19, 20, 21, 22, 25, 26, 30, 33, 34, 59, 60]}
               />
             </p>
             <p className="leading-relaxed text-ink/60 max-w-2xl mb-8">
