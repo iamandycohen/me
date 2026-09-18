@@ -70,10 +70,10 @@ export const publicTree: PublicTreeNode[] = [
     period: 'Birth year disputed · died 1887',
     relationship: 'Third great-grandfather',
     summary:
-      'Four adult censuses and a descendant-held Bible say about 1810, while George’s marker says 1818. His marriage to Martha Reed is documented; the claim that Benjamin and Hannah were his parents is not.',
+      'Four adult censuses and a descendant-held Bible say about 1810, while George’s marker says 1818. A newly reviewed uncle relationship provides strong indirect support for placing him in Benjamin’s family, but no record directly names his parents.',
     status: 'review',
-    statusLabel: 'Parentage under review',
-    referenceIds: [25, 26, 30, 32, 33, 34, 58],
+    statusLabel: 'Strong indirect evidence · unproved',
+    referenceIds: [25, 26, 30, 32, 33, 34, 58, 59, 60],
     connectionToNext: 'review',
   },
   {
@@ -82,10 +82,10 @@ export const publicTree: PublicTreeNode[] = [
     period: 'Born about 1776 · living in 1850',
     relationship: 'Claimed fourth great-grandfather',
     summary:
-      'Benjamin’s 1801 marriage to Hannah Doom and his Kentucky-to-Missouri migration are supported by original records. His own life is documented; his relationship to George is not.',
+      'Benjamin’s own life is documented. A 1900 uncle relationship combined with a 1919 parent report now provides strong indirect evidence connecting him to George, but no reviewed record directly states that George was his son.',
     status: 'review',
-    statusLabel: 'Relationship unproved',
-    referenceIds: [1, 2, 11, 13, 23, 25],
+    statusLabel: 'Strong indirect evidence · unproved',
+    referenceIds: [1, 2, 11, 13, 23, 25, 33, 59, 60],
     connectionToNext: 'review',
   },
   {
@@ -207,10 +207,10 @@ export const researchThreads = [
   {
     name: 'Benjamin as George’s father',
     category: 'Relationship hypothesis',
-    status: 'Plausible, not proved',
+    status: 'Strong indirect evidence · not proved',
     detail:
-      'George and Benjamin share a coherent Kentucky-to-Missouri pattern, but no reviewed record calls George a son or heir. Four adult censuses and a descendant-held Bible say 1810; his marker says 1818. The earlier chronology keeps the household-slot theory plausible without proving it.',
-    referenceIds: [1, 25, 26, 30, 33, 34],
+      'A 1900 census calls elder James L. Meason the uncle of George’s strongly identified son James R.; elder James’s 1919 death certificate names Benjamin Meason as his father. That is strong indirect support for George belonging to Benjamin’s family, but “uncle” does not identify the exact side or type of relationship, and no reviewed record literally calls George Benjamin’s son or heir.',
+    referenceIds: [33, 59, 60],
   },
   {
     name: 'Thomas Meason senior',
@@ -255,10 +255,10 @@ export const researchThreads = [
   {
     name: 'The elder James Lawrence Meason',
     category: 'Identity lead',
-    status: 'Connection unproved',
+    status: 'Kinship cluster strengthened · deed identity open',
     detail:
-      'A 1919 Texas death certificate names Benjamin Meason as the father of an older James Lawrence Meason. An 1855 Monroe County deed also names a James L. Meason alongside George M. Meason. I have not yet established that these two James records describe the same man, and neither record states that James and George were brothers. This is a lead to test, not a new person or connection in the tree.',
-    referenceIds: [28, 59],
+      'A 1900 census places elder James L. Meason in James R. Meason’s household and explicitly calls him uncle. James R. and Eva strongly continue George’s son and daughter-in-law, and elder James’s 1919 death certificate names Benjamin as his father. The indirect family case is now much stronger, but I have not proved that elder James was George’s brother or the James L. named beside George in an 1855 deed. He remains evidence about the disputed edge, not a new tree connection.',
+    referenceIds: [28, 33, 59, 60],
   },
 ];
 
@@ -343,6 +343,14 @@ export const evidenceLedger = [
     referenceIds: [56, 57, 58],
   },
   {
+    record: '1900 uncle census and 1919 death certificate',
+    establishes:
+      'The 1900 census calls elder James L. Meason the uncle of James R. Meason, who strongly matches George’s son; the elder James’s 1919 certificate names Benjamin Meason as his father.',
+    limit:
+      'The census does not specify the side or type of uncle relationship, and neither record literally calls elder James George’s brother or George Benjamin’s son. His identity as the James L. in the 1855 Monroe County deed remains unproved.',
+    referenceIds: [28, 33, 59, 60],
+  },
+  {
     record: 'What the public trees cite',
     establishes:
       'The disputed relationships are widely repeated: all 25 sampled George profiles named Benjamin and Hannah, and all ten sampled Thomas profiles attached Benjamin.',
@@ -381,6 +389,12 @@ export const researchBlockers = [
 
 export const nextResearchSteps = [
   {
+    title: 'Test the elder James identity',
+    detail:
+      'I am looking for elder James in the 1910 census, a 1919 obituary or probate record, and the title chain for the Section 11 land associated with James L. Meason in 1855. Those records may clarify whether the Texas elder was George’s brother and whether he was the same James L. named beside George in Missouri.',
+    referenceIds: [28, 59, 60],
+  },
+  {
     title: 'Await Benjamin’s Missouri estate records',
     detail:
       'I submitted separate Missouri Archives requests for Benjamin’s full recorded will and his connected estate proceedings. Both are awaiting a response; the next step is to review the returned records, not send duplicate requests.',
@@ -409,11 +423,11 @@ export const latestResearchUpdates = [
     referenceIds: [56, 57, 58],
   },
   {
-    status: 'Identity lead',
-    title: 'An elder James may belong to the same family cluster',
+    status: 'Strong indirect evidence',
+    title: 'A census now states the elder James relationship',
     detail:
-      'A 1919 certificate names Benjamin Meason as the father of an elder James Lawrence Meason, while an 1855 deed names a James L. Meason beside George. I still need evidence that the two James records identify the same man and that he was related to George.',
-    referenceIds: [28, 59],
+      'The 1900 census calls elder James L. Meason the uncle of James R. Meason, who strongly matches George’s son. Elder James’s 1919 certificate names Benjamin as his father. Together they materially strengthen the George-to-Benjamin case without directly proving it; the 1855 deed identity remains open.',
+    referenceIds: [28, 33, 59, 60],
   },
   {
     status: 'Requests pending',

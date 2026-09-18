@@ -28,8 +28,8 @@ export default function GenealogyTreePage() {
               </h1>
               <p className="text-xl md:text-2xl font-serif leading-relaxed text-ink/75 text-balance max-w-3xl">
                 A public view of the Meason line—showing what is established,
-                what remains a family hypothesis, and the two places where the
-                records stop supporting another relationship.
+                what remains a family hypothesis, and the two relationships that
+                remain unproved.
               </p>
               <p className="mt-5 text-xs uppercase tracking-[0.16em] text-ink/45">
                 Updated · September 18, 2026
@@ -64,9 +64,10 @@ export default function GenealogyTreePage() {
                 The larger cards form one continuous Meason spine. Smaller
                 connected cards show the spouses who join that direct line.
                 Solid connections represent relationships I can support. One
-                dashed connection marks the still-unproved relationship between
-                George M. Meason and Benjamin; the second marks the unknown
-                identities of Benjamin&apos;s parents.
+                dashed connection marks the relationship between George M.
+                Meason and Benjamin, now supported by strong indirect evidence
+                but still unproved; the second marks the unknown identities of
+                Benjamin&apos;s parents.
               </p>
               <p className="text-sm leading-relaxed text-ink/50">
                 This is the direct line as I currently understand it, not every
@@ -88,6 +89,15 @@ export default function GenealogyTreePage() {
                 certificate records his name as Frank; the longer Franklin form
                 comes from family material and remains labeled accordingly.
                 <SourceFootnote referenceIds={[56, 57, 58]} />
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-ink/50">
+                A 1900 census also calls elder James L. Meason the uncle of
+                George&apos;s strongly identified son James R. Elder
+                James&apos;s 1919 death certificate names Benjamin as his
+                father. That makes the dashed George-to-Benjamin connection a
+                strong indirect case, but the records do not literally name
+                George as elder James&apos;s brother or Benjamin&apos;s son.
+                <SourceFootnote referenceIds={[33, 59, 60]} />
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
                 Working family portraits now accompany me, Cindee, Jimmy, James
@@ -119,14 +129,15 @@ export default function GenealogyTreePage() {
             <div className="md:col-span-8">
               <p className="font-serif text-2xl md:text-3xl leading-snug text-ink/80 text-balance mb-5">
                 Benjamin&apos;s life is documented. His place in my direct line
-                is still being tested.
+                now has strong indirect support—and is still being tested.
               </p>
               <p className="leading-relaxed text-ink/60 mb-6">
-                Before adding a parent above Benjamin, I first need the estate
-                or deed evidence that can test or establish his claimed
-                relationship to George. Beyond that edge, any future parent must
-                also be distinguished from the other Thomas, William, Joseph,
-                Mason, and Meason identities found in the same records.
+                Before treating the George-to-Benjamin edge as proved, I still
+                need the estate, deed, probate, or other evidence that directly
+                states or independently closes the relationship. Beyond that
+                edge, any future parent must also be distinguished from the
+                other Thomas, William, Joseph, Mason, and Meason identities
+                found in the same records.
               </p>
               <Link href="/genealogy#investigation" className="btn-primary">
                 See the Benjamin investigation
