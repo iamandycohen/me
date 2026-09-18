@@ -82,8 +82,9 @@ export default function GenealogyTreePage() {
                 Working family portraits now accompany me, Cindee, Jimmy, James
                 and Mary, and Franklin; the historical portraits link to their
                 provenance notes. Jimmy&apos;s complete senior-year entry
-                remains below his cleaner studio portrait. Initialed circles
-                still mark people for whom a suitable likeness is not available.
+                remains below his cleaner studio portrait, alongside a family
+                wedding photograph of Jimmy and Julie. Initialed circles still
+                mark people for whom a suitable likeness is not available.
                 George&apos;s marker and Benjamin&apos;s signed record remain
                 clearly labeled as evidence rather than portraits.
               </p>

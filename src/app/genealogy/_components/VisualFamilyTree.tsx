@@ -17,6 +17,7 @@ interface Person {
     label: string;
     caption: string;
     fit?: 'cover' | 'contain';
+    aspect?: 'landscape' | 'portrait';
     referenceId?: number;
   };
 }
@@ -153,6 +154,16 @@ const lineageGenerations: LineageGeneration[] = [
       name: 'Julie Ann Lipke',
       detail: 'Family lineage',
       status: 'Spouse · direct ancestor',
+      evidenceImage: {
+        src: '/genealogy/people/jimmy-meason-julie-ann-lipke-wedding.jpg',
+        alt: 'Wedding portrait attributed to James Lawrence “Jimmy” Meason and Julie Ann Lipke',
+        label: 'Family wedding portrait',
+        caption:
+          'This family-held photograph is identified as Jimmy Meason and Julie Ann Lipke on their wedding day. The date, place, and original photographer are still being documented.',
+        fit: 'contain',
+        aspect: 'portrait',
+        referenceId: 46,
+      },
     },
   },
   {
@@ -314,7 +325,13 @@ function PersonCard({
             rel="noreferrer"
             className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
-            <div className="relative aspect-[4/3] overflow-hidden bg-[#e9e3d9]">
+            <div
+              className={`relative overflow-hidden bg-[#e9e3d9] ${
+                person.evidenceImage.aspect === 'portrait'
+                  ? 'aspect-[4/5]'
+                  : 'aspect-[4/3]'
+              }`}
+            >
               <Image
                 src={person.evidenceImage.src}
                 alt={person.evidenceImage.alt}

@@ -528,4 +528,14 @@ export const genealogyReferences: GenealogyReference[] = [
     url: 'https://files.shsmo.org/research/newspapers/counties/Monroe.pdf',
     accessLabel: 'Open official holdings list',
   },
+  {
+    id: 46,
+    title: 'James Lawrence “Jimmy” Meason and Julie Ann Lipke wedding portrait',
+    citation:
+      'Family photograph supplied by the author under the filename “james and julie ann lipke.JPG”; digital copy reviewed 17 September 2026.',
+    supports:
+      'Provides a working identification of James Lawrence “Jimmy” Meason and Julie Ann Lipke together on their wedding day; the attribution agrees with the family-tree media title “Jimmy and Julie wedding.”',
+    limitation:
+      'The wedding date and place, photographer, original custodian, and independent identification of both likenesses remain to be documented.',
+  },
 ];
