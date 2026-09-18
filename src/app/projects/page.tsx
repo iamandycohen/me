@@ -9,12 +9,12 @@ const displayName = getDisplayName(data.contact);
 
 export const metadata = generatePageMetadata(
   'Projects',
-  `Software, games, and hands-on engineering projects by ${data.contact.name}.`,
+  `Software, research, games, and hands-on projects by ${data.contact.name}.`,
   data.contact,
   {
     openGraph: {
       title: `${displayName}'s Projects — Curiosity, Made Tangible`,
-      description: `Software, games, and hands-on engineering projects by ${data.contact.name}.`,
+      description: `Software, research, games, and hands-on projects by ${data.contact.name}.`,
       images: [
         {
           url: '/wopr-terminal.png',
@@ -102,10 +102,16 @@ export default function Projects() {
                   ))}
                 </ul>
 
-                {(project.liveUrl ||
+                {(project.pageUrl ||
+                  project.liveUrl ||
                   project.sourceUrl ||
                   project.archiveUrl) && (
                   <div className="flex flex-wrap gap-3 mt-8">
+                    {project.pageUrl && (
+                      <Link href={project.pageUrl} className="btn-primary">
+                        {project.pageCta ?? 'Explore project'}
+                      </Link>
+                    )}
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
