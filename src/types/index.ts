@@ -37,6 +37,8 @@ export interface Project {
   image: string;
   imageAlt: string;
   imageFit?: 'cover' | 'contain';
+  pageUrl?: string;
+  pageCta?: string;
   liveUrl?: string;
   sourceUrl?: string;
   archiveUrl?: string;

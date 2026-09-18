@@ -194,10 +194,28 @@
   "projectsPage": {
     "eyebrow": "Things I build",
     "title": "Curiosity, made tangible.",
-    "introduction": "From software and interactive worlds to physical spaces, these are projects I built because I wanted to see what was possible.",
+    "introduction": "From software and interactive worlds to historical research and physical spaces, these are projects I built because I wanted to understand what was possible.",
     "philosophy": "Whether it’s a cloud platform, a browser game, or a treehouse, the mindset is the same: stay curious, understand the system, and build something that lasts."
   },
   "projects": [
+    {
+      "title": "The Meason Genealogy Project",
+      "period": "Ongoing · 2026",
+      "description": "I was born Shannon Jeremiah Meason and adopted into the Cohen family. This project traces my biological Meason line through original records, family photographs, and carefully labeled uncertainty—while exploring why that history has mattered to me for as long as I can remember.",
+      "image": "/genealogy/evidence/benjamin-meason-1802-guardian-bond.jpg",
+      "imageAlt": "The 1802 Nelson County guardian bond carrying Benjamin Meason’s signature",
+      "imageFit": "cover",
+      "pageUrl": "/genealogy",
+      "pageCta": "Explore the genealogy project",
+      "highlightsLabel": "Research and presentation",
+      "highlights": [
+        "Reconciles inherited family-tree claims against wills, deeds, bonds, censuses, church minutes, land records, and other original sources",
+        "Separates documented facts, family traditions, disputed claims, bounded negative searches, and records that remain inaccessible",
+        "Maintains a privacy-conscious boundary between the private research archive and the curated public story",
+        "Presents the direct line through an interactive visual tree, ancestor photographs, evidence notes, and 52 detailed references",
+        "Centers the unresolved frontier: whether George M. Meason was Benjamin Meason’s son and who Benjamin’s parents were"
+      ]
+    },
     {
       "title": "WOPR Terminal",
       "period": "Sep 2026",
