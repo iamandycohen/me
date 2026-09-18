@@ -357,11 +357,12 @@ export default function GenealogyPage() {
                   <SourceFootnote referenceIds={[25, 26, 30, 33, 34]} />
                 </p>
                 <p className="mt-5 leading-relaxed text-paper/60">
-                  A newer naming clue adds context without closing either edge:
-                  George and Martha&apos;s son was known as B. T. and
-                  &ldquo;Uncle Ben.&rdquo; Family tradition expands the T as
-                  Thomas, but the reviewed contemporary sources do not.
-                  <SourceFootnote referenceIds={[53, 54]} />
+                  A newly reviewed original death certificate spells out
+                  Benjamin Thomas Meason and names Geo M Meason and Martha Reid
+                  as his parents. That resolves the full-name question and
+                  strengthens his placement in their family—but it does not
+                  identify the namesake or close either open ancestral edge.
+                  <SourceFootnote referenceIds={[53, 55]} />
                 </p>
               </aside>
               <div className="grid gap-px border border-paper/15 bg-paper/15 sm:grid-cols-2">

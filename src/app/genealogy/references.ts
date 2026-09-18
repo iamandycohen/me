@@ -626,4 +626,16 @@ export const genealogyReferences: GenealogyReference[] = [
     limitation:
       'The imported person cites only member trees, and the underlying county-history page has not been reviewed. The media title may be an uploader’s expansion. Even a contemporary Thomas expansion would not identify the intended honoree or prove either disputed ancestral edge.',
   },
+  {
+    id: 55,
+    title: 'Benjamin Thomas Meason 1940 Texas death certificate',
+    citation:
+      'Texas Department of Health, Bureau of Vital Statistics, standard certificate of death no. 14422, Benjamin Thomas Meason, 12 March 1940, Hardeman County; FamilySearch image group 005144961, image 556 of 3537.',
+    supports:
+      'The original certificate spells out Benjamin Thomas Meason, gives his birth as 8 July 1857 in Missouri, and names his parents as Geo M Meason and Martha Reid. His daughter Mrs. L. P. Glover was the informant.',
+    limitation:
+      'The parentage fields are direct statements in an original official record, but the information is secondary because the daughter did not witness the 1857 birth. The certificate does not identify whom Thomas honored or establish either disputed ancestral relationship above George.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:33S7-9B9Z-QTS1?view=index',
+    accessLabel: 'Open the original death certificate',
+  },
 ];

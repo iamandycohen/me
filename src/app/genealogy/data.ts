@@ -241,12 +241,12 @@ export const researchThreads = [
     referenceIds: [18, 19, 22],
   },
   {
-    name: 'B. T. “Uncle Ben” Meason',
+    name: 'Benjamin Thomas “Uncle Ben” Meason',
     category: 'Naming clue',
-    status: 'Moderate indirect clue',
+    status: 'Record-grounded indirect clue',
     detail:
-      'George and Martha’s youngest recorded child appears in contemporary sources as B. T. and “Uncle Ben,” strongly supporting Benjamin as his first name. Inherited family tradition expands T as Thomas, and James Reed Meason shows that a relational middle name was possible in the family. No independently reviewed contemporary record spells out Thomas; even if correct, the name cannot prove either disputed relationship or identify a particular Thomas.',
-    referenceIds: [33, 53, 54],
+      'An original 1940 Texas death certificate spells out Benjamin Thomas Meason and names his parents as Geo M Meason and Martha Reid; his daughter Mrs. L. P. Glover was the informant. The record resolves the full-name question and strongly corroborates his placement in George and Martha’s family. The paired name remains only an indirect clue: it does not reveal whom Thomas honored or prove either disputed ancestral relationship.',
+    referenceIds: [33, 53, 55],
   },
 ];
 
@@ -313,6 +313,14 @@ export const evidenceLedger = [
     limit:
       'None of these sources names George’s parents. The Bible lacks a title page and ownership chain, and the marker’s informant and erection date are unknown.',
     referenceIds: [25, 26, 33, 34],
+  },
+  {
+    record: 'Benjamin Thomas Meason death certificate',
+    establishes:
+      'The original 1940 Texas certificate spells out Benjamin Thomas Meason and explicitly names Geo M Meason and Martha Reid as his parents.',
+    limit:
+      'His daughter supplied the biographical information decades after his birth. The certificate does not name George’s parents, identify a Thomas namesake, or prove either disputed ancestral edge.',
+    referenceIds: [55],
   },
   {
     record: 'Public-tree citation audit',
