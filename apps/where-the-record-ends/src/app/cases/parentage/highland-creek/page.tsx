@@ -74,7 +74,7 @@ export default function HighlandCreekPage() {
           <ArrowLink href="/cases/parentage">
             Return to the parentage case
           </ArrowLink>
-          <ArrowLink href="/cases">All open cases</ArrowLink>
+          <ArrowLink href="/cases">All research cases</ArrowLink>
         </div>
       </nav>
     </>

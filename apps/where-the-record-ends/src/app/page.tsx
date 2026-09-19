@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const paths = [
   {
     number: '01',
-    title: 'The family atlas',
+    title: 'The family tree & atlas',
     description:
       'Trace the reviewed direct line while seeing which connections are documented and which rest on an evidence assessment.',
     href: '/family',
@@ -22,7 +22,7 @@ const paths = [
   },
   {
     number: '02',
-    title: 'Open cases',
+    title: 'Research cases',
     description:
       'Enter the questions that remain alive, the explanations being tested, and the records that could change the conclusion.',
     href: '/cases',
@@ -100,8 +100,11 @@ export default function HomePage() {
                 href="/family"
                 className="rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
               >
-                Begin with the family
+                Begin with the family atlas
               </Link>
+              <ArrowLink href="/cases/parentage/highland-creek">
+                Explore Highland Creek
+              </ArrowLink>
               <ArrowLink href="/stories/migration">
                 Follow seven generations west
               </ArrowLink>
@@ -148,6 +151,40 @@ export default function HomePage() {
             <p className="absolute right-[2%] top-[3%] -rotate-3 rounded-full border border-ink/15 bg-paper/90 px-4 py-2 text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-ink/55 shadow-sm backdrop-blur">
               Kentucky → Texas
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="border-b border-ink/10 bg-[#ece3d7]/55 px-5 py-12 sm:px-8 md:py-16"
+        aria-labelledby="featured-highland-creek"
+      >
+        <div className="mx-auto grid max-w-[92rem] gap-7 rounded-[2rem] border border-ink/10 bg-cream p-7 shadow-paper sm:p-10 lg:grid-cols-[minmax(0,1fr)_minmax(19rem,0.45fr)] lg:items-end">
+          <div className="max-w-4xl">
+            <p className="eyebrow">Featured investigation</p>
+            <h2
+              id="featured-highland-creek"
+              className="balanced mt-4 font-serif text-4xl leading-tight sm:text-6xl"
+            >
+              The thousand acres on Highland Creek
+            </h2>
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-ink/65">
+              Follow one Kentucky tract through its title chain, meet every heir
+              named in the deeds, and see where the records support a family
+              connection—and where the proposed tree still remains a hypothesis.
+            </p>
+          </div>
+          <div className="flex flex-col items-start gap-4 lg:items-end">
+            <Link
+              href="/cases/parentage/highland-creek"
+              className="inline-flex w-fit items-center gap-3 rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            >
+              Open the Highland Creek reconstruction
+              <span aria-hidden="true">→</span>
+            </Link>
+            <ArrowLink href="/cases/parentage">
+              Read the larger parentage case
+            </ArrowLink>
           </div>
         </div>
       </section>
@@ -370,7 +407,7 @@ export default function HomePage() {
             href="/cases"
             className="inline-flex w-fit items-center gap-3 rounded-full border border-ink/15 px-6 py-3 text-sm font-medium transition-colors hover:border-accent hover:bg-accent hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
           >
-            Enter the open cases <span aria-hidden="true">→</span>
+            Explore the research cases <span aria-hidden="true">→</span>
           </Link>
         </div>
       </section>

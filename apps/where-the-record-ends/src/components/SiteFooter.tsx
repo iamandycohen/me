@@ -17,7 +17,13 @@ export function SiteFooter() {
               Family atlas
             </Link>
             <Link className="transition-colors hover:text-paper" href="/cases">
-              Open cases
+              Research cases
+            </Link>
+            <Link
+              className="transition-colors hover:text-paper"
+              href="/cases/parentage/highland-creek"
+            >
+              Highland Creek
             </Link>
             <Link
               className="transition-colors hover:text-paper"

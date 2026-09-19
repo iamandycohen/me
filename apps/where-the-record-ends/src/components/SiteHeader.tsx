@@ -1,8 +1,9 @@
 import Link from 'next/link';
 
 const navigation = [
-  ['Family', '/family'],
-  ['Cases', '/cases'],
+  ['Family atlas', '/family'],
+  ['Research cases', '/cases'],
+  ['Highland Creek', '/cases/parentage/highland-creek'],
   ['Stories', '/stories'],
   ['Sources', '/sources'],
   ['About', '/about'],
@@ -17,7 +18,7 @@ export function SiteHeader() {
       >
         Skip to content
       </a>
-      <div className="mx-auto flex max-w-[92rem] flex-col gap-4 px-5 py-4 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mx-auto flex max-w-[92rem] flex-col gap-4 px-5 py-4 sm:px-8 xl:flex-row xl:items-center xl:justify-between">
         <Link
           href="/"
           className="group flex max-w-fit items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
@@ -34,7 +35,7 @@ export function SiteHeader() {
           </span>
         </Link>
         <nav aria-label="Primary navigation">
-          <ul className="flex flex-wrap gap-x-1 gap-y-1 text-[0.82rem] text-ink/65 lg:justify-end">
+          <ul className="flex flex-wrap gap-x-1 gap-y-1 text-[0.82rem] text-ink/65 xl:justify-end">
             {navigation.map(([label, href]) => (
               <li key={href}>
                 <Link
