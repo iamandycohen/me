@@ -270,9 +270,9 @@ export const genealogyReferences: GenealogyReference[] = [
     citation:
       'Monroe County, Missouri, Will Books A–B, 1832–1870; FamilySearch catalog 94979, FHL film 972876, DGS 7831818; Missouri Archives reel C 4667.',
     supports:
-      'The exact volume, film, digital group, and archive-reel route for Monroe County wills covering the period after Benjamin’s 1850 census appearance.',
+      'The catalog work identified a Monroe County will-book route for the period after Benjamin’s 1850 census appearance and helped guide the later recovery of his recorded will in a different FamilySearch image group.',
     limitation:
-      'The images and full text are restricted to a FamilySearch Center or affiliate library. No Benjamin entry, will contents, or death date has yet been verified from this volume.',
+      'This locator did not itself establish a Benjamin entry or any will contents. The recorded will has since been reviewed separately and is cited in reference 65; the complete estate remains unfinished.',
     url: 'https://www.familysearch.org/en/search/catalog/94979',
     accessLabel: 'Open catalog entry',
   },
@@ -318,9 +318,9 @@ export const genealogyReferences: GenealogyReference[] = [
     citation:
       '“Benjamin Meason 1776,” Meason Grampas family compilation, reporting a will written 19 August 1853 and recorded 25 January 1854.',
     supports:
-      'A research lead that Benjamin requested burial beside Hannah in a reserved square on a Monroe County farm devised to James S. Meason.',
+      'A derivative research lead that pointed toward a reserved burial square on a Monroe County farm devised to James S. Meason and helped focus the original-record search.',
     limitation:
-      'This is a derivative family account, not the original will. The wording, devise, farm, cemetery name, grave location, and dates remain unverified.',
+      'This is a derivative family account, not the controlling source. The recorded will and probate order in reference 65 now verify the devise and burial reservation while correcting the reported signing and recording dates; the cemetery location and complete farm chain remain unresolved.',
     url: 'https://measongrampas.yolasite.com/benjamin-1776.php',
     accessLabel: 'Open derivative account',
   },
@@ -344,7 +344,7 @@ export const genealogyReferences: GenealogyReference[] = [
     supports:
       'Later ownership labels for the two forty-acre halves of Benjamin’s proved 1835 patent tract in the Woodlawn area.',
     limitation:
-      'The plat does not establish that this was the farm described in the reported will, show the 1853 title chain, or prove the presence or absence of a burial ground.',
+      'The plat does not establish that this was the farm described in the recorded will, show the 1853 title chain, or prove the presence or absence of a burial ground.',
     url: 'https://digital.shsmo.org/digital/collection/plat/id/3370/rec/1',
     accessLabel: 'Open historical plat',
   },
@@ -600,9 +600,9 @@ export const genealogyReferences: GenealogyReference[] = [
     citation:
       'My research log, 17 September 2026, recording two Missouri Archives requests and one Nelson County Genealogical Roundtable article request.',
     supports:
-      'Documents that I submitted requests for the will, the broader estate file, and the Mill Creek article, and that I was awaiting responses at this checkpoint.',
+      'Documents that I submitted requests for the will, the broader estate file, and the Mill Creek article and was awaiting responses at that research checkpoint.',
     limitation:
-      'Confirmation numbers, receipt messages, exact submission times, fees, and recipient responses were not preserved in the reviewed research log. Submission does not establish that any requested record exists or will answer the relationship questions.',
+      'This is a historical workflow record, not current evidence status. The recorded will was later recovered independently and is cited in reference 65; the complete estate and Mill Creek article remain outstanding. Submission did not establish that any requested record existed or would answer a relationship question.',
   },
   {
     id: 53,
@@ -746,5 +746,53 @@ export const genealogyReferences: GenealogyReference[] = [
       'The schedule does not name or locate the sawmill, establish legal ownership beyond the stated occupation, or prove that this was the elder James living in Texas in 1900 and 1919. Its single status conflicts with the 1900 census’s widowed entry, and the Missouri-to-Texas migration remains undocumented. I link to the provider rather than reproduce the privately preserved image.',
     url: 'https://www.ancestry.com/imageviewer/collections/6742/images/4242025-00559?pId=25450172',
     accessLabel: 'Open the census image at Ancestry',
+  },
+  {
+    id: 65,
+    title: 'Benjamin Meason’s recorded will and probate order',
+    citation:
+      'Monroe County, Missouri, recorded will-book copy, manuscript pp. 557–558; will dated 17 August 1853 and proved and recorded 7 September 1853; FamilySearch DGS 7646958, image 673.',
+    supports:
+      'The will directly names son James S. Meason and daughters Virginia Ann Hollingsworth and Emily Jane Meason. It gives James the farm and most personal property subject to debts and distributions, gives the daughters household bequests, adds silverware and a saddle horse for Emily, appoints James sole executor, and reserves forever a seventy-foot-square family burial ground containing Benjamin’s wife’s remains. The attached court order establishes probate and recording on 7 September 1853.',
+    limitation:
+      'This is a contemporary recorded will-book copy and probate order, not the surviving loose original. The recorded “B. Meason” signature is therefore not a verified autograph. A will need not name every child, so the omission of Laura, George, James L., or others does not exclude them; it also does not identify Benjamin’s wife or parents.',
+    url: 'https://www.familysearch.org/search/film/007646958',
+    accessLabel: 'Open FamilySearch film',
+  },
+  {
+    id: 66,
+    title: 'Meason Family Cemetery survey',
+    citation:
+      'Missouri DAR and cemetery records, typescript p. 102, “III. Meason Family Cemetery”; FamilySearch DGS 8218733, image 480.',
+    supports:
+      'The later survey names Hannah Doom Meason and Benjamin Meason, records Benjamin as having died in 1853, and places the cemetery in the northeast corner of the southeast quarter of the southeast quarter of Section 20, Township 55, Range 10. Read with the will’s reserved burial square, it strongly supports a shared family burial place.',
+    limitation:
+      'This is a derivative typescript survey, not a contemporary burial register or marker photograph; the page gives no survey date, compiler, coordinates, or inscription detail. Its Range 10 description conflicts with Benjamin’s known Section 20 patent in Range 11, so it does not prove that the patent tract was the burial farm or support a precise modern map pin.',
+    url: 'https://www.familysearch.org/search/film/008218733',
+    accessLabel: 'Open FamilySearch film',
+  },
+  {
+    id: 67,
+    title: 'Benjamin Meason conveys his interest as Joseph Meason’s heir',
+    citation:
+      'Union County, Kentucky, deed book, manuscript pp. 106–108; instrument dated and acknowledged 7 July 1813 and recorded 28 September 1813; FamilySearch DGS 8573278, images 72–73.',
+    supports:
+      'The recorded deed directly calls Benjamin Meason of Nelson County “one of the heirs at law” of Joseph Meason deceased and conveys Benjamin’s undivided interest in Joseph’s 1,000-acre Highland Creek tract to James Meason of Claiborne County, Mississippi Territory.',
+    limitation:
+      '“Heir at law” does not mean “son.” Benjamin could have inherited through a child, sibling, or another statutory branch. The deed does not name his father or mother, state his precise relationship to Joseph, or authorize placing Joseph above him in the tree.',
+    url: 'https://www.familysearch.org/search/film/008573278',
+    accessLabel: 'Open FamilySearch film',
+  },
+  {
+    id: 68,
+    title: 'Joseph Meason’s brothers and collateral heirs',
+    citation:
+      'Union County, Kentucky, deed book, manuscript pp. 111–115; instrument dated 14 May 1813, acknowledged in Fairfield County, Ohio, 1 June 1813, and recorded 28 September 1813; FamilySearch DGS 8573278, images 74–76.',
+    supports:
+      'The deed identifies John and Samuel Mason as brothers of Joseph Mason and names children of both brothers among Joseph’s heirs at law. The sibling names and the neighboring heir deeds strongly associate this Joseph with the family named in Thomas Meason senior’s 1779 will and show that Joseph’s estate passed through collateral branches.',
+    limitation:
+      'The deed does not name Benjamin, identify Thomas Meason senior as Joseph’s father, or assign Benjamin to John, Samuel, Thomas, or any other sibling branch. It makes Thomas born in 1755 a serious candidate father, not a proved or uniquely selected one.',
+    url: 'https://www.familysearch.org/search/film/008573278',
+    accessLabel: 'Open FamilySearch film',
   },
 ];

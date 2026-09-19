@@ -10,10 +10,10 @@ import data from '@/lib/data';
 
 const genealogyHighlights = [
   {
-    marker: '35 profiles audited',
-    title: 'Repetition is not independent proof',
+    marker: '1813 · Union County',
+    title: 'A deed places Benjamin inside an earlier family',
     detail:
-      'Twenty-five George profiles and ten Thomas profiles repeated the disputed relationships without exposing a record that stated either one.',
+      'Benjamin conveyed land as an heir at law of Joseph Meason. An adjacent deed proves that Joseph’s nieces and nephews inherited too, so the record defines a family network without naming Benjamin’s father.',
   },
   {
     marker: '1810 / 1818',
