@@ -5,6 +5,10 @@ export { researchCases } from './cases.js';
 export { stories, storyChapters } from './stories.js';
 export { evidenceClusters } from './clusters.js';
 export {
+  genealogyReconstructions,
+  highlandCreekReconstruction,
+} from './reconstructions.js';
+export {
   media,
   mediaCatalog,
   personMediaIds,

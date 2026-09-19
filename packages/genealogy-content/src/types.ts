@@ -32,8 +32,8 @@ export type EvidenceClusterId =
   | 'texas-records';
 export type MediaId =
   | 'kentucky-map-1818'
+  | 'highland-creek-map-1818'
   | 'ralls-map-1878'
-  | 'near-dallas-cotton-1907'
   | 'benjamin-bond'
   | 'george-marker'
   | 'franklin-home'
@@ -164,6 +164,71 @@ export interface EvidenceCluster {
   readonly publication: PublicationReview;
 }
 
+export type ReconstructionId = 'highland-creek';
+export type ReconstructionEvidenceState =
+  | 'recorded'
+  | 'identity-synthesis'
+  | 'hypothesis';
+
+export interface ReconstructionNode {
+  readonly id: string;
+  readonly label: string;
+  readonly detail: string;
+  readonly kind: 'person' | 'land';
+  readonly recordGroup: 'will-1779' | 'logan-1795' | 'highland-creek';
+  readonly referenceIds: readonly number[];
+}
+
+export interface ReconstructionEdge {
+  readonly id: string;
+  readonly from: string;
+  readonly to: string;
+  readonly relationship: string;
+  readonly evidenceState: ReconstructionEvidenceState;
+  readonly statement: string;
+  readonly limitation: string;
+  readonly referenceIds: readonly number[];
+}
+
+export interface ReconstructionTimelineEvent {
+  readonly id: string;
+  readonly date: string;
+  readonly title: string;
+  readonly detail: string;
+  readonly referenceIds: readonly number[];
+}
+
+export type DocumentRightsState = 'permission-required';
+
+export interface ReconstructionDocumentPage {
+  readonly id: string;
+  readonly sequence: number;
+  readonly locator: string;
+  readonly description: string;
+  readonly rightsState: DocumentRightsState;
+  readonly providerUrl: string;
+}
+
+export interface ReconstructionDocument {
+  readonly id: string;
+  readonly referenceId: number;
+  readonly title: string;
+  readonly pages: readonly ReconstructionDocumentPage[];
+}
+
+export interface GenealogyReconstruction {
+  readonly id: ReconstructionId;
+  readonly title: string;
+  readonly shortTitle: string;
+  readonly summary: string;
+  readonly boundary: string;
+  readonly nodes: readonly ReconstructionNode[];
+  readonly edges: readonly ReconstructionEdge[];
+  readonly timeline: readonly ReconstructionTimelineEvent[];
+  readonly documents: readonly ReconstructionDocument[];
+  readonly publication: PublicationReview;
+}
+
 export interface MediaProvenance {
   readonly sourcePage?: string;
   readonly rightsSourcePage?: string;
@@ -207,6 +272,7 @@ export interface PublicGenealogyContent {
   readonly researchCases: readonly ResearchCase[];
   readonly stories: readonly Story[];
   readonly clusters: readonly EvidenceCluster[];
+  readonly reconstructions: readonly GenealogyReconstruction[];
   readonly media: Readonly<Record<MediaId, PublicMedia>>;
 }
 

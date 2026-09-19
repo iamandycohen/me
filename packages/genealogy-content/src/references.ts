@@ -795,6 +795,54 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     url: 'https://www.familysearch.org/search/film/008573278',
     accessLabel: 'Open FamilySearch film',
   },
+  {
+    id: 69,
+    title: 'William Mason conveys his Highland Creek interest',
+    citation:
+      'Union County, Kentucky, Deed Book A, manuscript pp. 70–71; instrument dated 27 April 1811, acknowledged in Henderson County 15 May 1811, and recorded in Union County 19 August 1811; FamilySearch DGS 8573278, image 24.',
+    supports:
+      'William Mason of Ohio, expressly identified as a son of Thomas Mason deceased, conveyed his interest in the 200 Highland Creek acres to two Henderson County grantees, including Leonard Jones. The first surname is difficult in this image and is resolved as James C. Wardlow by the later case record.',
+    limitation:
+      'The deed confirms the Thomas-to-William relationship and extends the title chain, but it does not state Joseph’s relationship to Thomas or William and does not name Benjamin.',
+    url: 'https://www.familysearch.org/search/film/008573278',
+    accessLabel: 'Open FamilySearch film',
+  },
+  {
+    id: 70,
+    title: 'Wardlow and Jones v. Higgins ejectment abstract',
+    citation:
+      'George B. Simpson, Biography of Judge Peter Casey, his court, and contemporaries (1811–1812), printed p. 130; FamilySearch Digital Library item 103297, image 141; court entry dated 11 March 1812.',
+    supports:
+      'The derivative abstract identifies an ejectment involving Wardlow and Jones and 200 acres within Edmond Rice’s 1,000-acre patent, strongly matching William Mason’s Highland Creek title branch.',
+    limitation:
+      'This is a derivative abstract rather than the original case file. It does not print “Highland Creek,” resolve title, identify Higgins with the mapped mill, or add any kinship statement.',
+    url: 'https://www.familysearch.org/library/books/viewer/103297/?offset=0#page=141&viewer=picture',
+    accessLabel: 'Open the case abstract',
+  },
+  {
+    id: 71,
+    title: 'Munsell and Anderson’s 1818 Kentucky map',
+    citation:
+      'Luke Munsell and Hugh Anderson, A map of the State of Kentucky: from actual survey; also part of Indiana and Illinois (Frankfort, 1818), Copy 1; Library of Congress Geography and Map Division, control no. 75653132.',
+    supports:
+      'The contemporary map labels Highland Creek, Higgins’ Mill, Carthage, Mason’s Creek, and nearby western Kentucky geography.',
+    limitation:
+      'The map is geographic context, not a parcel survey. It does not prove that the mapped Higgins was the ejectment defendant, place either mill inside William’s 200 acres, or show a Mason residence.',
+    url: 'https://www.loc.gov/resource/g3950.ct003777a/',
+    accessLabel: 'Open the original map',
+  },
+  {
+    id: 72,
+    title: 'Union County Mason deed-index review, 1816–1835',
+    citation:
+      'Union County, Kentucky, grantor index E–N and grantee index I–S, complete Mason surname runs for 1816–1835; FamilySearch DGS 8193444, images 476–478, and DGS 8193441, images 185–188.',
+    supports:
+      'No responsive indexed Mason principal-party conveyance, partition, consolidation, release, commissioner deed, or backward recital tied to the Highland Creek tract was found in the reviewed period.',
+    limitation:
+      'This is a bounded principal-party index negative. It cannot exclude an unindexed or misfiled instrument, an incidental recital, a court proceeding, or a deed indexed only under another surname.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSLX-26K9',
+    accessLabel: 'Open the grantor index page',
+  },
 ];
 const publication = {
   status: 'published',

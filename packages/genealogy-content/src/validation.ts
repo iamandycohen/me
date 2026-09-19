@@ -3,6 +3,7 @@ import { evidenceClusters } from './clusters.js';
 import { caseMediaIds, media, personMediaIds, storyMediaIds } from './media.js';
 import { people } from './people.js';
 import { references } from './references.js';
+import { genealogyReconstructions } from './reconstructions.js';
 import { relationships } from './relationships.js';
 import { stories } from './stories.js';
 import type { PublicGenealogyContent, ValidationResult } from './types.js';
@@ -14,6 +15,7 @@ export const publicGenealogyContent: PublicGenealogyContent = {
   researchCases,
   stories,
   clusters: evidenceClusters,
+  reconstructions: genealogyReconstructions,
   media,
 };
 
@@ -57,6 +59,7 @@ export function validatePublicGenealogyContent(
     ['case', content.researchCases.map((item) => item.id)],
     ['story', content.stories.map((item) => item.id)],
     ['cluster', content.clusters.map((item) => item.id)],
+    ['reconstruction', content.reconstructions.map((item) => item.id)],
     ['media', Object.keys(content.media)],
   ] as const) {
     for (const duplicate of duplicateValues(values)) {
@@ -182,6 +185,97 @@ export function validatePublicGenealogyContent(
         errors.push(
           `Cluster ${cluster.id} link has missing to node ${link.to}`
         );
+    }
+  }
+
+  for (const reconstruction of content.reconstructions) {
+    validatePublication(
+      `Reconstruction ${reconstruction.id}`,
+      reconstruction.publication
+    );
+    const nodeIds = reconstruction.nodes.map((node) => node.id);
+    const nodeIdSet = new Set(nodeIds);
+    for (const duplicate of duplicateValues(nodeIds))
+      errors.push(
+        `Duplicate reconstruction node id: ${reconstruction.id}:${duplicate}`
+      );
+    for (const node of reconstruction.nodes)
+      validateReferences(
+        `Reconstruction node ${reconstruction.id}:${node.id}`,
+        node.referenceIds
+      );
+
+    for (const duplicate of duplicateValues(
+      reconstruction.edges.map((edge) => edge.id)
+    ))
+      errors.push(
+        `Duplicate reconstruction edge id: ${reconstruction.id}:${duplicate}`
+      );
+    for (const edge of reconstruction.edges) {
+      if (!nodeIdSet.has(edge.from))
+        errors.push(
+          `Reconstruction ${reconstruction.id} edge ${edge.id} has missing from node ${edge.from}`
+        );
+      if (!nodeIdSet.has(edge.to))
+        errors.push(
+          `Reconstruction ${reconstruction.id} edge ${edge.id} has missing to node ${edge.to}`
+        );
+      if (
+        !['recorded', 'identity-synthesis', 'hypothesis'].includes(
+          edge.evidenceState
+        )
+      )
+        errors.push(
+          `Reconstruction ${reconstruction.id} edge ${edge.id} has invalid evidence state ${edge.evidenceState}`
+        );
+      validateReferences(
+        `Reconstruction edge ${reconstruction.id}:${edge.id}`,
+        edge.referenceIds
+      );
+    }
+
+    for (const duplicate of duplicateValues(
+      reconstruction.timeline.map((event) => event.id)
+    ))
+      errors.push(
+        `Duplicate reconstruction timeline id: ${reconstruction.id}:${duplicate}`
+      );
+    for (const event of reconstruction.timeline)
+      validateReferences(
+        `Reconstruction timeline ${reconstruction.id}:${event.id}`,
+        event.referenceIds
+      );
+
+    for (const duplicate of duplicateValues(
+      reconstruction.documents.map((document) => document.id)
+    ))
+      errors.push(
+        `Duplicate reconstruction document id: ${reconstruction.id}:${duplicate}`
+      );
+    for (const document of reconstruction.documents) {
+      validateReferences(
+        `Reconstruction document ${reconstruction.id}:${document.id}`,
+        [document.referenceId]
+      );
+      const pageIds = document.pages.map((page) => page.id);
+      for (const duplicate of duplicateValues(pageIds))
+        errors.push(
+          `Duplicate reconstruction page id: ${reconstruction.id}:${document.id}:${duplicate}`
+        );
+      document.pages.forEach((page, index) => {
+        if (page.sequence !== index + 1)
+          errors.push(
+            `Reconstruction document ${document.id} has invalid page order at ${page.id}`
+          );
+        if (page.rightsState !== 'permission-required')
+          errors.push(
+            `Reconstruction document ${document.id} page ${page.id} has invalid rights state ${page.rightsState}`
+          );
+        if (textMissing(page.providerUrl))
+          errors.push(
+            `Reconstruction document ${document.id} page ${page.id} is missing providerUrl`
+          );
+      });
     }
   }
 
