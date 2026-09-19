@@ -2,7 +2,8 @@
 
 > Personal site of Andy Cohen. Founding Architect of Sitecore XM Cloud. Currently Head of AI and Agentic Experience at Kajoo + TechGuilds.
 
-A minimal, editorial Next.js portfolio. Content-first.
+A workspace containing the existing editorial personal site and the standalone
+**Where the Record Ends** genealogy publication.
 
 ## Stack
 
@@ -21,18 +22,29 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+The personal site intentionally remains at the repository root during the
+incremental migration. Run the genealogy application separately with:
+
+```bash
+npm run dev:genealogy
+```
+
 ## Scripts
 
-| Script                            | Description            |
-| --------------------------------- | ---------------------- |
-| `dev`                             | Run Next.js dev server |
-| `build`                           | Production build       |
-| `start`                           | Run production server  |
-| `lint` / `lint:fix`               | ESLint                 |
-| `type-check`                      | TypeScript check       |
-| `test` / `test:ci` / `test:watch` | Jest                   |
-| `validate`                        | Run type-check + lint  |
-| `setup:env`                       | Bootstrap `.env.local` |
+| Script                            | Description                           |
+| --------------------------------- | ------------------------------------- |
+| `dev`                             | Run Next.js dev server                |
+| `build`                           | Production build                      |
+| `start`                           | Run production server                 |
+| `lint` / `lint:fix`               | ESLint                                |
+| `type-check`                      | TypeScript check                      |
+| `test` / `test:ci` / `test:watch` | Jest                                  |
+| `validate`                        | Run type-check + lint                 |
+| `dev:genealogy`                   | Run the genealogy app                 |
+| `build:personal`                  | Build the personal app                |
+| `build:genealogy`                 | Build content and the genealogy app   |
+| `validate:workspace`              | Validate both apps and shared content |
+| `setup:env`                       | Bootstrap `.env.local`                |
 
 ## Environment
 
@@ -51,6 +63,10 @@ src/
   styles/         Global Tailwind + editorial typography
 content/
   data.json       Single source of truth for bio, resume, projects, community
+apps/
+  where-the-record-ends/  Independently deployable genealogy publication
+packages/
+  genealogy-content/      Reviewed public genealogy content and validation
 ```
 
 ## License

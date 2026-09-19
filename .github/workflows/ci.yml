@@ -27,17 +27,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run TypeScript type checking
-        run: npm run type-check
-
-      - name: Run ESLint
-        run: npm run lint
+      - name: Validate personal site, genealogy content, and genealogy app
+        run: npm run validate:workspace
 
       - name: Run tests
         run: npm run test:ci
 
-      - name: Build project
-        run: npm run build
+      - name: Build personal site
+        run: npm run build:personal
+
+      - name: Build genealogy site
+        run: npm run build:genealogy
 
       - name: Upload coverage to Codecov (Node 20 only)
         if: matrix.node-version == '20.x'

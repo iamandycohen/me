@@ -1,0 +1,216 @@
+export type PublicationStatus = 'published';
+export type PrivacyStatus = 'public';
+
+export interface PublicationReview {
+  readonly status: PublicationStatus;
+  readonly privacy: PrivacyStatus;
+  readonly reviewedOn: string;
+}
+
+export type PersonId =
+  | 'benjamin'
+  | 'george'
+  | 'franklin'
+  | 'james-1892'
+  | 'james-1934'
+  | 'cynthia'
+  | 'shannon';
+
+export type RelationshipId =
+  | 'benjamin-george'
+  | 'george-franklin'
+  | 'franklin-james-1892'
+  | 'james-1892-james-1934'
+  | 'james-1934-cynthia'
+  | 'cynthia-shannon';
+
+export type CaseId = 'parentage' | 'george-connection' | 'burial-ground';
+export type StoryId = 'migration' | 'between-lines' | 'texas-reconnection';
+export type EvidenceClusterId =
+  | 'kentucky-records'
+  | 'missouri-network'
+  | 'texas-records';
+export type MediaId =
+  | 'kentucky-map-1818'
+  | 'ralls-map-1878'
+  | 'near-dallas-cotton-1907'
+  | 'benjamin-bond'
+  | 'george-marker'
+  | 'franklin-home'
+  | 'james-1892-porch'
+  | 'jimmy-studio'
+  | 'cynthia-school'
+  | 'andy-headshot';
+
+export interface Person {
+  readonly id: PersonId;
+  readonly name: string;
+  readonly period: string;
+  readonly relation: string;
+  readonly place: string;
+  readonly summary: string;
+  readonly evidenceType: 'personal' | 'direct' | 'indirect' | 'family';
+  readonly assessment: 'documented' | 'high-confidence' | 'known';
+  readonly referenceIds: readonly number[];
+  readonly publication: PublicationReview;
+}
+
+export interface Relationship {
+  readonly id: RelationshipId;
+  readonly from: PersonId;
+  readonly to: PersonId;
+  readonly kind: 'parent-child';
+  readonly evidenceType: 'direct' | 'indirect' | 'family';
+  readonly assessment: 'documented' | 'high-confidence' | 'known';
+  readonly statement: string;
+  readonly support: readonly string[];
+  readonly limitation: string;
+  readonly referenceIds: readonly number[];
+  readonly publication: PublicationReview;
+}
+
+export interface Reference {
+  readonly id: number;
+  readonly title: string;
+  readonly citation: string;
+  readonly supports: string;
+  readonly limitation: string;
+  readonly url?: string;
+  readonly accessLabel?: string;
+  readonly publication: PublicationReview;
+}
+
+export interface EvidenceCard {
+  readonly id: string;
+  readonly eyebrow: string;
+  readonly title: string;
+  readonly detail: string;
+  readonly referenceIds: readonly number[];
+  readonly tone: 'record' | 'inference' | 'limit';
+}
+
+export interface CaseSection {
+  readonly id: string;
+  readonly label: string;
+  readonly heading: string;
+  readonly intro: string;
+  readonly cards: readonly EvidenceCard[];
+}
+
+export interface ResearchCase {
+  readonly id: CaseId;
+  readonly number: string;
+  readonly title: string;
+  readonly shortTitle: string;
+  readonly assessment: string;
+  readonly assessmentType: 'unresolved' | 'accepted' | 'conflicting';
+  readonly summary: string;
+  readonly known: string;
+  readonly unknown: string;
+  readonly relatedPersonIds: readonly PersonId[];
+  readonly referenceIds: readonly number[];
+  readonly sections: readonly CaseSection[];
+  readonly relatedStoryIds: readonly StoryId[];
+  readonly publication: PublicationReview;
+}
+
+export interface StoryEvent {
+  readonly id: string;
+  readonly year: string;
+  readonly place: string;
+  readonly record: string;
+  readonly interpretation: string;
+  readonly referenceIds: readonly number[];
+  readonly routeIndex: number;
+}
+
+export interface Story {
+  readonly id: StoryId;
+  readonly number: string;
+  readonly title: string;
+  readonly shortTitle: string;
+  readonly period: string;
+  readonly summary: string;
+  readonly routePlaces: readonly string[];
+  readonly events: readonly StoryEvent[];
+  readonly relatedCaseIds: readonly CaseId[];
+  readonly publication: PublicationReview;
+}
+
+export interface EvidenceClusterNode {
+  readonly id: string;
+  readonly label: string;
+  readonly detail: string;
+  readonly kind: 'person' | 'household' | 'land' | 'record' | 'work';
+  readonly referenceIds: readonly number[];
+}
+
+export interface EvidenceClusterLink {
+  readonly from: string;
+  readonly to: string;
+  readonly label: string;
+  readonly kind: 'documented' | 'context' | 'indirect';
+}
+
+export interface EvidenceCluster {
+  readonly id: EvidenceClusterId;
+  readonly title: string;
+  readonly place: string;
+  readonly period: string;
+  readonly summary: string;
+  readonly boundary: string;
+  readonly nodes: readonly EvidenceClusterNode[];
+  readonly links: readonly EvidenceClusterLink[];
+  readonly publication: PublicationReview;
+}
+
+export interface MediaProvenance {
+  readonly sourcePage?: string;
+  readonly rightsSourcePage?: string;
+  readonly creator?: string;
+  readonly collection: string;
+  readonly rightsStatement: string;
+  readonly credit: string;
+}
+
+export interface PublicMedia {
+  readonly id: MediaId;
+  readonly kind: 'portrait' | 'place' | 'document' | 'map' | 'marker';
+  readonly role: 'evidence' | 'context';
+  readonly src: string;
+  readonly width: number;
+  readonly height: number;
+  readonly alt: string;
+  readonly label: string;
+  readonly title: string;
+  readonly caption: string;
+  readonly limitation?: string;
+  readonly fit?: 'cover' | 'contain';
+  readonly objectPosition?: string;
+  readonly referenceIds: readonly number[];
+  readonly provenance: MediaProvenance;
+  readonly publication: PublicationReview;
+}
+
+export interface PublicImageNeed {
+  readonly id: string;
+  readonly priority: 'normal' | 'high';
+  readonly label: string;
+  readonly title: string;
+  readonly description: string;
+}
+
+export interface PublicGenealogyContent {
+  readonly people: readonly Person[];
+  readonly relationships: readonly Relationship[];
+  readonly references: readonly Reference[];
+  readonly researchCases: readonly ResearchCase[];
+  readonly stories: readonly Story[];
+  readonly clusters: readonly EvidenceCluster[];
+  readonly media: Readonly<Record<MediaId, PublicMedia>>;
+}
+
+export interface ValidationResult {
+  readonly valid: boolean;
+  readonly errors: readonly string[];
+}
