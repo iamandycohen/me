@@ -136,9 +136,9 @@ const authoredBranches = [
   {
     id: 'thomas-household',
     eyebrow: 'Recorded in the 1779 will',
-    title: 'Thomas Meason senior’s household',
-    note: 'Ann is recorded only as Thomas’s wife. This view does not identify her as the mother of any named child.',
-    rootIds: ['will-thomas-senior', 'will-ann'],
+    title: 'Thomas Meason senior and his children',
+    note: 'The will names twelve children—including Ann as a daughter—and no wife. It does not place Benjamin among them, and this view does not add an unnamed spouse or mother.',
+    rootIds: ['will-thomas-senior'],
     memberIds: [
       'will-thomas',
       'will-joseph',
@@ -146,11 +146,12 @@ const authoredBranches = [
       'will-isaac',
       'will-george',
       'will-john',
-      'will-elizabeth',
-      'will-jane',
+      'will-hannah',
       'will-rachel-worthington',
       'will-sarah-prescot',
+      'will-ann',
       'will-mary',
+      'will-elizabeth',
     ],
   },
   {
@@ -192,6 +193,31 @@ const authoredBranches = [
   },
 ] as const;
 
+const willChildGroups = [
+  {
+    label: 'Six sons',
+    ids: [
+      'will-thomas',
+      'will-joseph',
+      'will-samuel',
+      'will-isaac',
+      'will-george',
+      'will-john',
+    ],
+  },
+  {
+    label: 'Six daughters',
+    ids: [
+      'will-hannah',
+      'will-rachel-worthington',
+      'will-sarah-prescot',
+      'will-ann',
+      'will-mary',
+      'will-elizabeth',
+    ],
+  },
+] as const;
+
 function wordsFromKind(kind: string | undefined, relationship: string) {
   if (!kind) return relationship;
   return (
@@ -226,13 +252,13 @@ function PersonButton({
       type="button"
       aria-pressed={selected}
       onClick={() => onSelect(node.id)}
-      className={`w-full rounded-xl border text-left transition ${focusRing} ${
+      className={`w-full min-w-0 rounded-xl border text-left transition ${focusRing} ${
         selected
           ? 'border-accent bg-accent/[0.08] shadow-paper'
           : 'border-ink/10 bg-paper hover:border-accent/40 hover:bg-accent/[0.035]'
       } ${compact ? 'p-3' : 'p-4'}`}
     >
-      <span className="block font-serif text-lg leading-tight sm:text-xl">
+      <span className="block break-words font-serif text-lg leading-tight sm:text-xl">
         {node.label}
       </span>
       <span className="mt-1.5 block text-[0.52rem] font-semibold uppercase tracking-[0.13em] text-ink/70">
@@ -269,9 +295,12 @@ function DesktopFamilyDiagram({
   onSelect: (id: string) => void;
 }) {
   const getNode = (id: string) => nodeById.get(id);
-  const willChildren = authoredBranches[0].memberIds
-    .map(getNode)
-    .filter((node): node is ReconstructionNode => Boolean(node));
+  const groupedWillChildren = willChildGroups.map((group) => ({
+    label: group.label,
+    children: group.ids
+      .map(getNode)
+      .filter((node): node is ReconstructionNode => Boolean(node)),
+  }));
   const showInterpretiveConnections = visibleEdges.some(
     (edge) => edge.evidenceState !== 'recorded'
   );
@@ -280,22 +309,22 @@ function DesktopFamilyDiagram({
   );
   const laterIdentities = [
     {
-      willLabel: 'Thomas named above',
+      willNodeId: 'will-thomas',
       nodeId: 'logan-thomas',
       edgeId: 'synthesis-thomas',
     },
     {
-      willLabel: 'Joseph named above',
+      willNodeId: 'will-joseph',
       nodeId: 'highland-joseph',
       edgeId: 'synthesis-joseph',
     },
     {
-      willLabel: 'John named above',
+      willNodeId: 'will-john',
       nodeId: 'highland-john',
       edgeId: 'synthesis-john',
     },
     {
-      willLabel: 'Samuel named above',
+      willNodeId: 'will-samuel',
       nodeId: 'highland-samuel-brother',
       edgeId: 'synthesis-samuel',
     },
@@ -319,9 +348,9 @@ function DesktopFamilyDiagram({
         </p>
       </div>
 
-      <div className="mt-7 max-w-full overflow-x-auto rounded-xl border border-ink/10 bg-paper p-6">
-        <div className="mx-auto min-w-[92rem]">
-          <div className="mx-auto grid w-[34rem] grid-cols-[1fr_auto_1fr] items-center gap-3">
+      <div className="mt-7 rounded-xl border border-ink/10 bg-paper p-6">
+        <div className="mx-auto max-w-[74rem]">
+          <div className="mx-auto max-w-sm">
             {getNode('will-thomas-senior') && (
               <PersonButton
                 node={getNode('will-thomas-senior')!}
@@ -329,190 +358,275 @@ function DesktopFamilyDiagram({
                 onSelect={onSelect}
               />
             )}
-            <div className="flex flex-col items-center">
-              <span className="rounded-full border border-ink/20 bg-ink px-3 py-1 text-[0.5rem] font-semibold uppercase tracking-[0.12em] text-paper">
-                Recorded spouses
-              </span>
-              <span aria-hidden="true" className="h-px w-10 bg-ink/35" />
-            </div>
-            {getNode('will-ann') && (
-              <PersonButton
-                node={getNode('will-ann')!}
-                selected={selectedId === 'will-ann'}
-                onSelect={onSelect}
-              />
-            )}
           </div>
           <p className="mx-auto mt-3 w-fit rounded-lg border border-accent/25 bg-accent/[0.05] px-4 py-2 text-center text-[0.6rem] font-semibold uppercase tracking-[0.1em] text-accent">
-            Ann is named as Thomas’s wife—not as mother of the children below
-          </p>
-
-          <p className="mx-auto mt-8 w-fit rounded-full border border-ink/15 bg-cream px-3 py-1 text-[0.52rem] font-semibold uppercase tracking-[0.12em] text-ink/70">
-            Eleven children named by Thomas Meason senior in his 1779 will
+            The original will names no wife
           </p>
           <div aria-hidden="true" className="mx-auto h-4 w-px bg-ink/30" />
-          <div
-            aria-hidden="true"
-            className="mx-[4.5rem] border-t border-ink/25"
-          />
-          <ul className="grid grid-cols-11 gap-3">
-            {willChildren.map((node) => (
-              <li key={node.id} className="relative pt-4">
-                <span
-                  aria-hidden="true"
-                  className="absolute left-1/2 top-0 h-4 w-px bg-ink/25"
-                />
-                <PersonButton
-                  node={node}
-                  selected={selectedId === node.id}
-                  onSelect={onSelect}
-                  compact
-                />
-              </li>
-            ))}
-          </ul>
+          <section className="rounded-[1.25rem] border border-ink/10 bg-cream/65 p-5">
+            <div className="text-center">
+              <p className="text-[0.54rem] font-semibold uppercase tracking-[0.13em] text-ink/70">
+                Recorded family in the 1779 will
+              </p>
+              <h5 className="mt-1 font-serif text-xl">
+                Twelve children: six sons and six daughters
+              </h5>
+            </div>
+            <div className="mt-5 grid grid-cols-2 gap-6">
+              {groupedWillChildren.map((group) => (
+                <div key={group.label}>
+                  <p className="mb-3 border-b border-ink/15 pb-2 text-center text-[0.54rem] font-semibold uppercase tracking-[0.13em] text-ink/70">
+                    {group.label}
+                  </p>
+                  <ul className="grid grid-cols-2 gap-2">
+                    {group.children.map((node) => (
+                      <li key={node.id}>
+                        <PersonButton
+                          node={node}
+                          selected={selectedId === node.id}
+                          onSelect={onSelect}
+                          compact
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
 
-          <div className="mx-auto mt-10 grid max-w-[78rem] grid-cols-4 items-start gap-5">
-            {laterIdentities.map((identity) => {
-              const node = getNode(identity.nodeId);
-              const synthesisEdge = visibleEdges.find(
-                (edge) => edge.id === identity.edgeId
-              );
-              if (!node) return null;
+          {showInterpretiveConnections && (
+            <section className="mt-8 rounded-[1.25rem] border border-moss/25 bg-moss/[0.045] p-5">
+              <div className="max-w-2xl">
+                <p className="text-[0.54rem] font-semibold uppercase tracking-[0.13em] text-ink/70">
+                  Cross-record bridge
+                </p>
+                <h5 className="mt-1 font-serif text-xl">
+                  Four names recur in the later deeds
+                </h5>
+                <p className="mt-2 text-xs leading-relaxed text-ink/70">
+                  Each later person stays separate from the same-name child in
+                  the will. A dashed bridge means possible identity, not a
+                  merged or proved person.
+                </p>
+              </div>
+              <div className="mt-5 grid grid-cols-4 items-start gap-4">
+                {laterIdentities.map((identity) => {
+                  const node = getNode(identity.nodeId);
+                  const synthesisEdge = visibleEdges.find(
+                    (edge) => edge.id === identity.edgeId
+                  );
+                  if (!node) return null;
 
-              return (
-                <div key={identity.nodeId} className="text-center">
-                  {synthesisEdge && (
-                    <>
+                  return (
+                    <div
+                      key={identity.nodeId}
+                      className="rounded-xl border border-moss/20 bg-paper p-3 text-center"
+                    >
                       <p className="text-[0.54rem] font-semibold uppercase tracking-[0.13em] text-ink/70">
-                        {identity.willLabel}
+                        {getNode(identity.willNodeId)?.label ??
+                          identity.willNodeId}{' '}
+                        · 1779 will
                       </p>
                       <div
                         aria-hidden="true"
-                        className="mx-auto h-5 border-l border-dashed border-moss/60"
+                        className={`mx-auto my-2 h-5 w-px border-l ${synthesisEdge ? 'border-dashed border-moss/60' : 'border-ink/20'}`}
                       />
-                    </>
-                  )}
-                  <p
-                    className={`mx-auto mb-3 w-fit rounded-full border px-3 py-1 text-[0.5rem] font-semibold uppercase tracking-[0.11em] ${
-                      synthesisEdge
-                        ? 'border-moss/30 bg-moss/[0.08] text-ink/75'
-                        : 'mt-10 border-ink/15 bg-cream text-ink/70'
-                    }`}
-                  >
-                    {synthesisEdge
-                      ? 'Identity synthesis · possible same person'
-                      : 'Separate record identity'}
-                  </p>
-                  <PersonButton
-                    node={node}
-                    selected={selectedId === node.id}
-                    onSelect={onSelect}
-                  />
-                </div>
-              );
-            })}
-          </div>
+                      <p className="mx-auto mb-3 w-fit rounded-full border border-moss/30 bg-moss/[0.08] px-3 py-1 text-[0.5rem] font-semibold uppercase tracking-[0.11em] text-ink/75">
+                        {synthesisEdge
+                          ? 'Possible same person'
+                          : 'Separate record identity'}
+                      </p>
+                      <PersonButton
+                        node={node}
+                        selected={selectedId === node.id}
+                        onSelect={onSelect}
+                        compact
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
 
-          <div className="mx-auto mt-5 grid max-w-[78rem] grid-cols-4 gap-5">
-            <div className="text-center">
-              <div aria-hidden="true" className="mx-auto h-5 w-px bg-ink/30" />
-              <p className="mx-auto mb-3 w-fit rounded-full border border-ink/20 bg-ink px-3 py-1 text-[0.5rem] font-semibold uppercase tracking-[0.11em] text-paper">
-                Recorded father and eldest son
+          <section className="mt-8 rounded-[1.25rem] border border-ink/10 bg-cream/65 p-5">
+            <div className="max-w-2xl">
+              <p className="text-[0.54rem] font-semibold uppercase tracking-[0.13em] text-ink/70">
+                Later records
               </p>
-              {getNode('logan-william') && (
-                <PersonButton
-                  node={getNode('logan-william')!}
-                  selected={selectedId === 'logan-william'}
-                  onSelect={onSelect}
-                />
-              )}
-              {showParentageHypothesis && (
-                <div className="mt-4 rounded-xl border border-dashed border-accent/45 bg-accent/[0.045] p-3 text-left">
-                  <p className="text-[0.5rem] font-semibold uppercase tracking-[0.11em] text-accent">
-                    Open hypothesis · not proved
-                  </p>
-                  <p className="mt-2 font-serif text-base">
-                    Thomas may be Benjamin Meason’s father
-                  </p>
-                </div>
-              )}
+              <h5 className="mt-1 font-serif text-xl">
+                What the deeds actually prove
+              </h5>
+              <p className="mt-2 text-xs leading-relaxed text-ink/70">
+                The Logan deed records Thomas and William as father and son. The
+                Highland Creek deed separately records Joseph, John, and Samuel
+                as brothers, then names John’s and Samuel’s descendants.
+              </p>
             </div>
-
-            <div className="col-span-3 rounded-[1.25rem] border border-ink/10 bg-cream/70 p-4">
-              <div className="relative grid grid-cols-3 gap-5 pt-8">
-                <div
-                  aria-hidden="true"
-                  className="absolute left-[16.67%] right-[16.67%] top-3 border-t border-ink/30"
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute left-1/2 top-0 h-3 w-px bg-ink/30"
-                />
-                <p className="absolute left-1/2 top-2 -translate-x-1/2 rounded-full border border-ink/20 bg-ink px-3 py-1 text-[0.5rem] font-semibold uppercase tracking-[0.11em] text-paper">
-                  Recorded brothers
+            <div className="mt-5 grid grid-cols-5 gap-5">
+              <div className="col-span-2 rounded-[1.25rem] border border-ink/10 bg-paper p-4 text-center">
+                <p className="text-[0.52rem] font-semibold uppercase tracking-[0.12em] text-ink/70">
+                  Logan County record identity
                 </p>
-
-                <div className="pt-3 text-center">
-                  <p className="text-[0.52rem] font-semibold uppercase tracking-[0.12em] text-ink/70">
-                    Joseph’s record identity
-                  </p>
-                </div>
-                <div className="pt-3 text-center">
-                  <p className="text-[0.52rem] font-semibold uppercase tracking-[0.12em] text-ink/70">
-                    John’s recorded branch
-                  </p>
-                  <div
-                    aria-hidden="true"
-                    className="mx-auto mt-3 h-5 w-px bg-ink/30"
-                  />
-                  <p className="mx-auto mb-3 w-fit rounded-full border border-ink/15 bg-paper px-3 py-1 text-[0.5rem] font-semibold uppercase tracking-[0.11em] text-ink/70">
-                    Four recorded children
-                  </p>
-                  <ul className="grid grid-cols-2 gap-2 text-left">
-                    {[
-                      'highland-isaac-john-son',
-                      'highland-caty-randal',
-                      'highland-polly-devore',
-                      'highland-betty-cherry',
-                    ].map((id) => {
-                      const child = getNode(id);
-                      return child ? (
-                        <li key={id}>
-                          <PersonButton
-                            node={child}
-                            selected={selectedId === id}
-                            onSelect={onSelect}
-                            compact
-                          />
-                        </li>
-                      ) : null;
-                    })}
-                  </ul>
-                </div>
-                <div className="pt-3 text-center">
-                  <p className="text-[0.52rem] font-semibold uppercase tracking-[0.12em] text-ink/70">
-                    Samuel’s recorded branch
-                  </p>
-                  <div
-                    aria-hidden="true"
-                    className="mx-auto mt-3 h-5 w-px bg-ink/30"
-                  />
-                  <p className="mx-auto mb-3 w-fit rounded-full border border-ink/15 bg-paper px-3 py-1 text-[0.5rem] font-semibold uppercase tracking-[0.11em] text-ink/70">
-                    Recorded father and son
-                  </p>
-                  {getNode('highland-dorsey') && (
+                <div className="mx-auto mt-3 max-w-xs">
+                  {getNode('logan-thomas') && (
                     <PersonButton
-                      node={getNode('highland-dorsey')!}
-                      selected={selectedId === 'highland-dorsey'}
+                      node={getNode('logan-thomas')!}
+                      selected={selectedId === 'logan-thomas'}
                       onSelect={onSelect}
                       compact
                     />
                   )}
                 </div>
+                <div
+                  className={`mt-4 grid items-start gap-3 ${showParentageHypothesis ? 'grid-cols-2' : 'mx-auto max-w-xs grid-cols-1'}`}
+                >
+                  <div>
+                    <div
+                      aria-hidden="true"
+                      className="mx-auto h-5 w-px bg-ink/30"
+                    />
+                    <p className="mx-auto mb-3 w-fit rounded-full border border-ink/20 bg-ink px-3 py-1 text-[0.5rem] font-semibold uppercase tracking-[0.11em] text-paper">
+                      Recorded eldest son
+                    </p>
+                    {getNode('logan-william') && (
+                      <PersonButton
+                        node={getNode('logan-william')!}
+                        selected={selectedId === 'logan-william'}
+                        onSelect={onSelect}
+                        compact
+                      />
+                    )}
+                  </div>
+                  {showParentageHypothesis && (
+                    <div className="rounded-xl border border-dashed border-accent/45 bg-accent/[0.045] p-3 text-left">
+                      <p className="text-[0.5rem] font-semibold uppercase tracking-[0.11em] text-accent">
+                        Possible son · not proved
+                      </p>
+                      <p className="mt-2 text-xs leading-relaxed text-ink/70">
+                        No reviewed record names Benjamin as Thomas’s son.
+                      </p>
+                      {getNode('highland-benjamin') && (
+                        <div className="mt-3">
+                          <PersonButton
+                            node={getNode('highland-benjamin')!}
+                            selected={selectedId === 'highland-benjamin'}
+                            onSelect={onSelect}
+                            compact
+                          />
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="col-span-3 rounded-[1.25rem] border border-ink/10 bg-paper p-4">
+                <div className="relative grid grid-cols-3 gap-5 pt-8">
+                  <div
+                    aria-hidden="true"
+                    className="absolute left-[16.67%] right-[16.67%] top-3 border-t border-ink/30"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="absolute left-1/2 top-0 h-3 w-px bg-ink/30"
+                  />
+                  <p className="absolute left-1/2 top-2 -translate-x-1/2 rounded-full border border-ink/20 bg-ink px-3 py-1 text-[0.5rem] font-semibold uppercase tracking-[0.11em] text-paper">
+                    Recorded brothers
+                  </p>
+
+                  <div className="pt-3 text-center">
+                    <p className="text-[0.52rem] font-semibold uppercase tracking-[0.12em] text-ink/70">
+                      Joseph’s record identity
+                    </p>
+                    <div className="mt-3">
+                      {getNode('highland-joseph') && (
+                        <PersonButton
+                          node={getNode('highland-joseph')!}
+                          selected={selectedId === 'highland-joseph'}
+                          onSelect={onSelect}
+                          compact
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <div className="pt-3 text-center">
+                    <p className="text-[0.52rem] font-semibold uppercase tracking-[0.12em] text-ink/70">
+                      John’s recorded branch
+                    </p>
+                    <div className="mt-3">
+                      {getNode('highland-john') && (
+                        <PersonButton
+                          node={getNode('highland-john')!}
+                          selected={selectedId === 'highland-john'}
+                          onSelect={onSelect}
+                          compact
+                        />
+                      )}
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      className="mx-auto mt-3 h-5 w-px bg-ink/30"
+                    />
+                    <p className="mx-auto mb-3 w-fit rounded-full border border-ink/15 bg-paper px-3 py-1 text-[0.5rem] font-semibold uppercase tracking-[0.11em] text-ink/70">
+                      Four recorded children
+                    </p>
+                    <ul className="grid grid-cols-1 gap-2 text-left">
+                      {[
+                        'highland-isaac-john-son',
+                        'highland-caty-randal',
+                        'highland-polly-devore',
+                        'highland-betty-cherry',
+                      ].map((id) => {
+                        const child = getNode(id);
+                        return child ? (
+                          <li key={id}>
+                            <PersonButton
+                              node={child}
+                              selected={selectedId === id}
+                              onSelect={onSelect}
+                              compact
+                            />
+                          </li>
+                        ) : null;
+                      })}
+                    </ul>
+                  </div>
+                  <div className="pt-3 text-center">
+                    <p className="text-[0.52rem] font-semibold uppercase tracking-[0.12em] text-ink/70">
+                      Samuel’s recorded branch
+                    </p>
+                    <div className="mt-3">
+                      {getNode('highland-samuel-brother') && (
+                        <PersonButton
+                          node={getNode('highland-samuel-brother')!}
+                          selected={selectedId === 'highland-samuel-brother'}
+                          onSelect={onSelect}
+                          compact
+                        />
+                      )}
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      className="mx-auto mt-3 h-5 w-px bg-ink/30"
+                    />
+                    <p className="mx-auto mb-3 w-fit rounded-full border border-ink/15 bg-paper px-3 py-1 text-[0.5rem] font-semibold uppercase tracking-[0.11em] text-ink/70">
+                      Recorded father and son
+                    </p>
+                    {getNode('highland-dorsey') && (
+                      <PersonButton
+                        node={getNode('highland-dorsey')!}
+                        selected={selectedId === 'highland-dorsey'}
+                        onSelect={onSelect}
+                        compact
+                      />
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
 
           {!showInterpretiveConnections && (
             <p className="mx-auto mt-7 w-fit rounded-lg border border-ink/10 bg-cream px-4 py-2 text-xs text-ink/70">

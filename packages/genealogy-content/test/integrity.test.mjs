@@ -46,18 +46,18 @@ test('the Highland Creek reconstruction preserves evidence boundaries', () => {
     highlandCreekReconstruction.nodes.map(({ id, kind }) => [id, kind]),
     [
       ['will-thomas-senior', 'person'],
-      ['will-ann', 'person'],
       ['will-thomas', 'person'],
       ['will-joseph', 'person'],
       ['will-samuel', 'person'],
       ['will-isaac', 'person'],
       ['will-george', 'person'],
       ['will-john', 'person'],
-      ['will-elizabeth', 'person'],
-      ['will-jane', 'person'],
+      ['will-hannah', 'person'],
       ['will-rachel-worthington', 'person'],
       ['will-sarah-prescot', 'person'],
+      ['will-ann', 'person'],
       ['will-mary', 'person'],
+      ['will-elizabeth', 'person'],
       ['logan-thomas', 'person'],
       ['logan-william', 'person'],
       ['highland-tract', 'land'],
@@ -178,8 +178,7 @@ test('the Highland Creek reconstruction preserves evidence boundaries', () => {
       )
     ),
     {
-      spouse: 1,
-      'parent-child': 17,
+      'parent-child': 18,
       sibling: 2,
       'heirship-unknown-degree': 3,
       'deed-property-transfer': 6,
@@ -188,6 +187,35 @@ test('the Highland Creek reconstruction preserves evidence boundaries', () => {
       'land-title-association': 8,
       'legal-record-role': 4,
     }
+  );
+  assert.equal(
+    highlandCreekReconstruction.edges.some(
+      (edge) => edge.connectionKind === 'spouse'
+    ),
+    false
+  );
+  assert.deepEqual(
+    highlandCreekReconstruction.edges
+      .filter(
+        (edge) =>
+          edge.from === 'will-thomas-senior' &&
+          edge.connectionKind === 'parent-child'
+      )
+      .map((edge) => edge.to),
+    [
+      'will-thomas',
+      'will-joseph',
+      'will-samuel',
+      'will-isaac',
+      'will-george',
+      'will-john',
+      'will-hannah',
+      'will-rachel-worthington',
+      'will-sarah-prescot',
+      'will-ann',
+      'will-mary',
+      'will-elizabeth',
+    ]
   );
 
   const unknownDegreeHeirs = highlandCreekReconstruction.edges.filter(

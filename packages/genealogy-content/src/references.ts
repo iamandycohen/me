@@ -210,9 +210,9 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     citation:
       'Westmoreland County, Pennsylvania, Will Book 1, pp. 16–17, entry 28; dated 14 March and proved 18 March 1779; Ancestry collection 8802, record 2042575.',
     supports:
-      'Thomas’s wife Ann and eleven named children, including a son Thomas; Benjamin is absent from the extensive list.',
+      'Twelve named children—six sons and six daughters—including son Thomas and daughter Ann; Benjamin is absent from the extensive list. Fresh review of the complete original pages confirms that the instrument names no wife and no daughter Jane.',
     limitation:
-      'The omission weighs strongly against the testator as Benjamin’s direct father, but a will need not name every child. It does not categorically exclude him, identify Benjamin’s parents, or exclude another family line.',
+      'The omission weighs strongly against the testator as Benjamin’s direct father, but a will need not name every child. It does not categorically exclude him, identify Benjamin’s parents, or exclude another family line. Earlier relationship indexing and adjacent will text incorrectly supplied a wife Ann and daughter Jane; those claims are superseded by the preserved-original review.',
     url: 'https://www.ancestry.com/search/collections/8802/records/2042575',
     accessLabel: 'Open indexed probate record',
   },
