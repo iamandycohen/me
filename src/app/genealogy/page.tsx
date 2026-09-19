@@ -3,6 +3,7 @@ import data from '@/lib/data';
 import LegacyGenealogyHashRedirect from './LegacyGenealogyHashRedirect';
 
 const publicationUrl = 'https://www.wheretherecordends.com';
+const highlandCreekUrl = `${publicationUrl}/cases/parentage/highland-creek`;
 
 const entrances = [
   {
@@ -60,11 +61,11 @@ export default function GenealogyPage() {
                 family who raised me and made me who I am.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
-                <a href={publicationUrl} className="btn-primary">
-                  Visit Where the Record Ends
+                <a href={highlandCreekUrl} className="btn-primary">
+                  Open the Highland Creek reconstruction
                 </a>
-                <a href={`${publicationUrl}/family`} className="btn-secondary">
-                  Explore the family atlas
+                <a href={publicationUrl} className="btn-secondary">
+                  Visit Where the Record Ends
                 </a>
               </div>
             </div>
@@ -108,8 +109,8 @@ export default function GenealogyPage() {
               <p>
                 I created Where the Record Ends to make that process visible. It
                 holds the detailed family atlas, the narrative chronicle, the
-                sources behind the claims, and the open cases where the evidence
-                still stops short of an answer.
+                sources behind the claims, and the research cases where the
+                evidence still stops short of an answer.
               </p>
             </article>
           </div>
@@ -169,7 +170,7 @@ export default function GenealogyPage() {
                 explanations, and the next records worth pursuing.
               </p>
               <a href={`${publicationUrl}/cases`} className="link-underline">
-                Continue to the open cases →
+                Continue to the research cases →
               </a>
             </article>
 

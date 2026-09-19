@@ -189,7 +189,7 @@ export default async function CasePage({
 
       <nav aria-label="Case collection" className="px-5 py-12 sm:px-8">
         <div className="mx-auto flex max-w-[92rem] flex-wrap items-center justify-between gap-4">
-          <ArrowLink href="/cases">All open cases</ArrowLink>
+          <ArrowLink href="/cases">All research cases</ArrowLink>
           <ArrowLink href="/family">Return to the family atlas</ArrowLink>
         </div>
       </nav>
