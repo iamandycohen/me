@@ -33,7 +33,6 @@ function Navigation() {
       '/resume': 'resume/page.tsx',
       '/projects': 'projects/page.tsx',
       '/genealogy': 'genealogy/page.tsx',
-      '/genealogy/tree': 'genealogy/tree/page.tsx',
       '/articles': 'articles/page.tsx',
       '/community': 'community/page.tsx',
       '/contact': 'contact/page.tsx',

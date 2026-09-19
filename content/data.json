@@ -199,21 +199,21 @@
   },
   "projects": [
     {
-      "title": "The Meason Genealogy Project",
+      "title": "Where the Record Ends",
       "period": "Ongoing · 2026",
-      "description": "I was born Shannon Jeremiah Meason and adopted into the Cohen family. This project traces my biological Meason line through original records, family photographs, and carefully labeled uncertainty—while exploring why that history has mattered to me for as long as I can remember.",
+      "description": "I was born Shannon Jeremiah Meason and adopted into the Cohen family. Where the Record Ends traces my biological Meason line through original records, family photographs, and carefully labeled uncertainty—while exploring why that history has mattered to me for as long as I can remember.",
       "image": "/genealogy/evidence/benjamin-meason-1802-guardian-bond.jpg",
       "imageAlt": "The 1802 Nelson County guardian bond carrying Benjamin Meason’s signature",
       "imageFit": "cover",
-      "pageUrl": "/genealogy",
-      "pageCta": "Explore the genealogy project",
+      "pageUrl": "https://www.wheretherecordends.com",
+      "pageCta": "Explore Where the Record Ends",
       "highlightsLabel": "Research and presentation",
       "highlights": [
         "Reconciles inherited family-tree claims against wills, deeds, bonds, censuses, church minutes, land records, and other original sources",
         "Separates documented facts, family traditions, disputed claims, bounded negative searches, and records that remain inaccessible",
         "Maintains a privacy-conscious boundary between the private research archive and the curated public story",
-        "Presents the direct line through an interactive visual tree, ancestor photographs, evidence notes, and 52 detailed references",
-        "Centers the unresolved frontier: whether George M. Meason was Benjamin Meason’s son and who Benjamin’s parents were"
+        "Presents the reviewed direct line through an interactive family atlas, evidence neighborhoods, photographs, stories, and a detailed source catalog",
+        "Follows the documented journey from Kentucky through Missouri and Texas while keeping unresolved relationships and migration details visibly open"
       ]
     },
     {

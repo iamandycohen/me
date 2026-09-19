@@ -90,15 +90,14 @@ describe('Navigation', () => {
     );
   });
 
-  it('links the dedicated genealogy tree to its source file', () => {
-    mockPathname = '/genealogy/tree';
+  it('keeps the Genealogy navigation item on the personal gateway', () => {
     render(<Navigation />);
 
-    const source = screen.getAllByRole('link', { name: /Source/i })[0];
-    expect(source).toHaveAttribute(
-      'href',
-      'https://github.com/iamandycohen/me/blob/main/src/app/genealogy/tree/page.tsx'
-    );
+    const genealogyLinks = screen.getAllByRole('link', { name: 'Genealogy' });
+    expect(genealogyLinks).toHaveLength(2);
+    genealogyLinks.forEach((link) => {
+      expect(link).toHaveAttribute('href', '/genealogy');
+    });
   });
 
   it('toggles the mobile menu', () => {

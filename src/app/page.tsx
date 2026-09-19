@@ -10,22 +10,28 @@ import data from '@/lib/data';
 
 const genealogyHighlights = [
   {
-    marker: '1813 · Union County',
-    title: 'A deed places Benjamin inside an earlier family',
+    marker: 'Family atlas',
+    title: 'Follow the documented line',
     detail:
-      'Benjamin conveyed land as an heir at law of Joseph Meason. An adjacent deed proves that Joseph’s nieces and nephews inherited too, so the record defines a family network without naming Benjamin’s father.',
+      'Move through generations, relationships, places, and the evidence neighborhoods that connect them.',
+    href: 'https://www.wheretherecordends.com/family',
+    cta: 'Explore the family',
   },
   {
-    marker: '1810 / 1818',
-    title: 'George carries two birth traditions',
+    marker: 'Family chronicle',
+    title: 'Read the story the records can support',
     detail:
-      'Four adult censuses and a descendant-held family note say about 1810; his photographed grave marker says 1818.',
+      'Trace the family across places and generations without smoothing over uncertainty or contradiction.',
+    href: 'https://www.wheretherecordends.com/stories',
+    cta: 'Read the chronicle',
   },
   {
-    marker: 'One conclusion · one frontier',
-    title: 'The working tree shows how the evidence differs',
+    marker: 'Open cases',
+    title: 'See where the investigation is still alive',
     detail:
-      'A converging family network now supports George’s placement with Benjamin as a high-confidence indirect conclusion; Benjamin’s own parents remain unknown.',
+      'Examine competing explanations, unresolved questions, and the records that might move the research forward.',
+    href: 'https://www.wheretherecordends.com/cases',
+    cta: 'View the cases',
   },
 ];
 
@@ -171,17 +177,20 @@ export default function Home() {
               </p>
               <p className="mb-8 leading-relaxed text-ink/65">
                 Adoption was never a secret in my family. A lifelong curiosity
-                about my biological lineage eventually became a serious,
-                evidence-led investigation into the Meason family—what the
-                records establish, what copied trees repeat, and what remains
-                unknown.
+                about my biological lineage eventually became Where the Record
+                Ends: an evidence-led investigation into the Meason family—what
+                the records establish, what copied trees repeat, and what
+                remains unknown.
               </p>
               <div className="flex flex-wrap gap-x-7 gap-y-4">
-                <Link href="/genealogy" className="btn-primary">
-                  Follow the investigation
-                </Link>
-                <Link href="/genealogy/tree" className="link-underline py-3">
-                  Explore the family tree →
+                <a
+                  href="https://www.wheretherecordends.com"
+                  className="btn-primary"
+                >
+                  Explore Where the Record Ends
+                </a>
+                <Link href="/genealogy" className="link-underline py-3">
+                  Read the personal introduction →
                 </Link>
               </div>
             </div>
@@ -199,6 +208,12 @@ export default function Home() {
                       <p className="text-sm leading-relaxed text-ink/60">
                         {item.detail}
                       </p>
+                      <a
+                        href={item.href}
+                        className="link-underline mt-4 inline-block text-sm"
+                      >
+                        {item.cta} →
+                      </a>
                     </div>
                   </article>
                 ))}
