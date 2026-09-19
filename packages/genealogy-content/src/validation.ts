@@ -228,6 +228,22 @@ export function validatePublicGenealogyContent(
         errors.push(
           `Reconstruction ${reconstruction.id} edge ${edge.id} has invalid evidence state ${edge.evidenceState}`
         );
+      if (
+        ![
+          'spouse',
+          'parent-child',
+          'sibling',
+          'heirship-unknown-degree',
+          'identity',
+          'open-parentage-hypothesis',
+          'deed-property-transfer',
+          'land-title-association',
+          'legal-record-role',
+        ].includes(edge.connectionKind)
+      )
+        errors.push(
+          `Reconstruction ${reconstruction.id} edge ${edge.id} has invalid connection kind ${edge.connectionKind}`
+        );
       validateReferences(
         `Reconstruction edge ${reconstruction.id}:${edge.id}`,
         edge.referenceIds

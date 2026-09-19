@@ -168,6 +168,51 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
       recordGroup: 'highland-creek',
       referenceIds: [68],
     },
+    {
+      id: 'title-edmond-rice',
+      label: 'Edmond/Edmund Rice',
+      detail:
+        'Named in the derivative court abstract as the patentee of the 1,000-acre parent tract; no kinship to the Mason family is stated.',
+      kind: 'person',
+      recordGroup: 'highland-creek',
+      referenceIds: [70],
+    },
+    {
+      id: 'title-james-wardlow',
+      label: 'James C. Wardlow',
+      detail:
+        'Henderson County grantee in William Mason’s title transfer and plaintiff in the later ejectment abstract; no kinship is stated.',
+      kind: 'person',
+      recordGroup: 'highland-creek',
+      referenceIds: [69, 70],
+    },
+    {
+      id: 'title-leonard-jones',
+      label: 'Leonard Jones',
+      detail:
+        'Henderson County grantee in William Mason’s title transfer and plaintiff in the later ejectment abstract; no kinship is stated.',
+      kind: 'person',
+      recordGroup: 'highland-creek',
+      referenceIds: [69, 70],
+    },
+    {
+      id: 'title-higgins',
+      label: 'Higgins',
+      detail:
+        'Defendant in the derivative ejectment abstract concerning the 200-acre title branch; no kinship or identity with the mapped mill owner is established.',
+      kind: 'person',
+      recordGroup: 'highland-creek',
+      referenceIds: [70],
+    },
+    {
+      id: 'court-1812-ejectment',
+      label: 'Wardlow and Jones v. Higgins',
+      detail:
+        'Derivative abstract of the 1812 ejectment case naming the plaintiffs, defendant, acreage, and Edmond Rice patent; it does not directly identify Highland Creek.',
+      kind: 'record',
+      recordGroup: 'highland-creek',
+      referenceIds: [70],
+    },
   ],
   edges: [
     {
@@ -175,6 +220,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
       from: 'will-thomas-senior',
       to: 'will-ann',
       relationship: 'wife',
+      connectionKind: 'spouse',
       evidenceState: 'recorded',
       statement: 'Thomas’s will names Ann as his wife.',
       limitation: 'The citation does not supply Ann’s maiden name.',
@@ -197,6 +243,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
       from: 'will-thomas-senior',
       to,
       relationship: 'parent and child',
+      connectionKind: 'parent-child' as const,
       evidenceState: 'recorded' as const,
       statement:
         'The 1779 will names this person as Thomas Meason senior’s child.',
@@ -208,19 +255,21 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
       id: 'recorded-thomas-william',
       from: 'logan-thomas',
       to: 'logan-william',
-      relationship: 'father and eldest son',
+      relationship: 'father and son',
+      connectionKind: 'parent-child',
       evidenceState: 'recorded',
       statement:
-        'The 1795 deed calls William the eldest son of Thomas Mason of Logan County.',
+        'The 1795 deed calls William the eldest son of Thomas Mason of Logan County; the 1811 conveyance again identifies William as a son of Thomas Mason, deceased.',
       limitation:
-        'The deed does not name Thomas’s other children or identify him with the 1779 will’s Thomas.',
-      referenceIds: [22],
+        'Only the 1795 deed says “eldest.” Neither deed names Thomas’s other children or identifies him with the 1779 will’s Thomas.',
+      referenceIds: [22, 69],
     },
     {
       id: 'recorded-joseph-gift-william',
       from: 'highland-joseph',
       to: 'logan-william',
       relationship: 'deed of gift',
+      connectionKind: 'deed-property-transfer',
       evidenceState: 'recorded',
       statement:
         'Joseph conveyed 200 acres from the Highland Creek tract to William.',
@@ -233,6 +282,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
       from: 'highland-joseph',
       to,
       relationship: 'brothers',
+      connectionKind: 'sibling' as const,
       evidenceState: 'recorded' as const,
       statement:
         'The 1813 collateral-heir deed directly identifies this man as Joseph’s brother.',
@@ -249,6 +299,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
       from: 'highland-john',
       to,
       relationship: 'parent and child',
+      connectionKind: 'parent-child' as const,
       evidenceState: 'recorded' as const,
       statement:
         'The collateral-heir deed identifies this person as John Mason’s child.',
@@ -261,6 +312,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
       from: 'highland-samuel-brother',
       to: 'highland-dorsey',
       relationship: 'father and son',
+      connectionKind: 'parent-child',
       evidenceState: 'recorded',
       statement: 'The collateral-heir deed identifies Dorsey as Samuel’s son.',
       limitation:
@@ -276,6 +328,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
       from: 'highland-joseph',
       to: String(to),
       relationship: 'heir at law',
+      connectionKind: 'heirship-unknown-degree' as const,
       evidenceState: 'recorded' as const,
       statement: 'The deed names this person among Joseph’s heirs at law.',
       limitation:
@@ -287,6 +340,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
       from: 'highland-benjamin',
       to: 'highland-james-grantee',
       relationship: 'conveyed interest to',
+      connectionKind: 'deed-property-transfer',
       evidenceState: 'recorded',
       statement:
         'Benjamin conveyed his undivided Highland Creek interest to James Meason.',
@@ -304,6 +358,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
       from,
       to,
       relationship: 'possible same person',
+      connectionKind: 'identity' as const,
       evidenceState: 'identity-synthesis' as const,
       statement: `The recurring ${name} identity fits the combined will and Highland Creek family structure.`,
       limitation:
@@ -315,6 +370,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
       from: 'logan-thomas',
       to: 'highland-benjamin',
       relationship: 'possible father and son',
+      connectionKind: 'open-parentage-hypothesis',
       evidenceState: 'hypothesis',
       statement:
         'Benjamin may have inherited through Thomas’s branch and may have been William’s younger brother.',
@@ -322,6 +378,139 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
         'No reviewed record names Benjamin as Thomas’s son or William’s brother. This edge must not appear as a documented pedigree relationship.',
       referenceIds: [18, 22, 67, 68],
     },
+    ...[
+      ['highland-isaac-heir', 'Isaac Meason'],
+      ['highland-elizabeth-hite', 'Elizabeth Hite'],
+    ].map(([from, name]) => ({
+      id: `recorded-${from.replace('highland-', '')}-to-samuel`,
+      from,
+      to: 'highland-samuel-grantee',
+      relationship: 'conveyed inherited share to',
+      connectionKind: 'deed-property-transfer' as const,
+      evidenceState: 'recorded' as const,
+      statement: `${name} conveyed an inherited share in Joseph’s Highland Creek tract to Samuel Meason of Claiborne County.`,
+      limitation:
+        'The transfer establishes a property transaction, not kinship with the grantee or the exact degree of the grantor’s kinship to Joseph.',
+      referenceIds: [68],
+    })),
+    ...[
+      {
+        to: 'title-james-wardlow',
+        name: 'James C. Wardlow',
+        referenceIds: [69, 70],
+      },
+      {
+        to: 'title-leonard-jones',
+        name: 'Leonard Jones',
+        referenceIds: [69],
+      },
+    ].map(({ to, name, referenceIds }) => ({
+      id: `recorded-william-to-${to.replace('title-', '')}`,
+      from: 'logan-william',
+      to,
+      relationship: 'conveyed title interest to',
+      connectionKind: 'deed-property-transfer' as const,
+      evidenceState: 'recorded' as const,
+      statement: `William Mason conveyed his interest in the 200 Highland Creek acres to ${name}.`,
+      limitation:
+        'The deed establishes a title transfer and does not state a kinship relationship between the parties.',
+      referenceIds,
+    })),
+    ...[
+      [
+        'highland-joseph',
+        'held the 1,000-acre Highland Creek tract from which the later interests descend',
+        [22, 67, 68],
+      ],
+      [
+        'logan-william',
+        'held a 200-acre interest carved from the Highland Creek tract',
+        [22, 69],
+      ],
+      [
+        'highland-benjamin',
+        'held an undivided inherited interest in the Highland Creek tract',
+        [67],
+      ],
+      [
+        'highland-james-grantee',
+        'received Benjamin’s undivided Highland Creek interest',
+        [67],
+      ],
+    ].map(([from, relationship, referenceIds]) => ({
+      id: `recorded-${String(from).replace(/^(highland|logan)-/, '')}-tract-association`,
+      from: String(from),
+      to: 'highland-tract',
+      relationship: String(relationship),
+      connectionKind: 'land-title-association' as const,
+      evidenceState: 'recorded' as const,
+      statement: `The cited record shows that this person ${String(relationship)}.`,
+      limitation:
+        'This land or title association does not add a kinship relationship.',
+      referenceIds: referenceIds as number[],
+    })),
+    ...[
+      [
+        'title-edmond-rice',
+        'patentee of the 1,000-acre parent tract described in the derivative case abstract',
+      ],
+      [
+        'title-james-wardlow',
+        'plaintiff asserting the 200-acre title branch in the ejectment abstract',
+      ],
+      [
+        'title-leonard-jones',
+        'plaintiff asserting the 200-acre title branch in the ejectment abstract',
+      ],
+      [
+        'title-higgins',
+        'defendant in the ejectment abstract concerning the 200-acre title branch',
+      ],
+    ].map(([from, relationship]) => ({
+      id: `recorded-${from.replace('title-', '')}-tract-association`,
+      from,
+      to: 'highland-tract',
+      relationship,
+      connectionKind: 'land-title-association' as const,
+      evidenceState: 'identity-synthesis' as const,
+      statement: `The derivative 1812 case abstract identifies this person as a ${relationship}; its 1,000-acre patent and 200-acre dispute strongly match, but do not directly identify, the Highland Creek title branch.`,
+      limitation:
+        'The abstract is derivative, does not print “Highland Creek,” does not resolve title, and establishes no kinship. It also does not identify Higgins with the person associated with the mapped mill.',
+      referenceIds: [70],
+    })),
+    ...[
+      [
+        'title-james-wardlow',
+        'plaintiff',
+        'Named as a plaintiff in Wardlow and Jones v. Higgins.',
+      ],
+      [
+        'title-leonard-jones',
+        'plaintiff',
+        'Named as a plaintiff in Wardlow and Jones v. Higgins.',
+      ],
+      [
+        'title-higgins',
+        'defendant',
+        'Named as the defendant in Wardlow and Jones v. Higgins.',
+      ],
+      [
+        'title-edmond-rice',
+        'patentee named for the land',
+        'Named as the patentee of the 1,000 acres containing the disputed 200 acres.',
+      ],
+    ].map(([from, relationship, statement]) => ({
+      id: `recorded-${from.replace('title-', '')}-court-role`,
+      from,
+      to: 'court-1812-ejectment',
+      relationship,
+      connectionKind: 'legal-record-role' as const,
+      evidenceState: 'recorded' as const,
+      statement,
+      limitation:
+        'This role is recorded in a derivative case abstract, not the original case file; it does not directly identify the disputed land as Highland Creek or establish kinship.',
+      referenceIds: [70],
+    })),
   ],
   timeline: [
     {
