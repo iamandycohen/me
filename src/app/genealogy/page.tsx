@@ -64,7 +64,7 @@ export default function GenealogyPage() {
               </p>
               <p className="font-serif text-xl mb-2">In progress</p>
               <p className="text-sm leading-relaxed text-ink/60">
-                Last reviewed September 18, 2026 CDT. The evidence reviewed to
+                Last reviewed September 19, 2026 CDT. The evidence reviewed to
                 date supports George&apos;s place in Benjamin&apos;s family as a
                 high-confidence indirect conclusion. Benjamin&apos;s own parents
                 remain unknown.
@@ -186,6 +186,46 @@ export default function GenealogyPage() {
       <section className="border-y border-ink/10 bg-ink/[0.025] py-10">
         <div className="container-max">
           <EvidenceLegend />
+        </div>
+      </section>
+
+      <section className="section-padding border-y border-ink/10 bg-[#f4efe7]">
+        <div className="container-max">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <p className="eyebrow mb-4">Benjamin&apos;s will · 1853</p>
+              <h2 className="text-balance">A household, not just a name.</h2>
+            </div>
+            <article className="prose-editorial max-w-prose lg:col-span-8">
+              <p>
+                Benjamin&apos;s recorded will gives the family story a human
+                scale. James S. received the farm and most of the personal
+                property, along with the obligation to pay Benjamin&apos;s debts
+                and the other bequests. Virginia Ann Hollingsworth received a
+                bed, bedstead, and furnishings. Emily Jane received the same,
+                plus the silverware and a saddle horse.
+                <SourceFootnote referenceIds={[65]} />
+              </p>
+              <p>
+                Benjamin also reserved forever a seventy-foot-square family
+                burial ground on James&apos;s farm, where his wife already lay.
+                A later cemetery survey names both Hannah Doom Meason and
+                Benjamin in a Meason Family Cemetery, but its Range 10 location
+                conflicts with Benjamin&apos;s known Range 11 patent. I am
+                preserving that conflict rather than turning it into a map pin.
+                <SourceFootnote referenceIds={[13, 65, 66]} />
+              </p>
+              <p>
+                The copy I reviewed is the contemporary will-book record and
+                probate order, not Benjamin&apos;s surviving loose original. It
+                names James S., Virginia, and Emily, but omits Laura—whose own
+                marriage record independently proves she was Benjamin&apos;s
+                daughter. That makes the omission of George or James L. a fact
+                to investigate, not a reason to erase them.
+                <SourceFootnote referenceIds={[61, 65]} />
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -406,10 +446,10 @@ export default function GenealogyPage() {
                   They are no longer equal. Records created at different times
                   and for different purposes now converge on George&apos;s place
                   in Benjamin&apos;s family, so I carry that relationship as a
-                  high-confidence indirect conclusion. Above Benjamin,
-                  separating the same-name men and reading the original wills
-                  still turns one tidy answer into several distinct—and
-                  unresolved—candidates.
+                  high-confidence indirect conclusion. Above Benjamin, the 1813
+                  deeds now place him inside Joseph Meason&apos;s inheritance
+                  network, but collateral heirs prove that “heir at law” cannot
+                  be read as “son.” His exact branch remains unresolved.
                 </p>
                 <div className="inline-flex items-center gap-3 rounded-full border border-paper/20 px-4 py-2 text-sm text-paper/70">
                   <span className="h-2 w-2 rounded-full bg-accent-soft" />
@@ -423,22 +463,19 @@ export default function GenealogyPage() {
                   What I learned from the latest records
                 </p>
                 <p className="font-serif text-xl leading-relaxed text-paper/80 md:text-2xl">
-                  The inherited tree did not become trustworthy because another
-                  tree repeated it. It became trustworthy when Laura&apos;s
-                  marriage, the corrected Kippers deed, connected census
-                  households, James&apos;s working life, and the Texas records
-                  began telling the same family story.
-                  <SourceFootnote
-                    referenceIds={[28, 33, 59, 60, 61, 62, 63, 64]}
-                  />
+                  The deed did not give me Benjamin&apos;s father. It gave me
+                  something more useful than another copied name: a place inside
+                  a real family inheritance.
+                  <SourceFootnote referenceIds={[67, 68]} />
                 </p>
                 <p className="mt-5 leading-relaxed text-paper/60">
-                  A newly reviewed original death certificate spells out
-                  Benjamin Thomas Meason and names Geo M Meason and Martha Reid
-                  as his parents. That resolves the full-name question and
-                  strengthens his placement in their family—but it does not
-                  identify the namesake or answer the question above Benjamin.
-                  <SourceFootnote referenceIds={[53, 55]} />
+                  In 1813 Benjamin conveyed his interest in Joseph Meason&apos;s
+                  1,000-acre Highland Creek tract as one of Joseph&apos;s heirs
+                  at law. An adjacent deed identifies children of Joseph&apos;s
+                  brothers John and Samuel among the heirs. Descent through one
+                  of Joseph&apos;s sibling branches is now the leading model,
+                  but no record yet assigns Benjamin to a particular branch.
+                  <SourceFootnote referenceIds={[67, 68]} />
                 </p>
                 <p className="mt-5 leading-relaxed text-paper/60">
                   Three more original death certificates name parents across
@@ -607,13 +644,14 @@ export default function GenealogyPage() {
             <p className="font-serif text-2xl md:text-3xl leading-snug text-ink/80 text-balance mb-8">
               I have a documented life for Benjamin and a high-confidence
               indirect conclusion connecting him to George. Above Benjamin, I
-              have several weakened parent candidates and no proved parent at
-              all. That is less tidy than the tree I began with—and much closer
-              to the truth.
+              now have a legal record placing him among Joseph Meason&apos;s
+              heirs and a collateral network that makes Thomas born in 1755 a
+              serious candidate again. I still have no proved parent. That is
+              less tidy than the tree I began with—and much closer to the truth.
               <SourceFootnote
                 referenceIds={[
                   18, 19, 20, 21, 22, 25, 26, 28, 30, 33, 34, 59, 60, 61, 62,
-                  63, 64,
+                  63, 64, 67, 68,
                 ]}
               />
             </p>

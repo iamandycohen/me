@@ -32,7 +32,7 @@ export default function GenealogyTreePage() {
                 the trail still ends.
               </p>
               <p className="mt-5 text-xs uppercase tracking-[0.16em] text-ink/45">
-                Updated · September 18, 2026
+                Updated · September 19, 2026
               </p>
             </div>
             <aside className="lg:col-span-4">
@@ -88,7 +88,10 @@ export default function GenealogyTreePage() {
                 they do not identify George&apos;s parents. Frank&apos;s
                 certificate records his name as Frank; the longer Franklin form
                 comes from family material and remains labeled accordingly.
-                <SourceFootnote referenceIds={[56, 57, 58]} />
+                <SourceFootnote
+                  referenceIds={[56, 57, 58]}
+                  referencesPath="/genealogy"
+                />
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
                 I accept the George-to-Benjamin connection because the evidence
@@ -102,6 +105,7 @@ export default function GenealogyTreePage() {
                 father.
                 <SourceFootnote
                   referenceIds={[28, 33, 59, 60, 61, 62, 63, 64]}
+                  referencesPath="/genealogy"
                 />
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
@@ -144,12 +148,17 @@ export default function GenealogyTreePage() {
                 unknown.
               </p>
               <p className="leading-relaxed text-ink/60 mb-6">
-                I am still pursuing Benjamin&apos;s estate, the complete land
-                chain, and the missing stretch of James&apos;s migration because
-                good conclusions should keep being tested. The next true
-                frontier, however, is above Benjamin: any proposed parent must
-                be distinguished from the other Thomas, William, Joseph, Mason,
-                and Meason identities found in the same records.
+                Benjamin&apos;s recorded will is now known, though the complete
+                estate and farm title chain remain unfinished. An 1813 deed also
+                places him among Joseph Meason&apos;s heirs, while an adjacent
+                deed proves that nieces and nephews inherited through
+                Joseph&apos;s brothers. That makes a sibling branch—including
+                Thomas born in 1755—a serious possibility, but it does not name
+                Benjamin&apos;s parent or justify adding one to this tree.
+                <SourceFootnote
+                  referenceIds={[65, 67, 68]}
+                  referencesPath="/genealogy"
+                />
               </p>
               <Link href="/genealogy#investigation" className="btn-primary">
                 See the Benjamin investigation

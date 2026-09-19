@@ -79,13 +79,13 @@ export const publicTree: PublicTreeNode[] = [
   {
     title: 'Benjamin Meason',
     href: '/genealogy/tree#benjamin-meason',
-    period: 'Born about 1776 · living in 1850',
+    period: 'Born about 1776 · died 1853',
     relationship: 'Fourth great-grandfather · working conclusion',
     summary:
       'Benjamin’s life is documented in Kentucky and Missouri. His place in my direct line is an accepted working conclusion built from converging marriage, land, household, occupational, census, and death records—not from a single record that names George as his son.',
     status: 'indirect',
     statusLabel: 'Direct-line placement accepted',
-    referenceIds: [1, 2, 11, 13, 23, 28, 33, 59, 60, 61, 62, 63, 64],
+    referenceIds: [1, 2, 11, 13, 28, 33, 59, 60, 61, 62, 63, 64, 65, 66],
     connectionToNext: 'review',
   },
   {
@@ -94,10 +94,10 @@ export const publicTree: PublicTreeNode[] = [
     period: 'Before c. 1776',
     relationship: 'Where the record ends',
     summary:
-      'No parent has been proved. Several Thomas Meason candidates have been tested, but the records do not yet establish the relationship repeated in online trees.',
+      'No parent has been proved. An 1813 deed places Benjamin among the heirs of Joseph Meason, while an adjacent deed shows that Joseph’s heirs included children of his brothers. That inheritance network makes Thomas Meason, born in 1755, a serious candidate again—but it does not identify Benjamin’s exact branch.',
     status: 'unknown',
     statusLabel: 'Active investigation',
-    referenceIds: [18, 19, 20, 21, 22],
+    referenceIds: [18, 19, 20, 21, 22, 67, 68],
   },
 ];
 
@@ -135,6 +135,14 @@ export const chronology = [
     referenceIds: [7, 8, 9, 24, 35, 50],
   },
   {
+    year: '1813',
+    place: 'Union County, Kentucky',
+    title: 'A place inside Joseph Meason’s inheritance network',
+    detail:
+      'A deed calls Benjamin “one of the heirs at law” of Joseph Meason and records his transfer of an undivided interest in Joseph’s 1,000-acre Highland Creek tract to James Meason. The deed did not give me Benjamin’s father. It gave me something more useful than another copied name: a place inside a real family inheritance. An adjacent deed shows that children of Joseph’s brothers John and Samuel also inherited, so “heir” cannot be reduced to “son.”',
+    referenceIds: [67, 68],
+  },
+  {
     year: '1820',
     place: 'Shelby County, Kentucky',
     title: 'The family moves east',
@@ -167,12 +175,12 @@ export const chronology = [
     referenceIds: [1, 15],
   },
   {
-    year: 'After 1850',
+    year: '1853',
     place: 'Monroe County, Missouri',
-    title: 'An estate and burial lead awaits the original',
+    title: 'A will preserves a farm, three children, and a burial ground',
     detail:
-      'A later family account reports that Benjamin’s 1853 will directed burial beside Hannah on a Monroe County farm. The original Will Book B entry remains restricted, and my search of the deed index did not identify the reported farm or burial ground.',
-    referenceIds: [23, 27, 28, 29],
+      'Benjamin’s recorded will gave son James S. the farm and most personal property, together with responsibility for debts and distributions. Daughters Virginia Ann Hollingsworth and Emily Jane Meason received household bequests; Emily also received the silverware and a saddle horse. Benjamin reserved forever a seventy-foot-square family burial ground containing his wife’s remains. A later survey names Hannah Doom Meason and Benjamin in the Meason Family Cemetery, but its Range 10 location conflicts with Benjamin’s known Range 11 patent, so I do not treat the patent tract as the proved burial farm.',
+    referenceIds: [13, 65, 66],
   },
 ];
 
@@ -248,12 +256,20 @@ export const researchThreads = [
     referenceIds: [1, 28, 33, 59, 60, 61, 62, 63, 64],
   },
   {
+    name: 'Joseph Meason’s inheritance network',
+    category: 'Parentage breakthrough',
+    status: 'Direct heir evidence · exact branch unproved',
+    detail:
+      'A recorded 1813 deed directly calls Benjamin one of Joseph Meason’s heirs at law. The neighboring deed identifies John and Samuel as Joseph’s brothers and names children of those brothers among the heirs. That makes descent through one of Joseph’s siblings the leading model, but it does not tell me whether Benjamin belonged to Thomas’s branch or another branch.',
+    referenceIds: [67, 68],
+  },
+  {
     name: 'Thomas Meason senior',
     category: 'Parent candidate',
-    status: 'Strongly disfavored',
+    status: 'Strongly excluded as direct father',
     detail:
-      'His 1779 will names eleven children but not Benjamin. That omission weighs strongly against him as Benjamin’s direct father, but a will need not name every child and is not categorical proof.',
-    referenceIds: [18],
+      'His 1779 will names eleven children but not Benjamin, and Benjamin was born before the will. The Joseph heir deeds strongly associate Joseph’s sibling network with this family, but they place Benjamin in the next generation of inheritance rather than make the senior Thomas his father.',
+    referenceIds: [18, 67, 68],
   },
   {
     name: 'The Hempfield Thomas',
@@ -264,12 +280,12 @@ export const researchThreads = [
     referenceIds: [19],
   },
   {
-    name: 'The 1788 Nelson County Thomas',
+    name: 'Thomas Meason, born in 1755 — Nelson and Logan',
     category: 'Parent candidate',
-    status: 'Still open',
+    status: 'Serious candidate · unproved',
     detail:
-      'An original 1788 deed places Thomas Meason in Nelson County. In 1795, Thomas Mason of Logan County sold the same 300-acre Rough Creek tract. The exact-property match strengthens the identity trail, but neither deed names Benjamin.',
-    referenceIds: [20, 21],
+      'The 1788 purchase and 1795 sale of the same Rough Creek tract connect a Thomas Meason in Nelson County with a Thomas Mason in Logan County. Joseph’s 1813 estate passed through children of his brothers, so a nephew such as Benjamin could have inherited through Thomas. No reviewed record identifies Benjamin as Thomas’s son or selects this branch over Joseph’s other siblings.',
+    referenceIds: [20, 21, 22, 67, 68],
   },
   {
     name: 'Another Mason or Meason family',
@@ -346,6 +362,14 @@ export const evidenceLedger = [
     referenceIds: [22],
   },
   {
+    record: '1813 Joseph Meason heir deeds',
+    establishes:
+      'One recorded deed directly calls Benjamin an heir at law of Joseph Meason. The adjacent deed identifies John and Samuel as Joseph’s brothers and names children of both men among Joseph’s heirs.',
+    limit:
+      'An heir at law was not necessarily a son. The deeds do not state Benjamin’s exact relationship to Joseph, identify Benjamin’s father, or uniquely select Thomas’s branch.',
+    referenceIds: [67, 68],
+  },
+  {
     record: 'Jacob Doom will and heirs’ deed',
     establishes:
       'Jacob’s 1798 will names his wife Abigail and executor Jacob Yoder. The 1825 deed later identifies Hannah, wife of Benjamin Mason, as formerly a Doom and as an heir or representative of Jacob Doom.',
@@ -386,6 +410,14 @@ export const evidenceLedger = [
     referenceIds: [1, 28, 33, 59, 60, 61, 62, 63, 64],
   },
   {
+    record: '1853 will and Meason Family Cemetery survey',
+    establishes:
+      'The recorded will directly names James S., Virginia Ann Hollingsworth, and Emily Jane as Benjamin’s children, devises James’s farm and personal property, and reserves a family burial square containing Benjamin’s wife. A later survey names Hannah Doom Meason and Benjamin in the Meason Family Cemetery.',
+    limit:
+      'The will-book entry is a recorded copy, not Benjamin’s surviving loose original, and its copied signature is not a verified autograph. The will does not name every child. The derivative survey gives Range 10, while Benjamin’s known patent was in Range 11, so the burial farm’s location and title chain remain unproved.',
+    referenceIds: [65, 66],
+  },
+  {
     record: 'What the public trees cite',
     establishes:
       'The disputed relationships are widely repeated: all 25 sampled George profiles named Benjamin and Hannah, and all ten sampled Thomas profiles attached Benjamin.',
@@ -397,10 +429,10 @@ export const evidenceLedger = [
 
 export const researchBlockers = [
   {
-    title: 'The highest-value records are not remotely accessible',
+    title: 'The estate and farm chain are still incomplete',
     detail:
-      'Benjamin’s reported will and key probate volumes remain restricted to archive or affiliate-library access. Search results and derivative summaries cannot substitute for the original estate images.',
-    referenceIds: [23, 52],
+      'I have the recorded will and probate order, but not the executor bond, inventory, sale bill, settlements, distributions, or complete title chain for James S.’s farm. Those records may identify additional relatives and resolve where the reserved family burial square lay.',
+    referenceIds: [13, 28, 29, 65, 66],
   },
   {
     title: 'The records often stop one sentence short',
@@ -430,10 +462,10 @@ export const nextResearchSteps = [
     referenceIds: [28, 59, 60, 62, 63, 64],
   },
   {
-    title: 'Await Benjamin’s Missouri estate records',
+    title: 'Complete Benjamin’s estate and farm title chain',
     detail:
-      'I submitted separate Missouri Archives requests for Benjamin’s full recorded will and his connected estate proceedings. Both are awaiting a response; the next step is to review the returned records, not send duplicate requests.',
-    referenceIds: [23],
+      'The will is now recovered. I am looking next for James S. Meason’s executor bond, inventory, sale bill, settlements, distributions, receipt signers, and the deeds that identify his farm. Those records can test the wider child network and the reserved cemetery’s Range 10/11 conflict.',
+    referenceIds: [13, 28, 29, 65, 66],
   },
   {
     title: 'Await the Mill Creek church article',
@@ -451,6 +483,20 @@ export const nextResearchSteps = [
 
 export const latestResearchUpdates = [
   {
+    status: 'Parentage breakthrough',
+    title: 'Benjamin appears in Joseph Meason’s legal heir network',
+    detail:
+      'An 1813 deed directly calls Benjamin one of Joseph Meason’s heirs at law. An adjacent deed identifies Joseph’s brothers John and Samuel and shows their children inheriting too. I now have a defined family network to investigate, but still no record naming Benjamin’s father.',
+    referenceIds: [67, 68],
+  },
+  {
+    status: 'Will recovered',
+    title: 'Benjamin’s recorded will replaces the derivative account',
+    detail:
+      'The contemporary will-book copy names James S., Virginia Ann, and Emily Jane; preserves the farm, household bequests, Emily’s saddle horse, and a family burial square; and was proved on 7 September 1853. A later cemetery survey names Hannah and Benjamin, while leaving a Range 10/11 location conflict to solve.',
+    referenceIds: [65, 66],
+  },
+  {
     status: 'Direct line strengthened',
     title: 'Three certificates now support the line below George',
     detail:
@@ -463,13 +509,6 @@ export const latestResearchUpdates = [
     detail:
       'Laura’s original marriage return, the corrected Kippers deed, the 1860 household cluster, James’s mill career, and the Texas uncle and father statements now converge. I accept George as Benjamin’s son in my working tree as a high-confidence indirect conclusion while continuing to test the missing estate and migration records.',
     referenceIds: [1, 28, 33, 59, 60, 61, 62, 63, 64],
-  },
-  {
-    status: 'Requests pending',
-    title: 'Three targeted requests are awaiting replies',
-    detail:
-      'I submitted two Missouri Archives requests covering Benjamin’s will and estate proceedings and a third request for the 1990 Mill Creek church article. I have not yet received the records.',
-    referenceIds: [23, 36, 52],
   },
   {
     status: 'Access limited',
