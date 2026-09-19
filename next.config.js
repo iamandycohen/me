@@ -167,6 +167,16 @@ const nextConfig = {
         destination: '/sitemap.xml',
         permanent: true,
       },
+      {
+        source: '/genealogy/tree',
+        destination: 'https://www.wheretherecordends.com/family',
+        permanent: true,
+      },
+      {
+        source: '/genealogy/prototype',
+        destination: 'https://www.wheretherecordends.com',
+        permanent: true,
+      },
     ];
   },
 };
