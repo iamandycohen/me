@@ -114,6 +114,29 @@ export default async function CasePage({
         </div>
       </section>
 
+      {caseId === 'parentage' ? (
+        <section className="border-b border-ink/10 bg-ink px-5 py-14 text-paper sm:px-8 md:py-20">
+          <div className="mx-auto grid max-w-[92rem] gap-7 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+            <div className="max-w-4xl">
+              <p className="eyebrow !text-accent-soft">
+                Featured reconstruction
+              </p>
+              <h2 className="balanced mt-4 font-serif text-4xl leading-tight sm:text-6xl">
+                The thousand acres on Highland Creek
+              </h2>
+              <p className="mt-5 max-w-3xl text-sm leading-relaxed text-paper/65 sm:text-base">
+                Follow the land from Joseph Meason to a named network of
+                brothers, children, spouses, and heirs—and see why Benjamin’s
+                recorded inheritance still stops short of naming his father.
+              </p>
+            </div>
+            <ArrowLink href="/cases/parentage/highland-creek" inverse>
+              Explore the reconstruction
+            </ArrowLink>
+          </div>
+        </section>
+      ) : null}
+
       <section className="border-y border-ink/10 bg-cream px-5 py-14 sm:px-8 md:py-20">
         <div className="mx-auto grid max-w-[92rem] gap-8 xl:grid-cols-[minmax(0,1fr)_22rem]">
           <CaseEvidenceExplorer sections={item.sections} />

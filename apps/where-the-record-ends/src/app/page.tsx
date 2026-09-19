@@ -47,6 +47,7 @@ const migrationStops = [
       'Nelson County tax lists and a marriage bond begin the reviewed trail. By 1820, a Shelby County household fits Benjamin, Hannah, and their growing family.',
     mediaId: 'kentucky-map-1818' as const,
     imagePosition: '55% 55%',
+    visualLabel: 'Place context · not proof',
   },
   {
     number: '02',
@@ -56,6 +57,7 @@ const migrationStops = [
       'Land patents place Benjamin in Ralls and Monroe Counties. Later households, deeds, and working lives reveal the wider family network.',
     mediaId: 'ralls-map-1878' as const,
     imagePosition: '50% 42%',
+    visualLabel: 'Place context · not proof',
   },
   {
     number: '03',
@@ -63,8 +65,9 @@ const migrationStops = [
     period: '1880–1973',
     detail:
       'Texas records document three later generational handoffs through 1973. Family evidence and personal knowledge carry the direct line to the present without asserting a later location.',
-    mediaId: 'near-dallas-cotton-1907' as const,
-    imagePosition: '50% 48%',
+    mediaId: 'george-marker' as const,
+    imagePosition: '50% 50%',
+    visualLabel: 'Evidence image · chronology only',
   },
 ] as const;
 
@@ -199,12 +202,12 @@ export default function HomePage() {
                         alt={item.alt}
                         fill
                         sizes="(max-width: 1024px) 100vw, 33vw"
-                        className="object-cover opacity-80 grayscale-[0.12] transition duration-700 group-hover:scale-[1.025] group-hover:opacity-95"
+                        className={`${item.fit === 'contain' ? 'object-contain p-4' : 'object-cover'} opacity-80 grayscale-[0.12] transition duration-700 group-hover:scale-[1.025] group-hover:opacity-95`}
                         style={{ objectPosition: stop.imagePosition }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent" />
                       <p className="absolute bottom-4 left-5 rounded-full bg-ink/75 px-3 py-1 text-[0.57rem] font-semibold uppercase tracking-[0.16em] text-accent-soft backdrop-blur">
-                        Place context · not proof
+                        {stop.visualLabel}
                       </p>
                     </div>
                     <div className="p-6 sm:p-7">
@@ -340,9 +343,9 @@ export default function HomePage() {
             </h2>
             <p className="mt-6 text-base leading-relaxed text-ink/65">
               Every visual is labeled as evidence or context. A period map can
-              orient the reader; it cannot locate a family home. A regional
-              photograph can evoke a landscape; it cannot become a picture of
-              people who were never identified in it.
+              orient the reader; it cannot locate a family home. A document can
+              preserve a signature or statement without proving a relationship
+              the record never names.
             </p>
             <div className="mt-7">
               <ArrowLink href="/sources">
@@ -350,7 +353,7 @@ export default function HomePage() {
               </ArrowLink>
             </div>
           </div>
-          <MediaFigure item={media['near-dallas-cotton-1907']} compact />
+          <MediaFigure item={media['benjamin-bond']} compact />
         </div>
       </section>
 

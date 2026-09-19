@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/stories',
     '/sources',
     '/about',
+    '/cases/parentage/highland-creek',
   ];
   return [
     ...staticPaths.map((path) => ({ url: absoluteUrl(path) })),

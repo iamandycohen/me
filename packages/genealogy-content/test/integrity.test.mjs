@@ -4,6 +4,7 @@ import test from 'node:test';
 import {
   assertValidPublicGenealogyContent,
   evidenceClusters,
+  highlandCreekReconstruction,
   media,
   people,
   publicGenealogyContent,
@@ -22,10 +23,10 @@ test('the canonical public content passes integrity validation', () => {
 });
 
 test('the package carries the complete reviewed public reference catalog', () => {
-  assert.equal(references.length, 68);
+  assert.equal(references.length, 72);
   assert.deepEqual(
     references.map(({ id }) => id),
-    Array.from({ length: 68 }, (_, index) => index + 1)
+    Array.from({ length: 72 }, (_, index) => index + 1)
   );
 });
 
@@ -37,6 +38,54 @@ test('the collection-scale prototype entities are represented', () => {
   assert.equal(Object.keys(media).length, 10);
   assert.ok(
     stories.every((story) => story.events.every((event) => event.id.length > 0))
+  );
+});
+
+test('the Highland Creek reconstruction preserves evidence boundaries', () => {
+  assert.equal(highlandCreekReconstruction.nodes.length, 29);
+  assert.deepEqual(
+    new Set(
+      highlandCreekReconstruction.edges.map((edge) => edge.evidenceState)
+    ),
+    new Set(['recorded', 'identity-synthesis', 'hypothesis'])
+  );
+  assert.deepEqual(
+    highlandCreekReconstruction.timeline
+      .flatMap((event) => event.referenceIds)
+      .filter((id, index, ids) => ids.indexOf(id) === index),
+    [18, 22, 69, 70, 68, 67]
+  );
+  assert.deepEqual(
+    highlandCreekReconstruction.documents.map((document) => ({
+      referenceId: document.referenceId,
+      sequences: document.pages.map((page) => page.sequence),
+      rights: document.pages.map((page) => page.rightsState),
+    })),
+    [
+      {
+        referenceId: 67,
+        sequences: [1, 2],
+        rights: ['permission-required', 'permission-required'],
+      },
+      {
+        referenceId: 68,
+        sequences: [1, 2, 3],
+        rights: [
+          'permission-required',
+          'permission-required',
+          'permission-required',
+        ],
+      },
+    ]
+  );
+});
+
+test('the removed Dallas cotton image is absent from public content', () => {
+  assert.equal('near-dallas-cotton-1907' in media, false);
+  assert.ok(
+    Object.values(media).every(
+      (item) => !item.src.includes('near-dallas-cotton-1907')
+    )
   );
 });
 

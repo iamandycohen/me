@@ -41,6 +41,33 @@ export const media: Readonly<Record<MediaId, PublicMedia>> = {
     },
     publication,
   },
+  'highland-creek-map-1818': {
+    id: 'highland-creek-map-1818',
+    kind: 'map',
+    role: 'context',
+    src: '/genealogy/places/highland-creek-higgins-mill-1818.jpg',
+    width: 2080,
+    height: 1440,
+    alt: 'Detail of an 1818 Kentucky map showing Highland Creek, Higgins’ Mill, Carthage, and Mason’s Creek',
+    label: 'Geographic context · Highland Creek · 1818',
+    title: 'Highland Creek and Higgins’ Mill on the map',
+    caption:
+      'Munsell and Anderson’s 1818 map labels Highland Creek and Higgins’ Mill near Carthage, giving the 1812 ejectment case a plausible geographic setting.',
+    limitation:
+      'The map does not prove that the mapped mill owner was the defendant, that either mill stood inside William Mason’s 200 acres, or that a Mason family member lived there.',
+    fit: 'contain',
+    referenceIds: [70, 71],
+    provenance: {
+      sourcePage: 'https://www.loc.gov/item/75653132/',
+      rightsSourcePage: 'https://www.loc.gov/item/75653132/#rights-and-access',
+      creator: 'Luke Munsell and Hugh Anderson',
+      collection: 'Library of Congress Geography and Map Division',
+      rightsStatement:
+        'The Library of Congress item states that Geography and Map Division digitized content is free to use and reuse unless a contrary Rights Advisory is present; none is listed for this item.',
+      credit: 'Library of Congress, Geography and Map Division',
+    },
+    publication,
+  },
   'ralls-map-1878': {
     id: 'ralls-map-1878',
     kind: 'map',
@@ -66,33 +93,6 @@ export const media: Readonly<Record<MediaId, PublicMedia>> = {
       collection: 'Plat Maps of Missouri, State Historical Society of Missouri',
       rightsStatement: 'The item page identifies the atlas as public domain.',
       credit: 'The State Historical Society of Missouri',
-    },
-    publication,
-  },
-  'near-dallas-cotton-1907': {
-    id: 'near-dallas-cotton-1907',
-    kind: 'place',
-    role: 'context',
-    src: '/genealogy/places/near-dallas-cotton-1907.jpg',
-    width: 1024,
-    height: 822,
-    alt: 'Cotton pickers with baskets in a field near Dallas, Texas, around 1907',
-    label: 'Place context · near Dallas · 1907',
-    title: 'The landscape around the Texas years',
-    caption:
-      'A stereograph published around 1907 shows cotton production near Dallas during the same broad period as the family’s Texas records.',
-    limitation:
-      'This is regional context. The people, land, and work shown are not identified as part of the Meason family.',
-    fit: 'cover',
-    objectPosition: '50% 48%',
-    referenceIds: [],
-    provenance: {
-      sourcePage: 'https://www.loc.gov/item/00652640/',
-      creator: 'Berry, Kelley & Chadwick, publishers',
-      collection: 'Library of Congress Prints and Photographs Division',
-      rightsStatement:
-        'The Library of Congress item has no known restriction noted for publication.',
-      credit: 'Library of Congress, Prints and Photographs Division',
     },
     publication,
   },
@@ -276,7 +276,7 @@ export const personMediaIds: Partial<Record<PersonId, MediaId>> = {
 
 export const caseMediaIds: Record<CaseId, readonly MediaId[]> = {
   parentage: ['benjamin-bond', 'kentucky-map-1818'],
-  'george-connection': ['george-marker', 'near-dallas-cotton-1907'],
+  'george-connection': ['george-marker'],
   'burial-ground': [],
 };
 
@@ -284,13 +284,13 @@ export const storyMediaIds: Record<StoryId, readonly MediaId[]> = {
   migration: [
     'kentucky-map-1818',
     'ralls-map-1878',
-    'near-dallas-cotton-1907',
+    'george-marker',
     'franklin-home',
     'cynthia-school',
     'andy-headshot',
   ],
   'between-lines': ['ralls-map-1878', 'franklin-home'],
-  'texas-reconnection': ['near-dallas-cotton-1907', 'george-marker'],
+  'texas-reconnection': ['george-marker'],
 };
 
 export const caseImageNeeds: Partial<Record<CaseId, PublicImageNeed>> = {
