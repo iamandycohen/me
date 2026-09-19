@@ -22,10 +22,10 @@ const genealogyHighlights = [
       'Four adult censuses and a descendant-held family note say about 1810; his photographed grave marker says 1818.',
   },
   {
-    marker: 'Two open edges',
-    title: 'The working tree now shows where proof breaks',
+    marker: 'One conclusion · one frontier',
+    title: 'The working tree shows how the evidence differs',
     detail:
-      'George’s claimed relationship to Benjamin remains unproved, and no parent has been established for Benjamin.',
+      'A converging family network now supports George’s placement with Benjamin as a high-confidence indirect conclusion; Benjamin’s own parents remain unknown.',
   },
 ];
 

@@ -330,7 +330,7 @@ export const genealogyReferences: GenealogyReference[] = [
     citation:
       'Monroe County, Missouri, direct and indirect deed indexes, 1831–1869; FamilySearch catalog 215468, DGS 8196783; complete regular-M grantor images 92–105 and grantee images 258–272 reviewed.',
     supports:
-      'The page-by-page index review found James S. Meason as an indexed principal in an 1855 Section 11 deed. An adjacent original names J. C. Ripper, George M. Meason, and James L. Meason as joint grantees, but states no kinship.',
+      'The page-by-page index review found James S. Meason as an indexed principal in an 1855 Section 11 deed. An adjacent original names J. C. Kippers, George M. Meason, and James L. Meason as joint grantees, but states no kinship.',
     limitation:
       'No indexed relationship statement was found. Entries under another principal, clerk variants, and unindexed instruments remain possible; the Section 11 parcels do not match Benjamin’s candidate Section 20 farm.',
     url: 'https://www.familysearch.org/en/search/catalog/215468',
@@ -390,9 +390,9 @@ export const genealogyReferences: GenealogyReference[] = [
     citation:
       '1860 U.S. census, Clay Township, Shelby County, Missouri, p. 192, NARA M653, roll 657; 1870 U.S. census, Marion Township, Monroe County, Missouri, p. 658A, NARA M593, roll 793; 1880 U.S. census, Precinct 2, Dallas County, Texas, p. 157A, ED 60, NARA T9, roll 1299.',
     supports:
-      'George is reported as age 50, 60, and 70 across the three schedules, consistently implying birth about 1810. The 1880 household includes his son James, age 24, James’s wife Eva, and their daughter Fannie; it also reports both of George’s parents born in Kentucky without naming them.',
+      'George is reported as age 50, 60, and 70 across the three schedules, consistently implying birth about 1810. The 1880 relationship column directly records 24-year-old James as George’s son, Eva as James’s wife and George’s daughter-in-law, and Fannie as George’s granddaughter; it also reports both of George’s parents born in Kentucky without naming them.',
     limitation:
-      'Census ages and parental birthplaces depend on an unknown informant. The schedules do not name George’s parents or prove a relationship to Benjamin.',
+      'Census ages and parental birthplaces depend on an unknown informant, and the 1860 and 1870 schedules predate the relationship column used in 1880. None of the schedules names George’s parents or proves a relationship to Benjamin.',
     url: 'https://www.ancestry.com/search/collections/6742/records/10544467',
     accessLabel: 'Open 1880 indexed census record',
   },
@@ -697,5 +697,54 @@ export const genealogyReferences: GenealogyReference[] = [
       '“Uncle” does not specify the paternal or maternal side, a blood or marriage relationship, or a looser family usage. Identifying the 1900 elder James with the 1919 decedent is strongly supported but still requires a cross-record conclusion, and the records disagree about whether he was widowed or single. Nothing in this census identifies him as the James L. in the 1855 Monroe County deed or literally names George as his brother or Benjamin’s son. The authenticated census images remain in the private research archive and are not reproduced here.',
     url: 'https://www.ancestry.com/imageviewer/collections/7602/images/4118464_00591?pId=43457280',
     accessLabel: 'Open the census at Ancestry',
+  },
+  {
+    id: 61,
+    title: 'John C. Kippers–Laura Ann Meason marriage return',
+    citation:
+      'Monroe County, Missouri, Marriage Book A, p. 222; marriage solemnized 5 March 1846 and filed 10 July 1846; Ancestry collection 1171, image vrmmo1833_c34891-0293.',
+    supports:
+      'The contemporary minister’s return directly calls Laura Ann Meason the daughter of Benjamin Meason, records her marriage to John C. Kippers, and states that both spouses were of lawful age and residents of Monroe County.',
+    limitation:
+      'The return does not name Laura’s mother, give her birth date, identify any sibling, or state a relationship between Benjamin and either George M. or James L. Meason. I link to the provider’s record rather than reproduce the privately preserved image.',
+    url: 'https://www.ancestry.com/imageviewer/collections/1171/images/vrmmo1833_c34891-0293',
+    accessLabel: 'Open the original marriage return',
+  },
+  {
+    id: 62,
+    title:
+      '1860 Monroe County census — J. L. Mason and the Kipper–Hollingsworth cluster',
+    citation:
+      '1860 U.S. census, Clay Township, Monroe County, Missouri, post office Granville, pp. 111–112, dwellings 746–754; enumerated 16–17 July 1860; Ancestry collection 7667, images 4233984_00115–00116.',
+    supports:
+      'The consecutive schedules place Kentucky-born blacksmith J. L. Mason near the Parker couple from the 1855 deeds, B. H. Hollingsworth, and John and Laura Kipper. The Kipper household includes David, Virginia, and Edwin Hollingsworth, who had lived with Benjamin and Hannah Mason in 1850. Together with age, place, and the deed network, this strongly continues the Missouri James L. identity and its extended-family circle.',
+    limitation:
+      'The census states no relationships among the neighboring households, does not say that James worked with John Kipper, and does not prove that this Missouri James was the elder James later recorded in Texas. The Hollingsworth identifications depend on cross-record comparison. I link to the provider rather than reproduce the privately preserved census images.',
+    url: 'https://www.ancestry.com/imageviewer/collections/7667/images/4233984_00115?pId=40504012',
+    accessLabel: 'Open the first census page at Ancestry',
+  },
+  {
+    id: 63,
+    title: '1870 Monroe County census — James L. Meason, miller',
+    citation:
+      '1870 U.S. census, Washington Township, Monroe County, Missouri, post office Shelbina, p. 31, printed p. 731, line 18, dwelling 199, family 206; enumerated 4 June 1870; NARA microfilm publication M593, roll 793; Ancestry collection 7163, image 4273712_00723.',
+    supports:
+      'The schedule records 46-year-old Kentucky-born James L. Mason as a miller in a Monroe County household immediately followed by three mill laborers. His name, age, birthplace, county, and occupation strongly continue the 1850–1860 Missouri identity and begin the mill-work progression later seen in the 1880 census.',
+    limitation:
+      'The census does not define James’s relationship to the household, identify the mill’s owner, or prove that his reported $1,000 in personal estate represented mill equipment. It does not by itself connect the Missouri man to the elder James later recorded in Texas. I link to the provider rather than reproduce the privately preserved image.',
+    url: 'https://www.ancestry.com/imageviewer/collections/7163/images/4273712_00723',
+    accessLabel: 'Open the census image at Ancestry',
+  },
+  {
+    id: 64,
+    title: '1880 Monroe County census — James L. Meason, sawmill proprietor',
+    citation:
+      '1880 U.S. census, Jackson Township, Monroe County, Missouri, enumeration district 54, p. 35, line 41, dwelling 344, family 360; enumerated 17 June 1880; Ancestry collection 6742, record 25450172.',
+    supports:
+      'The schedule records 55-year-old Kentucky-born James L. Meason as a single boarder and proprietor of a sawmill, followed by two boarders whose occupations are working in that sawmill. The consistent age, birthplace, county, and name complete a high-confidence Missouri trail from 1850 through 1880 and give life to his path from blacksmith to miller to mill proprietor.',
+    limitation:
+      'The schedule does not name or locate the sawmill, establish legal ownership beyond the stated occupation, or prove that this was the elder James living in Texas in 1900 and 1919. Its single status conflicts with the 1900 census’s widowed entry, and the Missouri-to-Texas migration remains undocumented. I link to the provider rather than reproduce the privately preserved image.',
+    url: 'https://www.ancestry.com/imageviewer/collections/6742/images/4242025-00559?pId=25450172',
+    accessLabel: 'Open the census image at Ancestry',
   },
 ];

@@ -5,6 +5,12 @@ const legend = [
     marker: 'border-accent bg-accent',
   },
   {
+    label: 'Indirect conclusion',
+    description:
+      'Accepted in the working tree because records created in different contexts converge, although no single record states the relationship.',
+    marker: 'border-accent bg-paper',
+  },
+  {
     label: 'Under review',
     description:
       'A working relationship or detail that remains plausible but unproved.',
@@ -19,7 +25,7 @@ const legend = [
 
 export default function EvidenceLegend() {
   return (
-    <div className="grid md:grid-cols-3 gap-8">
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
       {legend.map((item) => (
         <div key={item.label} className="flex gap-4">
           <span

@@ -5,12 +5,14 @@ import SourceFootnote from './SourceFootnote';
 
 const statusStyles: Record<TreeNodeStatus, string> = {
   documented: 'border-accent bg-accent/5 text-accent',
+  indirect: 'border-accent/50 bg-accent/[0.025] text-accent',
   review: 'border-ink/25 bg-paper text-ink/65',
   unknown: 'border-dashed border-ink/40 bg-ink/[0.025] text-ink',
 };
 
 const markerStyles: Record<TreeNodeStatus, string> = {
   documented: 'border-accent bg-accent',
+  indirect: 'border-accent bg-paper',
   review: 'border-ink/30 bg-paper',
   unknown: 'border-ink/50 bg-paper',
 };
@@ -27,9 +29,11 @@ export default function DocumentedTree({ nodes }: { nodes: PublicTreeNode[] }) {
             <span
               aria-hidden="true"
               className={`absolute left-[0.6875rem] top-6 h-[calc(100%-0.5rem)] border-l ${
-                node.connectionToNext === 'review'
-                  ? 'border-dashed border-ink/30'
-                  : 'border-ink/20'
+                node.connectionToNext === 'indirect'
+                  ? 'border-dashed border-accent/55'
+                  : node.connectionToNext === 'review'
+                    ? 'border-dashed border-ink/30'
+                    : 'border-ink/20'
               }`}
             />
           )}

@@ -8,7 +8,7 @@ import VisualFamilyTree from '../_components/VisualFamilyTree';
 
 export const metadata = generatePageMetadata(
   'My Working Family Tree',
-  'The working Meason family line, including the relationships that remain plausible but unproved.',
+  'The working Meason family line, distinguishing documented relationships, a high-confidence indirect conclusion, and an unknown generation.',
   data.contact,
   {},
   '/genealogy/tree'
@@ -28,8 +28,8 @@ export default function GenealogyTreePage() {
               </h1>
               <p className="text-xl md:text-2xl font-serif leading-relaxed text-ink/75 text-balance max-w-3xl">
                 A public view of the Meason line—showing what is established,
-                what remains a family hypothesis, and the two relationships that
-                remain unproved.
+                where multiple records support an indirect conclusion, and where
+                the trail still ends.
               </p>
               <p className="mt-5 text-xs uppercase tracking-[0.16em] text-ink/45">
                 Updated · September 18, 2026
@@ -63,11 +63,11 @@ export default function GenealogyTreePage() {
               <p className="leading-relaxed text-ink/65 mb-5">
                 The larger cards form one continuous Meason spine. Smaller
                 connected cards show the spouses who join that direct line.
-                Solid connections represent relationships I can support. One
-                dashed connection marks the relationship between George M.
-                Meason and Benjamin, now supported by strong indirect evidence
-                but still unproved; the second marks the unknown identities of
-                Benjamin&apos;s parents.
+                Solid connections represent relationships supported by direct or
+                personal evidence. The accent-colored dashed connection between
+                George M. Meason and Benjamin marks a high-confidence indirect
+                conclusion. The neutral dashed line above Benjamin marks
+                something different: his parents are still unknown.
               </p>
               <p className="text-sm leading-relaxed text-ink/50">
                 This is the direct line as I currently understand it, not every
@@ -91,13 +91,24 @@ export default function GenealogyTreePage() {
                 <SourceFootnote referenceIds={[56, 57, 58]} />
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
-                A 1900 census also calls elder James L. Meason the uncle of
-                George&apos;s strongly identified son James R. Elder
-                James&apos;s 1919 death certificate names Benjamin as his
-                father. That makes the dashed George-to-Benjamin connection a
-                strong indirect case, but the records do not literally name
-                George as elder James&apos;s brother or Benjamin&apos;s son.
-                <SourceFootnote referenceIds={[33, 59, 60]} />
+                I accept the George-to-Benjamin connection because the evidence
+                is broader than one late relationship word. Laura Ann&apos;s
+                1846 marriage return names her as Benjamin&apos;s daughter. Her
+                husband later acquired land with George and James L. Meason;
+                related households remained clustered nearby; and James can be
+                followed from blacksmith to miller to sawmill proprietor before
+                appearing with George&apos;s son in Texas as his uncle.
+                James&apos;s death certificate then names Benjamin as his
+                father.
+                <SourceFootnote
+                  referenceIds={[28, 33, 59, 60, 61, 62, 63, 64]}
+                />
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-ink/50">
+                No one record calls George Benjamin&apos;s son, and the record
+                of James&apos;s move from Missouri to Texas is still missing.
+                The dashed line preserves those limits while showing that the
+                combined case is strong enough to use in this working tree.
               </p>
               <p className="mt-4 text-sm leading-relaxed text-ink/50">
                 Working family portraits now accompany me, Cindee, Jimmy, James
@@ -129,15 +140,16 @@ export default function GenealogyTreePage() {
             <div className="md:col-span-8">
               <p className="font-serif text-2xl md:text-3xl leading-snug text-ink/80 text-balance mb-5">
                 Benjamin&apos;s life is documented. His place in my direct line
-                now has strong indirect support—and is still being tested.
+                is a high-confidence indirect conclusion. His parents remain
+                unknown.
               </p>
               <p className="leading-relaxed text-ink/60 mb-6">
-                Before treating the George-to-Benjamin edge as proved, I still
-                need the estate, deed, probate, or other evidence that directly
-                states or independently closes the relationship. Beyond that
-                edge, any future parent must also be distinguished from the
-                other Thomas, William, Joseph, Mason, and Meason identities
-                found in the same records.
+                I am still pursuing Benjamin&apos;s estate, the complete land
+                chain, and the missing stretch of James&apos;s migration because
+                good conclusions should keep being tested. The next true
+                frontier, however, is above Benjamin: any proposed parent must
+                be distinguished from the other Thomas, William, Joseph, Mason,
+                and Meason identities found in the same records.
               </p>
               <Link href="/genealogy#investigation" className="btn-primary">
                 See the Benjamin investigation
