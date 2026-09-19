@@ -212,7 +212,7 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     supports:
       'Twelve named children—six sons and six daughters—including son Thomas and daughter Ann; Benjamin is absent from the extensive list. Fresh review of the complete original pages confirms that the instrument names no wife and no daughter Jane.',
     limitation:
-      'The omission weighs strongly against the testator as Benjamin’s direct father, but a will need not name every child. It does not categorically exclude him, identify Benjamin’s parents, or exclude another family line. Earlier relationship indexing and adjacent will text incorrectly supplied a wife Ann and daughter Jane; those claims are superseded by the preserved-original review.',
+      'The omission weighs strongly against the testator as Benjamin’s direct father, but a will need not name every child. It does not categorically exclude him, identify Benjamin’s parents, or exclude another family line. Earlier relationship indexing misclassified daughter Ann as a spouse, while adjacent will text supplied Jane; those claims are superseded by the preserved-original review.',
     url: 'https://www.ancestry.com/search/collections/8802/records/2042575',
     accessLabel: 'Open indexed probate record',
   },

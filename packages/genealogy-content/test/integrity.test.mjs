@@ -42,6 +42,19 @@ test('the collection-scale prototype entities are represented', () => {
 });
 
 test('the Highland Creek reconstruction preserves evidence boundaries', () => {
+  const thomasWillReference = references.find(
+    (reference) => reference.id === 18
+  );
+  assert.match(thomasWillReference?.supports ?? '', /daughter Ann/);
+  assert.match(
+    thomasWillReference?.limitation ?? '',
+    /daughter Ann as a spouse/
+  );
+  assert.doesNotMatch(
+    `${thomasWillReference?.supports} ${thomasWillReference?.limitation}`,
+    /wife Ann/i
+  );
+
   assert.deepEqual(
     highlandCreekReconstruction.nodes.map(({ id, kind }) => [id, kind]),
     [
