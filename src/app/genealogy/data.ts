@@ -1,4 +1,4 @@
-export type TreeNodeStatus = 'documented' | 'review' | 'unknown';
+export type TreeNodeStatus = 'documented' | 'indirect' | 'review' | 'unknown';
 
 export interface PublicTreeNode {
   title: string;
@@ -9,7 +9,7 @@ export interface PublicTreeNode {
   status: TreeNodeStatus;
   statusLabel: string;
   referenceIds?: readonly number[];
-  connectionToNext?: 'documented' | 'review';
+  connectionToNext?: 'documented' | 'indirect' | 'review';
 }
 
 export const publicTree: PublicTreeNode[] = [
@@ -70,22 +70,22 @@ export const publicTree: PublicTreeNode[] = [
     period: 'Birth year disputed · died 1887',
     relationship: 'Third great-grandfather',
     summary:
-      'Four adult censuses and a descendant-held Bible say about 1810, while George’s marker says 1818. A newly reviewed uncle relationship provides strong indirect support for placing him in Benjamin’s family, but no record directly names his parents.',
-    status: 'review',
-    statusLabel: 'Strong indirect evidence · unproved',
-    referenceIds: [25, 26, 30, 32, 33, 34, 58, 59, 60],
-    connectionToNext: 'review',
+      'George’s own records lead to a wider family network: his son called elder James L. Meason an uncle; James named Benjamin as his father; and Benjamin’s proved son-in-law held land with George and James. I accept George’s place in Benjamin’s family as a high-confidence indirect conclusion.',
+    status: 'indirect',
+    statusLabel: 'High-confidence indirect conclusion',
+    referenceIds: [25, 28, 33, 59, 60, 61, 62, 63, 64],
+    connectionToNext: 'indirect',
   },
   {
     title: 'Benjamin Meason',
     href: '/genealogy/tree#benjamin-meason',
     period: 'Born about 1776 · living in 1850',
-    relationship: 'Claimed fourth great-grandfather',
+    relationship: 'Fourth great-grandfather · working conclusion',
     summary:
-      'Benjamin’s own life is documented. A 1900 uncle relationship combined with a 1919 parent report now provides strong indirect evidence connecting him to George, but no reviewed record directly states that George was his son.',
-    status: 'review',
-    statusLabel: 'Strong indirect evidence · unproved',
-    referenceIds: [1, 2, 11, 13, 23, 25, 33, 59, 60],
+      'Benjamin’s life is documented in Kentucky and Missouri. His place in my direct line is an accepted working conclusion built from converging marriage, land, household, occupational, census, and death records—not from a single record that names George as his son.',
+    status: 'indirect',
+    statusLabel: 'Direct-line placement accepted',
+    referenceIds: [1, 2, 11, 13, 23, 28, 33, 59, 60, 61, 62, 63, 64],
     connectionToNext: 'review',
   },
   {
@@ -203,14 +203,49 @@ export const georgeChronology = [
   },
 ];
 
+export const familyNetworkScenes = [
+  {
+    year: '1846',
+    place: 'Monroe County, Missouri',
+    title: 'Laura’s marriage gives the family a named daughter',
+    detail:
+      'When preacher Henry Thomas recorded the marriage of John C. Kippers and Laura Ann Meason, he identified Laura as the daughter of Benjamin Meason. That brief phrase turns Laura from a nearby surname into a documented member of Benjamin’s family—and John into Benjamin’s son-in-law.',
+    referenceIds: [61],
+  },
+  {
+    year: '1850–1860',
+    place: 'Households and land around Granville',
+    title: 'The same people keep gathering around one another',
+    detail:
+      'Benjamin and Hannah’s 1850 household included James and four Hollingsworth children. Five years later, John C. Kippers, George M. Meason, and James L. Meason acquired Section 11 land together. In 1860, James, the Parker deed grantors, the Kippers, and those Hollingsworth siblings appear across two consecutive census pages. No record labels every relationship, but this no longer looks like a chance collection of names.',
+    referenceIds: [1, 28, 61, 62],
+  },
+  {
+    year: '1860–1880',
+    place: 'Monroe County, Missouri',
+    title: 'James builds a life around iron, grain, and timber',
+    detail:
+      'James appears first as a blacksmith, then as a miller with a crew of mill laborers, and finally as the proprietor of a sawmill, boarding beside two men who worked there. The steady ages, Kentucky birthplace, county, middle initial, and changing trade create a remarkably coherent thirty-year identity—and give the records the texture of an actual working life.',
+    referenceIds: [62, 63, 64],
+  },
+  {
+    year: '1880–1919',
+    place: 'Missouri to Texas',
+    title: 'Two branches meet again in Texas',
+    detail:
+      'George’s son James R. and his wife Eva moved into the Texas story. By 1900, elder James L. was living in their household and was recorded as James R.’s uncle. When elder James died in 1919, J. R. Meason supplied the information naming Benjamin as his father. The records never write the whole family sentence in one place; across decades, they assemble it.',
+    referenceIds: [33, 59, 60, 64],
+  },
+];
+
 export const researchThreads = [
   {
     name: 'Benjamin as George’s father',
-    category: 'Relationship hypothesis',
-    status: 'Strong indirect evidence · not proved',
+    category: 'Working lineage conclusion',
+    status: 'High confidence · indirect evidence',
     detail:
-      'A 1900 census calls elder James L. Meason the uncle of George’s strongly identified son James R.; elder James’s 1919 death certificate names Benjamin Meason as his father. That is strong indirect support for George belonging to Benjamin’s family, but “uncle” does not identify the exact side or type of relationship, and no reviewed record literally calls George Benjamin’s son or heir.',
-    referenceIds: [33, 59, 60],
+      'I now accept George as Benjamin’s son in my working tree. The conclusion rests on Laura’s documented relationship to Benjamin; her husband’s land dealings with George and James L.; the continuing Kipper, Hollingsworth, Parker, and James household network; James’s Missouri identity and mill career; and the Texas uncle and father statements. No single record says “George, son of Benjamin,” so the conclusion remains explicitly indirect and open to further testing.',
+    referenceIds: [1, 28, 33, 59, 60, 61, 62, 63, 64],
   },
   {
     name: 'Thomas Meason senior',
@@ -254,11 +289,11 @@ export const researchThreads = [
   },
   {
     name: 'The elder James Lawrence Meason',
-    category: 'Identity lead',
-    status: 'Kinship cluster strengthened · deed identity open',
+    category: 'Collateral family line',
+    status: 'Missouri identity strong · Texas bridge still open',
     detail:
-      'A 1900 census places elder James L. Meason in James R. Meason’s household and explicitly calls him uncle. James R. and Eva strongly continue George’s son and daughter-in-law, and elder James’s 1919 death certificate names Benjamin as his father. The indirect family case is now much stronger, but I have not proved that elder James was George’s brother or the James L. named beside George in an 1855 deed. He remains evidence about the disputed edge, not a new tree connection.',
-    referenceIds: [28, 33, 59, 60],
+      'The records now follow a Kentucky-born James L. from Benjamin’s 1850 household through the 1855 deed, an 1860 blacksmith household, an 1870 mill, and an 1880 sawmill. The same occupation and family network reappear around the elder James in Texas. The remaining gap is his move after 1880—not his place as a richly documented collateral witness to the family story.',
+    referenceIds: [1, 28, 33, 59, 60, 62, 63, 64],
   },
 ];
 
@@ -331,7 +366,7 @@ export const evidenceLedger = [
     establishes:
       'The original 1940 Texas certificate spells out Benjamin Thomas Meason and explicitly names Geo M Meason and Martha Reid as his parents.',
     limit:
-      'His daughter supplied the biographical information decades after his birth. The certificate does not name George’s parents, identify a Thomas namesake, or prove either disputed ancestral edge.',
+      'His daughter supplied the biographical information decades after his birth. The certificate does not name George’s parents, identify a Thomas namesake, establish the George-to-Benjamin relationship on its own, or identify Benjamin’s parents.',
     referenceIds: [55],
   },
   {
@@ -343,12 +378,12 @@ export const evidenceLedger = [
     referenceIds: [56, 57, 58],
   },
   {
-    record: '1900 uncle census and 1919 death certificate',
+    record: 'The Laura–Kippers–James family network',
     establishes:
-      'The 1900 census calls elder James L. Meason the uncle of James R. Meason, who strongly matches George’s son; the elder James’s 1919 certificate names Benjamin Meason as his father.',
+      'Laura’s marriage return directly names Benjamin as her father. Her husband later held land with George and James L.; connected households preserve the same Kipper, Hollingsworth, Parker, and Meason network; and James’s records continue through Missouri before the Texas uncle and father statements.',
     limit:
-      'The census does not specify the side or type of uncle relationship, and neither record literally calls elder James George’s brother or George Benjamin’s son. His identity as the James L. in the 1855 Monroe County deed remains unproved.',
-    referenceIds: [28, 33, 59, 60],
+      'The records do not literally call Laura, George, and James siblings or state that George was Benjamin’s son. The conclusion depends on the combined evidence, and James’s post-1880 move from Missouri to Texas remains undocumented.',
+    referenceIds: [1, 28, 33, 59, 60, 61, 62, 63, 64],
   },
   {
     record: 'What the public trees cite',
@@ -389,10 +424,10 @@ export const researchBlockers = [
 
 export const nextResearchSteps = [
   {
-    title: 'Test the elder James identity',
+    title: 'Bridge James’s move from Missouri to Texas',
     detail:
-      'I am looking for elder James in the 1910 census, a 1919 obituary or probate record, and the title chain for the Section 11 land associated with James L. Meason in 1855. Those records may clarify whether the Texas elder was George’s brother and whether he was the same James L. named beside George in Missouri.',
-    referenceIds: [28, 59, 60],
+      'The Missouri identity is now strong through his 1880 sawmill household. I am looking for the land sale, tax departure, newspaper notice, directory, probate record, or other trace that follows James into the 1900 Texas household. The complete 1860 Book R deed and earlier Parker conveyance may also clarify his Section 11 property story.',
+    referenceIds: [28, 59, 60, 62, 63, 64],
   },
   {
     title: 'Await Benjamin’s Missouri estate records',
@@ -423,11 +458,11 @@ export const latestResearchUpdates = [
     referenceIds: [56, 57, 58],
   },
   {
-    status: 'Strong indirect evidence',
-    title: 'A census now states the elder James relationship',
+    status: 'Working conclusion advanced',
+    title: 'The family network now carries the line to Benjamin',
     detail:
-      'The 1900 census calls elder James L. Meason the uncle of James R. Meason, who strongly matches George’s son. Elder James’s 1919 certificate names Benjamin as his father. Together they materially strengthen the George-to-Benjamin case without directly proving it; the 1855 deed identity remains open.',
-    referenceIds: [28, 33, 59, 60],
+      'Laura’s original marriage return, the corrected Kippers deed, the 1860 household cluster, James’s mill career, and the Texas uncle and father statements now converge. I accept George as Benjamin’s son in my working tree as a high-confidence indirect conclusion while continuing to test the missing estate and migration records.',
+    referenceIds: [1, 28, 33, 59, 60, 61, 62, 63, 64],
   },
   {
     status: 'Requests pending',

@@ -28,18 +28,18 @@ interface LineageGeneration {
   label: string;
   direct: Person;
   partner?: Person;
-  connectionToNext?: 'documented' | 'review';
+  connectionToNext?: 'documented' | 'indirect' | 'review';
 }
 
 const lineageGenerations: LineageGeneration[] = [
   {
     id: 'benjamin-meason',
     navLabel: 'Benjamin',
-    label: 'Generation 7 · claimed fourth great-grandfather',
+    label: 'Generation 7 · fourth great-grandfather · working conclusion',
     direct: {
       name: 'Benjamin Meason',
       detail: 'Born about 1776 · living in Monroe County in 1850',
-      status: 'Relationship to George · strong indirect evidence',
+      status: 'Direct-line placement · high-confidence indirect conclusion',
       evidenceImage: {
         src: '/genealogy/evidence/benjamin-meason-1802-guardian-bond.jpg',
         alt: 'Facing pages of the Nelson County bond book; Benjamin Meason’s signature appears on the left-page guardian bond',
@@ -53,9 +53,9 @@ const lineageGenerations: LineageGeneration[] = [
     partner: {
       name: 'Hannah Doom',
       detail: 'Married Benjamin in Kentucky in 1801',
-      status: 'Spouse · claimed direct ancestor',
+      status: 'Spouse · working direct ancestor',
     },
-    connectionToNext: 'review',
+    connectionToNext: 'indirect',
   },
   {
     id: 'george-m-meason',
@@ -64,7 +64,7 @@ const lineageGenerations: LineageGeneration[] = [
     direct: {
       name: 'George M. Meason',
       detail: 'Censuses and family note: about 1810 · marker: 1818 · died 1887',
-      status: 'Named as Frank’s father · own parentage unproved',
+      status: 'Placed in Benjamin’s family through converging evidence',
       evidenceImage: {
         src: '/genealogy/evidence/george-m-meason-marker.jpg',
         alt: 'Broken grave marker for George M. Meason at Mount Calvary Cemetery in Dallas',
@@ -467,14 +467,16 @@ function LineageRow({
             <span
               aria-hidden="true"
               className={`absolute inset-y-0 left-0 border-l ${
-                generation.connectionToNext === 'review'
-                  ? 'border-dashed border-ink/40'
-                  : 'border-ink/30'
+                generation.connectionToNext === 'indirect'
+                  ? 'border-dashed border-accent/60'
+                  : generation.connectionToNext === 'review'
+                    ? 'border-dashed border-ink/40'
+                    : 'border-ink/30'
               }`}
             />
-            {generation.connectionToNext === 'review' ? (
+            {generation.connectionToNext === 'indirect' ? (
               <span className="absolute left-1/2 top-1/2 w-max -translate-x-1/2 -translate-y-1/2 bg-[#f4efe7] px-2 text-[0.58rem] uppercase tracking-widest text-ink/45">
-                strong indirect evidence · not yet proved
+                high-confidence indirect conclusion
               </span>
             ) : null}
           </div>
@@ -490,9 +492,9 @@ export default function VisualFamilyTree() {
       <figcaption id="visual-tree-title" className="sr-only">
         A visual pedigree showing the working Meason family line from Benjamin
         Meason to Shannon Jeremiah Meason, with spouses shown as secondary
-        connections, the strong but indirect relationship evidence between
-        Benjamin and George marked as unproved, and Benjamin&apos;s parents
-        marked as unknown.
+        connections, the relationship between Benjamin and George marked as a
+        high-confidence indirect conclusion, and Benjamin&apos;s parents marked
+        as unknown.
       </figcaption>
 
       <nav
@@ -548,7 +550,7 @@ export default function VisualFamilyTree() {
               <span className="absolute left-0 right-0 top-5 border-t border-dashed border-ink/35" />
               <span className="absolute bottom-0 left-1/2 top-5 border-l border-dashed border-ink/35" />
               <span className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-[#f4efe7] px-2 text-[0.58rem] uppercase tracking-widest text-ink/45">
-                unproved
+                parents unknown
               </span>
             </div>
           </div>

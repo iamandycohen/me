@@ -9,6 +9,7 @@ import SourceFootnote from './_components/SourceFootnote';
 import {
   chronology,
   evidenceLedger,
+  familyNetworkScenes,
   georgeChronology,
   latestResearchUpdates,
   nextResearchSteps,
@@ -63,9 +64,10 @@ export default function GenealogyPage() {
               </p>
               <p className="font-serif text-xl mb-2">In progress</p>
               <p className="text-sm leading-relaxed text-ink/60">
-                Last reviewed September 18, 2026 CDT. A newly reviewed census
-                adds strong indirect evidence for George&apos;s place in
-                Benjamin&apos;s family; the relationship remains unproved.
+                Last reviewed September 18, 2026 CDT. The evidence reviewed to
+                date supports George&apos;s place in Benjamin&apos;s family as a
+                high-confidence indirect conclusion. Benjamin&apos;s own parents
+                remain unknown.
               </p>
             </aside>
           </div>
@@ -137,11 +139,11 @@ export default function GenealogyPage() {
                 <SourceFootnote referenceIds={[48]} />
               </p>
               <p>
-                But when I went looking for the record that actually connected
-                them, I could not find one. The relationship itself had no
-                source. Some attached records belonged to different men, and two
-                original wills naming large Meason families did not include
-                Benjamin at all.
+                But when I first went looking for the record that actually
+                connected them, I found no cited source stating the
+                relationship. Some attached records belonged to different men,
+                and two original wills naming large Meason families did not
+                include Benjamin at all.
                 <SourceFootnote referenceIds={[18, 19]} />
               </p>
               <p>
@@ -154,16 +156,21 @@ export default function GenealogyPage() {
                 <SourceFootnote referenceIds={[30]} />
               </p>
               <p>
-                The deeper review exposed an earlier break as well. Benjamin is
-                a well-documented historical person, but no record I have
-                reviewed yet calls George M. Meason his son. A 1900 census now
-                calls elder James L. Meason the uncle of George&apos;s strongly
-                identified son James R.; elder James&apos;s 1919 death
-                certificate names Benjamin as his father. That is strong
-                indirect evidence, but the census does not specify the exact
-                kind or side of the uncle relationship, and neither record
-                literally makes George Benjamin&apos;s son.
-                <SourceFootnote referenceIds={[33, 59, 60]} />
+                The answer emerged only when I stopped looking for a single
+                sentence and followed the family around it. Laura Ann&apos;s
+                marriage return names her as Benjamin&apos;s daughter. Her
+                husband, John C. Kippers, later acquired land with George and
+                James L. Meason. The same Kipper, Hollingsworth, Parker, and
+                Meason circle remained close in the 1860 census. Over the next
+                two decades, James moved from blacksmithing into mill work.
+                Decades later in Texas, George&apos;s son called that elder
+                James his uncle, and James&apos;s death certificate named
+                Benjamin as his father. Taken together, those records are strong
+                enough for me to accept George&apos;s place in Benjamin&apos;s
+                family as a high-confidence indirect conclusion.
+                <SourceFootnote
+                  referenceIds={[28, 33, 59, 60, 61, 62, 63, 64]}
+                />
               </p>
               <p>
                 I do not want to replace one confident story with another. I
@@ -192,16 +199,17 @@ export default function GenealogyPage() {
               <div className="lg:sticky lg:top-28">
                 <p className="eyebrow mb-4">My working family tree</p>
                 <h2 className="mb-6 text-balance">
-                  The line—and its two open edges—as I know it today.
+                  The line—and the evidence behind it—as I know it today.
                 </h2>
                 <p className="leading-relaxed text-ink/65 mb-5">
                   This is not every person in a family database. It is the
                   working path that explains my connection to the question.
                 </p>
                 <p className="text-sm leading-relaxed text-ink/50">
-                  The path reaches George M. Meason, then shows the claimed
-                  relationship to Benjamin as unproved. Benjamin&apos;s parents
-                  remain a separate open question.
+                  The path reaches George M. Meason, then shows the
+                  high-confidence indirect conclusion that places him with
+                  Benjamin. The identities of Benjamin&apos;s parents remain a
+                  genuinely open question.
                 </p>
                 <Link
                   href="/genealogy/tree"
@@ -225,17 +233,20 @@ export default function GenealogyPage() {
               <div className="lg:sticky lg:top-28">
                 <p className="eyebrow mb-4">The bridge generation</p>
                 <h2 className="mb-6 text-balance">
-                  George is visible. His parents are not.
+                  George no longer stands alone.
                 </h2>
                 <p className="leading-relaxed text-ink/65">
-                  The records now give George a clearer life of his own. They
-                  correct copied dates, document his marriage to Martha Reed,
-                  and explain why his birth year remains disputed. The new
-                  elder-James evidence strengthens the case that he belonged to
-                  Benjamin&apos;s family, but no reviewed record directly
-                  identifies Benjamin as his father.
+                  George&apos;s own records correct copied dates, document his
+                  marriage to Martha Reed, and explain why his birth year
+                  remains disputed. Around him, a wider network of relatives,
+                  shared land, neighboring households, occupations, and a later
+                  reunion in Texas places him in Benjamin&apos;s family even
+                  though no single reviewed record calls him Benjamin&apos;s
+                  son.
                   <SourceFootnote
-                    referenceIds={[25, 26, 31, 32, 33, 34, 59, 60]}
+                    referenceIds={[
+                      25, 26, 28, 31, 32, 33, 34, 59, 60, 61, 62, 63, 64,
+                    ]}
                   />
                 </p>
               </div>
@@ -265,6 +276,60 @@ export default function GenealogyPage() {
                   </li>
                 ))}
               </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding border-b border-ink/10 bg-ink/[0.025]">
+        <div className="container-max">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <div className="lg:sticky lg:top-28">
+                <p className="eyebrow mb-4">The family between the lines</p>
+                <h2 className="mb-6 text-balance">
+                  A marriage, a patch of land, and a life built around mills.
+                </h2>
+                <p className="leading-relaxed text-ink/65">
+                  Genealogy can flatten people into names and dates. Here, the
+                  details do the opposite. They show relatives sharing property,
+                  households, work, migration, and responsibility across more
+                  than seventy years.
+                </p>
+              </div>
+            </div>
+            <div className="lg:col-span-8">
+              <ol className="border-t border-ink/15">
+                {familyNetworkScenes.map((scene) => (
+                  <li
+                    key={`${scene.year}-${scene.title}`}
+                    className="grid gap-4 border-b border-ink/10 py-8 sm:grid-cols-12 sm:gap-8"
+                  >
+                    <div className="sm:col-span-3">
+                      <p className="font-serif text-2xl text-accent">
+                        {scene.year}
+                      </p>
+                      <p className="mt-1 text-xs uppercase tracking-wider text-ink/45">
+                        {scene.place}
+                      </p>
+                    </div>
+                    <div className="sm:col-span-9">
+                      <h3 className="mb-3 text-xl">{scene.title}</h3>
+                      <p className="leading-relaxed text-ink/65">
+                        {scene.detail}
+                        <SourceFootnote referenceIds={scene.referenceIds} />
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-6 text-sm leading-relaxed text-ink/50">
+                These records support the conclusion only when read together.
+                The 1860 census does not label every relationship, the deed does
+                not call George and James brothers, and the record of
+                James&apos;s move from Missouri to Texas is still missing. Those
+                limits remain part of the story.
+              </p>
             </div>
           </div>
         </div>
@@ -329,25 +394,26 @@ export default function GenealogyPage() {
                   The inherited branch
                 </p>
                 <h2 className="text-paper mb-6 text-balance">
-                  Two relationships need proof.
+                  One conclusion strengthened. One frontier remains.
                 </h2>
                 <p className="text-paper/70 text-lg leading-relaxed mb-5">
                   The tree I inherited connected George to Benjamin, then gave
                   Benjamin a father: a Thomas Meason described in copied trees
-                  as born in 1755. Both links looked settled because they were
-                  repeated so often.
+                  as born in 1755. The two links once looked equally settled—and
+                  equally unsupported—because they were repeated so often.
                 </p>
                 <p className="text-paper/55 leading-relaxed mb-8">
-                  The trouble is that plausible is not the same as proved.
-                  George and Benjamin now have a strong indirect case through
-                  elder James L. Meason, but no reviewed record directly names
-                  their relationship. Above Benjamin, separating the same-name
-                  men and reading the original wills turns one tidy answer into
-                  several distinct candidates.
+                  They are no longer equal. Records created at different times
+                  and for different purposes now converge on George&apos;s place
+                  in Benjamin&apos;s family, so I carry that relationship as a
+                  high-confidence indirect conclusion. Above Benjamin,
+                  separating the same-name men and reading the original wills
+                  still turns one tidy answer into several distinct—and
+                  unresolved—candidates.
                 </p>
                 <div className="inline-flex items-center gap-3 rounded-full border border-paper/20 px-4 py-2 text-sm text-paper/70">
                   <span className="h-2 w-2 rounded-full bg-accent-soft" />
-                  Two documentary edges remain open
+                  One indirect conclusion · one unknown generation
                 </div>
               </div>
             </div>
@@ -357,39 +423,43 @@ export default function GenealogyPage() {
                   What I learned from the latest records
                 </p>
                 <p className="font-serif text-xl leading-relaxed text-paper/80 md:text-2xl">
-                  I checked the citations on 35 public profiles and found the
-                  two disputed relationships repeated without a record that
-                  stated either one. Four adult censuses and a descendant-held
-                  Bible say about 1810, while George&apos;s marker says 1818—but
-                  those records stop with George. The newly found uncle evidence
-                  strengthens one edge without closing it. The tree still has
-                  two open edges.
-                  <SourceFootnote referenceIds={[25, 26, 30, 33, 34, 59, 60]} />
+                  The inherited tree did not become trustworthy because another
+                  tree repeated it. It became trustworthy when Laura&apos;s
+                  marriage, the corrected Kippers deed, connected census
+                  households, James&apos;s working life, and the Texas records
+                  began telling the same family story.
+                  <SourceFootnote
+                    referenceIds={[28, 33, 59, 60, 61, 62, 63, 64]}
+                  />
                 </p>
                 <p className="mt-5 leading-relaxed text-paper/60">
                   A newly reviewed original death certificate spells out
                   Benjamin Thomas Meason and names Geo M Meason and Martha Reid
                   as his parents. That resolves the full-name question and
                   strengthens his placement in their family—but it does not
-                  identify the namesake or close either open ancestral edge.
+                  identify the namesake or answer the question above Benjamin.
                   <SourceFootnote referenceIds={[53, 55]} />
                 </p>
                 <p className="mt-5 leading-relaxed text-paper/60">
                   Three more original death certificates name parents across
                   successive generations from Jimmy through James and Frank to
                   George and Martha. They make that part of my direct line much
-                  better supported, while leaving George&apos;s parentage
-                  unresolved.
+                  better supported. George&apos;s parents remain unstated in
+                  those records; the indirect family network is what carries the
+                  line to Benjamin.
                   <SourceFootnote referenceIds={[56, 57, 58]} />
                 </p>
                 <p className="mt-5 leading-relaxed text-paper/60">
-                  A 1900 census adds a different kind of evidence: it calls
-                  elder James L. Meason the uncle of George&apos;s apparent son
-                  James R. Elder James&apos;s 1919 certificate names Benjamin as
-                  his father. Together they make the George-to-Benjamin case
-                  substantially stronger, while stopping short of a record that
-                  directly states the relationship.
-                  <SourceFootnote referenceIds={[33, 59, 60]} />
+                  No single document writes the sentence “George was
+                  Benjamin&apos;s son.” The conclusion is indirect because it
+                  comes from the agreement of records created across different
+                  decades and for different purposes. Their combined story is
+                  now stronger than the credible alternatives I have found, so I
+                  accept the relationship while keeping its evidentiary
+                  character visible.
+                  <SourceFootnote
+                    referenceIds={[28, 33, 59, 60, 61, 62, 63, 64]}
+                  />
                 </p>
               </aside>
               <div className="grid gap-px border border-paper/15 bg-paper/15 sm:grid-cols-2">
@@ -465,7 +535,7 @@ export default function GenealogyPage() {
           <div className="mb-16 md:mb-20">
             <p className="eyebrow mb-4">What I found most recently</p>
             <h2 className="mb-8 text-balance">
-              New records strengthened the line and opened another lead.
+              The records turned a cluster of names into a family.
             </h2>
             <div className="grid gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 md:grid-cols-3">
               {latestResearchUpdates.map((update) => (
@@ -535,12 +605,16 @@ export default function GenealogyPage() {
           <div className="max-w-3xl">
             <p className="eyebrow mb-4">Research checkpoint · September 2026</p>
             <p className="font-serif text-2xl md:text-3xl leading-snug text-ink/80 text-balance mb-8">
-              I have a documented life for Benjamin, a strong indirect but still
-              unproved bridge from Benjamin to George, several weakened parent
-              candidates, and no proved parent above Benjamin. That is less tidy
-              than the tree I began with—and much closer to the truth.
+              I have a documented life for Benjamin and a high-confidence
+              indirect conclusion connecting him to George. Above Benjamin, I
+              have several weakened parent candidates and no proved parent at
+              all. That is less tidy than the tree I began with—and much closer
+              to the truth.
               <SourceFootnote
-                referenceIds={[18, 19, 20, 21, 22, 25, 26, 30, 33, 34, 59, 60]}
+                referenceIds={[
+                  18, 19, 20, 21, 22, 25, 26, 28, 30, 33, 34, 59, 60, 61, 62,
+                  63, 64,
+                ]}
               />
             </p>
             <p className="leading-relaxed text-ink/60 max-w-2xl mb-8">
