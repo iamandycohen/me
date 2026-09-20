@@ -170,11 +170,22 @@ export type ReconstructionEvidenceState =
   | 'identity-synthesis'
   | 'hypothesis';
 
+export type ReconstructionConnectionKind =
+  | 'spouse'
+  | 'parent-child'
+  | 'sibling'
+  | 'heirship-unknown-degree'
+  | 'identity'
+  | 'open-parentage-hypothesis'
+  | 'deed-property-transfer'
+  | 'land-title-association'
+  | 'legal-record-role';
+
 export interface ReconstructionNode {
   readonly id: string;
   readonly label: string;
   readonly detail: string;
-  readonly kind: 'person' | 'land';
+  readonly kind: 'person' | 'land' | 'record';
   readonly recordGroup: 'will-1779' | 'logan-1795' | 'highland-creek';
   readonly referenceIds: readonly number[];
 }
@@ -184,6 +195,7 @@ export interface ReconstructionEdge {
   readonly from: string;
   readonly to: string;
   readonly relationship: string;
+  readonly connectionKind: ReconstructionConnectionKind;
   readonly evidenceState: ReconstructionEvidenceState;
   readonly statement: string;
   readonly limitation: string;

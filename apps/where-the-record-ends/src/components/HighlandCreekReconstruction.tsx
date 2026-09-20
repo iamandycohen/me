@@ -5,12 +5,13 @@ import {
 
 import { ArrowLink } from '@/components/ArrowLink';
 import { EvidenceImageViewer } from '@/components/EvidenceImageViewer';
+import { HighlandCreekFamilyTree } from '@/components/HighlandCreekFamilyTree';
 import { ReferenceLinks } from '@/components/ReferenceLinks';
 
 const edgePresentation = {
   recorded: {
-    label: 'Recorded relationship',
-    description: 'The relationship is stated in a record.',
+    label: 'Recorded connection',
+    description: 'The connection is stated in a record.',
     card: 'border-ink/15 bg-cream',
     badge: 'border-ink/20 bg-ink text-paper',
   },
@@ -171,12 +172,13 @@ export function HighlandCreekReconstruction() {
                 id="highland-creek-reconstruction"
                 className="mt-3 font-serif text-4xl sm:text-5xl"
               >
-                A reconstruction in three layers
+                A possible family, without pretending it is proved
               </h2>
               <p className="mt-4 max-w-3xl leading-relaxed text-ink/60">
-                Each connection carries its evidence status in words. A solid
-                record, a cross-record identity assessment, and a parentage
-                hypothesis are not interchangeable.
+                Every named person is visible, but only relationships supported
+                by the evidence are drawn as family. A solid record, a
+                cross-record identity assessment, and a parentage hypothesis are
+                not interchangeable.
               </p>
             </div>
             <ul
@@ -196,7 +198,21 @@ export function HighlandCreekReconstruction() {
             </ul>
           </div>
 
-          <div className="mt-10 space-y-8">
+          <HighlandCreekFamilyTree />
+
+          <div className="mt-14 max-w-3xl">
+            <p className="eyebrow">Connection-by-connection evidence</p>
+            <h3 className="mt-3 font-serif text-3xl sm:text-4xl">
+              Read the ledger behind the tree
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-ink/60 sm:text-base">
+              The visual reconstruction is an orientation tool. This ledger
+              preserves the full statement, limitation, and source trail for
+              every connection it draws.
+            </p>
+          </div>
+
+          <div className="mt-8 space-y-8">
             {edgeOrder.map((state, layerIndex) => {
               const edges = item.edges.filter(
                 (edge) => edge.evidenceState === state
