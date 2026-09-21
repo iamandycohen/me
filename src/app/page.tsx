@@ -5,7 +5,7 @@ import {
   getCurrentActiveRole,
   formatLinkedInUrl,
 } from '@/lib/data-helpers';
-import { addSitecoreLinks } from '@/lib/utils';
+import { addProfileLinks } from '@/lib/utils';
 import data from '@/lib/data';
 
 const genealogyHighlights = [
@@ -56,7 +56,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-7 order-2 lg:order-1">
               <p className="eyebrow mb-6">
-                {data.contact.location} · Available for conversations
+                {data.contact.location} · Principal, Technical Innovation
               </p>
               <h1 className="text-balance mb-8">
                 <span className="block">{data.contact.name}</span>
@@ -66,9 +66,9 @@ export default function Home() {
               </h1>
 
               <p className="text-lg md:text-xl text-ink/70 leading-relaxed text-pretty max-w-2xl mb-10">
-                {displayTitle}. I work at the seam between engineering, AI, and
-                product — designing platforms that scale and shipping the
-                agentic systems that come next.
+                {displayTitle}. I work across AI, chat, digital workers, and the
+                platform capabilities that turn emerging technology into
+                software people can depend on.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -106,8 +106,8 @@ export default function Home() {
             <div className="rule mb-12"></div>
             <blockquote className="font-serif text-2xl md:text-3xl lg:text-4xl leading-snug text-ink text-balance">
               <span className="text-accent">“</span>
-              AI isn’t a hashtag for me. It’s an opportunity — used with intent
-              — to reshape how organizations actually work.
+              The interesting question isn’t what AI can generate. It’s what
+              software can understand, anticipate, and do on someone’s behalf.
               <span className="text-accent">”</span>
             </blockquote>
             <div className="rule mt-12"></div>
@@ -125,15 +125,15 @@ export default function Home() {
                 A career in three sentences.
               </h2>
               <p className="text-sm text-ink/60 leading-relaxed">
-                Founding architect of Sitecore XM Cloud. Two decades building
-                enterprise-grade software. Now leading agentic experience at
-                Kajoo and TechGuilds.
+                Built staffing software early in my career. Founding architect
+                of Sitecore XM Cloud. Now building AI-native staffing
+                experiences at Bullhorn.
               </p>
             </aside>
 
             <article className="lg:col-span-9 prose-editorial max-w-prose">
               {bioParagraphs.map((paragraph, index) => (
-                <p key={index}>{addSitecoreLinks(paragraph)}</p>
+                <p key={index}>{addProfileLinks(paragraph)}</p>
               ))}
             </article>
           </div>
@@ -223,16 +223,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── What I'm working on now ──────────────────────────── */}
+      {/* ── Recent career arc ──────────────────────────────── */}
       <section className="section-padding bg-ink text-paper">
         <div className="container-max">
           <div className="grid lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4">
-              <p className="eyebrow mb-3 text-accent-soft">Now</p>
-              <h2 className="text-paper mb-6">What I&apos;m working on.</h2>
+              <p className="eyebrow mb-3 text-accent-soft">The work</p>
+              <h2 className="text-paper mb-6">The recent arc.</h2>
               <p className="text-paper/70 leading-relaxed">
-                Building agentic platforms that turn emerging AI capability into
-                products that ship — and scale.
+                From enterprise cloud platforms to agentic systems and back to
+                staffing software — building products that ship and scale.
               </p>
             </div>
 

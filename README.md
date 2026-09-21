@@ -1,6 +1,6 @@
 # Andy Cohen — Personal Site
 
-> Personal site of Andy Cohen. Founding Architect of Sitecore XM Cloud. Currently Head of AI and Agentic Experience at Kajoo + TechGuilds.
+> Personal site of Andy Cohen. Principal, Technical Innovation at Bullhorn. Founding Architect of Sitecore XM Cloud.
 
 A workspace containing the existing editorial personal site and the standalone
 **Where the Record Ends** genealogy publication.

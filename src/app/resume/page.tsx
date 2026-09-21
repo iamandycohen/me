@@ -1,6 +1,6 @@
 import { generatePageMetadata } from '@/lib/metadata-generators';
 import { getRoleDuration, getDisplayName } from '@/lib/data-helpers';
-import { addSitecoreLinks } from '@/lib/utils';
+import { addProfileLinks } from '@/lib/utils';
 import data from '@/lib/data';
 
 const displayName = getDisplayName(data.contact);
@@ -26,10 +26,9 @@ export default function Resume() {
             </span>
           </h1>
           <p className="text-lg text-ink/70 leading-relaxed max-w-2xl">
-            From learning to code as a kid, to shipping applicant tracking and
-            time-management systems, to enterprise CMS platforms serving
-            millions — the throughline is engineering craftsmanship and systems
-            that scale.
+            From staffing software to enterprise cloud platforms and AI-native
+            systems — the throughline is engineering craftsmanship, product
+            thinking, and building things that scale.
           </p>
         </div>
 
@@ -57,7 +56,7 @@ export default function Resume() {
                 </p>
 
                 <p className="text-base md:text-lg text-ink/80 leading-relaxed mb-6 text-pretty">
-                  {addSitecoreLinks(role.description)}
+                  {addProfileLinks(role.description)}
                 </p>
 
                 <ul className="space-y-2.5 text-ink/75">
@@ -69,7 +68,7 @@ export default function Resume() {
                       >
                         —
                       </span>
-                      <span>{addSitecoreLinks(highlight)}</span>
+                      <span>{addProfileLinks(highlight)}</span>
                     </li>
                   ))}
                 </ul>
