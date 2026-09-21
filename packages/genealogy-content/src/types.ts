@@ -285,7 +285,7 @@ export interface IdentityConnection {
   readonly id: string;
   readonly subjectIds: readonly IdentitySubjectId[];
   readonly endpointLabels: readonly string[];
-  readonly assessment: 'possible' | 'excluded';
+  readonly assessment: 'possible' | 'strong-indirect' | 'excluded';
   readonly label: string;
   readonly statement: string;
   readonly limitation: string;

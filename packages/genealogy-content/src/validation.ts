@@ -368,6 +368,14 @@ export function validatePublicGenealogyContent(
         `Duplicate identity connection id: ${identityModel.id}:${duplicate}`
       );
     for (const connection of identityModel.connections) {
+      if (
+        !['possible', 'strong-indirect', 'excluded'].includes(
+          connection.assessment
+        )
+      )
+        errors.push(
+          `Identity model ${identityModel.id} connection ${connection.id} has invalid assessment ${connection.assessment}`
+        );
       if (connection.endpointLabels.length !== connection.subjectIds.length)
         errors.push(
           `Identity model ${identityModel.id} connection ${connection.id} has mismatched endpoint labels`

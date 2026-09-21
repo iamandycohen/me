@@ -254,7 +254,7 @@ test('the Three Thomases model preserves identities and open boundaries', () => 
       ],
       [
         'senior-son-to-kentucky',
-        'possible',
+        'strong-indirect',
         ['thomas-senior', 'kentucky-thomas'],
       ],
       [
@@ -264,6 +264,21 @@ test('the Three Thomases model preserves identities and open boundaries', () => 
       ],
     ]
   );
+  assert.match(
+    threeThomasesIdentityModel.summary,
+    /strongly favors the Kentucky Thomas/
+  );
+  assert.match(
+    threeThomasesIdentityModel.connections[1].statement,
+    /Joseph.*John.*Samuel.*Isaac.*Elizabeth.*strongly favors/
+  );
+  assert.match(
+    threeThomasesIdentityModel.connections[1].limitation,
+    /No reviewed record directly calls Kentucky Thomas a son of Thomas senior/
+  );
+  assert.deepEqual(threeThomasesIdentityModel.referenceIds, [
+    18, 19, 20, 21, 22, 67, 68, 69, 73,
+  ]);
   assert.deepEqual(
     threeThomasesIdentityModel.connections.map(({ endpointLabels }) =>
       endpointLabels.join(' ↔ ')
@@ -684,6 +699,30 @@ test('runtime validation reports an identity connection with a missing subject',
   const result = validatePublicGenealogyContent(broken);
   assert.equal(result.valid, false);
   assert.ok(result.errors.some((error) => error.includes('missing subject')));
+});
+
+test('runtime validation reports an invalid identity assessment', () => {
+  const [identityModel, ...otherIdentityModels] =
+    publicGenealogyContent.identityModels;
+  const [connection, ...otherConnections] = identityModel.connections;
+  const broken = {
+    ...publicGenealogyContent,
+    identityModels: [
+      {
+        ...identityModel,
+        connections: [
+          { ...connection, assessment: 'equally-likely' },
+          ...otherConnections,
+        ],
+      },
+      ...otherIdentityModels,
+    ],
+  };
+  const result = validatePublicGenealogyContent(broken);
+  assert.equal(result.valid, false);
+  assert.ok(
+    result.errors.some((error) => error.includes('invalid assessment'))
+  );
 });
 
 test('the removed Dallas cotton image is absent from public content', () => {

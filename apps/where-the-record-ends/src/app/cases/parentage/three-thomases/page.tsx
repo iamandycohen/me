@@ -25,6 +25,11 @@ export const metadata: Metadata = {
 };
 
 const assessmentStyles = {
+  'strong-indirect': {
+    label: 'Strongly favored',
+    badge: 'border-moss bg-moss text-paper',
+    card: 'border-moss/65 bg-paper',
+  },
   possible: {
     label: 'Possible identity',
     badge: 'border-moss/35 bg-moss/[0.12] text-ink',
@@ -150,7 +155,7 @@ export default function ThreeThomasesPage() {
             </h3>
             <p className="mt-3 max-w-5xl text-sm leading-relaxed text-ink/70">
               {item.boundary}
-              <ReferenceLinks ids={[18]} />
+              <ReferenceLinks ids={[18, 22, 67, 68, 69]} />
             </p>
           </aside>
         </div>
@@ -168,10 +173,17 @@ export default function ThreeThomasesPage() {
                 id="identity-connections"
                 className="balanced mt-3 font-serif text-4xl sm:text-5xl"
               >
-                Two possibilities remain. One match is excluded.
+                One identity is strongly favored. Another remains possible.
               </h2>
             </div>
             <ul className="space-y-3 text-xs leading-relaxed text-paper/65">
+              <li className="flex items-start gap-3">
+                <span className="shrink-0 rounded-full border border-moss bg-moss px-3 py-1 font-semibold uppercase tracking-[0.1em] text-paper">
+                  Strongly favored
+                </span>
+                Multiple independent record groups support the identity, but no
+                record states it directly.
+              </li>
               <li className="flex items-start gap-3">
                 <span className="shrink-0 rounded-full border border-moss/35 bg-moss px-3 py-1 font-semibold uppercase tracking-[0.1em] text-paper">
                   Possible
@@ -297,8 +309,9 @@ export default function ThreeThomasesPage() {
             </h2>
             <ul className="mt-5 space-y-3 text-sm leading-relaxed text-ink/70">
               <li className="border-l-2 border-accent/30 pl-4">
-                It does not identify which later Thomas was Thomas senior’s
-                named son.
+                It does not directly prove that the Kentucky Thomas was Thomas
+                senior’s named son, even though the indirect evidence strongly
+                favors that identification.
               </li>
               <li className="border-l-2 border-accent/30 pl-4">
                 It does not establish that Benjamin was a son of the Kentucky
@@ -318,7 +331,7 @@ export default function ThreeThomasesPage() {
           <p className="eyebrow !text-[0.54rem]">Publication note</p>
           <p className="mt-3 max-w-4xl text-sm leading-relaxed text-ink/65">
             This identity reconstruction is part of the reviewed public evidence
-            model. It separates record identities before assessing possible
+            model. It separates record identities before weighing identity
             matches and preserves every remaining uncertainty. Reviewed{' '}
             {item.publication.reviewedOn}.
             <ReferenceLinks ids={item.referenceIds} />

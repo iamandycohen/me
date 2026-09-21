@@ -11,9 +11,9 @@ export const threeThomasesIdentityModel: GenealogyIdentityModel = {
   title: 'The Three Thomases',
   shortTitle: 'Three Thomases',
   summary:
-    'Three documented identities clarify the parentage search: Thomas Meason senior, Thomas Meason of Hempfield, and the later Thomas Mason or Meason of Kentucky. The records separate the Hempfield and Kentucky men but do not yet identify which man, if either, was Thomas senior\u2019s named son.',
+    'Three documented identities clarify the parentage search: Thomas Meason senior, Thomas Meason of Hempfield, and the later Thomas Mason or Meason of Kentucky. The records prove that the Hempfield and Kentucky Thomases were different men. The overlapping Joseph\u2013John\u2013Samuel\u2013Isaac\u2013Elizabeth family network strongly favors the Kentucky Thomas as the son named in Thomas senior\u2019s 1779 will, but no reviewed record yet states that identity directly.',
   boundary:
-    '\u201cThomas senior\u2019s named son Thomas\u201d is a documented role in the 1779 will, not automatically a fourth person. The role may belong to the Hempfield man, the Kentucky man, or another same-name man; no reviewed record makes that identification or names Benjamin\u2019s father.',
+    '\u201cThomas senior\u2019s named son Thomas\u201d is a documented role in the 1779 will, not automatically a fourth person. The wider family network strongly favors the Kentucky man for that role; the Hempfield man or another same-name man remains possible because no reviewed record states the identity directly. No reviewed record names Benjamin\u2019s father.',
   subjects: [
     {
       id: 'thomas-senior',
@@ -43,10 +43,10 @@ export const threeThomasesIdentityModel: GenealogyIdentityModel = {
       period: 'Documented 1788–1795',
       place: 'Nelson and Logan counties, Kentucky',
       summary:
-        'He bought a Rough Creek tract in 1788, was living in Logan County when it was sold in 1795, and was identified as William\u2019s father in the Highland Creek title trail.',
+        'He bought a Rough Creek tract in 1788 and was living in Logan County when it was sold in 1795. In the same Logan County setting, Joseph\u2019s Highland Creek deed names William as the eldest son of Thomas Mason.',
       recordBoundary:
-        'The Kentucky records do not identify his parents or call Benjamin his son. Whether he was Thomas senior\u2019s named son remains unresolved.',
-      referenceIds: [20, 21, 22, 69],
+        'The repeated Joseph\u2013John\u2013Samuel\u2013Isaac\u2013Elizabeth network strongly favors this man as Thomas senior\u2019s named son, but no reviewed record states that identity directly or calls Benjamin his son.',
+      referenceIds: [20, 21, 22, 67, 68, 69],
     },
   ],
   connections: [
@@ -72,13 +72,13 @@ export const threeThomasesIdentityModel: GenealogyIdentityModel = {
         'Thomas senior\u2019s named son Thomas',
         'Thomas Mason or Meason of Kentucky',
       ],
-      assessment: 'possible',
-      label: 'Possible identity',
+      assessment: 'strong-indirect',
+      label: 'Strongly favored identity',
       statement:
-        'Thomas senior\u2019s named son Thomas could be the later Kentucky landholder and William\u2019s father.',
+        'The recurring Joseph\u2013John\u2013Samuel\u2013Isaac\u2013Elizabeth family network, together with Joseph\u2019s 1795 deed to William, eldest son of Thomas Mason, strongly favors Thomas senior\u2019s named son as the later Kentucky Thomas.',
       limitation:
-        'The Kentucky records name no parent for Thomas and do not connect him directly to Thomas senior\u2019s household.',
-      referenceIds: [18, 20, 21, 22, 69],
+        'No reviewed record directly calls Kentucky Thomas a son of Thomas senior. Connecting the Nelson and Logan landholder with William\u2019s father also remains an identity synthesis from the tract, place, name, and timing.',
+      referenceIds: [18, 20, 21, 22, 67, 68, 69],
     },
     {
       id: 'hempfield-not-kentucky',
@@ -92,7 +92,7 @@ export const threeThomasesIdentityModel: GenealogyIdentityModel = {
       statement:
         'Hempfield Thomas was dead by 21 March 1786, so he cannot be the living Kentucky Thomas who bought land in 1788 and conveyed it in 1795.',
       limitation:
-        'This chronology separates the two men; it does not identify which one was Thomas senior\u2019s son or name Benjamin\u2019s father.',
+        'This chronology separates the two men; the wider network strongly favors Kentucky Thomas as Thomas senior\u2019s son but does not state that identity directly or name Benjamin\u2019s father.',
       referenceIds: [19, 20, 21, 73],
     },
   ],
@@ -172,7 +172,7 @@ export const threeThomasesIdentityModel: GenealogyIdentityModel = {
   ],
   annBoundary:
     'Thomas senior\u2019s 1779 will names a daughter Ann. The Hempfield records name an Ann first as that Thomas\u2019s wife in 1785 and then as his widow in 1786. These are distinct roles in distinct record groups; the reviewed evidence does not establish whether they describe the same woman or different women.',
-  referenceIds: [18, 19, 20, 21, 22, 69, 73],
+  referenceIds: [18, 19, 20, 21, 22, 67, 68, 69, 73],
   publication,
 };
 
