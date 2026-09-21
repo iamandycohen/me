@@ -162,6 +162,52 @@ export function HighlandCreekReconstruction() {
 
       <section
         className="border-y border-ink/10 bg-cream px-5 py-14 sm:px-8 md:py-20"
+        aria-labelledby="fairfield-context"
+      >
+        <div className="mx-auto max-w-[92rem]">
+          <div className="max-w-4xl">
+            <p className="eyebrow">Fairfield evidence checkpoint</p>
+            <h2
+              id="fairfield-context"
+              className="mt-3 font-serif text-4xl sm:text-5xl"
+            >
+              The family cluster sharpens. The pedigree does not.
+            </h2>
+            <p className="mt-4 max-w-3xl leading-relaxed text-ink/60">
+              {item.contextBoundary}
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {item.contextCheckpoints.map((checkpoint) => (
+              <article
+                key={checkpoint.id}
+                className="rounded-[1.5rem] border border-ink/10 bg-paper p-6 shadow-paper"
+              >
+                <p className="eyebrow !text-[0.54rem]">{checkpoint.eyebrow}</p>
+                <h3 className="mt-3 font-serif text-2xl leading-tight">
+                  {checkpoint.title}
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-ink/70">
+                  {checkpoint.detail}
+                  <ReferenceLinks ids={checkpoint.referenceIds} />
+                </p>
+                <div className="mt-5 border-t border-ink/10 pt-4">
+                  <p className="text-[0.54rem] font-semibold uppercase tracking-[0.14em] text-ink/45">
+                    Evidence boundary
+                  </p>
+                  <p className="mt-2 text-xs leading-relaxed text-ink/60">
+                    {checkpoint.limitation}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="border-y border-ink/10 bg-cream px-5 py-14 sm:px-8 md:py-20"
         aria-labelledby="highland-creek-reconstruction"
       >
         <div className="mx-auto max-w-[92rem]">

@@ -25,10 +25,10 @@ test('the canonical public content passes integrity validation', () => {
 });
 
 test('the package carries the complete reviewed public reference catalog', () => {
-  assert.equal(references.length, 76);
+  assert.equal(references.length, 79);
   assert.deepEqual(
     references.map(({ id }) => id),
-    Array.from({ length: 76 }, (_, index) => index + 1)
+    Array.from({ length: 79 }, (_, index) => index + 1)
   );
 });
 
@@ -41,7 +41,7 @@ test('reviewed citation visuals expose only approved public media', () => {
 
   assert.deepEqual(
     Object.keys(visualAccessByReference).map(Number),
-    [5, 26, 38, 39, 40, 42, 67, 68, 71, 73, 74, 75, 76]
+    [5, 26, 36, 38, 39, 40, 42, 67, 68, 71, 73, 74, 75, 76, 77, 78, 79]
   );
   assert.deepEqual(
     Object.fromEntries(
@@ -53,6 +53,7 @@ test('reviewed citation visuals expose only approved public media', () => {
     {
       5: 'reviewed-preview',
       26: 'reviewed-preview',
+      36: 'text-only-deferred',
       38: 'reviewed-preview',
       39: 'reviewed-preview',
       40: 'reviewed-preview',
@@ -64,6 +65,9 @@ test('reviewed citation visuals expose only approved public media', () => {
       74: 'text-only-deferred',
       75: 'external-original-only',
       76: 'text-only-deferred',
+      77: 'external-original-only',
+      78: 'external-original-only',
+      79: 'external-original-only',
     }
   );
   assert.deepEqual(
@@ -149,6 +153,142 @@ test('reviewed citation visuals expose only approved public media', () => {
   assert.equal(
     references.find(({ id }) => id === 76)?.visualAccess?.status,
     'text-only-deferred'
+  );
+});
+
+test('Mill Creek roles preserve derivative, association, and image-rights limits', () => {
+  const millCreek = references.find(({ id }) => id === 36);
+  const migration = stories.find(({ id }) => id === 'migration');
+  const event = migration?.events.find(
+    ({ id }) => id === 'migration-mill-creek-1810-1812'
+  );
+  const kentuckyCluster = evidenceClusters.find(
+    ({ id }) => id === 'kentucky-records'
+  );
+  const roles = kentuckyCluster?.nodes.find(
+    ({ id }) => id === 'kentucky-mill-creek-roles'
+  );
+  const associates = kentuckyCluster?.nodes.find(
+    ({ id }) => id === 'kentucky-church-associates'
+  );
+
+  assert.match(millCreek?.citation ?? '', /Spring 1990.*45–48/);
+  assert.equal(
+    millCreek?.url,
+    'https://www.ncgrky.com/_files/ugd/399665_4aeda8947d004116a5a1489004c959c3.pdf'
+  );
+  assert.match(millCreek?.supports ?? '', /B\. Meason.*June 1810/);
+  assert.match(millCreek?.supports ?? '', /Ben Meason.*18 July 1812/);
+  assert.match(millCreek?.supports ?? '', /Bro Meason.*probable context/);
+  assert.match(millCreek?.limitation ?? '', /derivative transcript/);
+  assert.match(millCreek?.limitation ?? '', /not the original minutes/);
+  assert.match(millCreek?.limitation ?? '', /transfer to Bardstown Salem/);
+  assert.match(millCreek?.limitation ?? '', /parents/);
+  assert.equal(millCreek?.visualAccess?.status, 'text-only-deferred');
+  assert.match(millCreek?.visualAccess?.note ?? '', /remains private/);
+  assert.match(
+    millCreek?.visualAccess?.note ?? '',
+    /not reproduced or hotlinked/
+  );
+  assert.deepEqual(event?.referenceIds, [5, 8, 36]);
+  assert.match(event?.interpretation ?? '', /associates—not relatives/);
+  assert.match(
+    event?.interpretation ?? '',
+    /proves neither.*parents.*transfer/
+  );
+  assert.deepEqual(roles?.referenceIds, [36]);
+  assert.deepEqual(associates?.referenceIds, [5, 8, 36]);
+  assert.match(kentuckyCluster?.boundary ?? '', /Associates are not relatives/);
+});
+
+test('Fairfield context adds evidence without adding pedigree edges', () => {
+  const fairfieldReferences = [77, 78, 79].map((id) =>
+    references.find((reference) => reference.id === id)
+  );
+  const [billOfSale, isaacRachelDeed, holmesCherryMarriage] =
+    fairfieldReferences;
+
+  assert.ok(
+    fairfieldReferences.every(
+      (reference) =>
+        reference?.visualAccess?.status === 'external-original-only' &&
+        !('previewMediaIds' in reference.visualAccess)
+    )
+  );
+  assert.deepEqual(
+    billOfSale?.accessLinks?.map(({ url }) => url),
+    [
+      'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSKH-QNBQ',
+      'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSKH-QNLR',
+      'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CS4T-S1PJ',
+    ]
+  );
+  assert.equal(
+    isaacRachelDeed?.url,
+    'https://www.familysearch.org/ark:/61903/3:1:3Q9M-C37L-S9XT-S'
+  );
+  assert.equal(
+    holmesCherryMarriage?.url,
+    'https://www.familysearch.org/ark:/61903/3:1:9392-919L-C5'
+  );
+  assert.match(billOfSale?.limitation ?? '', /does not name Elizabeth Cherry/);
+  assert.match(billOfSale?.limitation ?? '', /not merged with Caty\/Martha/);
+  assert.match(
+    isaacRachelDeed?.limitation ?? '',
+    /entry, warrant, or equitable right/
+  );
+  assert.match(
+    holmesCherryMarriage?.limitation ?? '',
+    /unresolved identity candidate/
+  );
+  assert.match(holmesCherryMarriage?.limitation ?? '', /must not be merged/);
+
+  assert.deepEqual(
+    highlandCreekReconstruction.contextCheckpoints.map(
+      ({ id, referenceIds }) => [id, referenceIds]
+    ),
+    [
+      ['fairfield-1807-associate-cluster', [68, 77]],
+      ['fairfield-1815-isaac-rachel', [68, 78]],
+      ['fairfield-1816-elizabeth-candidate', [68, 79]],
+    ]
+  );
+  assert.match(
+    highlandCreekReconstruction.contextBoundary,
+    /without selecting Benjamin’s branch/
+  );
+  assert.match(
+    highlandCreekReconstruction.contextBoundary,
+    /places or excludes Benjamin/
+  );
+  assert.match(highlandCreekReconstruction.contextBoundary, /complete roster/);
+  const checkpointText = highlandCreekReconstruction.contextCheckpoints
+    .map(({ detail, limitation }) => `${detail} ${limitation}`)
+    .join(' ');
+  assert.match(checkpointText, /associate cluster/);
+  assert.match(checkpointText, /does not call Ralph her husband/);
+  assert.match(
+    checkpointText,
+    /does not rule out an earlier entry, warrant, equitable right/
+  );
+  assert.match(checkpointText, /does not prove.*Richard Holmes.*later husband/);
+
+  assert.equal(highlandCreekReconstruction.edges.length, 46);
+  assert.equal(
+    highlandCreekReconstruction.edges.some(
+      (edge) => edge.connectionKind === 'spouse'
+    ),
+    false
+  );
+  assert.ok(
+    highlandCreekReconstruction.edges
+      .filter(({ id }) => id.startsWith('recorded-john-child-'))
+      .every(({ limitation }) => limitation.includes('exhaustive roster'))
+  );
+  assert.ok(
+    highlandCreekReconstruction.nodes.every(
+      ({ label }) => !['Ralph Cherry', 'Richard Holmes'].includes(label)
+    )
   );
 });
 
@@ -836,6 +976,60 @@ test('runtime validation reports an invalid reconstruction connection kind', () 
   assert.equal(result.valid, false);
   assert.ok(
     result.errors.some((error) => error.includes('invalid connection kind'))
+  );
+});
+
+test('runtime validation reports duplicate reconstruction context checkpoints', () => {
+  const [reconstruction, ...otherReconstructions] =
+    publicGenealogyContent.reconstructions;
+  const [checkpoint] = reconstruction.contextCheckpoints;
+  const broken = {
+    ...publicGenealogyContent,
+    reconstructions: [
+      {
+        ...reconstruction,
+        contextCheckpoints: [
+          ...reconstruction.contextCheckpoints,
+          { ...checkpoint },
+        ],
+      },
+      ...otherReconstructions,
+    ],
+  };
+  const result = validatePublicGenealogyContent(broken);
+  assert.equal(result.valid, false);
+  assert.ok(
+    result.errors.some((error) =>
+      error.includes('Duplicate reconstruction context checkpoint id')
+    )
+  );
+});
+
+test('runtime validation reports a broken reconstruction context reference', () => {
+  const [reconstruction, ...otherReconstructions] =
+    publicGenealogyContent.reconstructions;
+  const [checkpoint, ...otherCheckpoints] = reconstruction.contextCheckpoints;
+  const broken = {
+    ...publicGenealogyContent,
+    reconstructions: [
+      {
+        ...reconstruction,
+        contextCheckpoints: [
+          { ...checkpoint, referenceIds: [999] },
+          ...otherCheckpoints,
+        ],
+      },
+      ...otherReconstructions,
+    ],
+  };
+  const result = validatePublicGenealogyContent(broken);
+  assert.equal(result.valid, false);
+  assert.ok(
+    result.errors.some(
+      (error) =>
+        error.includes('Reconstruction context checkpoint') &&
+        error.includes('missing source 999')
+    )
   );
 });
 

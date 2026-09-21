@@ -235,6 +235,15 @@ export interface ReconstructionTimelineEvent {
   readonly referenceIds: readonly number[];
 }
 
+export interface ReconstructionContextCheckpoint {
+  readonly id: string;
+  readonly eyebrow: string;
+  readonly title: string;
+  readonly detail: string;
+  readonly limitation: string;
+  readonly referenceIds: readonly number[];
+}
+
 export type DocumentRightsState = 'permission-required';
 
 export interface ReconstructionDocumentPage {
@@ -262,6 +271,8 @@ export interface GenealogyReconstruction {
   readonly nodes: readonly ReconstructionNode[];
   readonly edges: readonly ReconstructionEdge[];
   readonly timeline: readonly ReconstructionTimelineEvent[];
+  readonly contextBoundary: string;
+  readonly contextCheckpoints: readonly ReconstructionContextCheckpoint[];
   readonly documents: readonly ReconstructionDocument[];
   readonly publication: PublicationReview;
 }

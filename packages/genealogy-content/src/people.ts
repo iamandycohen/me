@@ -17,7 +17,7 @@ export const people = [
       'Benjamin’s life is documented in Kentucky and Missouri. His place in the direct line is an accepted working conclusion built from converging records—not from a single record naming George as his son.',
     evidenceType: 'indirect',
     assessment: 'high-confidence',
-    referenceIds: [1, 2, 11, 13, 28, 33, 59, 60, 61, 62, 63, 64, 65, 66],
+    referenceIds: [1, 2, 11, 13, 28, 33, 36, 59, 60, 61, 62, 63, 64, 65, 66],
     publication: published,
   },
   {

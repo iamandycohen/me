@@ -46,6 +46,17 @@ export const stories = [
         routeIndex: 0,
       },
       {
+        id: 'migration-mill-creek-1810-1812',
+        year: '1810–1812',
+        place: 'Mill Creek Baptist Church · Nelson County, Kentucky',
+        record:
+          'A derivative church transcript names B. Meason on the June 1810 meeting-house commission and Ben Meason as a church sexton on 18 July 1812. The name, chronology, recurring Thomas Hubbard and James Nall associates, and independent 1811 association record strongly identify both entries as Benjamin.',
+        interpretation:
+          'These are trusted operational roles, while Hubbard and Nall are documented associates—not relatives. The transcript is not the original minute book and proves neither Benjamin’s admission or parents nor a later transfer from Mill Creek to Bardstown Salem.',
+        referenceIds: [5, 8, 36],
+        routeIndex: 0,
+      },
+      {
         id: 'migration-shelby-census-1820',
         year: '1820',
         place: 'Shelby County, Kentucky',

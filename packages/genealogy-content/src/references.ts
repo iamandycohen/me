@@ -432,15 +432,19 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
   },
   {
     id: 36,
-    title: 'Mill Creek Baptist Church article locator',
+    title: 'Mill Creek Baptist Church derivative transcript',
     citation:
-      'The Nelson County Genealogist, volume 6, number 3 (March 1990), “Mill Creek Baptist Church, Nelson County, KY (1793–1815),” part 1 of 2, apparent pp. 45–48; Nelson County Genealogical Roundtable table of contents.',
+      '“Mill Creek Baptist Church, Nelson Co., KY,” The Nelson County Genealogist 6, no. 3 (Spring 1990): 45–48.',
     supports:
-      'The exact issue and article route most likely to reveal whether the missing local church record was transcribed or identify its custodian.',
+      'The derivative transcript names B. Meason with Thomas Hubbard, James Nall, Ben Edwards, and Henry Cotton on the June 1810 meeting-house commission and Ben Meason with John Batsel as church sextons on 18 July 1812. The exact Nelson County chronology, recurring associates, and independent 1811 association record strongly identify the first two names as Benjamin. It also prints Bro Meason bringing an April 1813 discipline charge, where expanding the omitted given name to Benjamin is probable context rather than verbatim wording.',
     limitation:
-      'The article itself has not been reviewed. Its title proves nothing about Benjamin, membership, transfer, kinship, or the survival of an original record book.',
+      'This is a derivative transcript, not the original minutes or an independent source vote equal to the 1811 annual. The supplied pages have no byline, underlying church-book citation, manuscript image, transcriber, or custodian. They do not establish Benjamin’s admission, baptism, charter status, dismissal, transfer to Bardstown Salem, wife, family, birthplace, parents, or destination congregation. The privately preserved article scan is not cleared for republication or hotlinking.',
     url: 'https://www.ncgrky.com/_files/ugd/399665_4aeda8947d004116a5a1489004c959c3.pdf',
-    accessLabel: 'Open official contents locator',
+    accessLabel: 'Open the official contents document',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'The official contents document verifies the article citation; the reviewed article scan remains private and is not reproduced or hotlinked here.',
+    },
   },
   {
     id: 37,
@@ -632,7 +636,7 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     supports:
       'Documents that I submitted requests for the will, the broader estate file, and the Mill Creek article and was awaiting responses at that research checkpoint.',
     limitation:
-      'This is a historical workflow record, not current evidence status. The recorded will was later recovered independently and is cited in reference 65; the complete estate and Mill Creek article remain outstanding. Submission did not establish that any requested record existed or would answer a relationship question.',
+      'This is a historical workflow record, not current evidence status. The recorded will was later recovered independently and is cited in reference 65; the Mill Creek article was later received and is cited in reference 36. The complete estate remains outstanding. Submission alone did not establish that any requested record existed or would answer a relationship question.',
   },
   {
     id: 53,
@@ -998,6 +1002,68 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     visualAccess: {
       status: 'text-only-deferred',
       note: 'Stable provider record pages are linked, but no reviewed public preview is available.',
+    },
+  },
+  {
+    id: 77,
+    title: 'Ralph Cherry bill of sale to Isaac Mason',
+    citation:
+      'Fairfield County, Ohio, deed book, manuscript pp. 309 and 354; bill of sale dated 13 October 1807 and repeated in the recorded books in 1808; FamilySearch DGS 8141949, images 548 and 576; original grantee index, DGS 7900699, image 97, p. 39.',
+    supports:
+      'Ralph Cherry of Fairfield County sold livestock to Isaac Mason of the same county, with Samuel Randall and Lydia Carty as witnesses. Isaac and Samuel are controlled members of the family group named in the 1813 collateral-heir deed, making the instrument a useful pre-1813 associate-cluster confirmation.',
+    limitation:
+      'The instrument does not name Elizabeth Cherry, call Ralph her husband, name John Mason, state kinship, or supply a child or heir roster. Lydia Carty is preserved as written and is not merged with Caty/Martha Randal. The repeated recording is the same transaction, not an independent event.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSKH-QNBQ',
+    accessLabel: 'Open the first recorded copy',
+    accessLinks: [
+      {
+        label: 'First recording · manuscript page 309',
+        url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSKH-QNBQ',
+      },
+      {
+        label: 'Repeated recording · manuscript page 354',
+        url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSKH-QNLR',
+      },
+      {
+        label: 'Original grantee-index page',
+        url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CS4T-S1PJ',
+      },
+    ],
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'Exact FamilySearch links open the two recorded copies and original index page; privately preserved images are not copied, republished, or hotlinked here.',
+    },
+  },
+  {
+    id: 78,
+    title: 'Isaac and Rachel Mason deed to Henry Kistler',
+    citation:
+      'Fairfield County, Ohio, Deed Book J, p. 346; Isaac Mason and Rachel his wife to Henry Kistler, instrument dated 19 June 1815 and recorded 25 August 1815; FamilySearch DGS 8585332, image 448.',
+    supports:
+      'The deed confirms the exact Isaac-and-Rachel couple named in the 1813 collateral-heir deed and recites a federal patent to Isaac for the conveyed half-section.',
+    limitation:
+      'The deed names no John, inheritance, or heir relationship. Its patent recital does not resolve any earlier entry, warrant, or equitable right, identify John or his family, or provide a sibling or heir list.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-C37L-S9XT-S',
+    accessLabel: 'Open the recorded deed',
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'The exact FamilySearch page is available externally; the privately preserved image is not copied, republished, or hotlinked here.',
+    },
+  },
+  {
+    id: 79,
+    title: 'Richard Holmes–Elizabeth Cherry marriage return',
+    citation:
+      'Fairfield County, Ohio, marriage return for Richard Holmes and Elizabeth Cherry, married 12 December 1816 and returned 6 January 1817; FHL film 295268, DGS 4016266, image 121.',
+    supports:
+      'The bride’s name, Fairfield County setting, and widow chronology make her a plausible continuation of Elizabeth or Betty Cherry, John Mason’s daughter in the 1813 collateral-heir deed.',
+    limitation:
+      'The return contains no Mason or Meason relationship and no unique associate control. The bride remains an unresolved identity candidate and must not be merged with John’s daughter or used to add Richard Holmes as her proved spouse.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:9392-919L-C5',
+    accessLabel: 'Open the marriage return',
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'The exact FamilySearch page is available externally; the privately preserved image is not copied, republished, or hotlinked here.',
     },
   },
 ];

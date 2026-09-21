@@ -13,9 +13,9 @@ export const evidenceClusters = [
     place: 'Nelson and Shelby Counties, Kentucky',
     period: '1800–1820',
     summary:
-      'Recurring tax, marriage, court, and census records place Benjamin and Hannah in a changing Kentucky setting before Missouri.',
+      'Recurring tax, marriage, court, church, and census records place Benjamin and Hannah in a changing Kentucky setting before Missouri.',
     boundary:
-      'Shared counties, nearby names, and inherited property create research leads. They do not identify Benjamin’s parents by themselves.',
+      'Shared counties, nearby names, church service, and inherited property create research leads. Associates are not relatives, and these roles neither identify Benjamin’s parents nor prove a Mill Creek-to-Bardstown transfer.',
     nodes: [
       {
         id: 'kentucky-benjamin-hannah',
@@ -45,6 +45,20 @@ export const evidenceClusters = [
         kind: 'household',
         referenceIds: [10],
       },
+      {
+        id: 'kentucky-mill-creek-roles',
+        label: 'Mill Creek service',
+        detail: '1810 meeting-house commission; 1812 sexton appointment',
+        kind: 'record',
+        referenceIds: [36],
+      },
+      {
+        id: 'kentucky-church-associates',
+        label: 'Recurring church associates',
+        detail: 'Thomas Hubbard and James Nall recur; no kinship is stated',
+        kind: 'person',
+        referenceIds: [5, 8, 36],
+      },
     ],
     links: [
       {
@@ -64,6 +78,18 @@ export const evidenceClusters = [
         to: 'kentucky-shelby-household',
         label: 'household fit',
         kind: 'indirect',
+      },
+      {
+        from: 'kentucky-benjamin-hannah',
+        to: 'kentucky-mill-creek-roles',
+        label: 'Benjamin served',
+        kind: 'documented',
+      },
+      {
+        from: 'kentucky-mill-creek-roles',
+        to: 'kentucky-church-associates',
+        label: 'served with',
+        kind: 'context',
       },
     ],
     publication,
