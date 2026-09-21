@@ -3,7 +3,7 @@ import type { Relationship } from './types.js';
 const published = {
   status: 'published',
   privacy: 'public',
-  reviewedOn: '2026-09-19',
+  reviewedOn: '2026-09-21',
 } as const;
 
 export const relationships = [
@@ -40,7 +40,7 @@ export const relationships = [
     ],
     limitation:
       'The informant-supplied statement is evaluated alongside identity and chronology.',
-    referenceIds: [57, 58],
+    referenceIds: [58],
     publication: published,
   },
   {
@@ -51,12 +51,12 @@ export const relationships = [
     evidenceType: 'direct',
     assessment: 'documented',
     statement:
-      'The reviewed public tree identifies the parent relationship from original records.',
+      'James Lawrence Meason’s 1949 death certificate names Frank Meason as his father and Nancy A. Huffines as his mother.',
     support: [
       'James Lawrence Meason’s death certificate names Frank Meason as his father.',
     ],
     limitation: 'The parentage statement was supplied after the 1892 birth.',
-    referenceIds: [56, 57],
+    referenceIds: [57],
     publication: published,
   },
   {
@@ -67,13 +67,15 @@ export const relationships = [
     evidenceType: 'direct',
     assessment: 'documented',
     statement:
-      'The reviewed public tree identifies the parent relationship from an original death record.',
+      'Jimmy’s contemporaneous 1934 Texas birth certificate records the older James Lawrence Meason as his father and Mary Estelle Sledge as his mother.',
     support: [
-      'The 1973 death certificate names Lawrence Meason as Jimmy’s father.',
+      'The statewide birth index independently repeats the same child, date, county, and parents.',
+      'The 1940 census places James L. Meason, Mary, and young Jimmie in one Richardson household.',
+      'The 1973 death certificate later names the parents in shortened form as Lawrence Meason and Mary Sledge.',
     ],
     limitation:
-      'The certificate gives the father only as Lawrence, not James Lawrence.',
-    referenceIds: [56],
+      'The 1940 household is corroborating context; its enumeration district, sheet, and line remain unverified.',
+    referenceIds: [75, 74, 76, 56],
     publication: published,
   },
   {

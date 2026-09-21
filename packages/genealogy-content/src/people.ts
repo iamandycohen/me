@@ -3,7 +3,7 @@ import type { Person } from './types.js';
 const published = {
   status: 'published',
   privacy: 'public',
-  reviewedOn: '2026-09-19',
+  reviewedOn: '2026-09-21',
 } as const;
 
 export const people = [
@@ -55,7 +55,7 @@ export const people = [
     summary: 'The earlier James Lawrence Meason generation in the direct line.',
     evidenceType: 'direct',
     assessment: 'documented',
-    referenceIds: [56, 57],
+    referenceIds: [75, 74, 76, 56, 57],
     publication: published,
   },
   {
@@ -68,7 +68,7 @@ export const people = [
       'One of two successive generations carrying the James Lawrence Meason name.',
     evidenceType: 'direct',
     assessment: 'documented',
-    referenceIds: [56],
+    referenceIds: [75, 74, 76, 56],
     publication: published,
   },
   {

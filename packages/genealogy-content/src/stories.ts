@@ -3,7 +3,7 @@ import type { Story } from './types.js';
 const publication = {
   status: 'published',
   privacy: 'public',
-  reviewedOn: '2026-09-19',
+  reviewedOn: '2026-09-21',
 } as const;
 
 export const stories = [
@@ -105,10 +105,10 @@ export const stories = [
         year: '1934–1973',
         place: 'Texas',
         record:
-          'James Lawrence “Jimmy” Meason’s 1973 Dallas County death certificate names Lawrence Meason and Mary Sledge as his parents.',
+          'Jimmy’s 1934 Texas birth certificate records the child and father as James Lawrence Meason and the mother as Mary Estelle Sledge. The statewide index repeats those details, a 1940 Richardson census places James, Mary, and young Jimmie together, and his 1973 death certificate later names the parents in shortened form.',
         interpretation:
-          'Read with the older James Lawrence Meason’s name, dates, locality, and family evidence, the certificate supports the next direct-line generation. It names the father only as Lawrence, not James Lawrence.',
-        referenceIds: [56],
+          'The contemporaneous certificate is the principal source for this generational handoff; the index, household, and later death certificate corroborate it. The census coordinates remain unverified.',
+        referenceIds: [75, 74, 76, 56],
         routeIndex: 3,
       },
       {

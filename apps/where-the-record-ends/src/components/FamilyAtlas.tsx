@@ -16,6 +16,17 @@ import { ReferenceLinks } from './ReferenceLinks';
 
 type AtlasLayer = 'family' | 'evidence' | 'places';
 
+function lineageRelationshipFor(personId: PersonId) {
+  return (
+    relationships.find((relationship) => relationship.to === personId) ??
+    relationships.find((relationship) => relationship.from === personId)
+  );
+}
+
+function formatAssessment(value: string) {
+  return value.replace('-', ' ');
+}
+
 function Initials({ name }: { name: string }) {
   const parts = name.split(' ');
   return (
@@ -31,10 +42,7 @@ export function FamilyAtlas() {
   const [layer, setLayer] = useState<AtlasLayer>('family');
   const selected =
     people.find((person) => person.id === selectedId) ?? people[0];
-  const relatedRelationships = relationships.filter(
-    (relationship) =>
-      relationship.from === selected.id || relationship.to === selected.id
-  );
+  const selectedLineageRelationship = lineageRelationshipFor(selected.id);
   const mediaId = personMediaIds[selected.id];
   const selectedMedia: PublicMedia | undefined = mediaId
     ? media[mediaId]
@@ -96,6 +104,7 @@ export function FamilyAtlas() {
                 : undefined;
               const isPortrait = portrait?.kind === 'portrait';
               const selectedPerson = selected.id === person.id;
+              const lineageRelationship = lineageRelationshipFor(person.id);
               const previousPerson = index > 0 ? people[index - 1] : undefined;
               const priorRelationship = previousPerson
                 ? relationships.find(
@@ -145,7 +154,7 @@ export function FamilyAtlas() {
                       {layer === 'places'
                         ? person.place
                         : layer === 'evidence'
-                          ? `${person.evidenceType} · ${person.assessment.replace('-', ' ')}`
+                          ? `${lineageRelationship?.evidenceType ?? person.evidenceType} · ${formatAssessment(lineageRelationship?.assessment ?? person.assessment)}`
                           : person.period}
                     </span>
                   </button>
@@ -175,38 +184,55 @@ export function FamilyAtlas() {
                 </dd>
               </div>
               <div>
-                <dt className="eyebrow !text-[0.56rem]">Assessment</dt>
+                <dt className="eyebrow !text-[0.56rem]">Lineage assessment</dt>
                 <dd className="mt-2 text-sm capitalize text-ink/70">
-                  {selected.assessment.replace('-', ' ')} ·{' '}
-                  {selected.evidenceType} evidence
+                  {formatAssessment(
+                    selectedLineageRelationship?.assessment ??
+                      selected.assessment
+                  )}{' '}
+                  ·{' '}
+                  {selectedLineageRelationship?.evidenceType ??
+                    selected.evidenceType}{' '}
+                  evidence
                 </dd>
               </div>
             </dl>
-            {relatedRelationships.length > 0 ? (
-              <div className="mt-7 space-y-4">
-                {relatedRelationships.map((relationship) => (
-                  <details
-                    key={relationship.id}
-                    className="rounded-xl border border-ink/10 bg-paper/45 p-4"
-                  >
-                    <summary className="cursor-pointer text-sm font-medium text-accent">
-                      Why this connection is shown
-                    </summary>
-                    <p className="mt-4 text-sm leading-relaxed text-ink/65">
-                      {relationship.statement}
-                    </p>
+            {selectedLineageRelationship ? (
+              <div className="mt-7">
+                <p className="eyebrow !text-[0.56rem]">Lineage connection</p>
+                <div className="mt-3 rounded-xl border border-ink/10 bg-paper/45 p-4">
+                  <p className="text-sm font-medium text-accent">
+                    {
+                      people.find(
+                        (person) =>
+                          person.id === selectedLineageRelationship.from
+                      )?.name
+                    }{' '}
+                    →{' '}
+                    {
+                      people.find(
+                        (person) => person.id === selectedLineageRelationship.to
+                      )?.name
+                    }
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-ink/70">
+                    {selectedLineageRelationship.statement}
+                    <ReferenceLinks
+                      ids={selectedLineageRelationship.referenceIds}
+                    />
+                  </p>
+                  {selectedLineageRelationship.evidenceType === 'indirect' ? (
                     <p className="mt-3 border-l-2 border-ink/15 pl-3 text-xs italic leading-relaxed text-ink/55">
-                      Limitation: {relationship.limitation}
-                      <ReferenceLinks ids={relationship.referenceIds} />
+                      Boundary: {selectedLineageRelationship.limitation}
                     </p>
-                  </details>
-                ))}
+                  ) : null}
+                </div>
               </div>
             ) : null}
           </div>
           <div className="border-t border-ink/10 bg-[#ece3d7]/45 p-6 lg:border-l lg:border-t-0">
             {selectedMedia ? (
-              <figure>
+              <figure key={selectedMedia.id}>
                 <a
                   href={selectedMedia.src}
                   target="_blank"

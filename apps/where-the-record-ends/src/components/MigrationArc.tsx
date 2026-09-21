@@ -25,7 +25,7 @@ const stops = [
     period: '1880 onward',
     detail:
       'George appears in Missouri in 1870 and in Dallas County in 1880. Later Dallas records carry the direct line forward, while the route, date, and reason for the move remain unrecorded.',
-    referenceIds: [33, 56, 57, 58],
+    referenceIds: [33, 56, 57, 58, 74, 75, 76],
   },
 ] as const;
 

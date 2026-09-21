@@ -672,13 +672,21 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     id: 56,
     title: 'James Lawrence “Jimmy” Meason 1973 Texas death certificate',
     citation:
-      'Texas Department of Health, Bureau of Vital Statistics, standard certificate of death no. 01993, James Lawrence Meason, 17 January 1973, Dallas County; “Texas, United States records, images,” FamilySearch, image 733 of 3497; Texas State Registrar Office, image group 005145688.',
+      'Texas Department of Health, Bureau of Vital Statistics, standard certificate of death no. 01993, James Lawrence Meason, 17 January 1973, Dallas County; “Texas, United States records, images,” FamilySearch, image 733 of 3497, image group 005145688; indexed-record ARK K3ZR-XYM.',
     supports:
-      'The original certificate identifies James Lawrence Meason (1934–1973) and names his parents as Lawrence Meason and Mary Sledge. Read with the names, dates, locality, and existing family evidence, it materially strengthens the direct-line connection to James Lawrence Meason (1892–1949) and Mary Estelle Sledge.',
+      'The original certificate identifies James Lawrence Meason (1934–1973) and names his parents as Lawrence Meason and Mary Sledge. It independently corroborates the fuller parent names recorded on his contemporaneous 1934 birth certificate and birth-index entry.',
     limitation:
       'The parentage is a direct statement in an original official record, but it is secondary information supplied after the 1934 birth. The certificate gives the father only as Lawrence, not James Lawrence. I link to the original at FamilySearch rather than reproduce it here, and omit residential addresses and cause-and-manner details because they are not needed for the lineage.',
-    url: 'https://www.familysearch.org/ark:/61903/3:1:33SQ-GY1S-39R9?view=index',
-    accessLabel: 'Open the original death certificate',
+    accessLinks: [
+      {
+        label: 'Open the FamilySearch record',
+        url: 'https://www.familysearch.org/ark:/61903/1:1:K3ZR-XYM',
+      },
+      {
+        label: 'Open the original death certificate',
+        url: 'https://www.familysearch.org/ark:/61903/3:1:33SQ-GY1S-39R9',
+      },
+    ],
   },
   {
     id: 57,
@@ -936,11 +944,67 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       note: 'Exact external links are available for both original deed-book pages; no local public preview has been approved.',
     },
   },
+  {
+    id: 74,
+    title: 'James Lawrence Meason 1934 Texas birth-index entry',
+    citation:
+      'Texas Department of Health, Bureau of Vital Statistics, statewide birth index, 1934 births, cycle 01 through 99, p. 1279, James Lawrence Meason, 26 October 1934, Dallas County (county code 057); Ancestry collection 8781, image TXBTH_1934_000514l, record 152492117.',
+    supports:
+      'The statewide index records the child as James Lawrence Meason, born 26 October 1934 in Dallas County, the father as James Lawrence Meason, and the mother as Mary Estelle Sledge. The entry matches Jimmy’s documented identity and strongly corroborates the parent names reported on his 1973 death certificate.',
+    limitation:
+      'This is a derivative index entry, not the underlying birth certificate or a second original event record. The reviewed index image is not cleared for public reproduction.',
+    url: 'https://www.ancestry.com/search/collections/8781/records/152492117',
+    accessLabel: 'Open the Ancestry record',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'A stable provider record page is linked, but the reviewed index image is not publication-cleared and is not reproduced here.',
+    },
+  },
+  {
+    id: 75,
+    title: 'James Lawrence Meason 1934 Texas birth certificate',
+    citation:
+      'Texas State Department of Health, Bureau of Vital Statistics, standard certificate of birth for James Lawrence Meason, 26 October 1934, Dallas County, state file no. 80844, register no. 29; FamilySearch indexed-record ARK K6GQ-G18, image ARK 33SQ-GTHM-DP; accessed 21 September 2026.',
+    supports:
+      'The contemporaneous certificate records the child as James Lawrence Meason, the father as James Lawrence Meason, and the mother as Mary Estelle Sledge. It is the strongest reviewed source for these recorded parent-child relationships.',
+    limitation:
+      'The privately preserved certificate image is not cleared for public reproduction; the public link opens the corresponding FamilySearch record page.',
+    url: 'https://www.familysearch.org/ark:/61903/1:1:K6GQ-G18',
+    accessLabel: 'Open the FamilySearch record',
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'The stable FamilySearch record page is available externally; the privately preserved certificate image is not copied or hotlinked here.',
+    },
+  },
+  {
+    id: 76,
+    title: '1940 Richardson household — James L. Meason family',
+    citation:
+      '1940 United States census, Richardson, Dallas County, Texas, household of James L. Meason; Ancestry collection 2442, record 155810441, image m-t0627-04016-00037; FamilySearch indexed-record ARK KWJL-2PF.',
+    supports:
+      'The reviewed household image places James L. Meason, Mary, and young Jimmie together in Richardson, independently corroborating the family association recorded by the 1934 birth certificate and later records.',
+    limitation:
+      'The full-resolution schedule has not yet been preserved, and the enumeration district, sheet, line, address, and adjacent household context remain unverified. The household association does not by itself establish a narrower biological, legal, or adoptive relationship subtype.',
+    accessLinks: [
+      {
+        label: 'Open the Ancestry record',
+        url: 'https://www.ancestry.com/search/collections/2442/records/155810441',
+      },
+      {
+        label: 'Open the FamilySearch record',
+        url: 'https://www.familysearch.org/ark:/61903/1:1:KWJL-2PF',
+      },
+    ],
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'Stable provider record pages are linked, but no reviewed public preview is available.',
+    },
+  },
 ];
 const publication = {
   status: 'published',
   privacy: 'public',
-  reviewedOn: '2026-09-20',
+  reviewedOn: '2026-09-21',
 } as const;
 
 export const references: readonly Reference[] = referenceCatalog.map(
