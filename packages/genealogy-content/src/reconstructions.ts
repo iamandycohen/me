@@ -3,7 +3,7 @@ import type { GenealogyReconstruction } from './types.js';
 const publication = {
   status: 'published',
   privacy: 'public',
-  reviewedOn: '2026-09-19',
+  reviewedOn: '2026-09-21',
 } as const;
 
 const filmUrl = 'https://www.familysearch.org/search/film/008573278';
@@ -289,7 +289,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
       statement:
         'The collateral-heir deed identifies this person as John Mason’s child.',
       limitation:
-        'The deed does not provide a complete biography for either person.',
+        'The deed records this relationship but does not say that the four named children form an exhaustive roster of John Mason’s children.',
       referenceIds: [68],
     })),
     {
@@ -545,6 +545,40 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
       detail:
         'Benjamin is directly called one of Joseph’s heirs at law, without any stated degree of kinship.',
       referenceIds: [67],
+    },
+  ],
+  contextBoundary:
+    'Fairfield County records add context around John Mason’s named children without selecting Benjamin’s branch. None identifies Benjamin’s parents, places or excludes Benjamin, proves that John’s four named children were a complete roster, or creates a new kinship or spouse edge.',
+  contextCheckpoints: [
+    {
+      id: 'fairfield-1807-associate-cluster',
+      eyebrow: '1807 · associate cluster',
+      title: 'The controlled Fairfield families appear together',
+      detail:
+        'Ralph Cherry sold livestock to Isaac Mason while Samuel Randall and Lydia Carty witnessed. Isaac and Samuel are controlled members of the family group named in the 1813 collateral-heir deed, so the record confirms a meaningful pre-1813 associate cluster.',
+      limitation:
+        'The bill of sale names no Elizabeth Cherry, does not call Ralph her husband, states no kinship, and does not merge Lydia Carty with Caty/Martha Randal. Its repeated recording is the same transaction, not a second event.',
+      referenceIds: [68, 77],
+    },
+    {
+      id: 'fairfield-1815-isaac-rachel',
+      eyebrow: '1815 · identity control',
+      title: 'Isaac and Rachel remain the same controlled couple',
+      detail:
+        'A Fairfield deed confirms the exact Isaac-and-Rachel couple from the 1813 collateral-heir deed and recites a federal patent to Isaac.',
+      limitation:
+        'The deed names no John, inheritance, or heir relationship. The patent recital does not rule out an earlier entry, warrant, equitable right, or family interest.',
+      referenceIds: [68, 78],
+    },
+    {
+      id: 'fairfield-1816-elizabeth-candidate',
+      eyebrow: '1816 · unresolved identity',
+      title: 'Elizabeth Cherry remains a candidate—not a merge',
+      detail:
+        'A Fairfield marriage return for Richard Holmes and Elizabeth Cherry fits the name, place, and widow chronology of John Mason’s daughter Elizabeth or Betty Cherry.',
+      limitation:
+        'The return provides no Mason relationship or unique associate control. It does not prove that the bride was John’s daughter or that Richard Holmes was her later husband.',
+      referenceIds: [68, 79],
     },
   ],
   documents: [

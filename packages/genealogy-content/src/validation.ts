@@ -309,6 +309,18 @@ export function validatePublicGenealogyContent(
       );
 
     for (const duplicate of duplicateValues(
+      reconstruction.contextCheckpoints.map((checkpoint) => checkpoint.id)
+    ))
+      errors.push(
+        `Duplicate reconstruction context checkpoint id: ${reconstruction.id}:${duplicate}`
+      );
+    for (const checkpoint of reconstruction.contextCheckpoints)
+      validateReferences(
+        `Reconstruction context checkpoint ${reconstruction.id}:${checkpoint.id}`,
+        checkpoint.referenceIds
+      );
+
+    for (const duplicate of duplicateValues(
       reconstruction.documents.map((document) => document.id)
     ))
       errors.push(
