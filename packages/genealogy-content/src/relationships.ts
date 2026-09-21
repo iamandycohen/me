@@ -40,7 +40,7 @@ export const relationships = [
     ],
     limitation:
       'The informant-supplied statement is evaluated alongside identity and chronology.',
-    referenceIds: [57, 58],
+    referenceIds: [58],
     publication: published,
   },
   {
@@ -51,12 +51,12 @@ export const relationships = [
     evidenceType: 'direct',
     assessment: 'documented',
     statement:
-      'The reviewed public tree identifies the parent relationship from original records.',
+      'James Lawrence Meason’s 1949 death certificate names Frank Meason as his father and Nancy A. Huffines as his mother.',
     support: [
       'James Lawrence Meason’s death certificate names Frank Meason as his father.',
     ],
     limitation: 'The parentage statement was supplied after the 1892 birth.',
-    referenceIds: [56, 57],
+    referenceIds: [57],
     publication: published,
   },
   {

@@ -251,6 +251,23 @@ test('the 1934 certificate and corroborating records document Jimmy’s parents'
   );
 });
 
+test('direct-line relationships cite only the records that support that edge', () => {
+  const georgeToFrank = relationships.find(
+    ({ id }) => id === 'george-franklin'
+  );
+  const frankToJames = relationships.find(
+    ({ id }) => id === 'franklin-james-1892'
+  );
+
+  assert.deepEqual(georgeToFrank?.referenceIds, [58]);
+  assert.match(georgeToFrank?.statement ?? '', /Franklin’s death certificate/);
+  assert.deepEqual(frankToJames?.referenceIds, [57]);
+  assert.match(
+    frankToJames?.statement ?? '',
+    /1949 death certificate names Frank Meason as his father/
+  );
+});
+
 test('runtime validation enforces coherent citation visual states', () => {
   const [firstReference, ...otherReferences] =
     publicGenealogyContent.references;
