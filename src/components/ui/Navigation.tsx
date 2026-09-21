@@ -32,6 +32,7 @@ function Navigation() {
       '/': 'page.tsx',
       '/resume': 'resume/page.tsx',
       '/projects': 'projects/page.tsx',
+      '/genealogy': 'genealogy/page.tsx',
       '/articles': 'articles/page.tsx',
       '/community': 'community/page.tsx',
       '/contact': 'contact/page.tsx',
@@ -47,6 +48,7 @@ function Navigation() {
     { name: 'Projects', href: '/projects' },
     { name: 'Articles', href: '/articles' },
     { name: 'Community', href: '/community' },
+    { name: 'Genealogy', href: '/genealogy' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -63,7 +65,7 @@ function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-x-5 lg:gap-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}

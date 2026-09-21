@@ -37,6 +37,8 @@ export interface Project {
   image: string;
   imageAlt: string;
   imageFit?: 'cover' | 'contain';
+  pageUrl?: string;
+  pageCta?: string;
   liveUrl?: string;
   sourceUrl?: string;
   archiveUrl?: string;
@@ -102,8 +104,11 @@ export interface CommunityData {
   mediaResources: {
     podcasts: Array<{
       title: string;
-      url: string;
       description: string;
+      links: Array<{
+        label: string;
+        url: string;
+      }>;
     }>;
   };
   expertiseAreas?: ExpertiseArea[];

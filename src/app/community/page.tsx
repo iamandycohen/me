@@ -6,8 +6,11 @@ import { MVPAward, Presentation } from '@/types';
 
 interface Podcast {
   title: string;
-  url: string;
   description: string;
+  links: Array<{
+    label: string;
+    url: string;
+  }>;
 }
 
 const displayName = getDisplayName(data.contact);
@@ -291,14 +294,19 @@ export default function Community() {
                 <p className="text-ink/70 leading-relaxed mb-4">
                   {podcast.description}
                 </p>
-                <a
-                  href={podcast.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-underline text-sm"
-                >
-                  Listen now →
-                </a>
+                <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                  {podcast.links.map((link) => (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-underline"
+                    >
+                      {link.label} →
+                    </a>
+                  ))}
+                </div>
               </div>
             </li>
           ))}

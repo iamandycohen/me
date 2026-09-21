@@ -208,10 +208,28 @@
   "projectsPage": {
     "eyebrow": "Things I build",
     "title": "Curiosity, made tangible.",
-    "introduction": "From software and interactive worlds to physical spaces, these are projects I built because I wanted to see what was possible.",
+    "introduction": "From software and interactive worlds to historical research and physical spaces, these are projects I built because I wanted to understand what was possible.",
     "philosophy": "Whether it’s a cloud platform, a browser game, or a treehouse, the mindset is the same: stay curious, understand the system, and build something that lasts."
   },
   "projects": [
+    {
+      "title": "Where the Record Ends",
+      "period": "Ongoing · 2026",
+      "description": "I was born Shannon Jeremiah Meason and adopted into the Cohen family. Where the Record Ends traces my biological Meason line through original records, family photographs, and carefully labeled uncertainty—while exploring why that history has mattered to me for as long as I can remember.",
+      "image": "/genealogy/evidence/benjamin-meason-1802-guardian-bond.jpg",
+      "imageAlt": "The 1802 Nelson County guardian bond carrying Benjamin Meason’s signature",
+      "imageFit": "cover",
+      "pageUrl": "https://www.wheretherecordends.com",
+      "pageCta": "Explore Where the Record Ends",
+      "highlightsLabel": "Research and presentation",
+      "highlights": [
+        "Reconciles inherited family-tree claims against wills, deeds, bonds, censuses, church minutes, land records, and other original sources",
+        "Separates documented facts, family traditions, disputed claims, bounded negative searches, and records that remain inaccessible",
+        "Maintains a privacy-conscious boundary between the private research archive and the curated public story",
+        "Presents the reviewed direct line through an interactive family atlas, evidence neighborhoods, photographs, stories, and a detailed source catalog",
+        "Follows the documented journey from Kentucky through Missouri and Texas while keeping unresolved relationships and migration details visibly open"
+      ]
+    },
     {
       "title": "WOPR Terminal",
       "period": "Sep 2026",
@@ -504,14 +522,22 @@
     "mediaResources": {
       "podcasts": [
         {
-          "title": "The Sitecore Water Cooler",
-          "url": "https://cms.megaphone.fm/channel/AAE2118464403",
-          "description": "In-depth discussions on CMS architecture, XM Cloud development, and industry insights"
-        },
-        {
-          "title": "Listen on Megaphone",
-          "url": "https://megaphone.link/AAE6951160485",
-          "description": "Podcast platform access"
+          "title": "The New Age of Building a Sitecore Solution",
+          "description": "Guest on Americaneagle.com’s The Sitecore Water Cooler with Jon Price and Naim Al, discussing Sitecore XM Cloud, CDP, composability, and the changing way Sitecore solutions are built.",
+          "links": [
+            {
+              "label": "Listen on Apple Podcasts",
+              "url": "https://podcasts.apple.com/us/podcast/the-new-age-of-building-a-sitecore-solution/id1574385623?i=1000562347602"
+            },
+            {
+              "label": "Watch on YouTube",
+              "url": "https://www.youtube.com/watch?v=nBZFVywp_L4"
+            },
+            {
+              "label": "Read on Americaneagle.com",
+              "url": "https://www.americaneagle.com/insights/blog/post/the-sitecore-water-cooler-podcast-the-new-age-of-building-a-sitecore-solution"
+            }
+          ]
         }
       ]
     },

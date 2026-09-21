@@ -8,6 +8,33 @@ import {
 import { addProfileLinks } from '@/lib/utils';
 import data from '@/lib/data';
 
+const genealogyHighlights = [
+  {
+    marker: 'Family atlas',
+    title: 'Follow the documented line',
+    detail:
+      'Move through generations, relationships, places, and the evidence neighborhoods that connect them.',
+    href: 'https://www.wheretherecordends.com/family',
+    cta: 'Explore the family',
+  },
+  {
+    marker: 'Family chronicle',
+    title: 'Read the story the records can support',
+    detail:
+      'Trace the family across places and generations without smoothing over uncertainty or contradiction.',
+    href: 'https://www.wheretherecordends.com/stories',
+    cta: 'Read the chronicle',
+  },
+  {
+    marker: 'Open cases',
+    title: 'See where the investigation is still alive',
+    detail:
+      'Examine competing explanations, unresolved questions, and the records that might move the research forward.',
+    href: 'https://www.wheretherecordends.com/cases',
+    cta: 'View the cases',
+  },
+];
+
 export default function Home() {
   const bioParagraphs = getBioParagraphs(data.bio.full);
   const currentRole = getCurrentActiveRole(data.resume);
@@ -137,6 +164,64 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* ── Genealogy feature ───────────────────────────────── */}
+      <section className="section-padding border-y border-ink/10 bg-[#f4efe7]">
+        <div className="container-max">
+          <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <p className="eyebrow mb-4">A personal investigation</p>
+              <h2 className="mb-6 text-balance">Where the record ends.</h2>
+              <p className="mb-5 font-serif text-xl leading-relaxed text-ink/75 md:text-2xl">
+                I grew up as Andy Cohen, but I was born Shannon Jeremiah Meason.
+              </p>
+              <p className="mb-8 leading-relaxed text-ink/65">
+                Adoption was never a secret in my family. A lifelong curiosity
+                about my biological lineage eventually became Where the Record
+                Ends: an evidence-led investigation into the Meason family—what
+                the records establish, what copied trees repeat, and what
+                remains unknown.
+              </p>
+              <div className="flex flex-wrap gap-x-7 gap-y-4">
+                <a
+                  href="https://www.wheretherecordends.com"
+                  className="btn-primary"
+                >
+                  Explore Where the Record Ends
+                </a>
+                <Link href="/genealogy" className="link-underline py-3">
+                  Read the personal introduction →
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="rounded-2xl border border-ink/10 bg-paper px-6 py-2 shadow-[0_12px_40px_rgba(26,26,26,0.035)] md:px-8">
+                {genealogyHighlights.map((item) => (
+                  <article
+                    key={item.marker}
+                    className="grid gap-2 border-b border-ink/10 py-6 last:border-b-0 md:grid-cols-12 md:gap-6"
+                  >
+                    <p className="eyebrow md:col-span-3">{item.marker}</p>
+                    <div className="md:col-span-9">
+                      <h3 className="mb-2 text-lg">{item.title}</h3>
+                      <p className="text-sm leading-relaxed text-ink/60">
+                        {item.detail}
+                      </p>
+                      <a
+                        href={item.href}
+                        className="link-underline mt-4 inline-block text-sm"
+                      >
+                        {item.cta} →
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── Recent career arc ──────────────────────────────── */}
       <section className="section-padding bg-ink text-paper">
