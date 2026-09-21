@@ -206,7 +206,7 @@ export function FamilyAtlas() {
           </div>
           <div className="border-t border-ink/10 bg-[#ece3d7]/45 p-6 lg:border-l lg:border-t-0">
             {selectedMedia ? (
-              <figure>
+              <figure key={selectedMedia.id}>
                 <a
                   href={selectedMedia.src}
                   target="_blank"
