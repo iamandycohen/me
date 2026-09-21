@@ -116,23 +116,51 @@ export default async function CasePage({
 
       {caseId === 'parentage' ? (
         <section className="border-b border-ink/10 bg-ink px-5 py-14 text-paper sm:px-8 md:py-20">
-          <div className="mx-auto grid max-w-[92rem] gap-7 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+          <div className="mx-auto max-w-[92rem]">
             <div className="max-w-4xl">
               <p className="eyebrow !text-accent-soft">
-                Featured reconstruction
+                Featured parentage investigations
               </p>
               <h2 className="balanced mt-4 font-serif text-4xl leading-tight sm:text-6xl">
-                The thousand acres on Highland Creek
+                Two ways to see where the evidence stops
               </h2>
-              <p className="mt-5 max-w-3xl text-sm leading-relaxed text-paper/65 sm:text-base">
-                Follow the land from Joseph Meason to a named network of
-                brothers, children, spouses, and heirs—and see why Benjamin’s
-                recorded inheritance still stops short of naming his father.
-              </p>
             </div>
-            <ArrowLink href="/cases/parentage/highland-creek" inverse>
-              Explore the reconstruction
-            </ArrowLink>
+            <div className="mt-9 grid gap-5 lg:grid-cols-2">
+              <article className="flex flex-col rounded-[1.5rem] border border-paper/15 bg-paper/[0.045] p-6 sm:p-7">
+                <p className="eyebrow !text-[0.54rem] !text-accent-soft">
+                  Land and kinship
+                </p>
+                <h3 className="mt-3 font-serif text-3xl">
+                  The thousand acres on Highland Creek
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-paper/65">
+                  Follow the land from Joseph Meason to a named network of
+                  brothers, children, spouses, and heirs—and see why Benjamin’s
+                  recorded inheritance still stops short of naming his father.
+                </p>
+                <div className="mt-6">
+                  <ArrowLink href="/cases/parentage/highland-creek" inverse>
+                    Explore the reconstruction
+                  </ArrowLink>
+                </div>
+              </article>
+              <article className="flex flex-col rounded-[1.5rem] border border-paper/15 bg-paper/[0.045] p-6 sm:p-7">
+                <p className="eyebrow !text-[0.54rem] !text-accent-soft">
+                  Identity and chronology
+                </p>
+                <h3 className="mt-3 font-serif text-3xl">The three Thomases</h3>
+                <p className="mt-4 text-sm leading-relaxed text-paper/65">
+                  Separate three same-name identities, follow the dates that
+                  exclude one proposed match, and preserve the two family links
+                  that remain possible but unproved.
+                </p>
+                <div className="mt-6">
+                  <ArrowLink href="/cases/parentage/three-thomases" inverse>
+                    Compare the identities
+                  </ArrowLink>
+                </div>
+              </article>
+            </div>
           </div>
         </section>
       ) : null}

@@ -3,7 +3,7 @@ import type { ResearchCase } from './types.js';
 const publication = {
   status: 'published',
   privacy: 'public',
-  reviewedOn: '2026-09-19',
+  reviewedOn: '2026-09-20',
 } as const;
 
 export const researchCases = [
@@ -21,7 +21,7 @@ export const researchCases = [
     unknown:
       'Which sibling branch connected Benjamin to Joseph, and who Benjamin’s parents were.',
     relatedPersonIds: ['benjamin'],
-    referenceIds: [20, 21, 22, 67, 68],
+    referenceIds: [19, 20, 21, 22, 67, 68, 73],
     sections: [
       {
         id: 'record-turn',
@@ -69,10 +69,19 @@ export const researchCases = [
           {
             id: 'thomas-branch',
             eyebrow: 'Serious candidate · unproved',
-            title: 'Thomas branch',
+            title: 'Kentucky Thomas branch',
             detail:
-              'Thomas Meason’s record trail could place Benjamin in Joseph’s sibling-descendant network, but no reviewed record calls Benjamin his son.',
+              'The Kentucky Thomas’s record trail could place Benjamin in Joseph’s sibling-descendant network, but no reviewed record identifies this Thomas as Thomas senior’s son or calls Benjamin his son.',
             referenceIds: [20, 21, 22, 67, 68],
+            tone: 'inference',
+          },
+          {
+            id: 'hempfield-kentucky-exclusion',
+            eyebrow: 'Cross-record chronology · identity exclusion',
+            title: 'Hempfield Thomas cannot be Kentucky Thomas',
+            detail:
+              'Hempfield Thomas was dead by 21 March 1786. He therefore cannot be the living Thomas who bought Nelson County land in 1788 and conveyed it as a Logan County resident in 1795. Separating the men narrows the candidates but does not identify Benjamin’s father.',
+            referenceIds: [19, 20, 21, 73],
             tone: 'inference',
           },
           {

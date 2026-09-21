@@ -77,8 +77,33 @@ export interface Reference {
   readonly limitation: string;
   readonly url?: string;
   readonly accessLabel?: string;
+  readonly accessLinks?: readonly ReferenceAccessLink[];
+  readonly visualAccess?: ReferenceVisualAccess;
   readonly publication: PublicationReview;
 }
+
+export interface ReferenceAccessLink {
+  readonly label: string;
+  readonly url: string;
+}
+
+export type ReferenceVisualAccessStatus =
+  | 'reviewed-preview'
+  | 'external-original-only'
+  | 'external-volume-only'
+  | 'text-only-deferred';
+
+export type ReferenceVisualAccess =
+  | {
+      readonly status: 'reviewed-preview';
+      readonly previewMediaIds: readonly MediaId[];
+      readonly note: string;
+    }
+  | {
+      readonly status: Exclude<ReferenceVisualAccessStatus, 'reviewed-preview'>;
+      readonly previewMediaIds?: never;
+      readonly note: string;
+    };
 
 export interface EvidenceCard {
   readonly id: string;
@@ -241,6 +266,54 @@ export interface GenealogyReconstruction {
   readonly publication: PublicationReview;
 }
 
+export type IdentitySubjectId =
+  | 'thomas-senior'
+  | 'hempfield-thomas'
+  | 'kentucky-thomas';
+
+export interface IdentitySubject {
+  readonly id: IdentitySubjectId;
+  readonly name: string;
+  readonly period: string;
+  readonly place: string;
+  readonly summary: string;
+  readonly recordBoundary: string;
+  readonly referenceIds: readonly number[];
+}
+
+export interface IdentityConnection {
+  readonly id: string;
+  readonly subjectIds: readonly IdentitySubjectId[];
+  readonly endpointLabels: readonly string[];
+  readonly assessment: 'possible' | 'excluded';
+  readonly label: string;
+  readonly statement: string;
+  readonly limitation: string;
+  readonly referenceIds: readonly number[];
+}
+
+export interface IdentityTimelineEvent {
+  readonly id: string;
+  readonly date: string;
+  readonly title: string;
+  readonly detail: string;
+  readonly referenceIds: readonly number[];
+}
+
+export interface GenealogyIdentityModel {
+  readonly id: 'three-thomases';
+  readonly title: string;
+  readonly shortTitle: string;
+  readonly summary: string;
+  readonly boundary: string;
+  readonly subjects: readonly IdentitySubject[];
+  readonly connections: readonly IdentityConnection[];
+  readonly timeline: readonly IdentityTimelineEvent[];
+  readonly annBoundary: string;
+  readonly referenceIds: readonly number[];
+  readonly publication: PublicationReview;
+}
+
 export interface MediaProvenance {
   readonly sourcePage?: string;
   readonly rightsSourcePage?: string;
@@ -285,6 +358,7 @@ export interface PublicGenealogyContent {
   readonly stories: readonly Story[];
   readonly clusters: readonly EvidenceCluster[];
   readonly reconstructions: readonly GenealogyReconstruction[];
+  readonly identityModels: readonly GenealogyIdentityModel[];
   readonly media: Readonly<Record<MediaId, PublicMedia>>;
 }
 

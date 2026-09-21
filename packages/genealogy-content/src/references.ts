@@ -60,6 +60,11 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       'The bond states no relationship between Benjamin and the Weller family and names neither of his parents.',
     url: 'https://www.familysearch.org/ark:/61903/3:1:3QS7-99DP-K23',
     accessLabel: 'Open record image',
+    visualAccess: {
+      status: 'reviewed-preview',
+      previewMediaIds: ['benjamin-bond'],
+      note: 'A reviewed contextual crop is available here; the external link opens the original bond-book image.',
+    },
   },
   {
     id: 6,
@@ -220,11 +225,11 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     id: 19,
     title: 'Will of Thomas Meason of Hempfield',
     citation:
-      'Westmoreland County, Pennsylvania, Will Book 1, p. 192, item 308; dated 1785 and proved 22 November 1805; Ancestry collection 8802, media 007727205_00506.',
+      'Westmoreland County, Pennsylvania, Will Book 1, p. 192, item 308; will dated 18 September 1785 and proved 22 November 1805; Ancestry collection 8802, media 007727205_00506.',
     supports:
-      'Eight named children, including an expressly enumerated group of six youngest children; Benjamin is absent.',
+      'Wife Ann and eight children—Sarah, John, Thomas, Elizabeth, Ann, Synthia, Mary, and Eliza—including an expressly enumerated group of six youngest children; Benjamin is absent. Hugh Quigley witnessed the will, and James Westbay was an executor, providing two specific bridges to Ann’s 1786 agreement.',
     limitation:
-      'The omission strongly disfavors this testator as Benjamin’s father but does not identify Benjamin’s actual parents or prove identity with other Thomas Meason records.',
+      'The omission strongly disfavors this testator as Benjamin’s father but does not identify Benjamin’s actual parents or connect this man to Thomas Meason senior. The 22 November 1805 notation is delayed proof or recording—not a death date, a survival date, or the date Ann was first documented as a widow. A separate agreement dated 21 March 1786 already calls Ann the widow and relict of deceased Thomas.',
     url: 'https://www.ancestry.com/imageviewer/collections/8802/images/007727205_00506',
     accessLabel: 'Open probate image',
   },
@@ -311,6 +316,11 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       'The marker names no parents, does not expand the middle initial, and gives no birthplace. Its birth year conflicts with census evidence, and its informant and erection date are unknown.',
     url: 'https://www.findagrave.com/memorial/5786133/george_mansfield-meason',
     accessLabel: 'Open memorial and marker',
+    visualAccess: {
+      status: 'reviewed-preview',
+      previewMediaIds: ['george-marker'],
+      note: 'A reviewed marker photograph is available here; the memorial remains the external source context.',
+    },
   },
   {
     id: 27,
@@ -451,6 +461,11 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       'Provides the working portrait identification and full formal school portrait for Cynthia June “Cindee” Meason (1958–1991). The full image is the source of the tighter portrait-circle crop.',
     limitation:
       'The school, studio, exact date, original print custodian, and photographer have not yet been documented. This is a display-resolution copy rather than the original scan.',
+    visualAccess: {
+      status: 'reviewed-preview',
+      previewMediaIds: ['cynthia-school'],
+      note: 'A reviewed display-resolution family photograph is available here with the identification limits stated above.',
+    },
   },
   {
     id: 39,
@@ -461,6 +476,11 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       'Provides the working portrait identification for James Lawrence “Jimmy” Meason (1934–1973) and visually agrees with his senior-year portrait.',
     limitation:
       'The photographer, studio, original date, and original print custodian have not yet been documented. This is a display-resolution copy rather than the full-resolution scan.',
+    visualAccess: {
+      status: 'reviewed-preview',
+      previewMediaIds: ['jimmy-studio'],
+      note: 'A reviewed display-resolution family photograph is available here with the identification limits stated above.',
+    },
   },
   {
     id: 40,
@@ -471,6 +491,11 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       'Provides the working identification and full porch photograph for James Lawrence Meason (1892–1949). The handwritten caption reads “James Lawrence Meason,” and the full image is the source of the tighter portrait-circle crop.',
     limitation:
       'The filename date is not established as the photograph date, and the handwritten caption is not assumed to be James’s autograph. The date, place, photographer, original custodian, and independent identification remain to be documented.',
+    visualAccess: {
+      status: 'reviewed-preview',
+      previewMediaIds: ['james-1892-porch'],
+      note: 'A reviewed full-frame family photograph is available here; its date and original provenance remain unresolved.',
+    },
   },
   {
     id: 41,
@@ -491,6 +516,11 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       'Provides the working portrait identification and full seated home photograph for Franklin Meason (1850–1933). The image is the source of the tighter crop used in his portrait circle.',
     limitation:
       'The exact Richardson location, approximate date, photographer, original custodian, and independent identification remain to be documented.',
+    visualAccess: {
+      status: 'reviewed-preview',
+      previewMediaIds: ['franklin-home'],
+      note: 'A reviewed family photograph is available here with the location and provenance limits stated above.',
+    },
   },
   {
     id: 43,
@@ -782,6 +812,20 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       '“Heir at law” does not mean “son.” Benjamin could have inherited through a child, sibling, or another statutory branch. The deed does not name his father or mother, state his precise relationship to Joseph, or authorize placing Joseph above him in the tree.',
     url: 'https://www.familysearch.org/search/film/008573278',
     accessLabel: 'Open FamilySearch film',
+    accessLinks: [
+      {
+        label: 'Open image 72 in the FamilySearch film',
+        url: 'https://www.familysearch.org/search/film/008573278?i=71',
+      },
+      {
+        label: 'Open image 73 in the FamilySearch film',
+        url: 'https://www.familysearch.org/search/film/008573278?i=72',
+      },
+    ],
+    visualAccess: {
+      status: 'external-volume-only',
+      note: 'Images 72–73 are preserved for research, but reuse rights remain pending; the page-indexed links open numbered images inside the provider-bound FamilySearch film, not public hosted previews.',
+    },
   },
   {
     id: 68,
@@ -794,6 +838,24 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       'The deed does not name Benjamin, identify Thomas Meason senior as Joseph’s father, or assign Benjamin to John, Samuel, Thomas, or any other sibling branch. It makes Thomas born in 1755 a serious candidate father, not a proved or uniquely selected one.',
     url: 'https://www.familysearch.org/search/film/008573278',
     accessLabel: 'Open FamilySearch film',
+    accessLinks: [
+      {
+        label: 'Open image 74 in the FamilySearch film',
+        url: 'https://www.familysearch.org/search/film/008573278?i=73',
+      },
+      {
+        label: 'Open image 75 in the FamilySearch film',
+        url: 'https://www.familysearch.org/search/film/008573278?i=74',
+      },
+      {
+        label: 'Open image 76 in the FamilySearch film',
+        url: 'https://www.familysearch.org/search/film/008573278?i=75',
+      },
+    ],
+    visualAccess: {
+      status: 'external-volume-only',
+      note: 'Images 74–76 are preserved for research, but reuse rights remain pending; the page-indexed links open numbered images inside the provider-bound FamilySearch film, not public hosted previews.',
+    },
   },
   {
     id: 69,
@@ -830,6 +892,11 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       'The map is geographic context, not a parcel survey. It does not prove that the mapped Higgins was the ejectment defendant, place either mill inside William’s 200 acres, or show a Mason residence.',
     url: 'https://www.loc.gov/resource/g3950.ct003777a/',
     accessLabel: 'Open the original map',
+    visualAccess: {
+      status: 'reviewed-preview',
+      previewMediaIds: ['highland-creek-map-1818'],
+      note: 'A reviewed detail of the public Library of Congress map is available here; the external link opens the original map.',
+    },
   },
   {
     id: 72,
@@ -843,11 +910,37 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSLX-26K9',
     accessLabel: 'Open the grantor index page',
   },
+  {
+    id: 73,
+    title: 'Ann Meason–Hugh Quigley premarital agreement',
+    citation:
+      'Westmoreland County, Pennsylvania, Deed Book 3, pp. 443–444; agreement dated 21 March 1786, acknowledged 11 June 1798, and recorded 20 June 1798; FHL film 929167, DGS 8085360, images 676–677.',
+    supports:
+      'The agreement calls Ann Meason the “widow and relict” of deceased Thomas Meason, says Ann and Hugh Quigley intended to marry, and protects Ann’s share of land to be sold under Thomas’s last will. Together with the matching Quigley and Westbay roles in the 1785 will, it establishes that Thomas Meason of Hempfield was dead by 21 March 1786 and therefore cannot be the living Kentucky Thomas documented in 1788 and 1795.',
+    limitation:
+      'The agreement does not name Benjamin, identify his parents, prove that Ann and Hugh later married, or connect Hempfield Thomas to Thomas Meason senior. Its 1798 acknowledgment and recording dates do not change the agreement’s 21 March 1786 date or the widow statement made then.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSNP-DSM3-9',
+    accessLabel: 'Open the agreement',
+    accessLinks: [
+      {
+        label: 'Opening page · image 676',
+        url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSNP-DSM3-9',
+      },
+      {
+        label: 'Continuation · image 677',
+        url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSNP-DSMC-H',
+      },
+    ],
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'Exact external links are available for both original deed-book pages; no local public preview has been approved.',
+    },
+  },
 ];
 const publication = {
   status: 'published',
   privacy: 'public',
-  reviewedOn: '2026-09-19',
+  reviewedOn: '2026-09-20',
 } as const;
 
 export const references: readonly Reference[] = referenceCatalog.map(

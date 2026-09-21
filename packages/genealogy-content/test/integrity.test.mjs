@@ -9,8 +9,10 @@ import {
   people,
   publicGenealogyContent,
   references,
+  relationships,
   researchCases,
   stories,
+  threeThomasesIdentityModel,
   validatePublicGenealogyContent,
 } from '../dist/index.js';
 
@@ -23,10 +25,324 @@ test('the canonical public content passes integrity validation', () => {
 });
 
 test('the package carries the complete reviewed public reference catalog', () => {
-  assert.equal(references.length, 72);
+  assert.equal(references.length, 73);
   assert.deepEqual(
     references.map(({ id }) => id),
-    Array.from({ length: 72 }, (_, index) => index + 1)
+    Array.from({ length: 73 }, (_, index) => index + 1)
+  );
+});
+
+test('reviewed citation visuals expose only approved public media', () => {
+  const visualAccessByReference = Object.fromEntries(
+    references
+      .filter(({ visualAccess }) => visualAccess)
+      .map(({ id, visualAccess }) => [id, visualAccess])
+  );
+
+  assert.deepEqual(
+    Object.keys(visualAccessByReference).map(Number),
+    [5, 26, 38, 39, 40, 42, 67, 68, 71, 73]
+  );
+  assert.deepEqual(
+    Object.fromEntries(
+      Object.entries(visualAccessByReference).map(([id, access]) => [
+        id,
+        access.status,
+      ])
+    ),
+    {
+      5: 'reviewed-preview',
+      26: 'reviewed-preview',
+      38: 'reviewed-preview',
+      39: 'reviewed-preview',
+      40: 'reviewed-preview',
+      42: 'reviewed-preview',
+      67: 'external-volume-only',
+      68: 'external-volume-only',
+      71: 'reviewed-preview',
+      73: 'external-original-only',
+    }
+  );
+  assert.deepEqual(
+    Object.fromEntries(
+      references
+        .filter(
+          ({ visualAccess }) => visualAccess?.status === 'reviewed-preview'
+        )
+        .map(({ id, visualAccess }) => [id, visualAccess.previewMediaIds])
+    ),
+    {
+      5: ['benjamin-bond'],
+      26: ['george-marker'],
+      38: ['cynthia-school'],
+      39: ['jimmy-studio'],
+      40: ['james-1892-porch'],
+      42: ['franklin-home'],
+      71: ['highland-creek-map-1818'],
+    }
+  );
+  assert.ok(
+    [67, 68]
+      .map((id) => references.find((reference) => reference.id === id))
+      .every(
+        (reference) =>
+          reference?.visualAccess?.status === 'external-volume-only' &&
+          reference.visualAccess.note.includes('rights remain pending') &&
+          reference.visualAccess.note.includes('provider-bound') &&
+          reference.visualAccess.note.includes('not public hosted previews') &&
+          !('previewMediaIds' in reference.visualAccess)
+      )
+  );
+  assert.deepEqual(
+    [67, 68].map((id) => {
+      const reference = references.find((item) => item.id === id);
+      return [reference?.url, reference?.accessLinks];
+    }),
+    [
+      [
+        'https://www.familysearch.org/search/film/008573278',
+        [
+          {
+            label: 'Open image 72 in the FamilySearch film',
+            url: 'https://www.familysearch.org/search/film/008573278?i=71',
+          },
+          {
+            label: 'Open image 73 in the FamilySearch film',
+            url: 'https://www.familysearch.org/search/film/008573278?i=72',
+          },
+        ],
+      ],
+      [
+        'https://www.familysearch.org/search/film/008573278',
+        [
+          {
+            label: 'Open image 74 in the FamilySearch film',
+            url: 'https://www.familysearch.org/search/film/008573278?i=73',
+          },
+          {
+            label: 'Open image 75 in the FamilySearch film',
+            url: 'https://www.familysearch.org/search/film/008573278?i=74',
+          },
+          {
+            label: 'Open image 76 in the FamilySearch film',
+            url: 'https://www.familysearch.org/search/film/008573278?i=75',
+          },
+        ],
+      ],
+    ]
+  );
+  assert.equal(
+    references.find(({ id }) => id === 73)?.visualAccess?.status,
+    'external-original-only'
+  );
+});
+
+test('runtime validation enforces coherent citation visual states', () => {
+  const [firstReference, ...otherReferences] =
+    publicGenealogyContent.references;
+  const missingPreview = {
+    ...publicGenealogyContent,
+    references: [
+      {
+        ...firstReference,
+        visualAccess: {
+          status: 'reviewed-preview',
+          previewMediaIds: [],
+          note: 'Test state',
+        },
+      },
+      ...otherReferences,
+    ],
+  };
+  const missingMedia = {
+    ...publicGenealogyContent,
+    references: [
+      {
+        ...firstReference,
+        visualAccess: {
+          status: 'reviewed-preview',
+          previewMediaIds: ['not-public-media'],
+          note: 'Test state',
+        },
+      },
+      ...otherReferences,
+    ],
+  };
+  const forbiddenPreview = {
+    ...publicGenealogyContent,
+    references: [
+      {
+        ...firstReference,
+        visualAccess: {
+          status: 'external-volume-only',
+          previewMediaIds: ['benjamin-bond'],
+          note: 'Test state',
+        },
+      },
+      ...otherReferences,
+    ],
+  };
+
+  assert.ok(
+    validatePublicGenealogyContent(missingPreview).errors.some((error) =>
+      error.includes('has no preview media')
+    )
+  );
+  assert.ok(
+    validatePublicGenealogyContent(missingMedia).errors.some((error) =>
+      error.includes('references missing media')
+    )
+  );
+  assert.ok(
+    validatePublicGenealogyContent(forbiddenPreview).errors.some((error) =>
+      error.includes('must not include preview media')
+    )
+  );
+});
+
+test('the Hempfield records separate execution, widow, and recording dates', () => {
+  const will = references.find((reference) => reference.id === 19);
+  const agreement = references.find((reference) => reference.id === 73);
+
+  assert.match(will?.citation ?? '', /18 September 1785/);
+  assert.match(will?.citation ?? '', /22 November 1805/);
+  assert.match(will?.supports ?? '', /Wife Ann and eight children/);
+  assert.match(will?.supports ?? '', /Hugh Quigley/);
+  assert.match(will?.supports ?? '', /James Westbay/);
+  assert.match(will?.limitation ?? '', /not a death date, a survival date/);
+  assert.match(will?.limitation ?? '', /21 March 1786/);
+
+  assert.match(agreement?.citation ?? '', /21 March 1786/);
+  assert.match(agreement?.citation ?? '', /acknowledged 11 June 1798/);
+  assert.match(agreement?.citation ?? '', /recorded 20 June 1798/);
+  assert.match(agreement?.citation ?? '', /DGS 8085360, images 676–677/);
+  assert.match(agreement?.supports ?? '', /“widow and relict”/);
+  assert.match(agreement?.supports ?? '', /dead by 21 March 1786/);
+  assert.match(agreement?.limitation ?? '', /does not name Benjamin/);
+  assert.match(
+    agreement?.limitation ?? '',
+    /prove that Ann and Hugh later married/
+  );
+  assert.deepEqual(agreement?.accessLinks, [
+    {
+      label: 'Opening page · image 676',
+      url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSNP-DSM3-9',
+    },
+    {
+      label: 'Continuation · image 677',
+      url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSNP-DSMC-H',
+    },
+  ]);
+  assert.equal(agreement?.url, agreement?.accessLinks?.[0]?.url);
+});
+
+test('the Three Thomases model preserves identities and open boundaries', () => {
+  assert.equal(threeThomasesIdentityModel.id, 'three-thomases');
+  assert.deepEqual(
+    threeThomasesIdentityModel.subjects.map(({ id }) => id),
+    ['thomas-senior', 'hempfield-thomas', 'kentucky-thomas']
+  );
+  assert.deepEqual(
+    threeThomasesIdentityModel.connections.map(
+      ({ id, assessment, subjectIds }) => [id, assessment, subjectIds]
+    ),
+    [
+      [
+        'senior-son-to-hempfield',
+        'possible',
+        ['thomas-senior', 'hempfield-thomas'],
+      ],
+      [
+        'senior-son-to-kentucky',
+        'possible',
+        ['thomas-senior', 'kentucky-thomas'],
+      ],
+      [
+        'hempfield-not-kentucky',
+        'excluded',
+        ['hempfield-thomas', 'kentucky-thomas'],
+      ],
+    ]
+  );
+  assert.deepEqual(
+    threeThomasesIdentityModel.connections.map(({ endpointLabels }) =>
+      endpointLabels.join(' ↔ ')
+    ),
+    [
+      'Thomas senior\u2019s named son Thomas ↔ Thomas Meason of Hempfield',
+      'Thomas senior\u2019s named son Thomas ↔ Thomas Mason or Meason of Kentucky',
+      'Thomas Meason of Hempfield ↔ Thomas Mason or Meason of Kentucky',
+    ]
+  );
+  assert.match(
+    threeThomasesIdentityModel.boundary,
+    /documented role.*not automatically a fourth person/
+  );
+  assert.match(
+    threeThomasesIdentityModel.annBoundary,
+    /distinct roles in distinct record groups/
+  );
+  assert.match(
+    threeThomasesIdentityModel.annBoundary,
+    /does not establish whether they describe the same woman or different women/
+  );
+
+  assert.deepEqual(
+    threeThomasesIdentityModel.timeline.map(({ date }) => date),
+    [
+      '14–18 March 1779',
+      '18 September 1785',
+      '21 March 1786',
+      '23 October 1788',
+      '2 February 1795',
+      '27 July 1795',
+      '11 June 1798',
+      '20 June 1798',
+      '22 November 1805',
+    ]
+  );
+  assert.match(
+    threeThomasesIdentityModel.timeline[1].detail,
+    /wife, not yet as his widow/
+  );
+  assert.match(
+    threeThomasesIdentityModel.timeline[2].detail,
+    /widow and relict/
+  );
+  assert.match(
+    threeThomasesIdentityModel.timeline.at(-1)?.detail ?? '',
+    /not Thomas’s death date/
+  );
+
+  assert.equal(publicGenealogyContent.identityModels.length, 1);
+  assert.equal(relationships.length, 6);
+  assert.equal(
+    relationships.some(
+      (relationship) =>
+        relationship.kind === 'parent-child' && relationship.to === 'benjamin'
+    ),
+    false
+  );
+});
+
+test('the parentage case separates the Kentucky and Hempfield Thomases', () => {
+  const parentageCase = researchCases.find(({ id }) => id === 'parentage');
+  const cards = parentageCase?.sections.flatMap(({ cards }) => cards) ?? [];
+  const kentuckyCard = cards.find(({ id }) => id === 'thomas-branch');
+  const exclusionCard = cards.find(
+    ({ id }) => id === 'hempfield-kentucky-exclusion'
+  );
+
+  assert.equal(kentuckyCard?.title, 'Kentucky Thomas branch');
+  assert.match(
+    kentuckyCard?.detail ?? '',
+    /no reviewed record.*calls Benjamin his son/
+  );
+  assert.deepEqual(exclusionCard?.referenceIds, [19, 20, 21, 73]);
+  assert.match(exclusionCard?.detail ?? '', /dead by 21 March 1786/);
+  assert.match(
+    exclusionCard?.detail ?? '',
+    /does not identify Benjamin’s father/
   );
 });
 
@@ -291,12 +607,17 @@ test('the Highland Creek reconstruction preserves evidence boundaries', () => {
       referenceId: document.referenceId,
       sequences: document.pages.map((page) => page.sequence),
       rights: document.pages.map((page) => page.rightsState),
+      providerUrls: document.pages.map((page) => page.providerUrl),
     })),
     [
       {
         referenceId: 67,
         sequences: [1, 2],
         rights: ['permission-required', 'permission-required'],
+        providerUrls: [
+          'https://www.familysearch.org/search/film/008573278?i=71',
+          'https://www.familysearch.org/search/film/008573278?i=72',
+        ],
       },
       {
         referenceId: 68,
@@ -305,6 +626,11 @@ test('the Highland Creek reconstruction preserves evidence boundaries', () => {
           'permission-required',
           'permission-required',
           'permission-required',
+        ],
+        providerUrls: [
+          'https://www.familysearch.org/search/film/008573278?i=73',
+          'https://www.familysearch.org/search/film/008573278?i=74',
+          'https://www.familysearch.org/search/film/008573278?i=75',
         ],
       },
     ]
@@ -333,6 +659,31 @@ test('runtime validation reports an invalid reconstruction connection kind', () 
   assert.ok(
     result.errors.some((error) => error.includes('invalid connection kind'))
   );
+});
+
+test('runtime validation reports an identity connection with a missing subject', () => {
+  const [identityModel, ...otherIdentityModels] =
+    publicGenealogyContent.identityModels;
+  const [connection, ...otherConnections] = identityModel.connections;
+  const broken = {
+    ...publicGenealogyContent,
+    identityModels: [
+      {
+        ...identityModel,
+        connections: [
+          {
+            ...connection,
+            subjectIds: ['unreviewed-thomas', connection.subjectIds[1]],
+          },
+          ...otherConnections,
+        ],
+      },
+      ...otherIdentityModels,
+    ],
+  };
+  const result = validatePublicGenealogyContent(broken);
+  assert.equal(result.valid, false);
+  assert.ok(result.errors.some((error) => error.includes('missing subject')));
 });
 
 test('the removed Dallas cotton image is absent from public content', () => {
