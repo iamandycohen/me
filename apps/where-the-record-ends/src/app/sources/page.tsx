@@ -2,10 +2,21 @@ import {
   media,
   references,
   type PublicMedia,
+  type ReferenceVisualAccessStatus,
 } from '@where-the-record-ends/genealogy-content';
 import type { Metadata } from 'next';
 
+import { MediaFigure } from '@/components/MediaFigure';
 import { PageHero } from '@/components/PageHero';
+
+const visualAccessLabels: Readonly<
+  Record<ReferenceVisualAccessStatus, string>
+> = {
+  'reviewed-preview': 'Preview available',
+  'external-original-only': 'External original',
+  'external-volume-only': 'Volume link',
+  'text-only-deferred': 'Catalog / no preview',
+};
 
 export const metadata: Metadata = {
   title: 'Sources and visual record',
@@ -52,52 +63,7 @@ export default function SourcesPage() {
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {visuals.map((item) => (
-              <article
-                key={item.id}
-                className="rounded-2xl border border-ink/10 bg-cream p-5"
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <p className="eyebrow !text-[0.54rem]">
-                    {item.role} · {item.kind}
-                  </p>
-                  <span className="text-[0.58rem] uppercase tracking-[0.12em] text-ink/40">
-                    {item.width} × {item.height}
-                  </span>
-                </div>
-                <h3 className="mt-4 font-serif text-2xl">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink/65">
-                  {item.caption}
-                </p>
-                {item.limitation ? (
-                  <p className="mt-4 border-l-2 border-accent/25 pl-3 text-xs leading-relaxed text-ink/55">
-                    Boundary: {item.limitation}
-                  </p>
-                ) : null}
-                <dl className="mt-5 space-y-3 border-t border-ink/10 pt-4 text-xs leading-relaxed">
-                  <div>
-                    <dt className="font-medium text-ink/45">Credit</dt>
-                    <dd className="mt-1 text-ink/65">
-                      {item.provenance.credit}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="font-medium text-ink/45">Reuse basis</dt>
-                    <dd className="mt-1 text-ink/65">
-                      {item.provenance.rightsStatement}
-                    </dd>
-                  </div>
-                </dl>
-                {item.provenance.sourcePage ? (
-                  <a
-                    href={item.provenance.sourcePage}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-5 inline-block text-sm text-accent underline underline-offset-4"
-                  >
-                    Open source page ↗
-                  </a>
-                ) : null}
-              </article>
+              <MediaFigure key={item.id} item={item} compact showRights />
             ))}
           </div>
         </div>
@@ -118,53 +84,86 @@ export default function SourcesPage() {
             </h2>
           </div>
           <ol className="space-y-4">
-            {references.map((reference) => (
-              <li
-                id={`reference-${reference.id}`}
-                key={reference.id}
-                className="scroll-mt-24 rounded-2xl border border-ink/10 bg-paper/60 p-5 sm:p-6"
-              >
-                <div className="grid gap-4 sm:grid-cols-[3rem_minmax(0,1fr)]">
-                  <span className="font-serif text-2xl text-accent">
-                    {reference.id}
-                  </span>
-                  <div>
-                    <h3 className="font-serif text-xl">{reference.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink/65">
-                      {reference.citation}
-                    </p>
-                    <dl className="mt-4 grid gap-4 border-t border-ink/10 pt-4 text-xs sm:grid-cols-2">
-                      <div>
-                        <dt className="font-medium uppercase tracking-[0.12em] text-ink/40">
-                          Supports
-                        </dt>
-                        <dd className="mt-1 leading-relaxed text-ink/60">
-                          {reference.supports}
-                        </dd>
-                      </div>
-                      <div>
-                        <dt className="font-medium uppercase tracking-[0.12em] text-ink/40">
-                          Limit
-                        </dt>
-                        <dd className="mt-1 leading-relaxed text-ink/60">
-                          {reference.limitation}
-                        </dd>
-                      </div>
-                    </dl>
-                    {reference.url ? (
-                      <a
-                        href={reference.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="mt-4 inline-block text-xs text-accent underline underline-offset-4"
-                      >
-                        {reference.accessLabel ?? 'Open record'} ↗
-                      </a>
-                    ) : null}
+            {references.map((reference) => {
+              const accessLinks = reference.accessLinks ?? [];
+              const visualAccess = reference.visualAccess;
+
+              return (
+                <li
+                  id={`reference-${reference.id}`}
+                  key={reference.id}
+                  className="scroll-mt-24 rounded-2xl border border-ink/10 bg-paper/60 p-5 sm:p-6"
+                >
+                  <div className="grid gap-4 sm:grid-cols-[3rem_minmax(0,1fr)]">
+                    <span className="font-serif text-2xl text-accent">
+                      {reference.id}
+                    </span>
+                    <div>
+                      <h3 className="font-serif text-xl">{reference.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-ink/65">
+                        {reference.citation}
+                      </p>
+                      {visualAccess ? (
+                        <div className="mt-4 flex flex-wrap items-center gap-3">
+                          <span className="rounded-full border border-accent/25 bg-accent/[0.06] px-3 py-1 text-[0.56rem] font-semibold uppercase tracking-[0.12em] text-accent">
+                            {visualAccessLabels[visualAccess.status]}
+                          </span>
+                          <p className="text-xs leading-relaxed text-ink/55">
+                            {visualAccess.note}
+                          </p>
+                        </div>
+                      ) : null}
+                      <dl className="mt-4 grid gap-4 border-t border-ink/10 pt-4 text-xs sm:grid-cols-2">
+                        <div>
+                          <dt className="font-medium uppercase tracking-[0.12em] text-ink/40">
+                            Supports
+                          </dt>
+                          <dd className="mt-1 leading-relaxed text-ink/60">
+                            {reference.supports}
+                          </dd>
+                        </div>
+                        <div>
+                          <dt className="font-medium uppercase tracking-[0.12em] text-ink/40">
+                            Limit
+                          </dt>
+                          <dd className="mt-1 leading-relaxed text-ink/60">
+                            {reference.limitation}
+                          </dd>
+                        </div>
+                      </dl>
+                      {accessLinks.length > 0 ? (
+                        <ul
+                          className="mt-4 flex flex-wrap gap-x-4 gap-y-2"
+                          aria-label={`Original record links for ${reference.title}`}
+                        >
+                          {accessLinks.map((accessLink) => (
+                            <li key={`${accessLink.url}-${accessLink.label}`}>
+                              <a
+                                href={accessLink.url}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-block break-words text-xs text-accent underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                              >
+                                {accessLink.label} ↗
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : reference.url ? (
+                        <a
+                          href={reference.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="mt-4 inline-block break-words text-xs text-accent underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                        >
+                          {reference.accessLabel ?? 'Open record'} ↗
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
-                </div>
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ol>
         </div>
       </section>

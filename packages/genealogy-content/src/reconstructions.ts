@@ -7,6 +7,8 @@ const publication = {
 } as const;
 
 const filmUrl = 'https://www.familysearch.org/search/film/008573278';
+const filmImageUrl = (zeroBasedIndex: number) =>
+  `${filmUrl}?i=${zeroBasedIndex}`;
 
 export const highlandCreekReconstruction: GenealogyReconstruction = {
   id: 'highland-creek',
@@ -558,7 +560,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
           description:
             'Opening of the recorded conveyance and identification of the parties and inherited tract.',
           rightsState: 'permission-required',
-          providerUrl: filmUrl,
+          providerUrl: filmImageUrl(71),
         },
         {
           id: 'benjamin-heir-deed-73',
@@ -567,7 +569,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
           description:
             'Continuation, acknowledgment, and recording of the conveyance.',
           rightsState: 'permission-required',
-          providerUrl: filmUrl,
+          providerUrl: filmImageUrl(72),
         },
       ],
     },
@@ -583,7 +585,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
           description:
             'Opening of the deed naming the inheritance transaction.',
           rightsState: 'permission-required',
-          providerUrl: filmUrl,
+          providerUrl: filmImageUrl(73),
         },
         {
           id: 'joseph-collateral-heirs-deed-75',
@@ -592,7 +594,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
           description:
             'Continuation identifying Joseph’s sibling branches and collateral heirs.',
           rightsState: 'permission-required',
-          providerUrl: filmUrl,
+          providerUrl: filmImageUrl(74),
         },
         {
           id: 'joseph-collateral-heirs-deed-76',
@@ -601,7 +603,7 @@ export const highlandCreekReconstruction: GenealogyReconstruction = {
           description:
             'Closing terms, acknowledgment, and recording of the conveyance.',
           rightsState: 'permission-required',
-          providerUrl: filmUrl,
+          providerUrl: filmImageUrl(75),
         },
       ],
     },

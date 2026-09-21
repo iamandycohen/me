@@ -1,4 +1,8 @@
-import { researchCases } from '@where-the-record-ends/genealogy-content';
+import {
+  highlandCreekReconstruction,
+  researchCases,
+  threeThomasesIdentityModel,
+} from '@where-the-record-ends/genealogy-content';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -15,6 +19,25 @@ const assessmentStyles = {
   accepted: 'border-moss/25 bg-moss/[0.045]',
   conflicting: 'border-ink/20 bg-ink/[0.025]',
 } as const;
+
+const parentageInvestigations = [
+  {
+    href: '/cases/parentage/highland-creek',
+    eyebrow: 'Evidence reconstruction',
+    title: highlandCreekReconstruction.title,
+    summary:
+      'Follow the named heirs and recorded relationships around Highland Creek without turning the open parentage hypothesis into a proved family connection.',
+    linkLabel: 'Explore the reconstruction',
+  },
+  {
+    href: '/cases/parentage/three-thomases',
+    eyebrow: 'Identity reconstruction',
+    title: threeThomasesIdentityModel.title,
+    summary:
+      'Separate three documented men who shared the name Thomas and see which identities remain possible, excluded, or unresolved.',
+    linkLabel: 'Meet the three Thomases',
+  },
+] as const;
 
 export default function CasesPage() {
   return (
@@ -66,6 +89,48 @@ export default function CasesPage() {
                 </Link>
               </article>
             ))}
+          </div>
+
+          <div className="mt-14 border-t border-ink/10 pt-10 md:mt-20 md:pt-14">
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:items-end">
+              <div>
+                <p className="eyebrow">Inside case 01</p>
+                <h2 className="balanced mt-4 font-serif text-4xl leading-tight sm:text-5xl">
+                  Parentage investigations
+                </h2>
+              </div>
+              <p className="max-w-3xl text-sm leading-relaxed text-ink/65 sm:text-base">
+                These focused reconstructions support the open question of
+                Benjamin Meason’s parentage. They are working views within the
+                parentage case—not additional top-level cases or proof of a
+                particular parent-child relationship.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-5 md:grid-cols-2">
+              {parentageInvestigations.map((investigation) => (
+                <article
+                  key={investigation.href}
+                  className="flex min-h-72 flex-col rounded-[1.75rem] border border-ink/10 bg-paper p-7 sm:p-8"
+                >
+                  <p className="eyebrow !text-[0.54rem]">
+                    {investigation.eyebrow}
+                  </p>
+                  <h3 className="balanced mt-5 font-serif text-3xl leading-tight">
+                    {investigation.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-ink/65">
+                    {investigation.summary}
+                  </p>
+                  <Link
+                    href={investigation.href}
+                    className="mt-auto inline-flex items-center justify-between border-t border-ink/10 pt-6 text-sm font-medium text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                  >
+                    {investigation.linkLabel} <span aria-hidden="true">→</span>
+                  </Link>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>

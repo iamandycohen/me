@@ -9,6 +9,10 @@ export {
   highlandCreekReconstruction,
 } from './reconstructions.js';
 export {
+  genealogyIdentityModels,
+  threeThomasesIdentityModel,
+} from './identity-models.js';
+export {
   media,
   mediaCatalog,
   personMediaIds,

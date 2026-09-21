@@ -860,6 +860,14 @@ export function HighlandCreekFamilyTree() {
               but not proved; hidden in Recorded only.
             </li>
           </ul>
+          <p className="mt-4 border-t border-ink/10 pt-4 text-xs leading-relaxed text-ink/65">
+            <strong className="text-ink">A note about Ann:</strong> reference 18
+            documents Ann as Thomas Meason senior’s daughter. References 19 and
+            73 document an Ann as Hempfield Thomas’s wife and later widow. The
+            current evidence does not establish whether those references
+            describe the same woman or different women.
+            <ReferenceLinks ids={[18, 19, 73]} />
+          </p>
         </div>
 
         <div

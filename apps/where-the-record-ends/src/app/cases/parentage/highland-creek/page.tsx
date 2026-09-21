@@ -74,7 +74,12 @@ export default function HighlandCreekPage() {
           <ArrowLink href="/cases/parentage">
             Return to the parentage case
           </ArrowLink>
-          <ArrowLink href="/cases">All research cases</ArrowLink>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <ArrowLink href="/cases/parentage/three-thomases">
+              Meet the three Thomases
+            </ArrowLink>
+            <ArrowLink href="/cases">All research cases</ArrowLink>
+          </div>
         </div>
       </nav>
     </>

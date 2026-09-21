@@ -1,6 +1,7 @@
 import { researchCases } from './cases.js';
 import { evidenceClusters } from './clusters.js';
 import { caseMediaIds, media, personMediaIds, storyMediaIds } from './media.js';
+import { genealogyIdentityModels } from './identity-models.js';
 import { people } from './people.js';
 import { references } from './references.js';
 import { genealogyReconstructions } from './reconstructions.js';
@@ -16,6 +17,7 @@ export const publicGenealogyContent: PublicGenealogyContent = {
   stories,
   clusters: evidenceClusters,
   reconstructions: genealogyReconstructions,
+  identityModels: genealogyIdentityModels,
   media,
 };
 
@@ -60,6 +62,7 @@ export function validatePublicGenealogyContent(
     ['story', content.stories.map((item) => item.id)],
     ['cluster', content.clusters.map((item) => item.id)],
     ['reconstruction', content.reconstructions.map((item) => item.id)],
+    ['identity model', content.identityModels.map((item) => item.id)],
     ['media', Object.keys(content.media)],
   ] as const) {
     for (const duplicate of duplicateValues(values)) {
@@ -117,6 +120,49 @@ export function validatePublicGenealogyContent(
     ] as const) {
       if (textMissing(value))
         errors.push(`Reference ${source.id} is missing ${field}`);
+    }
+    if (source.accessLinks) {
+      for (const [index, link] of source.accessLinks.entries()) {
+        if (textMissing(link.label))
+          errors.push(
+            `Reference ${source.id} access link ${index + 1} is missing label`
+          );
+        if (textMissing(link.url))
+          errors.push(
+            `Reference ${source.id} access link ${index + 1} is missing url`
+          );
+      }
+    }
+    if (source.visualAccess) {
+      const { note, previewMediaIds, status } = source.visualAccess;
+      if (
+        ![
+          'reviewed-preview',
+          'external-original-only',
+          'external-volume-only',
+          'text-only-deferred',
+        ].includes(status)
+      )
+        errors.push(
+          `Reference ${source.id} has invalid visual access status ${status}`
+        );
+      if (textMissing(note))
+        errors.push(`Reference ${source.id} visual access is missing note`);
+      if (status === 'reviewed-preview') {
+        if (!previewMediaIds || previewMediaIds.length === 0)
+          errors.push(
+            `Reference ${source.id} reviewed preview has no preview media`
+          );
+        for (const mediaId of previewMediaIds ?? [])
+          if (!mediaIds.has(mediaId))
+            errors.push(
+              `Reference ${source.id} visual access references missing media ${mediaId}`
+            );
+      } else if (previewMediaIds !== undefined) {
+        errors.push(
+          `Reference ${source.id} non-preview visual access must not include preview media`
+        );
+      }
     }
   }
 
@@ -293,6 +339,68 @@ export function validatePublicGenealogyContent(
           );
       });
     }
+  }
+
+  for (const identityModel of content.identityModels) {
+    validatePublication(
+      `Identity model ${identityModel.id}`,
+      identityModel.publication
+    );
+    validateReferences(
+      `Identity model ${identityModel.id}`,
+      identityModel.referenceIds
+    );
+    const subjectIds = identityModel.subjects.map((subject) => subject.id);
+    const subjectIdSet = new Set(subjectIds);
+    for (const duplicate of duplicateValues(subjectIds))
+      errors.push(
+        `Duplicate identity subject id: ${identityModel.id}:${duplicate}`
+      );
+    for (const subject of identityModel.subjects)
+      validateReferences(
+        `Identity subject ${identityModel.id}:${subject.id}`,
+        subject.referenceIds
+      );
+    for (const duplicate of duplicateValues(
+      identityModel.connections.map((connection) => connection.id)
+    ))
+      errors.push(
+        `Duplicate identity connection id: ${identityModel.id}:${duplicate}`
+      );
+    for (const connection of identityModel.connections) {
+      if (
+        !['possible', 'strong-indirect', 'excluded'].includes(
+          connection.assessment
+        )
+      )
+        errors.push(
+          `Identity model ${identityModel.id} connection ${connection.id} has invalid assessment ${connection.assessment}`
+        );
+      if (connection.endpointLabels.length !== connection.subjectIds.length)
+        errors.push(
+          `Identity model ${identityModel.id} connection ${connection.id} has mismatched endpoint labels`
+        );
+      for (const subjectId of connection.subjectIds)
+        if (!subjectIdSet.has(subjectId))
+          errors.push(
+            `Identity model ${identityModel.id} connection ${connection.id} has missing subject ${subjectId}`
+          );
+      validateReferences(
+        `Identity connection ${identityModel.id}:${connection.id}`,
+        connection.referenceIds
+      );
+    }
+    for (const duplicate of duplicateValues(
+      identityModel.timeline.map((event) => event.id)
+    ))
+      errors.push(
+        `Duplicate identity timeline id: ${identityModel.id}:${duplicate}`
+      );
+    for (const event of identityModel.timeline)
+      validateReferences(
+        `Identity timeline ${identityModel.id}:${event.id}`,
+        event.referenceIds
+      );
   }
 
   for (const [id, item] of Object.entries(content.media)) {
