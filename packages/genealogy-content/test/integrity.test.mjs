@@ -25,10 +25,10 @@ test('the canonical public content passes integrity validation', () => {
 });
 
 test('the package carries the complete reviewed public reference catalog', () => {
-  assert.equal(references.length, 73);
+  assert.equal(references.length, 76);
   assert.deepEqual(
     references.map(({ id }) => id),
-    Array.from({ length: 73 }, (_, index) => index + 1)
+    Array.from({ length: 76 }, (_, index) => index + 1)
   );
 });
 
@@ -41,7 +41,7 @@ test('reviewed citation visuals expose only approved public media', () => {
 
   assert.deepEqual(
     Object.keys(visualAccessByReference).map(Number),
-    [5, 26, 38, 39, 40, 42, 67, 68, 71, 73]
+    [5, 26, 38, 39, 40, 42, 67, 68, 71, 73, 74, 75, 76]
   );
   assert.deepEqual(
     Object.fromEntries(
@@ -61,6 +61,9 @@ test('reviewed citation visuals expose only approved public media', () => {
       68: 'external-volume-only',
       71: 'reviewed-preview',
       73: 'external-original-only',
+      74: 'text-only-deferred',
+      75: 'external-original-only',
+      76: 'text-only-deferred',
     }
   );
   assert.deepEqual(
@@ -134,6 +137,117 @@ test('reviewed citation visuals expose only approved public media', () => {
   assert.equal(
     references.find(({ id }) => id === 73)?.visualAccess?.status,
     'external-original-only'
+  );
+  assert.equal(
+    references.find(({ id }) => id === 74)?.visualAccess?.status,
+    'text-only-deferred'
+  );
+  assert.equal(
+    references.find(({ id }) => id === 75)?.visualAccess?.status,
+    'external-original-only'
+  );
+  assert.equal(
+    references.find(({ id }) => id === 76)?.visualAccess?.status,
+    'text-only-deferred'
+  );
+});
+
+test('the 1934 certificate and corroborating records document Jimmy’s parents', () => {
+  const birthIndex = references.find((reference) => reference.id === 74);
+  const birthCertificate = references.find((reference) => reference.id === 75);
+  const census = references.find((reference) => reference.id === 76);
+  const deathCertificate = references.find((reference) => reference.id === 56);
+  const relationship = relationships.find(
+    ({ id }) => id === 'james-1892-james-1934'
+  );
+  const migration = stories.find(({ id }) => id === 'migration');
+  const jimmyEvent = migration?.events.find(
+    ({ id }) => id === 'migration-jimmy-1934-1973'
+  );
+
+  assert.match(birthIndex?.supports ?? '', /father as James Lawrence Meason/);
+  assert.match(birthIndex?.supports ?? '', /mother as Mary Estelle Sledge/);
+  assert.match(birthIndex?.citation ?? '', /26 October 1934/);
+  assert.match(birthIndex?.citation ?? '', /p\. 1279/);
+  assert.match(birthIndex?.citation ?? '', /collection 8781/);
+  assert.match(birthIndex?.citation ?? '', /image TXBTH_1934_000514l/);
+  assert.match(birthIndex?.citation ?? '', /record 152492117/);
+  assert.match(
+    birthIndex?.limitation ?? '',
+    /index entry, not the underlying birth certificate/
+  );
+  assert.match(
+    birthIndex?.limitation ?? '',
+    /None of the reviewed records uses a Sr\. suffix/
+  );
+  assert.equal(
+    birthIndex?.url,
+    'https://www.ancestry.com/search/collections/8781/records/152492117'
+  );
+
+  assert.match(birthCertificate?.citation ?? '', /state file no\. 80844/);
+  assert.match(birthCertificate?.citation ?? '', /register no\. 29/);
+  assert.match(birthCertificate?.supports ?? '', /strongest reviewed source/);
+  assert.match(
+    birthCertificate?.limitation ?? '',
+    /does not separately identify who supplied the parent details/
+  );
+  assert.equal(
+    birthCertificate?.url,
+    'https://www.familysearch.org/ark:/61903/1:1:K6GQ-G18'
+  );
+
+  assert.match(
+    census?.supports ?? '',
+    /James L\. Meason, Mary, and young Jimmie/
+  );
+  assert.match(census?.limitation ?? '', /enumeration district, sheet, line/);
+  assert.deepEqual(census?.accessLinks, [
+    {
+      label: 'Open the Ancestry record',
+      url: 'https://www.ancestry.com/search/collections/2442/records/155810441',
+    },
+    {
+      label: 'Open the FamilySearch record',
+      url: 'https://www.familysearch.org/ark:/61903/1:1:KWJL-2PF',
+    },
+  ]);
+
+  const publicDirectLineUrls = [
+    birthIndex?.url,
+    birthCertificate?.url,
+    ...(census?.accessLinks ?? []).map(({ url }) => url),
+    ...(deathCertificate?.accessLinks ?? []).map(({ url }) => url),
+  ].filter(Boolean);
+  for (const url of publicDirectLineUrls) {
+    assert.doesNotMatch(
+      url,
+      /[?&](treeid|personid|tid|pid|ssrc|usePUB|usePUBJs)=/i
+    );
+  }
+
+  assert.match(
+    deathCertificate?.supports ?? '',
+    /contemporaneous 1934 birth certificate/
+  );
+  assert.match(
+    deathCertificate?.limitation ?? '',
+    /does not use a Sr\. suffix/
+  );
+  assert.deepEqual(relationship?.referenceIds, [75, 74, 76, 56]);
+  assert.match(
+    relationship?.statement ?? '',
+    /birth certificate records.*father/
+  );
+  assert.match(
+    relationship?.limitation ?? '',
+    /does not separately identify who supplied the parent details/
+  );
+  assert.deepEqual(jimmyEvent?.referenceIds, [75, 74, 76, 56]);
+  assert.match(jimmyEvent?.record ?? '', /Mary Estelle Sledge/);
+  assert.match(
+    jimmyEvent?.interpretation ?? '',
+    /none of the records uses a Sr\. suffix/
   );
 });
 
@@ -276,9 +390,10 @@ test('the Three Thomases model preserves identities and open boundaries', () => 
     threeThomasesIdentityModel.connections[1].limitation,
     /No reviewed record directly calls Kentucky Thomas a son of Thomas senior/
   );
-  assert.deepEqual(threeThomasesIdentityModel.referenceIds, [
-    18, 19, 20, 21, 22, 67, 68, 69, 73,
-  ]);
+  assert.deepEqual(
+    threeThomasesIdentityModel.referenceIds,
+    [18, 19, 20, 21, 22, 67, 68, 69, 73]
+  );
   assert.deepEqual(
     threeThomasesIdentityModel.connections.map(({ endpointLabels }) =>
       endpointLabels.join(' ↔ ')

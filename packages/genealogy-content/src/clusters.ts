@@ -3,7 +3,7 @@ import type { EvidenceCluster } from './types.js';
 const publication = {
   status: 'published',
   privacy: 'public',
-  reviewedOn: '2026-09-19',
+  reviewedOn: '2026-09-21',
 } as const;
 
 export const evidenceClusters = [
@@ -168,9 +168,10 @@ export const evidenceClusters = [
       {
         id: 'texas-franklin-line',
         label: 'Franklin’s direct line',
-        detail: 'Later Dallas certificates carry the line forward',
+        detail:
+          'A birth certificate, index, household, and later Dallas certificates carry the line forward',
         kind: 'person',
-        referenceIds: [56, 57, 58],
+        referenceIds: [56, 57, 58, 74, 75, 76],
       },
       {
         id: 'texas-uncle-household',
