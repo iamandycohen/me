@@ -64,7 +64,7 @@ const migrationStops = [
     place: 'Texas',
     period: '1880–1973',
     detail:
-      'Texas records document three later generational handoffs through 1973. Family evidence and personal knowledge carry the direct line to the present without asserting a later location.',
+      'Texas records document three later generational handoffs through 1973. Reviewed private records carry the documented direct line to the present without publishing those records or asserting a later location.',
     mediaId: 'george-marker' as const,
     imagePosition: '50% 50%',
     visualLabel: 'Evidence image · chronology only',

@@ -268,6 +268,37 @@ test('direct-line relationships cite only the records that support that edge', (
   );
 });
 
+test('private modern records retain their direct-evidence classification', () => {
+  const cynthia = people.find(({ id }) => id === 'cynthia');
+  const shannon = people.find(({ id }) => id === 'shannon');
+  const jimmyToCynthia = relationships.find(
+    ({ id }) => id === 'james-1934-cynthia'
+  );
+  const cynthiaToShannon = relationships.find(
+    ({ id }) => id === 'cynthia-shannon'
+  );
+  const migration = stories.find(({ id }) => id === 'migration');
+  const modernEvent = migration?.events.find(
+    ({ id }) => id === 'migration-cynthia-andy-present'
+  );
+
+  for (const subject of [cynthia, shannon, jimmyToCynthia, cynthiaToShannon]) {
+    assert.equal(subject?.evidenceType, 'direct');
+    assert.equal(subject?.assessment, 'documented');
+  }
+
+  assert.match(jimmyToCynthia?.statement ?? '', /directly document/);
+  assert.match(cynthiaToShannon?.statement ?? '', /directly document/);
+  assert.match(cynthiaToShannon?.statement ?? '', /Shannon Jeremiah Meason/);
+  assert.deepEqual(jimmyToCynthia?.referenceIds, []);
+  assert.deepEqual(cynthiaToShannon?.referenceIds, []);
+  assert.match(jimmyToCynthia?.limitation ?? '', /remain private/);
+  assert.match(cynthiaToShannon?.limitation ?? '', /remain private/);
+  assert.deepEqual(modernEvent?.referenceIds, []);
+  assert.match(modernEvent?.record ?? '', /directly document/);
+  assert.match(modernEvent?.interpretation ?? '', /directly documented/);
+});
+
 test('runtime validation enforces coherent citation visual states', () => {
   const [firstReference, ...otherReferences] =
     publicGenealogyContent.references;

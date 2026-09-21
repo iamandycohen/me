@@ -77,9 +77,10 @@ export const people = [
     period: '1958–1991',
     relation: 'Mother',
     place: 'United States',
-    summary: 'The first named generation in the direct Meason line.',
-    evidenceType: 'family',
-    assessment: 'known',
+    summary:
+      'Reviewed vital records directly document her place in the Meason line.',
+    evidenceType: 'direct',
+    assessment: 'documented',
     referenceIds: [38],
     publication: published,
   },
@@ -91,7 +92,7 @@ export const people = [
     place: 'United States',
     summary:
       'My birth name is Shannon Jeremiah Meason; I grew up as Andy Cohen after being adopted. This tree follows my biological Meason ancestry.',
-    evidenceType: 'personal',
+    evidenceType: 'direct',
     assessment: 'documented',
     referenceIds: [],
     publication: published,

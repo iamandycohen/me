@@ -14,7 +14,7 @@ export const stories = [
     shortTitle: 'The generations west',
     period: '1800–present',
     summary:
-      'Seven generations emerge from tax lists, marriages, households, death records, family evidence, and personal knowledge. The geographic trail reaches Texas; after that, the story names no place the public evidence cannot carry.',
+      'Seven generations emerge from tax lists, marriages, households, death records, and reviewed private vital records. The geographic trail reaches Texas; after that, the story names no place the public evidence can carry.',
     routePlaces: [
       'Nelson County, Kentucky',
       'Shelby County, Kentucky',
@@ -114,12 +114,12 @@ export const stories = [
       {
         id: 'migration-cynthia-andy-present',
         year: '1958–present',
-        place: 'Family and personal evidence · location not asserted',
+        place: 'Reviewed private records · location not asserted',
         record:
-          'A family-held portrait preserves the working identification of Cynthia June “Cindee” Meason. The narrator’s personal knowledge carries the line from Cynthia to her son, born Shannon Jeremiah Meason and raised as Andy Cohen after adoption.',
+          'Reviewed vital records directly document Jimmy as Cynthia’s father. Reviewed original and amended birth records directly document Cynthia as the mother of Shannon Jeremiah Meason, later Andy Cohen.',
         interpretation:
-          'These final handoffs rest on family evidence and personal knowledge. Private vital records are intentionally omitted, and this public chapter does not make a more specific geographic claim for either generation.',
-        referenceIds: [38],
+          'These final handoffs are directly documented. The private certificates, adoption records, identifying details, and specific modern locations remain intentionally omitted from this public chapter.',
+        referenceIds: [],
         routeIndex: 4,
       },
     ],
