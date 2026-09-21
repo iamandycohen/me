@@ -83,14 +83,15 @@ export const relationships = [
     from: 'james-1934',
     to: 'cynthia',
     kind: 'parent-child',
-    evidenceType: 'family',
-    assessment: 'known',
+    evidenceType: 'direct',
+    assessment: 'documented',
     statement:
-      'This known family relationship is retained from the reviewed public tree.',
+      'Reviewed vital records directly document James Lawrence “Jimmy” Meason as Cynthia June Meason’s father.',
     support: [
-      'The relationship retains the family-evidence status used in the public tree.',
+      'The parent-child relationship is explicit in the reviewed records.',
     ],
-    limitation: 'The public package intentionally omits private vital records.',
+    limitation:
+      'The supporting modern vital records and identifying details remain private and are not reproduced or linked from the public site.',
     referenceIds: [],
     publication: published,
   },
@@ -99,14 +100,15 @@ export const relationships = [
     from: 'cynthia',
     to: 'shannon',
     kind: 'parent-child',
-    evidenceType: 'family',
-    assessment: 'known',
+    evidenceType: 'direct',
+    assessment: 'documented',
     statement:
-      'This known family relationship is retained from the reviewed public tree.',
+      'Reviewed original and amended birth records directly document Cynthia June Meason as the mother of Shannon Jeremiah Meason, later Andy Cohen.',
     support: [
-      'The relationship is also supported by the narrator’s personal knowledge.',
+      'The records preserve the original, adoptive, and legal identities without changing the biological parent-child relationship.',
     ],
-    limitation: 'The public package intentionally omits private vital records.',
+    limitation:
+      'The supporting adoption and vital records and identifying details remain private and are not reproduced or linked from the public site.',
     referenceIds: [],
     publication: published,
   },
