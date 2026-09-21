@@ -74,7 +74,7 @@ export const relationships = [
       'The 1973 death certificate later names the parents in shortened form as Lawrence Meason and Mary Sledge.',
     ],
     limitation:
-      'The birth-certificate form does not separately identify who supplied the parent details; the death-certificate information was supplied later, none of the records uses a Sr. suffix, and the census coordinates remain unverified.',
+      'The 1940 household is corroborating context; its enumeration district, sheet, and line remain unverified.',
     referenceIds: [75, 74, 76, 56],
     publication: published,
   },

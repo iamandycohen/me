@@ -107,7 +107,7 @@ export const stories = [
         record:
           'Jimmy’s 1934 Texas birth certificate records the child and father as James Lawrence Meason and the mother as Mary Estelle Sledge. The statewide index repeats those details, a 1940 Richardson census places James, Mary, and young Jimmie together, and his 1973 death certificate later names the parents in shortened form.',
         interpretation:
-          'The contemporaneous certificate is the principal source for this generational handoff; the index, household, and death certificate corroborate it. The birth form identifies no separate parentage informant, the later death information is secondary, none of the records uses a Sr. suffix, and the census coordinates remain unverified.',
+          'The contemporaneous certificate is the principal source for this generational handoff; the index, household, and later death certificate corroborate it. The census coordinates remain unverified.',
         referenceIds: [75, 74, 76, 56],
         routeIndex: 3,
       },

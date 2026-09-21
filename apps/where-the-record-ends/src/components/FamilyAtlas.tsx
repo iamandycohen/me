@@ -42,10 +42,6 @@ export function FamilyAtlas() {
   const [layer, setLayer] = useState<AtlasLayer>('family');
   const selected =
     people.find((person) => person.id === selectedId) ?? people[0];
-  const relatedRelationships = relationships.filter(
-    (relationship) =>
-      relationship.from === selected.id || relationship.to === selected.id
-  );
   const selectedLineageRelationship = lineageRelationshipFor(selected.id);
   const mediaId = personMediaIds[selected.id];
   const selectedMedia: PublicMedia | undefined = mediaId
@@ -201,72 +197,35 @@ export function FamilyAtlas() {
                 </dd>
               </div>
             </dl>
-            {relatedRelationships.length > 0 ? (
+            {selectedLineageRelationship ? (
               <div className="mt-7">
-                <p className="eyebrow !text-[0.56rem]">
-                  Why{' '}
-                  {relatedRelationships.length === 1
-                    ? 'this connection'
-                    : 'these connections'}{' '}
-                  {relatedRelationships.length === 1 ? 'is' : 'are'} shown
-                </p>
-                <div className="mt-3 space-y-3">
-                  {relatedRelationships.map((relationship) => {
-                    const parent = people.find(
-                      (person) => person.id === relationship.from
-                    );
-                    const child = people.find(
-                      (person) => person.id === relationship.to
-                    );
-
-                    return (
-                      <details
-                        key={relationship.id}
-                        className="group rounded-xl border border-ink/10 bg-paper/45 p-4"
-                      >
-                        <summary className="cursor-pointer list-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
-                          <span className="flex items-start justify-between gap-4">
-                            <span>
-                              <span className="block text-sm font-medium text-accent">
-                                {parent?.name} → {child?.name}
-                              </span>
-                              <span className="mt-1 block text-[0.62rem] capitalize tracking-wide text-ink/50">
-                                {formatAssessment(relationship.assessment)} ·{' '}
-                                {relationship.evidenceType} evidence
-                              </span>
-                            </span>
-                            <span aria-hidden="true" className="text-accent">
-                              <span className="group-open:hidden">+</span>
-                              <span className="hidden group-open:inline">
-                                −
-                              </span>
-                            </span>
-                          </span>
-                        </summary>
-                        <p className="mt-4 text-sm leading-relaxed text-ink/70">
-                          {relationship.statement}
-                        </p>
-                        {relationship.support.length > 1 ? (
-                          <div className="mt-4">
-                            <p className="text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-ink/45">
-                              Supporting records
-                            </p>
-                            <ul className="mt-2 space-y-2 pl-4 text-sm leading-relaxed text-ink/65">
-                              {relationship.support.map((item) => (
-                                <li key={item} className="list-disc pl-1">
-                                  {item}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : null}
-                        <p className="mt-4 border-l-2 border-ink/15 pl-3 text-xs italic leading-relaxed text-ink/55">
-                          Limitation: {relationship.limitation}
-                          <ReferenceLinks ids={relationship.referenceIds} />
-                        </p>
-                      </details>
-                    );
-                  })}
+                <p className="eyebrow !text-[0.56rem]">Lineage connection</p>
+                <div className="mt-3 rounded-xl border border-ink/10 bg-paper/45 p-4">
+                  <p className="text-sm font-medium text-accent">
+                    {
+                      people.find(
+                        (person) =>
+                          person.id === selectedLineageRelationship.from
+                      )?.name
+                    }{' '}
+                    →{' '}
+                    {
+                      people.find(
+                        (person) => person.id === selectedLineageRelationship.to
+                      )?.name
+                    }
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-ink/70">
+                    {selectedLineageRelationship.statement}
+                    <ReferenceLinks
+                      ids={selectedLineageRelationship.referenceIds}
+                    />
+                  </p>
+                  {selectedLineageRelationship.evidenceType === 'indirect' ? (
+                    <p className="mt-3 border-l-2 border-ink/15 pl-3 text-xs italic leading-relaxed text-ink/55">
+                      Boundary: {selectedLineageRelationship.limitation}
+                    </p>
+                  ) : null}
                 </div>
               </div>
             ) : null}

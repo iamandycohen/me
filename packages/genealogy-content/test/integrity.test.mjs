@@ -176,10 +176,6 @@ test('the 1934 certificate and corroborating records document Jimmy’s parents'
     birthIndex?.limitation ?? '',
     /index entry, not the underlying birth certificate/
   );
-  assert.match(
-    birthIndex?.limitation ?? '',
-    /None of the reviewed records uses a Sr\. suffix/
-  );
   assert.equal(
     birthIndex?.url,
     'https://www.ancestry.com/search/collections/8781/records/152492117'
@@ -190,7 +186,7 @@ test('the 1934 certificate and corroborating records document Jimmy’s parents'
   assert.match(birthCertificate?.supports ?? '', /strongest reviewed source/);
   assert.match(
     birthCertificate?.limitation ?? '',
-    /does not separately identify who supplied the parent details/
+    /public link opens the corresponding FamilySearch record page/
   );
   assert.equal(
     birthCertificate?.url,
@@ -232,7 +228,7 @@ test('the 1934 certificate and corroborating records document Jimmy’s parents'
   );
   assert.match(
     deathCertificate?.limitation ?? '',
-    /does not use a Sr\. suffix/
+    /father only as Lawrence, not James Lawrence/
   );
   assert.deepEqual(relationship?.referenceIds, [75, 74, 76, 56]);
   assert.match(
@@ -241,13 +237,17 @@ test('the 1934 certificate and corroborating records document Jimmy’s parents'
   );
   assert.match(
     relationship?.limitation ?? '',
-    /does not separately identify who supplied the parent details/
+    /enumeration district, sheet, and line remain unverified/
   );
   assert.deepEqual(jimmyEvent?.referenceIds, [75, 74, 76, 56]);
   assert.match(jimmyEvent?.record ?? '', /Mary Estelle Sledge/);
   assert.match(
     jimmyEvent?.interpretation ?? '',
-    /none of the records uses a Sr\. suffix/
+    /certificate is the principal source/
+  );
+  assert.doesNotMatch(
+    `${relationship?.statement} ${relationship?.limitation} ${jimmyEvent?.record} ${jimmyEvent?.interpretation}`,
+    /\b(?:Sr\.|Jr\.|informant)\b/i
   );
 });
 

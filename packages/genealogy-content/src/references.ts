@@ -676,7 +676,7 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     supports:
       'The original certificate identifies James Lawrence Meason (1934–1973) and names his parents as Lawrence Meason and Mary Sledge. It independently corroborates the fuller parent names recorded on his contemporaneous 1934 birth certificate and birth-index entry.',
     limitation:
-      'The parentage is a direct statement in an original official record, but it is secondary information supplied after the 1934 birth. The certificate gives the father only as Lawrence, not James Lawrence, and does not use a Sr. suffix. I link to the original at FamilySearch rather than reproduce it here, and omit residential addresses and cause-and-manner details because they are not needed for the lineage.',
+      'The parentage is a direct statement in an original official record, but it is secondary information supplied after the 1934 birth. The certificate gives the father only as Lawrence, not James Lawrence. I link to the original at FamilySearch rather than reproduce it here, and omit residential addresses and cause-and-manner details because they are not needed for the lineage.',
     accessLinks: [
       {
         label: 'Open the FamilySearch record',
@@ -952,7 +952,7 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     supports:
       'The statewide index records the child as James Lawrence Meason, born 26 October 1934 in Dallas County, the father as James Lawrence Meason, and the mother as Mary Estelle Sledge. The entry matches Jimmy’s documented identity and strongly corroborates the parent names reported on his 1973 death certificate.',
     limitation:
-      'This is a derivative index entry, not the underlying birth certificate or a second original event record. None of the reviewed records uses a Sr. suffix, and the reviewed index image is not cleared for public reproduction.',
+      'This is a derivative index entry, not the underlying birth certificate or a second original event record. The reviewed index image is not cleared for public reproduction.',
     url: 'https://www.ancestry.com/search/collections/8781/records/152492117',
     accessLabel: 'Open the Ancestry record',
     visualAccess: {
@@ -968,7 +968,7 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     supports:
       'The contemporaneous certificate records the child as James Lawrence Meason, the father as James Lawrence Meason, and the mother as Mary Estelle Sledge. It is the strongest reviewed source for these recorded parent-child relationships.',
     limitation:
-      'The form does not separately identify who supplied the parent details, and it does not use a Sr. suffix. The privately preserved certificate image is not cleared for public reproduction.',
+      'The privately preserved certificate image is not cleared for public reproduction; the public link opens the corresponding FamilySearch record page.',
     url: 'https://www.familysearch.org/ark:/61903/1:1:K6GQ-G18',
     accessLabel: 'Open the FamilySearch record',
     visualAccess: {
