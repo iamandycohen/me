@@ -20,6 +20,7 @@ export async function GET(_request: NextRequest) {
     { path: '/articles', priority: 0.9, changefreq: 'weekly' },
     { path: '/contact', priority: 0.8, changefreq: 'daily' },
     { path: '/community', priority: 0.8, changefreq: 'daily' },
+    { path: '/privacy', priority: 0.4, changefreq: 'yearly' },
   ];
 
   // Generate sitemap URLs

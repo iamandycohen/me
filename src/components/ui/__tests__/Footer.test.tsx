@@ -17,6 +17,12 @@ jest.mock('@/lib/data', () => ({
   },
 }));
 
+jest.mock('../AnalyticsPreferencesButton', () => ({
+  AnalyticsPreferencesButton: () => (
+    <button type="button">Analytics preferences</button>
+  ),
+}));
+
 import Footer from '../Footer';
 
 describe('Footer', () => {
@@ -37,6 +43,17 @@ describe('Footer', () => {
       'href',
       'https://github.com/iamandycohen'
     );
+  });
+
+  it('renders privacy and analytics preference controls', () => {
+    render(<Footer />);
+    expect(screen.getByRole('link', { name: /privacy/i })).toHaveAttribute(
+      'href',
+      '/privacy'
+    );
+    expect(
+      screen.getByRole('button', { name: /analytics preferences/i })
+    ).toBeInTheDocument();
   });
 
   it('renders the editorial tagline', () => {
