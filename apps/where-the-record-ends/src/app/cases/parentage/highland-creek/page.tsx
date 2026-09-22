@@ -103,6 +103,9 @@ export default function HighlandCreekPage() {
             <ArrowLink href="/cases/parentage/three-thomases">
               Meet the three Thomases
             </ArrowLink>
+            <ArrowLink href="/stories/migration">
+              Follow the family line west
+            </ArrowLink>
             <ArrowLink href="/cases">All research cases</ArrowLink>
           </div>
         </div>

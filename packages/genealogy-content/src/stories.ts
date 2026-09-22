@@ -8,8 +8,76 @@ const publication = {
 
 export const stories = [
   {
-    id: 'migration',
+    id: 'joseph-boat',
     number: '01',
+    title: 'A deed out of reach',
+    shortTitle: 'Joseph’s boat',
+    period: '1799–1813',
+    summary:
+      'Joseph Meason died aboard a riverboat after asking for a deed no one could reach. Fourteen years later, Benjamin and other relatives conveyed claimed interests in the Highland Creek land.',
+    opening: [
+      'On 29 March 1799, Joseph Meason was very sick aboard a Kentucky boat on the Monongahela River, about a mile above Pittsburgh. Mary Hartle later testified that he appeared to be in his right mind. About an hour before he died, Joseph asked for a deed drawn to convey land to Joseph Worthington. The document could not be reached among the packed belongings aboard the boat.',
+      'Asked whether he could state his wishes before witnesses, Joseph did. Hartle and two other witnesses later gave depositions, and a Kentucky court ordered their accounts recorded. The entry preserves his wishes for his estate and, specifically, a thousand acres on Highland Creek.',
+      'The record gives no cause of illness. It does not tell us where Joseph boarded, where the boat came from, where it was headed, or whether it was moving. “Kentucky boat” was a name for an inland flatboat; it does not establish Joseph’s itinerary.',
+    ],
+    routePlaces: [
+      'Monongahela River · near Pittsburgh',
+      'Henderson County court · Kentucky',
+      'Highland Creek · Kentucky',
+    ],
+    events: [
+      {
+        id: 'joseph-boat-declaration-1799',
+        year: '29 March 1799',
+        place: 'Monongahela River · near Pittsburgh',
+        record:
+          'Three later witness depositions describe Joseph Meason’s final declaration aboard a Kentucky boat. Mary Hartle said a deed drawn for Joseph Worthington could not be reached among the packed belongings. John Carnahan and Rachel Thompson also described Joseph’s stated wish for Worthington to have his 1,000-acre Highland Creek tract.',
+        interpretation:
+          'The court entry is a clerk’s copy of depositions proving an oral will, not Joseph’s handwritten will. The deed’s signing, delivery, recovery, and legal effect remain unknown.',
+        referenceIds: [80, 82],
+        routeIndex: 0,
+      },
+      {
+        id: 'joseph-court-order-1799',
+        year: '6 August 1799',
+        place: 'Henderson County court · Kentucky',
+        record:
+          'Henderson County Court ordered the three depositions recorded. Kentucky’s 1797 wills act required a land devise to be written and signed.',
+        interpretation:
+          'Joseph’s spoken declaration alone did not meet that requirement for Highland Creek. The court entry does not establish the legal status of the requested deed.',
+        referenceIds: [80, 81],
+        routeIndex: 1,
+      },
+      {
+        id: 'joseph-highland-claim-1813',
+        year: '1813',
+        place: 'Highland Creek · Kentucky',
+        record:
+          'Benjamin Meason conveyed his undivided interest as one of Joseph’s heirs at law. A neighboring deed named children of Joseph’s brothers John and Samuel among other claimants.',
+        interpretation:
+          'These private deeds show a collateral inheritance network, but they are not a court decree or a complete heir list. They do not name Benjamin’s father or identify his exact branch.',
+        referenceIds: [67, 68],
+        routeIndex: 2,
+      },
+    ],
+    closing: [
+      'The scene on the boat feels like the moment a family history changed. The records support a narrower conclusion: Joseph asked for a document that was out of reach, witnesses preserved his spoken wishes, and later relatives conveyed claimed interests in the land. What became of the deed, and why the later title took the course it did, remain questions.',
+      'This is where my search meets the wider Meason family. Highland Creek binds Benjamin to Joseph’s inheritance story without giving me the parent-child link I am looking for. The deeds name branches worth following, while Benjamin’s parents remain unknown.',
+    ],
+    recordReader: {
+      says: 'Three witness depositions describe Joseph’s final declaration aboard a Kentucky boat near Pittsburgh. The court ordered the depositions recorded on 6 August 1799. Hartle said Joseph asked for a deed to Worthington that could not be reached.',
+      inference:
+        'The 1813 Highland Creek deeds place Benjamin within Joseph’s inheritance network. The requested deed could matter to the land’s legal history, but its status is unknown.',
+      unknown:
+        'Joseph’s illness, the boat’s origin and destination, the deed’s execution and fate, the full title history, and Benjamin’s exact branch.',
+      referenceIds: [80, 81, 82, 67, 68],
+    },
+    relatedCaseIds: ['parentage'],
+    publication: { ...publication, reviewedOn: '2026-09-22' },
+  },
+  {
+    id: 'migration',
+    number: '02',
     title: 'A family line from Kentucky to Texas',
     shortTitle: 'The generations west',
     period: '1800–present',
@@ -139,12 +207,16 @@ export const stories = [
   },
   {
     id: 'between-lines',
-    number: '02',
+    number: '03',
     title: 'The family between the lines',
     shortTitle: 'Land, households, and mills',
     period: '1846–1880',
     summary:
       'A named daughter, shared land, repeated households, and James L.’s working life reveal a network no single family statement preserves.',
+    opening: [
+      'In 1850, Benjamin and Hannah Mason’s Missouri home held more than one family group. James and Emily Mason lived there alongside George and Elizabeth Hollingsworth and four Hollingsworth children: David, Benjamin, Virginia, and Edwin. The census lists who shared the home, but it gives no relationship labels.',
+      'Three years later, Benjamin’s recorded will named Virginia Ann Hollingsworth as his daughter. That proves one daughter bore the Hollingsworth surname. It does not identify her as Elizabeth in the 1850 census or explain every relationship in that household.',
+    ],
     routePlaces: ['Family named', 'Households & land', 'Mill work'],
     events: [
       {
@@ -163,20 +235,31 @@ export const stories = [
         year: '1850',
         place: 'Benjamin and Hannah’s household',
         record:
-          'The household includes James and four Hollingsworth children alongside Benjamin and Hannah.',
+          'Benjamin and Hannah Mason’s household includes James and Emily Mason; George and Elizabeth Hollingsworth; and the Hollingsworth children David, Benjamin, Virginia, and Edwin.',
         interpretation:
-          'The composition matters when the same people reappear later, but the census does not explain every relationship.',
+          'The mixed household matters when these people reappear later. The census does not explain their relationships.',
         referenceIds: [1],
         routeIndex: 1,
+      },
+      {
+        id: 'network-virginia-will-1853',
+        year: '1853',
+        place: 'Monroe County, Missouri',
+        record:
+          'Benjamin’s recorded will names Virginia Ann Hollingsworth as his daughter.',
+        interpretation:
+          'This establishes a Meason–Hollingsworth surname connection, but does not identify Virginia Ann with Elizabeth Hollingsworth in the 1850 census.',
+        referenceIds: [65],
+        routeIndex: 0,
       },
       {
         id: 'network-land-households-1855-1860',
         year: '1855–1860',
         place: 'Land and neighboring households',
         record:
-          'Kippers, George, and James L. appear in a shared land transaction; Parker, Hollingsworth, Kipper, and Meason households recur across census pages.',
+          'John C. Kippers, George M. Meason, and James L. Meason appear together in a land transaction. In 1860, James L. lived alone as a blacksmith. B. H. Hollingsworth lived two family numbers away; the Parker deed grantors lived five away. On the next census page, John and Laura Kipper shared a household with David, Virginia, and Edwin Hollingsworth.',
         interpretation:
-          'The cluster strengthens the family-network argument. The deed and proximity do not literally call the men brothers.',
+          'B. H. is strongly identified as Benjamin Hollingsworth from the 1850 home, and the other three Hollingsworth siblings continue into the Kipper household. The deed and proximity support a network, but neither calls the men brothers or explains why the children lived with the Kippers.',
         referenceIds: [28, 61, 62],
         routeIndex: 1,
       },
@@ -185,19 +268,34 @@ export const stories = [
         year: '1860–1880',
         place: 'Monroe County, Missouri',
         record:
-          'James L. appears as a blacksmith, then a miller, and finally a sawmill proprietor with coherent age, birthplace, county, and middle initial.',
+          'James L. appears as a blacksmith in 1860, a miller in 1870 in a household with three mill laborers, and a “Proprietor of Saw Mill” in 1880 while boarding with two men who worked in that sawmill. James E. Hollingsworth was one of the 1870 laborers.',
         interpretation:
-          'The occupational sequence creates a strong Missouri identity. It does not prove ownership of a particular mill or the later move to Texas.',
+          'Age, birthplace, county, and name make a strong Missouri identity. James E. is not the B. H. Hollingsworth in the 1860 neighborhood, and his relationship to the 1850 household is unproved. The sequence does not identify a mill site, prove legal ownership, or document a move to Texas.',
         referenceIds: [62, 63, 64],
         routeIndex: 2,
       },
+      {
+        id: 'network-hollingsworth-name',
+        year: 'Later family memory',
+        place: 'George M. Meason’s family',
+        record:
+          'George M. and Martha Reed Meason’s reported child names include James Reed Meason and George Hollingsworth Meason. A descendant-held family Bible page names George Hollingsworth Meason.',
+        interpretation:
+          'Reed is independently documented as Martha’s surname. Hollingsworth may preserve a valued family association, but the descendant-held page lacks a title page and ownership chain, and no record identifies the name’s intended honoree.',
+        referenceIds: [32, 34],
+        routeIndex: 1,
+      },
+    ],
+    closing: [
+      'A decade after the crowded 1850 home, the household had dispersed without disappearing. Its members recur in a close neighborhood of Meason, Hollingsworth, Kipper, and Parker households, while land and mill work connect parts of the group. The records do not tell us whether John Kipper trained, employed, financed, or partnered with James.',
+      'The Hollingsworth name may also have stayed in family memory. Its use as a Meason middle name is a clue to an association, not proof of whom the family meant to honor. I can see a durable family, property, and work network here without supplying the relationships the records leave unstated.',
     ],
     relatedCaseIds: ['george-connection'],
-    publication,
+    publication: { ...publication, reviewedOn: '2026-09-22' },
   },
   {
     id: 'texas-reconnection',
-    number: '03',
+    number: '04',
     title: 'A Texas record cluster bridges the branches',
     shortTitle: 'The Texas evidence cluster',
     period: '1880–1919',

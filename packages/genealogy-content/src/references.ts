@@ -412,9 +412,9 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     citation:
       'Publicly shared “NOWELL/SEDBERRY FAMILY BIBLE PAGE 3,” reviewed through Ancestry Public Member Photos and Scanned Documents; shared 19 June 2020.',
     supports:
-      'A descendant-held lineage note expands George’s middle initial as Mansfield and repeats a 10 May 1810 birth and 11 November 1887 death tradition.',
+      'A descendant-held lineage note expands George’s middle initial as Mansfield, repeats a 10 May 1810 birth and 11 November 1887 death tradition, and names George Hollingsworth Meason in the later family.',
     limitation:
-      'The page does not name Benjamin or Hannah as George’s parents. No title page, publication date, repository, or ownership chain was exposed, so it is family testimony rather than contemporary proof.',
+      'The page does not name Benjamin or Hannah as George’s parents or identify whom the Hollingsworth middle name was meant to honor. No title page, publication date, repository, or ownership chain was exposed, so it is family testimony rather than contemporary proof.',
     url: 'https://www.ancestry.com/search/collections/1093/',
     accessLabel: 'Search public member media',
   },
@@ -1066,6 +1066,64 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       note: 'The exact FamilySearch page is available externally; the privately preserved image is not copied, republished, or hotlinked here.',
     },
   },
+  {
+    id: 80,
+    title: 'Court entry and depositions proving Joseph Meason’s oral will',
+    citation:
+      'Henderson County, Kentucky, Will Book A, p. 104 and continuation; depositions concerning Joseph Meason’s declaration of 29 March 1799, ordered recorded 6 August 1799; FamilySearch DGS 4819887, images 137–138.',
+    supports:
+      'Mary Hartle, John Carnahan, and Rachel Thompson described Joseph very ill aboard a Kentucky boat on the Monongahela about a mile above Pittsburgh, his request for a deed drawn to convey land to Joseph Worthington that could not be reached among packed effects, his spoken declaration, and his death soon afterward. Carnahan and Thompson described the 1,000-acre Highland Creek tract.',
+    limitation:
+      'This is a clerk’s will-book copy of a court order and witness depositions, not Joseph’s handwritten will or the requested deed. It gives no illness, boat origin or destination, deed execution or fate, or final land-title outcome. It does not establish that no separate writing ever existed.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:33SQ-GPQM-9N2B',
+    accessLabel: 'Open first page at FamilySearch',
+    accessLinks: [
+      {
+        label: 'First page · court entry and depositions',
+        url: 'https://www.familysearch.org/ark:/61903/3:1:33SQ-GPQM-9N2B',
+      },
+      {
+        label: 'Continuation · depositions',
+        url: 'https://www.familysearch.org/ark:/61903/3:1:33SQ-GPQM-9NV2',
+      },
+    ],
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'The two original record pages are linked at FamilySearch; privately preserved images are not republished here. The story provides a reviewed abstract, not a full transcription.',
+    },
+  },
+  {
+    id: 81,
+    title: 'Kentucky’s 1797 wills act',
+    citation:
+      'William Littell, The Statute Law of Kentucky, vol. 1 (Frankfort, 1809), chapter CCXCIII, pp. 611–615, reproducing the 1797 act concerning wills and testaments.',
+    supports:
+      'The act required a land devise to be in writing and signed; its rules for oral wills did not remove that land-devise requirement.',
+    limitation:
+      'The statute explains why Joseph’s spoken declaration alone was not a written devise of Highland Creek. It does not determine whether the requested deed was signed, delivered, later recovered, or legally effective, or resolve the tract’s later title.',
+    url: 'https://archive.org/details/LittellsStatutesVol1/page/n625/mode/2up',
+    accessLabel: 'Read the statute volume',
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'The public-domain statute volume is linked at Internet Archive; no page image is reproduced here.',
+    },
+  },
+  {
+    id: 82,
+    title: 'Kentucky boats were inland flatboats',
+    citation:
+      'National Park Service, “Flatboats: Transportation During the Cherokee Removal 1837–1839,” updated 21 December 2021.',
+    supports:
+      'Flatboats were also called Kentucky boats and commonly carried people and cargo downstream on inland rivers. This explains the boat term in Joseph’s deposition without identifying his particular craft or itinerary.',
+    limitation:
+      'This later historical overview supplies general boat context, not evidence of Joseph’s departure point, destination, reason for travel, illness, or whether the boat was moving when he died.',
+    url: 'https://home.nps.gov/articles/000/flatboats-transportation-during-the-cherokee-removal-1837-1839.htm',
+    accessLabel: 'Read National Park Service context',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'Historical context is linked; no illustration is used as a depiction of Joseph’s boat.',
+    },
+  },
 ];
 const publication = {
   status: 'published',
@@ -1076,6 +1134,9 @@ const publication = {
 export const references: readonly Reference[] = referenceCatalog.map(
   (entry) => ({
     ...entry,
-    publication,
+    publication:
+      entry.id >= 80
+        ? { ...publication, reviewedOn: '2026-09-22' }
+        : publication,
   })
 );
