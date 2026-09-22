@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import { AnalyticsPreferencesButton } from './AnalyticsPreferencesButton';
+
 export function SiteFooter() {
   return (
     <footer className="border-t border-paper/10 bg-ink text-paper">
@@ -75,6 +77,13 @@ export function SiteFooter() {
             >
               Share a record or correction
             </Link>
+            <Link
+              className="w-fit underline decoration-paper/20 underline-offset-4 transition-colors hover:text-paper"
+              href="/privacy"
+            >
+              Privacy
+            </Link>
+            <AnalyticsPreferencesButton />
           </div>
         </div>
       </div>

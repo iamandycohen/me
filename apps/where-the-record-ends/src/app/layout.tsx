@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Fraunces, Inter } from 'next/font/google';
 
+import { AnalyticsConsent } from '@/components/AnalyticsConsent';
 import { SiteFooter } from '@/components/SiteFooter';
 import { SiteHeader } from '@/components/SiteHeader';
 import { isPublic, siteDescription, siteName, siteUrl } from '@/lib/site';
@@ -50,6 +51,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const analyticsMeasurementId = isPublic
+    ? process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim()
+    : undefined;
+
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body className="min-h-screen bg-paper text-ink antialiased">
@@ -60,6 +65,7 @@ export default function RootLayout({
           </main>
           <SiteFooter />
         </div>
+        <AnalyticsConsent measurementId={analyticsMeasurementId} />
       </body>
     </html>
   );

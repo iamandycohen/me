@@ -36,6 +36,19 @@ schema change and `npm run db:migrate --workspace=@where-the-record-ends/site`
 with the unpooled connection configured. Preview deployments must use a Neon
 branch rather than the production database branch.
 
+## Analytics configuration
+
+Google Analytics is optional and loads only after a visitor allows analytics.
+Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` only in the Vercel Production environment;
+the application also checks `SITE_IS_PUBLIC` so previews and local development
+do not collect analytics by default. Contact-form fields and submissions are not
+sent to Google Analytics.
+
+The GA4 property should keep advertising features disabled and should disable
+Enhanced Measurement's form-interaction tracking. Page views and browser-history
+changes are handled by Google Analytics, so the application does not send a
+second manual page-view event.
+
 ## Routes
 
 - `/family` — interactive family atlas
@@ -44,3 +57,4 @@ branch rather than the production database branch.
 - `/sources` — source and media provenance catalog
 - `/about` — personal framing and editorial method
 - `/contact` — research contributions and corrections
+- `/privacy` — analytics choices and contact-data handling
