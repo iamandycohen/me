@@ -51,14 +51,19 @@ npm run dev:genealogy
 The site has no required environment variables. Optional:
 
 - `NEXT_PUBLIC_SITE_URL` — used for canonical URLs and OpenGraph metadata
-- `NEXT_PUBLIC_GA_ID` — Google Analytics
+- `NEXT_PUBLIC_GA_ID` — Google Analytics measurement ID; configure it for the
+  Vercel Production environment only
+
+Google Analytics, Vercel Web Analytics, and Speed Insights load only after a
+visitor opts in. Preview and local deployments do not show the consent prompt or
+load analytics because the integration is also gated on `VERCEL_ENV=production`.
 
 ## Structure
 
 ```
 src/
   app/            App Router pages (about, resume, projects, articles, community, contact)
-  components/     UI components (Navigation, Footer, PerformanceHints)
+  components/     UI components (Navigation, Footer, analytics consent)
   lib/            Data helpers, metadata, utilities
   styles/         Global Tailwind + editorial typography
 content/

@@ -1,7 +1,4 @@
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/next';
 import { Inter, Fraunces } from 'next/font/google';
-import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 import '@/styles/globals.css';
 import {
@@ -11,7 +8,7 @@ import {
 import { getCurrentRole } from '@/lib/data-helpers';
 import Navigation from '@/components/ui/Navigation';
 import Footer from '@/components/ui/Footer';
-import PerformanceHints from '@/components/ui/PerformanceHints';
+import { AnalyticsConsent } from '@/components/ui/AnalyticsConsent';
 import data from '@/lib/data';
 
 // Body sans
@@ -55,11 +52,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const analyticsEnabled = process.env.VERCEL_ENV === 'production';
+  const analyticsMeasurementId = analyticsEnabled
+    ? process.env.NEXT_PUBLIC_GA_ID?.trim()
+    : undefined;
+
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body className={`min-h-screen bg-paper text-ink ${inter.className}`}>
-        <PerformanceHints />
-
         <Script
           id="json-ld"
           type="application/ld+json"
@@ -75,14 +75,10 @@ export default function RootLayout({
           <Footer />
         </div>
 
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <GoogleAnalytics
-            gaId={process.env.NEXT_PUBLIC_GA_ID}
-            dataLayerName="dataLayer"
-          />
-        )}
-        <SpeedInsights />
-        <Analytics />
+        <AnalyticsConsent
+          enabled={analyticsEnabled}
+          gaId={analyticsMeasurementId}
+        />
       </body>
     </html>
   );

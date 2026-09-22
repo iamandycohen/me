@@ -1,5 +1,9 @@
+import Link from 'next/link';
+
 import { getDisplayName, formatLinkedInUrl } from '@/lib/data-helpers';
 import data from '@/lib/data';
+
+import { AnalyticsPreferencesButton } from './AnalyticsPreferencesButton';
 
 const displayName = getDisplayName(data.contact);
 const year = new Date().getFullYear();
@@ -13,7 +17,11 @@ export default function Footer() {
           <p className="font-serif italic text-base text-ink/80">
             Built to last. Built for what comes next.
           </p>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-5 md:justify-end">
+            <Link href="/privacy" className="hover:text-ink transition-colors">
+              Privacy
+            </Link>
+            <AnalyticsPreferencesButton />
             <a
               href={linkedinUrl}
               target="_blank"
