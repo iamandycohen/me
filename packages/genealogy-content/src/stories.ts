@@ -269,7 +269,7 @@ export const stories = [
         record:
           'On line 10, the census lists “J. L. Mason,” age 36, Kentucky-born, alone in dwelling 746, with occupation “Blacksmith.” B. H. Hollingsworth was two family numbers away and the Parker deed grantors five away. John and Laura Kipper appear on the next page with David, Virginia, and Edwin Hollingsworth.',
         interpretation:
-          'Age, birthplace, county, and the Parker neighbors strongly connect J. L. to the 1855 deed’s James L. The 1850 James remains unassigned. B. H. and the three Hollingsworth siblings strongly continue the 1850 family group, but proximity does not explain their relationships or say James worked with John Kipper.',
+          'The Kipper census adds circumstantial evidence: three Hollingsworth siblings from Benjamin’s 1850 household now lived with his documented daughter Laura. Together with age, birthplace, the Parker neighbors, and the deed, this supports the continuing network and a possible link between J. L. and the 1850 James. The deed-to-1860 identification is strong; the 1850 identity and any working tie between James and John remain open.',
         referenceIds: [62],
         routeIndex: 1,
       },
