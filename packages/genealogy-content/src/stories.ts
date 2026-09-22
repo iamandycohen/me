@@ -214,8 +214,7 @@ export const stories = [
     summary:
       'Households, separate deeds, and census occupations reveal a Missouri family network while leaving some same-name identities and relationships open.',
     opening: [
-      'Benjamin’s 1853 will directly names James S. as his son. George M.’s placement as another son is an accepted indirect conclusion, making James S. and George probable brothers in the working tree. Adjacent 1855 deeds name James S. in one sale and George and James L. alongside Benjamin’s documented son-in-law John Kippers in another, but state no kinship among the grantees.',
-      'Later Texas records call an elder James L. an uncle of a man strongly identified as George’s son, and name Benjamin as that elder James’s father. They support, but do not directly state, that George and the Texas elder were brothers. No record yet establishes that the Texas elder was the James L. recorded in Missouri through 1880. The James in Benjamin’s 1850 household has no middle initial and cannot yet be assigned to James S. or James L.',
+      'Benjamin’s will directly names James S. as his son. In 1855, one deed names James S. as grantee; an adjacent deed names James L., George M., and Benjamin’s documented son-in-law John Kippers together. Neither deed states how the men are related. I followed those names backward and forward through neighboring census pages, keeping the James in Benjamin’s 1850 household, whose middle initial was not recorded, unassigned.',
     ],
     routePlaces: ['Family named', 'Land & neighbors', 'Work', 'Naming memory'],
     events: [

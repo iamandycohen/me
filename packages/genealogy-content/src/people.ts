@@ -14,7 +14,7 @@ export const people = [
     relation: 'Fourth great-grandfather · working conclusion',
     place: 'Kentucky → Missouri',
     summary:
-      'Benjamin’s life is documented in Kentucky and Missouri. His place in the direct line is an accepted working conclusion built from converging records—not from a single record naming George as his son.',
+      'Benjamin’s Kentucky and Missouri records document his household, land, and will. His own parents remain unknown.',
     evidenceType: 'indirect',
     assessment: 'high-confidence',
     referenceIds: [1, 2, 11, 13, 28, 33, 36, 59, 60, 61, 62, 63, 64, 65, 66],
@@ -27,7 +27,7 @@ export const people = [
     relation: 'Third great-grandfather',
     place: 'Missouri → Texas',
     summary:
-      'George’s own records lead to a wider family network. His place in Benjamin’s family is accepted as a high-confidence indirect conclusion.',
+      'George’s Missouri and Texas records document his household, land dealings, and descendants.',
     evidenceType: 'indirect',
     assessment: 'high-confidence',
     referenceIds: [25, 28, 33, 59, 60, 61, 62, 63, 64],
