@@ -212,10 +212,11 @@ export const stories = [
     shortTitle: 'Land, households, and mills',
     period: '1846–1880',
     summary:
-      'A named daughter, shared land, repeated households, and James L.’s working life reveal a network no single family statement preserves.',
+      'James appears as a blacksmith, then a miller, then a sawmill proprietor. Following that working life meant reading across census years, neighboring pages, land records, and a wider family network.',
     opening: [
       'In 1850, Benjamin and Hannah Mason’s Missouri home held more than one family group. James and Emily Mason lived there alongside George and Elizabeth Hollingsworth and four Hollingsworth children: David, Benjamin, Virginia, and Edwin. The census lists who shared the home, but it gives no relationship labels.',
       'Three years later, Benjamin’s recorded will named Virginia Ann Hollingsworth as his daughter. That proves one daughter bore the Hollingsworth surname. It does not identify her as Elizabeth in the 1850 census or explain every relationship in that household.',
+      'I found James’s working life by moving backward and forward through census years and across neighboring pages. A 1855 deed names James L. Meason, while a neighboring deed names James S. Meason. The 1860 census gives only “J. L. Mason,” with his occupation recorded as blacksmith. Ages, Kentucky birthplaces, Monroe County locations, and the people around him help connect the records; no single page supplies the whole biography.',
     ],
     routePlaces: ['Family named', 'Land & neighbors', 'Work', 'Naming memory'],
     events: [
@@ -309,7 +310,8 @@ export const stories = [
       },
     ],
     closing: [
-      'A decade after the crowded 1850 home, the household had dispersed without disappearing. Its members recur in a close neighborhood of Meason, Hollingsworth, Kipper, and Parker households, while land and mill work connect parts of the group. The records do not tell us whether John Kipper trained, employed, financed, or partnered with James.',
+      'Across three censuses, the occupation beside his name changes: blacksmith in 1860, miller in 1870, and “Proprietor of Saw Mill” in 1880. The records do not narrate that transition. They do not say who taught him, whether John Kipper’s mill work was connected to his, where the sawmill stood, or whether the 1880 occupation meant James held legal title to it.',
+      'The neighboring pages matter too. A decade after the crowded 1850 home, people from it recur in a close sequence of Meason, Hollingsworth, Kipper, and Parker households. Deeds and work add connections, but the census does not explain why the Hollingsworth children lived with the Kippers or define every relationship. I can follow this network without supplying the missing conversations and arrangements.',
       'The Hollingsworth name may also have stayed in family memory. Its use as a Meason middle name is a clue to an association, not proof of whom the family meant to honor. I can see a durable family, property, and work network here without supplying the relationships the records leave unstated.',
     ],
     relatedCaseIds: ['george-connection'],
