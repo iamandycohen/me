@@ -2,3 +2,7 @@
 node_modules
 out
 *.tsbuildinfo
+.vercel
+.env*
+.neon
+!.env.example

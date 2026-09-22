@@ -44,18 +44,18 @@ export function ResearchContactCta({
           </p>
         </div>
         <div className="flex flex-col items-start gap-4 md:items-end">
-          <a
+          <Link
             className="inline-flex rounded-full bg-accent-soft px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-soft"
-            href={emailHref}
+            href={`/contact?from=${encodeURIComponent(sourcePath)}`}
           >
             Share a record or lead
-          </a>
-          <Link
-            className="text-sm text-paper/65 underline decoration-paper/20 underline-offset-4 transition-colors hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-soft"
-            href="/contact"
-          >
-            See contact guidance
           </Link>
+          <a
+            className="text-sm text-paper/65 underline decoration-paper/20 underline-offset-4 transition-colors hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-soft"
+            href={emailHref}
+          >
+            Prefer email? Email this case
+          </a>
         </div>
       </div>
     </section>
