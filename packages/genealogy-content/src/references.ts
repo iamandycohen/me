@@ -340,7 +340,7 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     citation:
       'Monroe County, Missouri, Deed Book O, pp. 338–340; two Parker deeds dated 28 December 1855 and filed separately in February 1856; FamilySearch DGS 8196789, images 205–206. The James S. entry was located through the grantee index, DGS 8196783, image 265.',
     supports:
-      'One original deed conveys land to James S. Meason. A separate adjacent deed conveys land to J. C. Kippers, George M. Meason, and James L. Meason as joint grantees and refers to a lot previously sold to James L. These written names keep James S. and James L. distinct; neither deed states kinship.',
+      'One original deed conveys land to James S. Meason. A separate adjacent deed conveys land to J. C. Kippers, George M. Meason, and James L. Meason as joint grantees and refers to a lot previously sold to James L. The transactions use different middle initials and neither states kinship.',
     limitation:
       'The deeds do not identify the 1850 household’s James, establish a relationship among the joint grantees, or identify James S.’s Section 11 parcel as Benjamin’s candidate Section 20 farm. The index does not exhaust mentions within deeds indexed under other parties.',
     url: 'https://www.familysearch.org/search/film/008196789',
@@ -722,9 +722,9 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     citation:
       'Texas State Board of Health, Bureau of Vital Statistics, standard certificate of death no. 5174, James Lawrence Meason, 12 January 1919, Upshur County; “Texas, United States records, images,” FamilySearch, image 2333 of 3229; Texas State Registrar Office, image group 005145707.',
     supports:
-      'The original certificate identifies an elder James Lawrence Meason, born about 1820, and names Benjamin Meason as his father. Read with the 1900 Foard County census, it supports a strong indirect case that this elder James belonged to George M. Meason’s family cluster.',
+      'The original certificate identifies an elder James Lawrence Meason, born about 1820 in Missouri according to the informant, and names Benjamin Meason as his father. Read with the 1900 Foard County census, it supports an indirect case that this elder James belonged to George M. Meason’s family cluster.',
     limitation:
-      'The parentage is secondary information supplied roughly a century after the reported birth. The certificate gives its informant only as J. R. Meason and states no relationship. This man has not been proved to be the 1855 James L.; he must not be merged with the separately recorded James S. Meason. The certificate does not mention George or prove that George was Benjamin’s son. I link to FamilySearch rather than reproduce the certificate or unnecessary medical and residential details.',
+      'The parentage and birthplace are secondary information supplied roughly a century after the reported birth. The certificate gives its informant only as J. R. Meason and states no relationship. This man has not been proved to be the 1855 James L.; Missouri records call that man Kentucky-born, and no migration record bridges them. Nor should he be merged with the separately recorded James S. Meason. The certificate does not mention George or prove that George was Benjamin’s son. I link to FamilySearch rather than reproduce the certificate or unnecessary medical and residential details.',
     url: 'https://www.familysearch.org/ark:/61903/3:1:33SQ-GY14-6WDP?view=index',
     accessLabel: 'Open the original death certificate',
   },
@@ -734,9 +734,9 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     citation:
       '1900 U.S. census, Foard County, Texas, Justice Precinct 1, supervisor’s district 3, enumeration district 27, sheets 7A–7B, dwelling and family 120, lines 44–52, James R. Meason household; enumerated 18 June 1900; National Archives microfilm publication T623.',
     supports:
-      'The original two-page schedule records James R. Meason with his wife Eva and places a 76-year-old James L. Meason in their household, explicitly describing the elder James as James R.’s uncle. James R.’s age, spouse, birthplace, and family context strongly continue George M. and Martha Reed Meason’s son James and daughter-in-law Eva from the 1880 census.',
+      'The original two-page schedule records James R. Meason with his wife Eva and places a 76-year-old Missouri-born James L. Meason in their household, explicitly describing the elder James as James R.’s uncle. James R.’s age, spouse, birthplace, and family context strongly continue George M. and Martha Reed Meason’s son James and daughter-in-law Eva from the 1880 census.',
     limitation:
-      '“Uncle” does not specify the paternal or maternal side, a blood or marriage relationship, or a looser family usage. Identifying the 1900 elder James with the 1919 decedent is strongly supported but still requires a cross-record conclusion, and the records disagree about whether he was widowed or single. Nothing in this census identifies him as the James L. in the 1855 Monroe County deed or literally names George as his brother or Benjamin’s son. The authenticated census images remain in the private research archive and are not reproduced here.',
+      '“Uncle” does not specify the paternal or maternal side, a blood or marriage relationship, or a looser family usage. Identifying the 1900 elder James with the 1919 decedent is strongly supported but still requires a cross-record conclusion, and the records disagree about whether he was widowed or single. The Missouri James L. was consistently recorded as Kentucky-born; this census does not bridge that birthplace conflict or the 1880–1900 record gap, or literally name George as the elder James’s brother or Benjamin’s son. The authenticated census images remain in the private research archive and are not reproduced here.',
     url: 'https://www.ancestry.com/imageviewer/collections/7602/images/4118464_00591?pId=43457280',
     accessLabel: 'Open the census at Ancestry',
   },

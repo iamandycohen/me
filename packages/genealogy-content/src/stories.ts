@@ -214,7 +214,8 @@ export const stories = [
     summary:
       'Households, separate deeds, and census occupations reveal a Missouri family network while leaving some same-name identities and relationships open.',
     opening: [
-      'These records did not give me a ready-made family story. I moved between census years, neighboring pages, a will, and land records to see who remained near whom. Where the records use the same first name with different initials, I keep those identities separate until the evidence connects them.',
+      'Benjamin’s 1853 will directly names James S. as his son. George M.’s placement as another son is an accepted indirect conclusion, making James S. and George probable brothers in the working tree. Adjacent 1855 deeds name James S. in one sale and George and James L. alongside Benjamin’s documented son-in-law John Kippers in another, but state no kinship among the grantees.',
+      'Later Texas records call an elder James L. an uncle of a man strongly identified as George’s son, and name Benjamin as that elder James’s father. They support, but do not directly state, that George and the Texas elder were brothers. No record yet establishes that the Texas elder was the James L. recorded in Missouri through 1880. The James in Benjamin’s 1850 household has no middle initial and cannot yet be assigned to James S. or James L.',
     ],
     routePlaces: ['Family named', 'Land & neighbors', 'Work', 'Naming memory'],
     events: [
@@ -258,7 +259,7 @@ export const stories = [
         record:
           'Two adjacent deeds record separate Parker land sales. One names James S. Meason as grantee. The other names J. C. Kippers, George M. Meason, and James L. Meason as joint grantees.',
         interpretation:
-          'The separate transactions distinguish James S. from James L. Neither deed states kinship or describes a working arrangement.',
+          'The separate transactions write different middle initials. Neither deed states a relationship between James S. and James L. or describes a working arrangement.',
         referenceIds: [28],
         routeIndex: 1,
       },
@@ -328,10 +329,10 @@ export const stories = [
         year: '1880',
         place: 'Dallas County, Texas',
         record:
-          'George’s household records James R. as his son and Eva as his daughter-in-law.',
+          'George’s 1880 household records James as his son and Eva as his daughter-in-law.',
         interpretation:
-          'This anchors James R. to George before James R. later becomes the informant and household link around elder James L.',
-        referenceIds: [33],
+          'Their names, ages, and household pattern strongly support identifying this James and Eva with James R. and Eva in the 1900 Texas census.',
+        referenceIds: [33, 60],
         routeIndex: 0,
       },
       {
@@ -339,10 +340,10 @@ export const stories = [
         year: '1900',
         place: 'Foard County, Texas',
         record:
-          'Elder James L. lives in James R. Meason’s household and is recorded as James R.’s uncle.',
+          'Elder James L. lives in James R. Meason’s household and is recorded as James R.’s uncle and as Missouri-born.',
         interpretation:
-          '“Uncle” connects the Texas household branches but does not specify side, blood versus marriage, or a complete sibling statement. Whether this elder James was the James L. recorded in Missouri in 1880 remains unresolved.',
-        referenceIds: [60],
+          '“Uncle” does not specify the side or type of relationship. The Missouri James L. was repeatedly recorded as Kentucky-born, and no record bridges his life after 1880 to this Texas elder.',
+        referenceIds: [60, 62, 63, 64],
         routeIndex: 1,
       },
       {
@@ -350,10 +351,10 @@ export const stories = [
         year: '1919',
         place: 'Big Sandy, Texas',
         record:
-          'Elder James L.’s death certificate, informed by J. R. Meason, names Benjamin Meason as his father.',
+          'Elder James L.’s death certificate, informed by J. R. Meason, names Benjamin Meason as his father and Missouri as his birthplace.',
         interpretation:
-          'Together with the uncle household and George’s 1880 Texas record, this supports George’s placement indirectly. No record literally calls George and elder James brothers.',
-        referenceIds: [59],
+          'The father’s name was supplied at death, nearly a century after the reported birth. Together with the uncle household and George’s 1880 Texas record, it supports George’s placement indirectly; no record calls George and the elder James brothers.',
+        referenceIds: [33, 59, 60],
         routeIndex: 1,
       },
     ],
