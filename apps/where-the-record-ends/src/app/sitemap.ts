@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/stories',
     '/sources',
     '/about',
+    '/contact',
     '/cases/parentage/highland-creek',
     '/cases/parentage/three-thomases',
   ];

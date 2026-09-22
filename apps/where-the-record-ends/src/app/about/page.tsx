@@ -48,6 +48,19 @@ export default function AboutPage() {
           </div>
           <div className="space-y-6 text-base leading-relaxed text-ink/70">
             <p>
+              Where the Record Ends is researched and maintained by me, Andy
+              Cohen. I was born Shannon Jeremiah Meason, and my interest in my
+              biological family history grew into this ongoing evidence-led
+              research project. You can read more about that personal context on{' '}
+              <a
+                className="font-medium text-accent underline decoration-accent/25 underline-offset-4 transition-colors hover:text-ink"
+                href="https://www.iamandycohen.com/genealogy"
+              >
+                my genealogy page
+              </a>
+              .
+            </p>
+            <p>
               The search began with a personal question and grew into a record
               trail across Kentucky, Missouri, and Texas. Some discoveries
               supplied names and dates. The most interesting ones changed the
@@ -85,6 +98,23 @@ export default function AboutPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-ink/10 px-5 py-16 sm:px-8 md:py-24">
+        <div className="mx-auto grid max-w-4xl gap-8 rounded-[2rem] border border-ink/10 bg-paper p-8 shadow-paper sm:p-12 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+          <div>
+            <p className="eyebrow">Contribute to the research</p>
+            <h2 className="balanced mt-4 font-serif text-4xl leading-tight">
+              Have a record I haven&apos;t seen?
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink/65">
+              Original documents, family records, photographs, cemetery
+              information, and corrections can all help move an open question
+              forward.
+            </p>
+          </div>
+          <ArrowLink href="/contact">Share a record or correction</ArrowLink>
         </div>
       </section>
 

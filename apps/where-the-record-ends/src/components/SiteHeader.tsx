@@ -7,6 +7,7 @@ const navigation = [
   ['Stories', '/stories'],
   ['Sources', '/sources'],
   ['About', '/about'],
+  ['Contact', '/contact'],
 ] as const;
 
 export function SiteHeader() {

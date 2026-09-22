@@ -37,19 +37,45 @@ export function SiteFooter() {
             >
               Sources
             </Link>
+            <Link
+              className="transition-colors hover:text-paper"
+              href="/contact"
+            >
+              Contact
+            </Link>
           </div>
         </div>
-        <div className="flex flex-col gap-4 pt-7 text-xs leading-relaxed text-paper/45 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-2xl">
-            An ongoing public research project. Evidence, interpretation, and
-            uncertainty are kept visibly distinct.
-          </p>
-          <Link
-            className="w-fit underline decoration-paper/20 underline-offset-4 transition-colors hover:text-paper"
-            href="/about"
-          >
-            Read the editorial method
-          </Link>
+        <div className="flex flex-col gap-4 pt-7 text-xs leading-relaxed text-paper/60 sm:flex-row sm:items-center sm:justify-between">
+          <div className="max-w-2xl space-y-2">
+            <p>
+              An ongoing public research project. Evidence, interpretation, and
+              uncertainty are kept visibly distinct.
+            </p>
+            <p>
+              Research and writing by{' '}
+              <a
+                className="underline decoration-paper/20 underline-offset-4 transition-colors hover:text-paper"
+                href="https://www.iamandycohen.com/genealogy"
+              >
+                Andy Cohen
+              </a>
+              .
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <Link
+              className="w-fit underline decoration-paper/20 underline-offset-4 transition-colors hover:text-paper"
+              href="/about"
+            >
+              Read the editorial method
+            </Link>
+            <Link
+              className="w-fit underline decoration-paper/20 underline-offset-4 transition-colors hover:text-paper"
+              href="/contact"
+            >
+              Share a record or correction
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

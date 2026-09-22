@@ -23,3 +23,4 @@ the Root Directory. Keep `SITE_IS_PUBLIC` unset for previews.
 - `/stories` and `/stories/[slug]` — evidence-backed chronicle
 - `/sources` — source and media provenance catalog
 - `/about` — personal framing and editorial method
+- `/contact` — research contributions and corrections
