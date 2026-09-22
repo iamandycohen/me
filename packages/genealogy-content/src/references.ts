@@ -7,7 +7,7 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     citation:
       '1850 U.S. census, District 59, Monroe County, Missouri, p. 139a; NARA microfilm publication M432, roll 407.',
     supports:
-      'Benjamin’s age of 74, reported Virginia birthplace, Hannah’s presence, and the Monroe County household cluster.',
+      'Benjamin’s age of 74, reported Virginia birthplace, Hannah’s presence, 25-year-old Kentucky-born James Mason without a middle initial, and George and Elizabeth Hollingsworth with children David, Benjamin, Virginia, and Edwin in one Monroe County household.',
     limitation:
       'The census supports an approximate birth year, not an exact birth date, and it does not identify Benjamin’s parents. It gives the household member James Mason no middle initial or relationship, so this entry alone cannot assign him to the separately documented James S. or James L.',
     url: 'https://archive.org/details/populationschedu0407unix/page/n280/mode/1up',
@@ -764,6 +764,12 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       'The census writes initials, not the full name James L.; that identity is a cross-record assessment. The household pattern contributes circumstantial support for linking J. L. to the 1850 James, but does not establish it or identify him with Benjamin’s will-named son James S. The schedule states no relationships among neighboring households, does not explain why the children lived with the Kippers or say that James worked with John, and does not prove that this Missouri man was the elder James later recorded in Texas. The Hollingsworth identifications depend on cross-record comparison. I link to the provider rather than reproduce the privately preserved census images.',
     url: 'https://www.ancestry.com/imageviewer/collections/7667/images/4233984_00115?pId=40504012',
     accessLabel: 'Open page 111, line 10 at Ancestry',
+    accessLinks: [
+      {
+        label: 'Open page 112, Kipper household at Ancestry',
+        url: 'https://www.ancestry.com/imageviewer/collections/7667/images/4233984_00116',
+      },
+    ],
   },
   {
     id: 63,

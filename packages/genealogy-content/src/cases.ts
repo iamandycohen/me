@@ -165,7 +165,7 @@ export const researchCases = [
             detail:
               'Three Hollingsworth siblings appear in Benjamin’s 1850 household and in his daughter Laura and John Kipper’s 1860 household. Nearby J. L., the Parker neighbors, and the joint deed add circumstantial support for a continuing Monroe County family network; none states George’s parentage.',
             referenceIds: [1, 28, 61, 62],
-            tone: 'record',
+            tone: 'inference',
           },
           {
             id: 'texas-statements',
