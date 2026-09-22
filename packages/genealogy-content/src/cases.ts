@@ -138,7 +138,7 @@ export const researchCases = [
     known:
       'George’s placement as Benjamin’s son is accepted in the working tree as a high-confidence indirect conclusion.',
     unknown:
-      'No reviewed record directly states “George, son of Benjamin,” and parts of the collateral migration remain open.',
+      'No reviewed record directly states “George, son of Benjamin.” Whether the Missouri James L. was the elder James L. later recorded in Texas remains unresolved.',
     relatedPersonIds: ['benjamin', 'george'],
     referenceIds: [1, 28, 33, 59, 60, 61, 62, 63, 64],
     sections: [
@@ -172,7 +172,7 @@ export const researchCases = [
             eyebrow: '1900–1919 · later statements',
             title: 'Texas records supply “uncle” and “father”',
             detail:
-              'George’s son lived with elder James L., recorded as his uncle; James’s death certificate later named Benjamin as his father.',
+              'In Texas, George’s son lived with elder James L., recorded as his uncle; the elder James’s death certificate later named Benjamin as his father.',
             referenceIds: [33, 59, 60],
             tone: 'record',
           },

@@ -212,11 +212,9 @@ export const stories = [
     shortTitle: 'Land, households, and mills',
     period: '1846–1880',
     summary:
-      'James appears as a blacksmith, then a miller, then a sawmill proprietor. Following that working life meant reading across census years, neighboring pages, land records, and a wider family network.',
+      'Households, separate deeds, and census occupations reveal a Missouri family network while leaving some same-name identities and relationships open.',
     opening: [
-      'In 1850, Benjamin and Hannah Mason’s Missouri home held more than one family group. James and Emily Mason lived there alongside George and Elizabeth Hollingsworth and four Hollingsworth children: David, Benjamin, Virginia, and Edwin. The census lists who shared the home, but it gives no relationship labels.',
-      'Three years later, Benjamin’s recorded will named Virginia Ann Hollingsworth as his daughter. That proves one daughter bore the Hollingsworth surname. It does not identify her as Elizabeth in the 1850 census or explain every relationship in that household.',
-      'I found James’s working life by moving backward and forward through census years and across neighboring pages. A 1855 deed names James L. Meason, while a neighboring deed names James S. Meason. The 1860 census gives only “J. L. Mason,” with his occupation recorded as blacksmith. Ages, Kentucky birthplaces, Monroe County locations, and the people around him help connect the records; no single page supplies the whole biography.',
+      'These records did not give me a ready-made family story. I moved between census years, neighboring pages, a will, and land records to see who remained near whom. Where the records use the same first name with different initials, I keep those identities separate until the evidence connects them.',
     ],
     routePlaces: ['Family named', 'Land & neighbors', 'Work', 'Naming memory'],
     events: [
@@ -238,7 +236,7 @@ export const stories = [
         record:
           'Benjamin and Hannah Mason’s household includes James and Emily Mason; George and Elizabeth Hollingsworth; and the Hollingsworth children David, Benjamin, Virginia, and Edwin.',
         interpretation:
-          'The mixed household matters when these people reappear later. The census does not explain their relationships.',
+          'The census gives this James no middle initial or relationship to Benjamin.',
         referenceIds: [1],
         routeIndex: 0,
       },
@@ -247,9 +245,9 @@ export const stories = [
         year: '1853',
         place: 'Monroe County, Missouri',
         record:
-          'Benjamin’s recorded will names Virginia Ann Hollingsworth as his daughter.',
+          'Benjamin’s recorded will calls James S. Meason his son and Virginia Ann Hollingsworth his daughter.',
         interpretation:
-          'This establishes a Meason–Hollingsworth surname connection, but does not identify Virginia Ann with Elizabeth Hollingsworth in the 1850 census.',
+          'This directly identifies a son as James S. Virginia Ann’s surname establishes a Meason–Hollingsworth connection, but does not identify her with Elizabeth Hollingsworth in the 1850 census.',
         referenceIds: [65],
         routeIndex: 0,
       },
@@ -258,9 +256,9 @@ export const stories = [
         year: '1855',
         place: 'Monroe County land',
         record:
-          'A deed names John C. Kippers, George M. Meason, and James L. Meason as joint grantees of a Monroe County parcel. A neighboring deed names James S. Meason separately.',
+          'Two adjacent deeds record separate Parker land sales. One names James S. Meason as grantee. The other names J. C. Kippers, George M. Meason, and James L. Meason as joint grantees.',
         interpretation:
-          'The transaction connects named people through land. It does not call the men brothers, identify James S. with James L., or explain any working arrangement.',
+          'The separate transactions distinguish James S. from James L. Neither deed states kinship or describes a working arrangement.',
         referenceIds: [28],
         routeIndex: 1,
       },
@@ -269,9 +267,9 @@ export const stories = [
         year: '1860',
         place: 'Clay Township · census page 111',
         record:
-          'On line 10, the census lists “J. L. Mason,” age 36, born in Kentucky, living alone in dwelling 746. His occupation is written as “Blacksmith.” B. H. Hollingsworth lived two family numbers away; the Parker deed grantors lived five away. On the next census page, John and Laura Kipper shared a household with David, Virginia, and Edwin Hollingsworth.',
+          'On line 10, the census lists “J. L. Mason,” age 36, Kentucky-born, alone in dwelling 746, with occupation “Blacksmith.” B. H. Hollingsworth was two family numbers away and the Parker deed grantors five away. John and Laura Kipper appear on the next page with David, Virginia, and Edwin Hollingsworth.',
         interpretation:
-          'The census gives initials, not the full name James L. Age, Kentucky birthplace, Monroe County, the neighboring Parker couple, and the land record strongly support that identification. B. H. is strongly identified as Benjamin Hollingsworth from the 1850 home; the other three siblings recur with the Kippers. The census does not explain their relationships or say James worked with John Kipper.',
+          'Age, birthplace, county, and the Parker neighbors strongly connect J. L. to the 1855 deed’s James L. The 1850 James remains unassigned. B. H. and the three Hollingsworth siblings strongly continue the 1850 family group, but proximity does not explain their relationships or say James worked with John Kipper.',
         referenceIds: [62],
         routeIndex: 1,
       },
@@ -282,7 +280,7 @@ export const stories = [
         record:
           'The census lists 46-year-old Kentucky-born James L. Mason as a miller, followed in the household by three mill laborers. One was James E. Hollingsworth.',
         interpretation:
-          'Name, age, birthplace, and county continue the Missouri J. L. record sequence. James E. is not the B. H. Hollingsworth near J. L. in 1860; his relationship to the 1850 household is unproved. The schedule does not identify the mill or its owner.',
+          'Name, age, birthplace, and county strongly continue the 1860 J. L. record. James E. is a different man from B. H. Hollingsworth; his relationship to the earlier household is unproved. The schedule does not identify the mill or its owner.',
         referenceIds: [63],
         routeIndex: 2,
       },
@@ -293,7 +291,7 @@ export const stories = [
         record:
           'The census lists 55-year-old Kentucky-born James L. Meason as “Proprietor of Saw Mill,” boarding with two men recorded as working in that sawmill.',
         interpretation:
-          'The age, birthplace, county, and name strongly continue the 1860–1870 Missouri sequence. The occupation does not identify a mill site, prove legal title, or document a later move to Texas.',
+          'The age, birthplace, county, and name strongly continue the 1860–1870 James L. sequence. The occupation does not identify a mill site, prove legal title, or document a later move to Texas.',
         referenceIds: [64],
         routeIndex: 2,
       },
@@ -310,9 +308,7 @@ export const stories = [
       },
     ],
     closing: [
-      'Across three censuses, the occupation beside his name changes: blacksmith in 1860, miller in 1870, and “Proprietor of Saw Mill” in 1880. The records do not narrate that transition. They do not say who taught him, whether John Kipper’s mill work was connected to his, where the sawmill stood, or whether the 1880 occupation meant James held legal title to it.',
-      'The neighboring pages matter too. A decade after the crowded 1850 home, people from it recur in a close sequence of Meason, Hollingsworth, Kipper, and Parker households. Deeds and work add connections, but the census does not explain why the Hollingsworth children lived with the Kippers or define every relationship. I can follow this network without supplying the missing conversations and arrangements.',
-      'The Hollingsworth name may also have stayed in family memory. Its use as a Meason middle name is a clue to an association, not proof of whom the family meant to honor. I can see a durable family, property, and work network here without supplying the relationships the records leave unstated.',
+      'The 1860–1880 census entries support a working-life sequence for James L., but they do not explain his change of trade, establish a business tie to John Kipper, or prove legal title to a particular sawmill. The nearby households and deeds reveal a wider network while leaving the 1850 James’s identity and several family relationships unresolved.',
     ],
     relatedCaseIds: ['george-connection'],
     publication: { ...publication, reviewedOn: '2026-09-22' },
@@ -325,7 +321,7 @@ export const stories = [
     period: '1880–1919',
     summary:
       'The words “son,” “uncle,” and “father,” spread across three records and four decades, create an indirect bridge back to Benjamin without proving a documented reunion.',
-    routePlaces: ['George’s Texas home', 'Missouri gap', 'Texas household'],
+    routePlaces: ['George’s Texas home', 'Texas uncle household'],
     events: [
       {
         id: 'texas-george-household-1880',
@@ -339,26 +335,15 @@ export const stories = [
         routeIndex: 0,
       },
       {
-        id: 'texas-james-missouri-1880',
-        year: '1880',
-        place: 'Monroe County, Missouri',
-        record:
-          'Elder James L. remains in Missouri as a sawmill proprietor—the last high-confidence record in his Missouri sequence.',
-        interpretation:
-          'The identity through 1880 is strong, but the move from Missouri to Texas has not been documented.',
-        referenceIds: [64],
-        routeIndex: 1,
-      },
-      {
         id: 'texas-uncle-household-1900',
         year: '1900',
         place: 'Foard County, Texas',
         record:
           'Elder James L. lives in James R. Meason’s household and is recorded as James R.’s uncle.',
         interpretation:
-          '“Uncle” connects the branches but does not specify side, blood versus marriage, or a complete sibling statement.',
+          '“Uncle” connects the Texas household branches but does not specify side, blood versus marriage, or a complete sibling statement. Whether this elder James was the James L. recorded in Missouri in 1880 remains unresolved.',
         referenceIds: [60],
-        routeIndex: 2,
+        routeIndex: 1,
       },
       {
         id: 'texas-james-death-1919',
@@ -367,9 +352,9 @@ export const stories = [
         record:
           'Elder James L.’s death certificate, informed by J. R. Meason, names Benjamin Meason as his father.',
         interpretation:
-          'Together with the uncle household and earlier network, this supports George’s placement indirectly. No record literally calls George and elder James brothers.',
+          'Together with the uncle household and George’s 1880 Texas record, this supports George’s placement indirectly. No record literally calls George and elder James brothers.',
         referenceIds: [59],
-        routeIndex: 2,
+        routeIndex: 1,
       },
     ],
     relatedCaseIds: ['george-connection'],

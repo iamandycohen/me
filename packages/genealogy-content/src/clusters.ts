@@ -107,7 +107,8 @@ export const evidenceClusters = [
       {
         id: 'missouri-benjamin-household',
         label: 'Benjamin’s household',
-        detail: 'Benjamin, Hannah, James, and Hollingsworth children',
+        detail:
+          'Benjamin, Hannah, a James with no middle initial, and the Hollingsworth family',
         kind: 'household',
         referenceIds: [1],
       },
@@ -182,7 +183,7 @@ export const evidenceClusters = [
     summary:
       'Direct-line certificates in Dallas County and a collateral uncle household in Foard County preserve different pieces of the later Texas picture.',
     boundary:
-      'These records support relationships and Texas endpoints. They do not document one shared journey, reunion, migration route, or motive.',
+      'These records support relationships and Texas endpoints. They do not document one shared journey, reunion, migration route, or motive, or establish that the Texas elder James L. was the earlier Missouri James L.',
     nodes: [
       {
         id: 'texas-george-household',

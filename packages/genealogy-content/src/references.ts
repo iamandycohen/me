@@ -9,7 +9,7 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     supports:
       'Benjamin’s age of 74, reported Virginia birthplace, Hannah’s presence, and the Monroe County household cluster.',
     limitation:
-      'The census supports an approximate birth year, not an exact birth date, and it does not identify Benjamin’s parents.',
+      'The census supports an approximate birth year, not an exact birth date, and it does not identify Benjamin’s parents. It gives the household member James Mason no middle initial or relationship, so this entry alone cannot assign him to the separately documented James S. or James L.',
     url: 'https://archive.org/details/populationschedu0407unix/page/n280/mode/1up',
     accessLabel: 'Open census image',
   },
@@ -336,15 +336,15 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
   },
   {
     id: 28,
-    title: 'Monroe County deed-index review, 1831–1869',
+    title: 'Separate 1855 Monroe County deeds to James S. and James L.',
     citation:
-      'Monroe County, Missouri, direct and indirect deed indexes, 1831–1869; FamilySearch catalog 215468, DGS 8196783; complete regular-M grantor images 92–105 and grantee images 258–272 reviewed.',
+      'Monroe County, Missouri, Deed Book O, pp. 338–340; two Parker deeds dated 28 December 1855 and filed separately in February 1856; FamilySearch DGS 8196789, images 205–206. The James S. entry was located through the grantee index, DGS 8196783, image 265.',
     supports:
-      'The page-by-page index review found James S. Meason as an indexed principal in an 1855 Section 11 deed. An adjacent original names J. C. Kippers, George M. Meason, and James L. Meason as joint grantees, but states no kinship.',
+      'One original deed conveys land to James S. Meason. A separate adjacent deed conveys land to J. C. Kippers, George M. Meason, and James L. Meason as joint grantees and refers to a lot previously sold to James L. These written names keep James S. and James L. distinct; neither deed states kinship.',
     limitation:
-      'No indexed relationship statement was found. Entries under another principal, clerk variants, and unindexed instruments remain possible; the Section 11 parcels do not match Benjamin’s candidate Section 20 farm.',
-    url: 'https://www.familysearch.org/en/search/catalog/215468',
-    accessLabel: 'Open catalog entry',
+      'The deeds do not identify the 1850 household’s James, establish a relationship among the joint grantees, or identify James S.’s Section 11 parcel as Benjamin’s candidate Section 20 farm. The index does not exhaust mentions within deeds indexed under other parties.',
+    url: 'https://www.familysearch.org/search/film/008196789',
+    accessLabel: 'Open recorded deed volume at FamilySearch',
   },
   {
     id: 29,
@@ -761,17 +761,17 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     supports:
       'Page 111, line 10 explicitly lists 36-year-old Kentucky-born “J. L. Mason” living alone with occupation “Blacksmith.” The consecutive schedules place him near the Parker couple from the 1855 deeds, B. H. Hollingsworth, and John and Laura Kipper. The Kipper household includes David, Virginia, and Edwin Hollingsworth, who had lived with Benjamin and Hannah Mason in 1850. Age, place, and the deed network strongly support identifying J. L. as the Missouri James L.',
     limitation:
-      'The census writes initials, not the full name James L.; that identity is a cross-record assessment. It states no relationships among the neighboring households, does not say that James worked with John Kipper, and does not prove that this Missouri man was the elder James later recorded in Texas. The Hollingsworth identifications depend on cross-record comparison. I link to the provider rather than reproduce the privately preserved census images.',
+      'The census writes initials, not the full name James L.; that identity is a cross-record assessment. It does not identify the 1850 James or Benjamin’s will-named son James S. It states no relationships among neighboring households, does not say that James worked with John Kipper, and does not prove that this Missouri man was the elder James later recorded in Texas. The Hollingsworth identifications depend on cross-record comparison. I link to the provider rather than reproduce the privately preserved census images.',
     url: 'https://www.ancestry.com/imageviewer/collections/7667/images/4233984_00115?pId=40504012',
     accessLabel: 'Open page 111, line 10 at Ancestry',
   },
   {
     id: 63,
-    title: '1870 Monroe County census — James L. Meason, miller',
+    title: '1870 Monroe County census — James L. Mason, miller',
     citation:
       '1870 U.S. census, Washington Township, Monroe County, Missouri, post office Shelbina, p. 31, printed p. 731, line 18, dwelling 199, family 206; enumerated 4 June 1870; NARA microfilm publication M593, roll 793; Ancestry collection 7163, image 4273712_00723.',
     supports:
-      'The schedule records 46-year-old Kentucky-born James L. Mason as a miller in a Monroe County household immediately followed by three mill laborers. His name, age, birthplace, county, and occupation strongly continue the 1850–1860 Missouri identity and begin the mill-work progression later seen in the 1880 census.',
+      'The schedule records 46-year-old Kentucky-born James L. Mason as a miller in a Monroe County household immediately followed by three mill laborers. His name, age, birthplace, and county strongly continue the 1860 J. L. Mason identity.',
     limitation:
       'The census does not define James’s relationship to the household, identify the mill’s owner, or prove that his reported $1,000 in personal estate represented mill equipment. It does not by itself connect the Missouri man to the elder James later recorded in Texas. I link to the provider rather than reproduce the privately preserved image.',
     url: 'https://www.ancestry.com/imageviewer/collections/7163/images/4273712_00723',
@@ -783,7 +783,7 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     citation:
       '1880 U.S. census, Jackson Township, Monroe County, Missouri, enumeration district 54, p. 35, line 41, dwelling 344, family 360; enumerated 17 June 1880; Ancestry collection 6742, record 25450172.',
     supports:
-      'The schedule records 55-year-old Kentucky-born James L. Meason as a single boarder and proprietor of a sawmill, followed by two boarders whose occupations are working in that sawmill. The consistent age, birthplace, county, and name complete a high-confidence Missouri trail from 1850 through 1880 and give life to his path from blacksmith to miller to mill proprietor.',
+      'The schedule records 55-year-old Kentucky-born James L. Meason as a single boarder and proprietor of a sawmill, followed by two boarders whose occupations are working in that sawmill. The consistent age, birthplace, county, and name complete a high-confidence Missouri working-life sequence from 1860 through 1880.',
     limitation:
       'The schedule does not name or locate the sawmill, establish legal ownership beyond the stated occupation, or prove that this was the elder James living in Texas in 1900 and 1919. Its single status conflicts with the 1900 census’s widowed entry, and the Missouri-to-Texas migration remains undocumented. I link to the provider rather than reproduce the privately preserved image.',
     url: 'https://www.ancestry.com/imageviewer/collections/6742/images/4242025-00559?pId=25450172',
