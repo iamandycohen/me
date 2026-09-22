@@ -16,6 +16,26 @@ The app scripts compile and validate the shared content package before `dev`,
 the normal `npm run build`; workspace installation must include files outside
 the Root Directory. Keep `SITE_IS_PUBLIC` unset for previews.
 
+## Contact form configuration
+
+The research contact form uses a server-only Neon Postgres connection, Google
+Workspace SMTP notification, and Cloudflare Turnstile validation. Copy
+`.env.example` to `.env.local` for local development. Never expose
+`DATABASE_URL`, `DATABASE_URL_UNPOOLED`, `TURNSTILE_SECRET_KEY`, or SMTP
+credentials through `NEXT_PUBLIC_` variables.
+
+- `DATABASE_URL` is the pooled runtime connection string.
+- `DATABASE_URL_UNPOOLED` is used only by Drizzle migrations.
+- `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is the public widget key.
+- `TURNSTILE_SECRET_KEY` is used only by the server-side Siteverify call.
+- `SMTP_*` configures the research mailbox notification transport.
+- `CONTACT_NOTIFICATION_TO` defaults to `research@wheretherecordends.com`.
+
+Run `npm run db:generate --workspace=@where-the-record-ends/site` after a
+schema change and `npm run db:migrate --workspace=@where-the-record-ends/site`
+with the unpooled connection configured. Preview deployments must use a Neon
+branch rather than the production database branch.
+
 ## Routes
 
 - `/family` — interactive family atlas

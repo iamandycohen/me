@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 
 import { PageHero } from '@/components/PageHero';
+import { ResearchContactForm } from '@/components/ResearchContactForm';
+import { resolveContactContext } from '@/lib/contact/context';
 import { researchEmail, researchMailto } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -29,7 +31,17 @@ const usefulDetails = [
   'The page or claim you believe should be corrected',
 ] as const;
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ from?: string | string[] }>;
+}) {
+  const { from } = await searchParams;
+  const context = resolveContactContext(
+    typeof from === 'string' ? from : undefined
+  );
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
+
   return (
     <>
       <PageHero
@@ -39,51 +51,65 @@ export default function ContactPage() {
       />
 
       <section className="px-5 py-16 sm:px-8 md:py-24">
-        <div className="mx-auto grid max-w-[92rem] gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,0.9fr)]">
-          <div className="rounded-[2rem] bg-ink p-8 text-paper sm:p-12">
-            <p className="eyebrow !text-accent-soft">Research correspondence</p>
+        <div className="mx-auto grid max-w-[92rem] gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)] lg:items-start">
+          <div className="rounded-[2rem] border border-ink/10 bg-cream p-7 shadow-paper sm:p-10">
+            <p className="eyebrow">Research correspondence</p>
             <h2 className="balanced mt-4 font-serif text-4xl leading-tight sm:text-5xl">
               Share a document, lead, or correction.
             </h2>
-            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-paper/65 sm:text-base">
+            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-ink/65 sm:text-base">
               Original documents, family records, photographs, cemetery
-              information, and well-sourced corrections are especially useful. A
-              prepared email will prompt you for the context that helps me
-              evaluate the contribution.
+              information, and well-sourced corrections are especially useful.
             </p>
-            <a
-              className="mt-8 inline-flex rounded-full bg-accent-soft px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-soft"
-              href={emailHref}
-            >
-              Email the research project
-            </a>
-            <p className="mt-5 text-sm text-paper/55">
-              Or write directly to{' '}
-              <a
-                className="text-accent-soft underline decoration-accent-soft/30 underline-offset-4 hover:text-paper"
-                href={`mailto:${researchEmail}`}
-              >
-                {researchEmail}
-              </a>
-              .
-            </p>
+            <div className="mt-10">
+              <ResearchContactForm
+                context={context}
+                turnstileSiteKey={turnstileSiteKey}
+              />
+            </div>
           </div>
 
-          <aside className="rounded-[2rem] border border-ink/10 bg-cream p-8 sm:p-10">
-            <p className="eyebrow">What helps most</p>
-            <ul className="mt-6 space-y-4 text-sm leading-relaxed text-ink/65">
-              {usefulDetails.map((detail) => (
-                <li
-                  key={detail}
-                  className="grid grid-cols-[auto_1fr] gap-3 border-b border-ink/10 pb-4 last:border-0 last:pb-0"
+          <aside className="space-y-8 lg:sticky lg:top-28">
+            <div className="rounded-[2rem] bg-ink p-8 text-paper sm:p-10">
+              <p className="eyebrow !text-accent-soft">Prefer email?</p>
+              <p className="mt-4 text-sm leading-relaxed text-paper/65">
+                You can use a prepared email instead. It includes prompts for
+                the context that helps me evaluate a contribution.
+              </p>
+              <a
+                className="mt-6 inline-flex rounded-full bg-accent-soft px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-soft"
+                href={emailHref}
+              >
+                Email the research project
+              </a>
+              <p className="mt-5 text-sm text-paper/55">
+                Or write directly to{' '}
+                <a
+                  className="text-accent-soft underline decoration-accent-soft/30 underline-offset-4 hover:text-paper"
+                  href={`mailto:${researchEmail}`}
                 >
-                  <span aria-hidden="true" className="text-accent">
-                    →
-                  </span>
-                  <span>{detail}</span>
-                </li>
-              ))}
-            </ul>
+                  {researchEmail}
+                </a>
+                .
+              </p>
+            </div>
+
+            <div className="rounded-[2rem] border border-ink/10 bg-cream p-8 sm:p-10">
+              <p className="eyebrow">What helps most</p>
+              <ul className="mt-6 space-y-4 text-sm leading-relaxed text-ink/65">
+                {usefulDetails.map((detail) => (
+                  <li
+                    key={detail}
+                    className="grid grid-cols-[auto_1fr] gap-3 border-b border-ink/10 pb-4 last:border-0 last:pb-0"
+                  >
+                    <span aria-hidden="true" className="text-accent">
+                      →
+                    </span>
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </aside>
         </div>
       </section>
