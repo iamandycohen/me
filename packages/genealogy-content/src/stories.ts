@@ -217,7 +217,7 @@ export const stories = [
       'In 1850, Benjamin and Hannah Mason’s Missouri home held more than one family group. James and Emily Mason lived there alongside George and Elizabeth Hollingsworth and four Hollingsworth children: David, Benjamin, Virginia, and Edwin. The census lists who shared the home, but it gives no relationship labels.',
       'Three years later, Benjamin’s recorded will named Virginia Ann Hollingsworth as his daughter. That proves one daughter bore the Hollingsworth surname. It does not identify her as Elizabeth in the 1850 census or explain every relationship in that household.',
     ],
-    routePlaces: ['Family named', 'Households & land', 'Mill work'],
+    routePlaces: ['Family named', 'Land & neighbors', 'Work', 'Naming memory'],
     events: [
       {
         id: 'network-laura-marriage-1846',
@@ -239,7 +239,7 @@ export const stories = [
         interpretation:
           'The mixed household matters when these people reappear later. The census does not explain their relationships.',
         referenceIds: [1],
-        routeIndex: 1,
+        routeIndex: 0,
       },
       {
         id: 'network-virginia-will-1853',
@@ -253,25 +253,47 @@ export const stories = [
         routeIndex: 0,
       },
       {
-        id: 'network-land-households-1855-1860',
-        year: '1855–1860',
-        place: 'Land and neighboring households',
+        id: 'network-land-1855',
+        year: '1855',
+        place: 'Monroe County land',
         record:
-          'John C. Kippers, George M. Meason, and James L. Meason appear together in a land transaction. In 1860, James L. lived alone as a blacksmith. B. H. Hollingsworth lived two family numbers away; the Parker deed grantors lived five away. On the next census page, John and Laura Kipper shared a household with David, Virginia, and Edwin Hollingsworth.',
+          'A deed names John C. Kippers, George M. Meason, and James L. Meason as joint grantees of a Monroe County parcel. A neighboring deed names James S. Meason separately.',
         interpretation:
-          'B. H. is strongly identified as Benjamin Hollingsworth from the 1850 home, and the other three Hollingsworth siblings continue into the Kipper household. The deed and proximity support a network, but neither calls the men brothers or explains why the children lived with the Kippers.',
-        referenceIds: [28, 61, 62],
+          'The transaction connects named people through land. It does not call the men brothers, identify James S. with James L., or explain any working arrangement.',
+        referenceIds: [28],
         routeIndex: 1,
       },
       {
-        id: 'network-james-work-1860-1880',
-        year: '1860–1880',
-        place: 'Monroe County, Missouri',
+        id: 'network-blacksmith-1860',
+        year: '1860',
+        place: 'Clay Township · census page 111',
         record:
-          'James L. appears as a blacksmith in 1860, a miller in 1870 in a household with three mill laborers, and a “Proprietor of Saw Mill” in 1880 while boarding with two men who worked in that sawmill. James E. Hollingsworth was one of the 1870 laborers.',
+          'On line 10, the census lists “J. L. Mason,” age 36, born in Kentucky, living alone in dwelling 746. His occupation is written as “Blacksmith.” B. H. Hollingsworth lived two family numbers away; the Parker deed grantors lived five away. On the next census page, John and Laura Kipper shared a household with David, Virginia, and Edwin Hollingsworth.',
         interpretation:
-          'Age, birthplace, county, and name make a strong Missouri identity. James E. is not the B. H. Hollingsworth in the 1860 neighborhood, and his relationship to the 1850 household is unproved. The sequence does not identify a mill site, prove legal ownership, or document a move to Texas.',
-        referenceIds: [62, 63, 64],
+          'The census gives initials, not the full name James L. Age, Kentucky birthplace, Monroe County, the neighboring Parker couple, and the land record strongly support that identification. B. H. is strongly identified as Benjamin Hollingsworth from the 1850 home; the other three siblings recur with the Kippers. The census does not explain their relationships or say James worked with John Kipper.',
+        referenceIds: [62],
+        routeIndex: 1,
+      },
+      {
+        id: 'network-miller-1870',
+        year: '1870',
+        place: 'Washington Township · Monroe County',
+        record:
+          'The census lists 46-year-old Kentucky-born James L. Mason as a miller, followed in the household by three mill laborers. One was James E. Hollingsworth.',
+        interpretation:
+          'Name, age, birthplace, and county continue the Missouri J. L. record sequence. James E. is not the B. H. Hollingsworth near J. L. in 1860; his relationship to the 1850 household is unproved. The schedule does not identify the mill or its owner.',
+        referenceIds: [63],
+        routeIndex: 2,
+      },
+      {
+        id: 'network-sawmill-1880',
+        year: '1880',
+        place: 'Jackson Township · Monroe County',
+        record:
+          'The census lists 55-year-old Kentucky-born James L. Meason as “Proprietor of Saw Mill,” boarding with two men recorded as working in that sawmill.',
+        interpretation:
+          'The age, birthplace, county, and name strongly continue the 1860–1870 Missouri sequence. The occupation does not identify a mill site, prove legal title, or document a later move to Texas.',
+        referenceIds: [64],
         routeIndex: 2,
       },
       {
@@ -283,7 +305,7 @@ export const stories = [
         interpretation:
           'Reed is independently documented as Martha’s surname. Hollingsworth may preserve a valued family association, but the descendant-held page lacks a title page and ownership chain, and no record identifies the name’s intended honoree.',
         referenceIds: [32, 34],
-        routeIndex: 1,
+        routeIndex: 3,
       },
     ],
     closing: [

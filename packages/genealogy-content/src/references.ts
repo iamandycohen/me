@@ -755,15 +755,15 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
   {
     id: 62,
     title:
-      '1860 Monroe County census — J. L. Mason and the Kipper–Hollingsworth cluster',
+      '1860 Monroe County census — J. L. Mason, blacksmith, and neighboring households',
     citation:
-      '1860 U.S. census, Clay Township, Monroe County, Missouri, post office Granville, pp. 111–112, dwellings 746–754; enumerated 16–17 July 1860; Ancestry collection 7667, images 4233984_00115–00116.',
+      '1860 U.S. census, Clay Township, Monroe County, Missouri, post office Granville, p. 111, line 10, dwelling/family 746 (J. L. Mason); neighboring households continue on pp. 111–112; enumerated 16–17 July 1860; Ancestry collection 7667, images 4233984_00115–00116.',
     supports:
-      'The consecutive schedules place Kentucky-born blacksmith J. L. Mason near the Parker couple from the 1855 deeds, B. H. Hollingsworth, and John and Laura Kipper. The Kipper household includes David, Virginia, and Edwin Hollingsworth, who had lived with Benjamin and Hannah Mason in 1850. Together with age, place, and the deed network, this strongly continues the Missouri James L. identity and its extended-family circle.',
+      'Page 111, line 10 explicitly lists 36-year-old Kentucky-born “J. L. Mason” living alone with occupation “Blacksmith.” The consecutive schedules place him near the Parker couple from the 1855 deeds, B. H. Hollingsworth, and John and Laura Kipper. The Kipper household includes David, Virginia, and Edwin Hollingsworth, who had lived with Benjamin and Hannah Mason in 1850. Age, place, and the deed network strongly support identifying J. L. as the Missouri James L.',
     limitation:
-      'The census states no relationships among the neighboring households, does not say that James worked with John Kipper, and does not prove that this Missouri James was the elder James later recorded in Texas. The Hollingsworth identifications depend on cross-record comparison. I link to the provider rather than reproduce the privately preserved census images.',
+      'The census writes initials, not the full name James L.; that identity is a cross-record assessment. It states no relationships among the neighboring households, does not say that James worked with John Kipper, and does not prove that this Missouri man was the elder James later recorded in Texas. The Hollingsworth identifications depend on cross-record comparison. I link to the provider rather than reproduce the privately preserved census images.',
     url: 'https://www.ancestry.com/imageviewer/collections/7667/images/4233984_00115?pId=40504012',
-    accessLabel: 'Open the first census page at Ancestry',
+    accessLabel: 'Open page 111, line 10 at Ancestry',
   },
   {
     id: 63,
