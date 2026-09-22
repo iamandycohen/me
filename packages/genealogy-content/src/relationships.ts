@@ -19,10 +19,10 @@ export const relationships = [
     support: [
       'Benjamin’s proved son-in-law acquired land with George and James L. Meason.',
       'The Kipper, Hollingsworth, Parker, and Meason households remained closely associated.',
-      'George’s son later called elder James L. Meason his uncle; James’s death record named Benjamin as his father.',
+      'The 1900 Texas census calls elder James L. Meason the uncle of James R., who strongly continues George’s son James from 1880; the elder James’s death record names Benjamin as his father.',
     ],
     limitation:
-      'No reviewed record states in one sentence that George was Benjamin’s son.',
+      'No reviewed record states in one sentence that George was Benjamin’s son. The Texas elder James L. was reported as Missouri-born, while the Missouri James L. was repeatedly reported as Kentucky-born; no 1880–1900 record bridges them. Neither man is identified with Benjamin’s separately documented son James S.',
     referenceIds: [1, 28, 33, 59, 60, 61, 62, 63, 64],
     publication: published,
   },

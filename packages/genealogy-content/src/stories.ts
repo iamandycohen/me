@@ -8,8 +8,76 @@ const publication = {
 
 export const stories = [
   {
-    id: 'migration',
+    id: 'joseph-boat',
     number: '01',
+    title: 'A deed out of reach',
+    shortTitle: 'Joseph’s boat',
+    period: '1799–1813',
+    summary:
+      'Joseph Meason died aboard a riverboat after asking for a deed no one could reach. Fourteen years later, Benjamin and other relatives conveyed claimed interests in the Highland Creek land.',
+    opening: [
+      'On 29 March 1799, Joseph Meason was very sick aboard a Kentucky boat on the Monongahela River, about a mile above Pittsburgh. Mary Hartle later testified that he appeared to be in his right mind. About an hour before he died, Joseph asked for a deed drawn to convey land to Joseph Worthington. The document could not be reached among the packed belongings aboard the boat.',
+      'Asked whether he could state his wishes before witnesses, Joseph did. Hartle and two other witnesses later gave depositions, and a Kentucky court ordered their accounts recorded. The entry preserves his wishes for his estate and, specifically, a thousand acres on Highland Creek.',
+      'The record gives no cause of illness. It does not tell us where Joseph boarded, where the boat came from, where it was headed, or whether it was moving. “Kentucky boat” was a name for an inland flatboat; it does not establish Joseph’s itinerary.',
+    ],
+    routePlaces: [
+      'Monongahela River · near Pittsburgh',
+      'Henderson County court · Kentucky',
+      'Highland Creek · Kentucky',
+    ],
+    events: [
+      {
+        id: 'joseph-boat-declaration-1799',
+        year: '29 March 1799',
+        place: 'Monongahela River · near Pittsburgh',
+        record:
+          'Three later witness depositions describe Joseph Meason’s final declaration aboard a Kentucky boat. Mary Hartle said a deed drawn for Joseph Worthington could not be reached among the packed belongings. John Carnahan and Rachel Thompson also described Joseph’s stated wish for Worthington to have his 1,000-acre Highland Creek tract.',
+        interpretation:
+          'The court entry is a clerk’s copy of depositions proving an oral will, not Joseph’s handwritten will. The deed’s signing, delivery, recovery, and legal effect remain unknown.',
+        referenceIds: [80, 82],
+        routeIndex: 0,
+      },
+      {
+        id: 'joseph-court-order-1799',
+        year: '6 August 1799',
+        place: 'Henderson County court · Kentucky',
+        record:
+          'Henderson County Court ordered the three depositions recorded. Kentucky’s 1797 wills act required a land devise to be written and signed.',
+        interpretation:
+          'Joseph’s spoken declaration alone did not meet that requirement for Highland Creek. The court entry does not establish the legal status of the requested deed.',
+        referenceIds: [80, 81],
+        routeIndex: 1,
+      },
+      {
+        id: 'joseph-highland-claim-1813',
+        year: '1813',
+        place: 'Highland Creek · Kentucky',
+        record:
+          'Benjamin Meason conveyed his undivided interest as one of Joseph’s heirs at law. A neighboring deed named children of Joseph’s brothers John and Samuel among other claimants.',
+        interpretation:
+          'These private deeds show a collateral inheritance network, but they are not a court decree or a complete heir list. They do not name Benjamin’s father or identify his exact branch.',
+        referenceIds: [67, 68],
+        routeIndex: 2,
+      },
+    ],
+    closing: [
+      'The scene on the boat feels like the moment a family history changed. The records support a narrower conclusion: Joseph asked for a document that was out of reach, witnesses preserved his spoken wishes, and later relatives conveyed claimed interests in the land. What became of the deed, and why the later title took the course it did, remain questions.',
+      'This is where my search meets the wider Meason family. Highland Creek binds Benjamin to Joseph’s inheritance story without giving me the parent-child link I am looking for. The deeds name branches worth following, while Benjamin’s parents remain unknown.',
+    ],
+    recordReader: {
+      says: 'Three witness depositions describe Joseph’s final declaration aboard a Kentucky boat near Pittsburgh. The court ordered the depositions recorded on 6 August 1799. Hartle said Joseph asked for a deed to Worthington that could not be reached.',
+      inference:
+        'The 1813 Highland Creek deeds place Benjamin within Joseph’s inheritance network. The requested deed could matter to the land’s legal history, but its status is unknown.',
+      unknown:
+        'Joseph’s illness, the boat’s origin and destination, the deed’s execution and fate, the full title history, and Benjamin’s exact branch.',
+      referenceIds: [80, 81, 82, 67, 68],
+    },
+    relatedCaseIds: ['parentage'],
+    publication: { ...publication, reviewedOn: '2026-09-22' },
+  },
+  {
+    id: 'migration',
+    number: '02',
     title: 'A family line from Kentucky to Texas',
     shortTitle: 'The generations west',
     period: '1800–present',
@@ -139,13 +207,16 @@ export const stories = [
   },
   {
     id: 'between-lines',
-    number: '02',
+    number: '03',
     title: 'The family between the lines',
     shortTitle: 'Land, households, and mills',
     period: '1846–1880',
     summary:
-      'A named daughter, shared land, repeated households, and James L.’s working life reveal a network no single family statement preserves.',
-    routePlaces: ['Family named', 'Households & land', 'Mill work'],
+      'Households, separate deeds, and census occupations reveal a Missouri family network while leaving some same-name identities and relationships open.',
+    opening: [
+      'Benjamin’s will directly names James S. as his son. In 1855, one deed names James S. as grantee; an adjacent deed names James L., George M., and Benjamin’s documented son-in-law John Kippers together. Neither deed states how the men are related. I followed those names backward and forward through neighboring census pages, keeping the James in Benjamin’s 1850 household, whose middle initial was not recorded, unassigned.',
+    ],
+    routePlaces: ['Family named', 'Land & neighbors', 'Work', 'Naming memory'],
     events: [
       {
         id: 'network-laura-marriage-1846',
@@ -163,91 +234,127 @@ export const stories = [
         year: '1850',
         place: 'Benjamin and Hannah’s household',
         record:
-          'The household includes James and four Hollingsworth children alongside Benjamin and Hannah.',
+          'Benjamin and Hannah Mason’s household includes James and Emily Mason; George and Elizabeth Hollingsworth; and the Hollingsworth children David, Benjamin, Virginia, and Edwin.',
         interpretation:
-          'The composition matters when the same people reappear later, but the census does not explain every relationship.',
+          'The census gives this James no middle initial or relationship to Benjamin.',
         referenceIds: [1],
-        routeIndex: 1,
+        routeIndex: 0,
       },
       {
-        id: 'network-land-households-1855-1860',
-        year: '1855–1860',
-        place: 'Land and neighboring households',
-        record:
-          'Kippers, George, and James L. appear in a shared land transaction; Parker, Hollingsworth, Kipper, and Meason households recur across census pages.',
-        interpretation:
-          'The cluster strengthens the family-network argument. The deed and proximity do not literally call the men brothers.',
-        referenceIds: [28, 61, 62],
-        routeIndex: 1,
-      },
-      {
-        id: 'network-james-work-1860-1880',
-        year: '1860–1880',
+        id: 'network-virginia-will-1853',
+        year: '1853',
         place: 'Monroe County, Missouri',
         record:
-          'James L. appears as a blacksmith, then a miller, and finally a sawmill proprietor with coherent age, birthplace, county, and middle initial.',
+          'Benjamin’s recorded will calls James S. Meason his son and Virginia Ann Hollingsworth his daughter.',
         interpretation:
-          'The occupational sequence creates a strong Missouri identity. It does not prove ownership of a particular mill or the later move to Texas.',
-        referenceIds: [62, 63, 64],
+          'This directly identifies a son as James S. Virginia Ann’s surname establishes a Meason–Hollingsworth connection, but does not identify her with Elizabeth Hollingsworth in the 1850 census.',
+        referenceIds: [65],
+        routeIndex: 0,
+      },
+      {
+        id: 'network-land-1855',
+        year: '1855',
+        place: 'Monroe County land',
+        record:
+          'Two adjacent deeds record separate Parker land sales. One names James S. Meason as grantee. The other names J. C. Kippers, George M. Meason, and James L. Meason as joint grantees.',
+        interpretation:
+          'The separate transactions write different middle initials. Neither deed states a relationship between James S. and James L. or describes a working arrangement.',
+        referenceIds: [28],
+        routeIndex: 1,
+      },
+      {
+        id: 'network-blacksmith-1860',
+        year: '1860',
+        place: 'Clay Township · census page 111',
+        record:
+          'On line 10, the census lists “J. L. Mason,” age 36, Kentucky-born, alone in dwelling 746, with occupation “Blacksmith.” B. H. Hollingsworth was two family numbers away and the Parker deed grantors five away. John and Laura Kipper appear on the next page with David, Virginia, and Edwin Hollingsworth.',
+        interpretation:
+          'The Kipper census adds circumstantial evidence: three Hollingsworth siblings from Benjamin’s 1850 household now lived with his documented daughter Laura. Together with age, birthplace, the Parker neighbors, and the deed, this supports the continuing network and a possible link between J. L. and the 1850 James. The deed-to-1860 identification is strong; the 1850 identity and any working tie between James and John remain open.',
+        referenceIds: [1, 28, 61, 62],
+        routeIndex: 1,
+      },
+      {
+        id: 'network-miller-1870',
+        year: '1870',
+        place: 'Washington Township · Monroe County',
+        record:
+          'The census lists 46-year-old Kentucky-born James L. Mason as a miller, followed in the household by three mill laborers. One was James E. Hollingsworth.',
+        interpretation:
+          'Name, age, birthplace, and county strongly continue the 1860 J. L. record. James E. is a different man from B. H. Hollingsworth; his relationship to the earlier household is unproved. The schedule does not identify the mill or its owner.',
+        referenceIds: [63],
         routeIndex: 2,
       },
+      {
+        id: 'network-sawmill-1880',
+        year: '1880',
+        place: 'Jackson Township · Monroe County',
+        record:
+          'The census lists 55-year-old Kentucky-born James L. Meason as “Proprietor of Saw Mill,” boarding with two men recorded as working in that sawmill.',
+        interpretation:
+          'The age, birthplace, county, and name strongly continue the 1860–1870 James L. sequence. The occupation does not identify a mill site, prove legal title, or document a later move to Texas.',
+        referenceIds: [64],
+        routeIndex: 2,
+      },
+      {
+        id: 'network-hollingsworth-name',
+        year: 'Later family memory',
+        place: 'George M. Meason’s family',
+        record:
+          'George M. and Martha Reed Meason’s reported child names include James Reed Meason and George Hollingsworth Meason. A descendant-held family Bible page names George Hollingsworth Meason.',
+        interpretation:
+          'Reed is independently documented as Martha’s surname. Hollingsworth may preserve a valued family association, but the descendant-held page lacks a title page and ownership chain, and no record identifies the name’s intended honoree.',
+        referenceIds: [32, 34],
+        routeIndex: 3,
+      },
+    ],
+    closing: [
+      'The 1860–1880 census entries support a working-life sequence for James L., but they do not explain his change of trade, establish a business tie to John Kipper, or prove legal title to a particular sawmill. The nearby households and deeds reveal a wider network while leaving the 1850 James’s identity and several family relationships unresolved.',
     ],
     relatedCaseIds: ['george-connection'],
-    publication,
+    publication: { ...publication, reviewedOn: '2026-09-22' },
   },
   {
     id: 'texas-reconnection',
-    number: '03',
+    number: '04',
     title: 'A Texas record cluster bridges the branches',
     shortTitle: 'The Texas evidence cluster',
     period: '1880–1919',
     summary:
       'The words “son,” “uncle,” and “father,” spread across three records and four decades, create an indirect bridge back to Benjamin without proving a documented reunion.',
-    routePlaces: ['George’s Texas home', 'Missouri gap', 'Texas household'],
+    routePlaces: ['George’s Texas home', 'Texas uncle household'],
     events: [
       {
         id: 'texas-george-household-1880',
         year: '1880',
         place: 'Dallas County, Texas',
         record:
-          'George’s household records James R. as his son and Eva as his daughter-in-law.',
+          'George’s 1880 household records James as his son and Eva as his daughter-in-law.',
         interpretation:
-          'This anchors James R. to George before James R. later becomes the informant and household link around elder James L.',
-        referenceIds: [33],
+          'Their names, ages, and household pattern strongly support identifying this James and Eva with James R. and Eva in the 1900 Texas census.',
+        referenceIds: [33, 60],
         routeIndex: 0,
-      },
-      {
-        id: 'texas-james-missouri-1880',
-        year: '1880',
-        place: 'Monroe County, Missouri',
-        record:
-          'Elder James L. remains in Missouri as a sawmill proprietor—the last high-confidence record in his Missouri sequence.',
-        interpretation:
-          'The identity through 1880 is strong, but the move from Missouri to Texas has not been documented.',
-        referenceIds: [64],
-        routeIndex: 1,
       },
       {
         id: 'texas-uncle-household-1900',
         year: '1900',
         place: 'Foard County, Texas',
         record:
-          'Elder James L. lives in James R. Meason’s household and is recorded as James R.’s uncle.',
+          'Elder James L. lives in James R. Meason’s household and is recorded as James R.’s uncle and as Missouri-born.',
         interpretation:
-          '“Uncle” connects the branches but does not specify side, blood versus marriage, or a complete sibling statement.',
-        referenceIds: [60],
-        routeIndex: 2,
+          '“Uncle” does not specify the side or type of relationship. The Missouri James L. was repeatedly recorded as Kentucky-born, and no record bridges his life after 1880 to this Texas elder.',
+        referenceIds: [60, 62, 63, 64],
+        routeIndex: 1,
       },
       {
         id: 'texas-james-death-1919',
         year: '1919',
         place: 'Big Sandy, Texas',
         record:
-          'Elder James L.’s death certificate, informed by J. R. Meason, names Benjamin Meason as his father.',
+          'Elder James L.’s death certificate, informed by J. R. Meason, names Benjamin Meason as his father and Missouri as his birthplace.',
         interpretation:
-          'Together with the uncle household and earlier network, this supports George’s placement indirectly. No record literally calls George and elder James brothers.',
-        referenceIds: [59],
-        routeIndex: 2,
+          'The father’s name was supplied at death, nearly a century after the reported birth. Together with the uncle household and George’s 1880 Texas record, it supports George’s placement indirectly; no record calls George and the elder James brothers.',
+        referenceIds: [33, 59, 60],
+        routeIndex: 1,
       },
     ],
     relatedCaseIds: ['george-connection'],

@@ -281,6 +281,7 @@ export const caseMediaIds: Record<CaseId, readonly MediaId[]> = {
 };
 
 export const storyMediaIds: Record<StoryId, readonly MediaId[]> = {
+  'joseph-boat': [],
   migration: [
     'kentucky-map-1818',
     'ralls-map-1878',
@@ -305,6 +306,14 @@ export const caseImageNeeds: Partial<Record<CaseId, PublicImageNeed>> = {
 };
 
 export const storyImageNeeds: Partial<Record<StoryId, PublicImageNeed>> = {
+  'joseph-boat': {
+    id: 'joseph-riverboat-context',
+    priority: 'normal',
+    label: 'Image sought',
+    title: 'A documented Monongahela riverboat setting',
+    description:
+      'A rights-cleared period view of the Monongahela near Pittsburgh or a clearly labeled generic Kentucky boat would ground the scene without claiming to show Joseph’s boat.',
+  },
   migration: {
     id: 'kentucky-county-records',
     priority: 'normal',

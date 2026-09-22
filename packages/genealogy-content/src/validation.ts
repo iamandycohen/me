@@ -192,6 +192,11 @@ export function validatePublicGenealogyContent(
   const storyEventIds: string[] = [];
   for (const story of content.stories) {
     validatePublication(`Story ${story.id}`, story.publication);
+    if (story.recordReader)
+      validateReferences(
+        `Story record reader ${story.id}`,
+        story.recordReader.referenceIds
+      );
     for (const caseId of story.relatedCaseIds)
       if (!caseIds.has(caseId))
         errors.push(`Story ${story.id} has missing case ${caseId}`);

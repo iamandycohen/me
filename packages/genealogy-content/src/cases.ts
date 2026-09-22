@@ -134,13 +134,13 @@ export const researchCases = [
     assessment: 'Accepted conclusion · indirect evidence',
     assessmentType: 'accepted',
     summary:
-      'No record writes the whole relationship in one sentence. A network of named kin, land, households, work, and later Texas statements carries the conclusion.',
+      'Benjamin’s will names James S. as his son. George’s placement as another son rests on an indirect chain through land, households, and later Texas kinship statements.',
     known:
       'George’s placement as Benjamin’s son is accepted in the working tree as a high-confidence indirect conclusion.',
     unknown:
-      'No reviewed record directly states “George, son of Benjamin,” and parts of the collateral migration remain open.',
+      'No reviewed record directly states “George, son of Benjamin,” or gives the relationship between James S. and James L. Whether the Missouri James L. was the elder James L. later recorded in Texas remains unresolved.',
     relatedPersonIds: ['benjamin', 'george'],
-    referenceIds: [1, 28, 33, 59, 60, 61, 62, 63, 64],
+    referenceIds: [1, 28, 33, 59, 60, 61, 62, 63, 64, 65],
     sections: [
       {
         id: 'evidence-trail',
@@ -159,22 +159,31 @@ export const researchCases = [
             tone: 'record',
           },
           {
+            id: 'james-s-son',
+            eyebrow: '1853 · named relationship',
+            title: 'James S. is Benjamin’s documented son',
+            detail:
+              'Benjamin’s will calls James S. his son. It does not name George, James L., or Laura; a separate marriage return names Laura as Benjamin’s daughter.',
+            referenceIds: [61, 65],
+            tone: 'record',
+          },
+          {
             id: 'land-households',
             eyebrow: '1855–1860 · association',
             title: 'Land and households keep the same people together',
             detail:
-              'Kippers, George, James L., Parker, Hollingsworth, and Meason records form a continuing Monroe County network. The deed itself states no kinship.',
+              'Three Hollingsworth siblings appear in Benjamin’s 1850 household and in his daughter Laura and John Kipper’s 1860 household. Nearby J. L., the Parker neighbors, and the joint deed add circumstantial support for a continuing Monroe County family network; none states George’s parentage.',
             referenceIds: [1, 28, 61, 62],
-            tone: 'record',
+            tone: 'inference',
           },
           {
             id: 'texas-statements',
             eyebrow: '1900–1919 · later statements',
             title: 'Texas records supply “uncle” and “father”',
             detail:
-              'George’s son lived with elder James L., recorded as his uncle; James’s death certificate later named Benjamin as his father.',
+              'The 1900 census calls elder James L. an uncle of James R. Ages and household context strongly connect James R. to George’s son James in 1880; the elder James’s death certificate later names Benjamin as his father.',
             referenceIds: [33, 59, 60],
-            tone: 'record',
+            tone: 'inference',
           },
         ],
       },

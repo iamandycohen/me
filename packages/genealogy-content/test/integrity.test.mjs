@@ -25,10 +25,10 @@ test('the canonical public content passes integrity validation', () => {
 });
 
 test('the package carries the complete reviewed public reference catalog', () => {
-  assert.equal(references.length, 79);
+  assert.equal(references.length, 82);
   assert.deepEqual(
     references.map(({ id }) => id),
-    Array.from({ length: 79 }, (_, index) => index + 1)
+    Array.from({ length: 82 }, (_, index) => index + 1)
   );
 });
 
@@ -41,7 +41,7 @@ test('reviewed citation visuals expose only approved public media', () => {
 
   assert.deepEqual(
     Object.keys(visualAccessByReference).map(Number),
-    [5, 26, 36, 38, 39, 40, 42, 67, 68, 71, 73, 74, 75, 76, 77, 78, 79]
+    [5, 26, 36, 38, 39, 40, 42, 67, 68, 71, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82]
   );
   assert.deepEqual(
     Object.fromEntries(
@@ -68,6 +68,9 @@ test('reviewed citation visuals expose only approved public media', () => {
       77: 'external-original-only',
       78: 'external-original-only',
       79: 'external-original-only',
+      80: 'external-original-only',
+      81: 'external-original-only',
+      82: 'text-only-deferred',
     }
   );
   assert.deepEqual(
@@ -667,7 +670,7 @@ test('the parentage case separates the Kentucky and Hempfield Thomases', () => {
 test('the collection-scale prototype entities are represented', () => {
   assert.equal(people.length, 7);
   assert.equal(researchCases.length, 3);
-  assert.equal(stories.length, 3);
+  assert.equal(stories.length, 4);
   assert.equal(evidenceClusters.length, 3);
   assert.equal(Object.keys(media).length, 10);
   assert.ok(

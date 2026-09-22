@@ -7,9 +7,9 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     citation:
       '1850 U.S. census, District 59, Monroe County, Missouri, p. 139a; NARA microfilm publication M432, roll 407.',
     supports:
-      'Benjamin’s age of 74, reported Virginia birthplace, Hannah’s presence, and the Monroe County household cluster.',
+      'Benjamin’s age of 74, reported Virginia birthplace, Hannah’s presence, 25-year-old Kentucky-born James Mason without a middle initial, and George and Elizabeth Hollingsworth with children David, Benjamin, Virginia, and Edwin in one Monroe County household.',
     limitation:
-      'The census supports an approximate birth year, not an exact birth date, and it does not identify Benjamin’s parents.',
+      'The census supports an approximate birth year, not an exact birth date, and it does not identify Benjamin’s parents. It gives the household member James Mason no middle initial or relationship, so this entry alone cannot assign him to the separately documented James S. or James L.',
     url: 'https://archive.org/details/populationschedu0407unix/page/n280/mode/1up',
     accessLabel: 'Open census image',
   },
@@ -336,15 +336,15 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
   },
   {
     id: 28,
-    title: 'Monroe County deed-index review, 1831–1869',
+    title: 'Separate 1855 Monroe County deeds to James S. and James L.',
     citation:
-      'Monroe County, Missouri, direct and indirect deed indexes, 1831–1869; FamilySearch catalog 215468, DGS 8196783; complete regular-M grantor images 92–105 and grantee images 258–272 reviewed.',
+      'Monroe County, Missouri, Deed Book O, pp. 338–340; two Parker deeds dated 28 December 1855 and filed separately in February 1856; FamilySearch DGS 8196789, images 205–206. The James S. entry was located through the grantee index, DGS 8196783, image 265.',
     supports:
-      'The page-by-page index review found James S. Meason as an indexed principal in an 1855 Section 11 deed. An adjacent original names J. C. Kippers, George M. Meason, and James L. Meason as joint grantees, but states no kinship.',
+      'One original deed conveys land to James S. Meason. A separate adjacent deed conveys land to J. C. Kippers, George M. Meason, and James L. Meason as joint grantees and refers to a lot previously sold to James L. The transactions use different middle initials and neither states kinship.',
     limitation:
-      'No indexed relationship statement was found. Entries under another principal, clerk variants, and unindexed instruments remain possible; the Section 11 parcels do not match Benjamin’s candidate Section 20 farm.',
-    url: 'https://www.familysearch.org/en/search/catalog/215468',
-    accessLabel: 'Open catalog entry',
+      'The deeds do not identify the 1850 household’s James, establish a relationship among the joint grantees, or identify James S.’s Section 11 parcel as Benjamin’s candidate Section 20 farm. The index does not exhaust mentions within deeds indexed under other parties.',
+    url: 'https://www.familysearch.org/search/film/008196789',
+    accessLabel: 'Open recorded deed volume at FamilySearch',
   },
   {
     id: 29,
@@ -412,9 +412,9 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     citation:
       'Publicly shared “NOWELL/SEDBERRY FAMILY BIBLE PAGE 3,” reviewed through Ancestry Public Member Photos and Scanned Documents; shared 19 June 2020.',
     supports:
-      'A descendant-held lineage note expands George’s middle initial as Mansfield and repeats a 10 May 1810 birth and 11 November 1887 death tradition.',
+      'A descendant-held lineage note expands George’s middle initial as Mansfield, repeats a 10 May 1810 birth and 11 November 1887 death tradition, and names George Hollingsworth Meason in the later family.',
     limitation:
-      'The page does not name Benjamin or Hannah as George’s parents. No title page, publication date, repository, or ownership chain was exposed, so it is family testimony rather than contemporary proof.',
+      'The page does not name Benjamin or Hannah as George’s parents or identify whom the Hollingsworth middle name was meant to honor. No title page, publication date, repository, or ownership chain was exposed, so it is family testimony rather than contemporary proof.',
     url: 'https://www.ancestry.com/search/collections/1093/',
     accessLabel: 'Search public member media',
   },
@@ -722,9 +722,9 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     citation:
       'Texas State Board of Health, Bureau of Vital Statistics, standard certificate of death no. 5174, James Lawrence Meason, 12 January 1919, Upshur County; “Texas, United States records, images,” FamilySearch, image 2333 of 3229; Texas State Registrar Office, image group 005145707.',
     supports:
-      'The original certificate identifies an elder James Lawrence Meason, born about 1820, and names Benjamin Meason as his father. Read with the 1900 Foard County census, it supports a strong indirect case that this elder James belonged to George M. Meason’s family cluster.',
+      'The original certificate identifies an elder James Lawrence Meason, born about 1820 in Missouri according to the informant, and names Benjamin Meason as his father. Read with the 1900 Foard County census, it supports an indirect case that this elder James belonged to George M. Meason’s family cluster.',
     limitation:
-      'The parentage is secondary information supplied roughly a century after the reported birth. The certificate gives its informant only as J. R. Meason and states no relationship. This man has not been proved to be the 1855 James L.; he must not be merged with the separately recorded James S. Meason. The certificate does not mention George or prove that George was Benjamin’s son. I link to FamilySearch rather than reproduce the certificate or unnecessary medical and residential details.',
+      'The parentage and birthplace are secondary information supplied roughly a century after the reported birth. The certificate gives its informant only as J. R. Meason and states no relationship. This man has not been proved to be the 1855 James L.; Missouri records call that man Kentucky-born, and no migration record bridges them. Nor should he be merged with the separately recorded James S. Meason. The certificate does not mention George or prove that George was Benjamin’s son. I link to FamilySearch rather than reproduce the certificate or unnecessary medical and residential details.',
     url: 'https://www.familysearch.org/ark:/61903/3:1:33SQ-GY14-6WDP?view=index',
     accessLabel: 'Open the original death certificate',
   },
@@ -734,9 +734,9 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     citation:
       '1900 U.S. census, Foard County, Texas, Justice Precinct 1, supervisor’s district 3, enumeration district 27, sheets 7A–7B, dwelling and family 120, lines 44–52, James R. Meason household; enumerated 18 June 1900; National Archives microfilm publication T623.',
     supports:
-      'The original two-page schedule records James R. Meason with his wife Eva and places a 76-year-old James L. Meason in their household, explicitly describing the elder James as James R.’s uncle. James R.’s age, spouse, birthplace, and family context strongly continue George M. and Martha Reed Meason’s son James and daughter-in-law Eva from the 1880 census.',
+      'The original two-page schedule records James R. Meason with his wife Eva and places a 76-year-old Missouri-born James L. Meason in their household, explicitly describing the elder James as James R.’s uncle. James R.’s age, spouse, birthplace, and family context strongly continue George M. and Martha Reed Meason’s son James and daughter-in-law Eva from the 1880 census.',
     limitation:
-      '“Uncle” does not specify the paternal or maternal side, a blood or marriage relationship, or a looser family usage. Identifying the 1900 elder James with the 1919 decedent is strongly supported but still requires a cross-record conclusion, and the records disagree about whether he was widowed or single. Nothing in this census identifies him as the James L. in the 1855 Monroe County deed or literally names George as his brother or Benjamin’s son. The authenticated census images remain in the private research archive and are not reproduced here.',
+      '“Uncle” does not specify the paternal or maternal side, a blood or marriage relationship, or a looser family usage. Identifying the 1900 elder James with the 1919 decedent is strongly supported but still requires a cross-record conclusion, and the records disagree about whether he was widowed or single. The Missouri James L. was consistently recorded as Kentucky-born; this census does not bridge that birthplace conflict or the 1880–1900 record gap, or literally name George as the elder James’s brother or Benjamin’s son. The authenticated census images remain in the private research archive and are not reproduced here.',
     url: 'https://www.ancestry.com/imageviewer/collections/7602/images/4118464_00591?pId=43457280',
     accessLabel: 'Open the census at Ancestry',
   },
@@ -755,23 +755,29 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
   {
     id: 62,
     title:
-      '1860 Monroe County census — J. L. Mason and the Kipper–Hollingsworth cluster',
+      '1860 Monroe County census — J. L. Mason, blacksmith, and neighboring households',
     citation:
-      '1860 U.S. census, Clay Township, Monroe County, Missouri, post office Granville, pp. 111–112, dwellings 746–754; enumerated 16–17 July 1860; Ancestry collection 7667, images 4233984_00115–00116.',
+      '1860 U.S. census, Clay Township, Monroe County, Missouri, post office Granville, p. 111, line 10, dwelling/family 746 (J. L. Mason); neighboring households continue on pp. 111–112; enumerated 16–17 July 1860; Ancestry collection 7667, images 4233984_00115–00116.',
     supports:
-      'The consecutive schedules place Kentucky-born blacksmith J. L. Mason near the Parker couple from the 1855 deeds, B. H. Hollingsworth, and John and Laura Kipper. The Kipper household includes David, Virginia, and Edwin Hollingsworth, who had lived with Benjamin and Hannah Mason in 1850. Together with age, place, and the deed network, this strongly continues the Missouri James L. identity and its extended-family circle.',
+      'Page 111, line 10 explicitly lists 36-year-old Kentucky-born “J. L. Mason” living alone with occupation “Blacksmith.” The consecutive schedules place him near the Parker couple from the 1855 deeds, B. H. Hollingsworth, and John and Laura Kipper. The Kipper household includes David, Virginia, and Edwin Hollingsworth, who had lived with Benjamin and Hannah Mason in 1850. Their presence with Benjamin’s documented daughter Laura supports a continuing family network by cross-record inference. Age, place, and the deed network strongly support identifying J. L. as the Missouri James L.',
     limitation:
-      'The census states no relationships among the neighboring households, does not say that James worked with John Kipper, and does not prove that this Missouri James was the elder James later recorded in Texas. The Hollingsworth identifications depend on cross-record comparison. I link to the provider rather than reproduce the privately preserved census images.',
+      'The census writes initials, not the full name James L.; that identity is a cross-record assessment. The household pattern contributes circumstantial support for linking J. L. to the 1850 James, but does not establish it or identify him with Benjamin’s will-named son James S. The schedule states no relationships among neighboring households, does not explain why the children lived with the Kippers or say that James worked with John, and does not prove that this Missouri man was the elder James later recorded in Texas. The Hollingsworth identifications depend on cross-record comparison. I link to the provider rather than reproduce the privately preserved census images.',
     url: 'https://www.ancestry.com/imageviewer/collections/7667/images/4233984_00115?pId=40504012',
-    accessLabel: 'Open the first census page at Ancestry',
+    accessLabel: 'Open page 111, line 10 at Ancestry',
+    accessLinks: [
+      {
+        label: 'Open page 112, Kipper household at Ancestry',
+        url: 'https://www.ancestry.com/imageviewer/collections/7667/images/4233984_00116',
+      },
+    ],
   },
   {
     id: 63,
-    title: '1870 Monroe County census — James L. Meason, miller',
+    title: '1870 Monroe County census — James L. Mason, miller',
     citation:
       '1870 U.S. census, Washington Township, Monroe County, Missouri, post office Shelbina, p. 31, printed p. 731, line 18, dwelling 199, family 206; enumerated 4 June 1870; NARA microfilm publication M593, roll 793; Ancestry collection 7163, image 4273712_00723.',
     supports:
-      'The schedule records 46-year-old Kentucky-born James L. Mason as a miller in a Monroe County household immediately followed by three mill laborers. His name, age, birthplace, county, and occupation strongly continue the 1850–1860 Missouri identity and begin the mill-work progression later seen in the 1880 census.',
+      'The schedule records 46-year-old Kentucky-born James L. Mason as a miller in a Monroe County household immediately followed by three mill laborers. His name, age, birthplace, and county strongly continue the 1860 J. L. Mason identity.',
     limitation:
       'The census does not define James’s relationship to the household, identify the mill’s owner, or prove that his reported $1,000 in personal estate represented mill equipment. It does not by itself connect the Missouri man to the elder James later recorded in Texas. I link to the provider rather than reproduce the privately preserved image.',
     url: 'https://www.ancestry.com/imageviewer/collections/7163/images/4273712_00723',
@@ -783,7 +789,7 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     citation:
       '1880 U.S. census, Jackson Township, Monroe County, Missouri, enumeration district 54, p. 35, line 41, dwelling 344, family 360; enumerated 17 June 1880; Ancestry collection 6742, record 25450172.',
     supports:
-      'The schedule records 55-year-old Kentucky-born James L. Meason as a single boarder and proprietor of a sawmill, followed by two boarders whose occupations are working in that sawmill. The consistent age, birthplace, county, and name complete a high-confidence Missouri trail from 1850 through 1880 and give life to his path from blacksmith to miller to mill proprietor.',
+      'The schedule records 55-year-old Kentucky-born James L. Meason as a single boarder and proprietor of a sawmill, followed by two boarders whose occupations are working in that sawmill. The consistent age, birthplace, county, and name complete a high-confidence Missouri working-life sequence from 1860 through 1880.',
     limitation:
       'The schedule does not name or locate the sawmill, establish legal ownership beyond the stated occupation, or prove that this was the elder James living in Texas in 1900 and 1919. Its single status conflicts with the 1900 census’s widowed entry, and the Missouri-to-Texas migration remains undocumented. I link to the provider rather than reproduce the privately preserved image.',
     url: 'https://www.ancestry.com/imageviewer/collections/6742/images/4242025-00559?pId=25450172',
@@ -1066,6 +1072,64 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       note: 'The exact FamilySearch page is available externally; the privately preserved image is not copied, republished, or hotlinked here.',
     },
   },
+  {
+    id: 80,
+    title: 'Court entry and depositions proving Joseph Meason’s oral will',
+    citation:
+      'Henderson County, Kentucky, Will Book A, p. 104 and continuation; depositions concerning Joseph Meason’s declaration of 29 March 1799, ordered recorded 6 August 1799; FamilySearch DGS 4819887, images 137–138.',
+    supports:
+      'Mary Hartle, John Carnahan, and Rachel Thompson described Joseph very ill aboard a Kentucky boat on the Monongahela about a mile above Pittsburgh, his request for a deed drawn to convey land to Joseph Worthington that could not be reached among packed effects, his spoken declaration, and his death soon afterward. Carnahan and Thompson described the 1,000-acre Highland Creek tract.',
+    limitation:
+      'This is a clerk’s will-book copy of a court order and witness depositions, not Joseph’s handwritten will or the requested deed. It gives no illness, boat origin or destination, deed execution or fate, or final land-title outcome. It does not establish that no separate writing ever existed.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:33SQ-GPQM-9N2B',
+    accessLabel: 'Open first page at FamilySearch',
+    accessLinks: [
+      {
+        label: 'First page · court entry and depositions',
+        url: 'https://www.familysearch.org/ark:/61903/3:1:33SQ-GPQM-9N2B',
+      },
+      {
+        label: 'Continuation · depositions',
+        url: 'https://www.familysearch.org/ark:/61903/3:1:33SQ-GPQM-9NV2',
+      },
+    ],
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'The two original record pages are linked at FamilySearch; privately preserved images are not republished here. The story provides a reviewed abstract, not a full transcription.',
+    },
+  },
+  {
+    id: 81,
+    title: 'Kentucky’s 1797 wills act',
+    citation:
+      'William Littell, The Statute Law of Kentucky, vol. 1 (Frankfort, 1809), chapter CCXCIII, pp. 611–615, reproducing the 1797 act concerning wills and testaments.',
+    supports:
+      'The act required a land devise to be in writing and signed; its rules for oral wills did not remove that land-devise requirement.',
+    limitation:
+      'The statute explains why Joseph’s spoken declaration alone was not a written devise of Highland Creek. It does not determine whether the requested deed was signed, delivered, later recovered, or legally effective, or resolve the tract’s later title.',
+    url: 'https://archive.org/details/LittellsStatutesVol1/page/n625/mode/2up',
+    accessLabel: 'Read the statute volume',
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'The public-domain statute volume is linked at Internet Archive; no page image is reproduced here.',
+    },
+  },
+  {
+    id: 82,
+    title: 'Kentucky boats were inland flatboats',
+    citation:
+      'National Park Service, “Flatboats: Transportation During the Cherokee Removal 1837–1839,” updated 21 December 2021.',
+    supports:
+      'Flatboats were also called Kentucky boats and commonly carried people and cargo downstream on inland rivers. This explains the boat term in Joseph’s deposition without identifying his particular craft or itinerary.',
+    limitation:
+      'This later historical overview supplies general boat context, not evidence of Joseph’s departure point, destination, reason for travel, illness, or whether the boat was moving when he died.',
+    url: 'https://home.nps.gov/articles/000/flatboats-transportation-during-the-cherokee-removal-1837-1839.htm',
+    accessLabel: 'Read National Park Service context',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'Historical context is linked; no illustration is used as a depiction of Joseph’s boat.',
+    },
+  },
 ];
 const publication = {
   status: 'published',
@@ -1076,6 +1140,9 @@ const publication = {
 export const references: readonly Reference[] = referenceCatalog.map(
   (entry) => ({
     ...entry,
-    publication,
+    publication:
+      entry.id >= 80
+        ? { ...publication, reviewedOn: '2026-09-22' }
+        : publication,
   })
 );

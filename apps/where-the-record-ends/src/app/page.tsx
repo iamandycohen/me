@@ -105,9 +105,7 @@ export default function HomePage() {
               <ArrowLink href="/cases/parentage/highland-creek">
                 Explore Highland Creek
               </ArrowLink>
-              <ArrowLink href="/stories/migration">
-                Follow seven generations west
-              </ArrowLink>
+              <ArrowLink href="/stories">Follow the family story</ArrowLink>
             </div>
           </div>
 

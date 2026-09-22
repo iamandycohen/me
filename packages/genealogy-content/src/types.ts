@@ -25,7 +25,11 @@ export type RelationshipId =
   | 'cynthia-shannon';
 
 export type CaseId = 'parentage' | 'george-connection' | 'burial-ground';
-export type StoryId = 'migration' | 'between-lines' | 'texas-reconnection';
+export type StoryId =
+  | 'joseph-boat'
+  | 'migration'
+  | 'between-lines'
+  | 'texas-reconnection';
 export type EvidenceClusterId =
   | 'kentucky-records'
   | 'missouri-network'
@@ -156,6 +160,14 @@ export interface Story {
   readonly shortTitle: string;
   readonly period: string;
   readonly summary: string;
+  readonly opening?: readonly string[];
+  readonly closing?: readonly string[];
+  readonly recordReader?: {
+    readonly says: string;
+    readonly inference: string;
+    readonly unknown: string;
+    readonly referenceIds: readonly number[];
+  };
   readonly routePlaces: readonly string[];
   readonly events: readonly StoryEvent[];
   readonly relatedCaseIds: readonly CaseId[];

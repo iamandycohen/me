@@ -222,9 +222,19 @@ export function FamilyAtlas() {
                     />
                   </p>
                   {selectedLineageRelationship.evidenceType === 'indirect' ? (
-                    <p className="mt-3 border-l-2 border-ink/15 pl-3 text-xs italic leading-relaxed text-ink/55">
-                      Boundary: {selectedLineageRelationship.limitation}
-                    </p>
+                    <div className="mt-3 border-l-2 border-ink/15 pl-3 text-xs leading-relaxed text-ink/55">
+                      <p className="italic">
+                        Boundary: {selectedLineageRelationship.limitation}
+                      </p>
+                      {selectedLineageRelationship.id === 'benjamin-george' ? (
+                        <Link
+                          href="/cases/george-connection"
+                          className="mt-2 inline-block font-medium not-italic text-accent underline underline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
+                        >
+                          Read the George connection case
+                        </Link>
+                      ) : null}
+                    </div>
                   ) : null}
                 </div>
               </div>

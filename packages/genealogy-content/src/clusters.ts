@@ -107,7 +107,8 @@ export const evidenceClusters = [
       {
         id: 'missouri-benjamin-household',
         label: 'Benjamin’s household',
-        detail: 'Benjamin, Hannah, James, and Hollingsworth children',
+        detail:
+          'Benjamin, Hannah, a James with no middle initial, and the Hollingsworth family',
         kind: 'household',
         referenceIds: [1],
       },
@@ -117,6 +118,13 @@ export const evidenceClusters = [
         detail: 'A separate household inside the wider network',
         kind: 'person',
         referenceIds: [25, 28],
+      },
+      {
+        id: 'missouri-james-s',
+        label: 'James S. Meason',
+        detail: 'Benjamin’s son, named directly in his 1853 will',
+        kind: 'person',
+        referenceIds: [65],
       },
       {
         id: 'missouri-kippers',
@@ -144,7 +152,13 @@ export const evidenceClusters = [
       {
         from: 'missouri-benjamin-household',
         to: 'missouri-kippers',
-        label: 'documented daughter',
+        label: 'Laura named Benjamin’s daughter',
+        kind: 'documented',
+      },
+      {
+        from: 'missouri-benjamin-household',
+        to: 'missouri-james-s',
+        label: 'James S. named Benjamin’s son',
         kind: 'documented',
       },
       {
@@ -182,7 +196,7 @@ export const evidenceClusters = [
     summary:
       'Direct-line certificates in Dallas County and a collateral uncle household in Foard County preserve different pieces of the later Texas picture.',
     boundary:
-      'These records support relationships and Texas endpoints. They do not document one shared journey, reunion, migration route, or motive.',
+      'These records do not document a shared journey, reunion, migration route, or motive. The Texas elder James L. was recorded as Missouri-born, while the Missouri James L. was repeatedly recorded as Kentucky-born; no record yet joins their identities.',
     nodes: [
       {
         id: 'texas-george-household',
@@ -202,14 +216,14 @@ export const evidenceClusters = [
       {
         id: 'texas-uncle-household',
         label: 'Foard County uncle household',
-        detail: 'Elder James L. appears as James R.’s uncle',
+        detail: 'A Missouri-born elder James L. appears as James R.’s uncle',
         kind: 'household',
         referenceIds: [60],
       },
       {
         id: 'texas-death-record',
         label: 'Big Sandy death record',
-        detail: 'James R. names Benjamin as elder James L.’s father',
+        detail: 'J. R. reports Benjamin as elder James L.’s father',
         kind: 'record',
         referenceIds: [59],
       },
