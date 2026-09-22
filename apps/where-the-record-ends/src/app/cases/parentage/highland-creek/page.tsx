@@ -4,24 +4,44 @@ import type { Metadata } from 'next';
 import { ArrowLink } from '@/components/ArrowLink';
 import { HighlandCreekReconstruction } from '@/components/HighlandCreekReconstruction';
 import { ReferenceLinks } from '@/components/ReferenceLinks';
-import { absoluteUrl } from '@/lib/site';
+import { ResearchContactCta } from '@/components/ResearchContactCta';
+import { absoluteUrl, siteName } from '@/lib/site';
 
 const item = highlandCreekReconstruction;
 const canonicalUrl = absoluteUrl('/cases/parentage/highland-creek');
+const socialImageUrl = absoluteUrl(
+  '/cases/parentage/highland-creek/opengraph-image'
+);
+const socialTitle = 'Highland Creek: An Open Parentage Investigation';
+const socialDescription =
+  'Follow the wills, deeds, and inheritance records around Benjamin Meason—and see why the evidence still stops short of naming his parents.';
+const socialImageAlt =
+  'The Thousand Acres on Highland Creek — an open evidence-led parentage investigation';
 
 export const metadata: Metadata = {
-  title: item.title,
-  description: item.summary,
+  title: socialTitle,
+  description: socialDescription,
   alternates: { canonical: canonicalUrl },
   openGraph: {
-    title: item.title,
-    description: item.summary,
+    type: 'article',
+    siteName,
+    title: socialTitle,
+    description: socialDescription,
     url: canonicalUrl,
+    images: [
+      {
+        url: socialImageUrl,
+        width: 1200,
+        height: 630,
+        alt: socialImageAlt,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: item.title,
-    description: item.summary,
+    title: socialTitle,
+    description: socialDescription,
+    images: [{ url: socialImageUrl, alt: socialImageAlt }],
   },
 };
 
@@ -52,6 +72,11 @@ export default function HighlandCreekPage() {
       </section>
 
       <HighlandCreekReconstruction />
+
+      <ResearchContactCta
+        context="the Highland Creek parentage investigation"
+        sourcePath="/cases/parentage/highland-creek"
+      />
 
       <section className="border-t border-ink/10 bg-cream px-5 py-12 sm:px-8">
         <div className="mx-auto max-w-[92rem] rounded-[1.5rem] border border-ink/10 bg-paper p-6 sm:p-8">
