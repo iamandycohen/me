@@ -99,7 +99,7 @@ export const threeThomasesIdentityModel: GenealogyIdentityModel = {
   timeline: [
     {
       id: 'senior-will-1779',
-      date: '14–18 March 1779',
+      date: '14–15 March 1779',
       title: 'Thomas senior\u2019s will',
       detail:
         'The will names twelve children, including son Thomas and daughter Ann, and names no wife.',
