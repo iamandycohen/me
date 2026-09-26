@@ -13,8 +13,35 @@ import { ReferenceLinks } from '@/components/ReferenceLinks';
 import { absoluteUrl } from '@/lib/site';
 
 const gpsReviewLabels = {
-  pending: 'GPS review pending',
+  'near-ready': 'GPS: nearly demonstrated',
+  'work-remains': 'GPS: work remains',
+  'private-review': 'GPS: private review needed',
 } as const;
+
+const gpsReviewStyles = {
+  'near-ready': 'border-amber-700/40 bg-amber-100 text-amber-950',
+  'work-remains': 'border-ink/30 bg-paper text-ink/75',
+  'private-review': 'border-accent/30 bg-accent/10 text-accent',
+} as const;
+
+const gpsElementLabels = {
+  research: 'Reasonably exhaustive research',
+  citations: 'Complete, accurate citations',
+  analysis: 'Analysis and correlation',
+  conflicts: 'Conflicting evidence resolved',
+  conclusion: 'Sound written conclusion',
+} as const;
+
+const gpsElementStatusLabels = {
+  shown: 'Shown',
+  partial: 'Partial',
+  'not-shown': 'Not shown',
+  private: 'Private evidence',
+} as const;
+
+const gpsElementKeys = Object.keys(gpsElementLabels) as Array<
+  keyof typeof gpsElementLabels
+>;
 
 export function generateStaticParams() {
   return proofProjects.map((project) => ({ id: project.id }));
@@ -139,9 +166,9 @@ export default async function ProofProjectPage({
             Each parent–child step needs its own evidence and reasoning. An
             identity step tests whether records with different names describe
             the same person. The evidence badge describes the current
-            conclusion. The separate GPS label says whether this site has
-            demonstrated all five elements for that link. A path with an open
-            step remains an open lineage.
+            conclusion. The separate GPS assessment tracks five standards for
+            that link; none of these links is yet labeled GPS complete. A path
+            with an open step remains an open lineage.
           </p>
           {project.id === 'sledge' ? (
             <p className="mt-4 max-w-3xl text-sm leading-relaxed text-ink/65">
@@ -180,14 +207,48 @@ export default async function ProofProjectPage({
                   <ReferenceLinks ids={step.referenceIds} />
                 </p>
                 <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-ink/10 pt-4">
-                  <span className="inline-flex rounded-full border border-dashed border-ink/40 bg-paper px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-ink/70">
+                  <span
+                    className={`inline-flex rounded-full border px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] ${gpsReviewStyles[step.gpsReview.status]}`}
+                  >
                     {gpsReviewLabels[step.gpsReview.status]}
                   </span>
                   <p className="text-xs leading-relaxed text-ink/55">
-                    This page has not yet demonstrated all five GPS elements for
-                    this link.
+                    {step.gpsReview.access === 'private'
+                      ? 'The underlying records are private; this public page cannot show their full review.'
+                      : step.gpsReview.status === 'near-ready'
+                        ? 'Strong evidence is in place; the listed GPS work remains.'
+                        : 'See the specific standards and next action below.'}
                   </p>
                 </div>
+                <details className="mt-4 rounded-xl border border-ink/10 bg-paper p-4">
+                  <summary className="cursor-pointer text-sm font-medium text-accent">
+                    View five-part GPS assessment
+                  </summary>
+                  <dl className="mt-4 divide-y divide-ink/10 border-t border-ink/10">
+                    {gpsElementKeys.map((element) => {
+                      const assessment = step.gpsReview.elements[element];
+                      return (
+                        <div
+                          key={element}
+                          className="py-3 sm:grid sm:grid-cols-[11rem_7rem_1fr] sm:gap-3"
+                        >
+                          <dt className="text-xs font-semibold text-ink/80">
+                            {gpsElementLabels[element]}
+                          </dt>
+                          <dd className="mt-1 text-xs font-medium text-accent sm:mt-0">
+                            {gpsElementStatusLabels[assessment.status]}
+                          </dd>
+                          <dd className="mt-1 text-xs leading-relaxed text-ink/65 sm:mt-0">
+                            {assessment.note}
+                          </dd>
+                        </div>
+                      );
+                    })}
+                  </dl>
+                  <p className="mt-2 border-t border-ink/10 pt-4 text-xs leading-relaxed text-ink/70">
+                    <strong>Next:</strong> {step.gpsReview.nextAction}
+                  </p>
+                </details>
                 {step.relationship?.referenceIds.length === 0 ? (
                   <p className="mt-3 text-xs leading-relaxed text-ink/55">
                     The reviewed modern records remain private.

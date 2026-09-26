@@ -79,10 +79,11 @@ export default function ProofsPage() {
             </p>
             <p>
               Each evidence badge records the current assessment of its own
-              link. A separate GPS label shows whether all five parts of the
-              standard have been demonstrated for that link on this site; every
-              link currently has a pending GPS review. An open link keeps the
-              overall lineage open, however strong the neighboring links are.
+              link. A separate, five-part GPS assessment shows which standards
+              the public material demonstrates, where the work is close, and
+              what remains. Some modern evidence stays private. No lineage link
+              is yet labeled GPS complete. An open link keeps the overall
+              lineage open, however strong the neighboring links are.
             </p>
           </div>
         </div>
@@ -106,9 +107,11 @@ export default function ProofsPage() {
                 </a>{' '}
                 to test each consequential relationship or identity conclusion.
                 A proof may be short or long, depending on the question and the
-                evidence it takes to answer it. These pages are working
-                assessments, with fuller proof arguments still needed for
-                disputed links.
+                evidence it takes to answer it. A will or birth certificate may
+                state a relationship directly, but the search, citation, and
+                reasoning still need to support the precise lineage claim. These
+                pages are working assessments, with fuller proof arguments still
+                needed for disputed links.
               </p>
             </div>
             <ol className="grid gap-3 sm:grid-cols-2">

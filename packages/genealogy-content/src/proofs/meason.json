@@ -12,7 +12,31 @@
       "kind": "parent-child",
       "relationshipId": "cynthia-shannon",
       "gpsReview": {
-        "status": "pending"
+        "status": "private-review",
+        "access": "private",
+        "elements": {
+          "research": {
+            "status": "private",
+            "note": "The reviewed original and amended birth records are described, but the search scope is private."
+          },
+          "citations": {
+            "status": "private",
+            "note": "The modern vital and adoption records are intentionally not cited publicly."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "The public account distinguishes birth and adoptive identities while preserving the biological relationship."
+          },
+          "conflicts": {
+            "status": "private",
+            "note": "Any record differences require review within the private evidence file."
+          },
+          "conclusion": {
+            "status": "shown",
+            "note": "The public account states Cynthia is Andy’s biological mother."
+          }
+        },
+        "nextAction": "Audit the private records against all five GPS elements and publish only a privacy-safe assessment."
       }
     },
     {
@@ -22,7 +46,31 @@
       "kind": "parent-child",
       "relationshipId": "james-1934-cynthia",
       "gpsReview": {
-        "status": "pending"
+        "status": "private-review",
+        "access": "private",
+        "elements": {
+          "research": {
+            "status": "private",
+            "note": "Reviewed vital records are reported, but the search scope is not public."
+          },
+          "citations": {
+            "status": "private",
+            "note": "The modern vital records and identifying details remain private."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "The published relationship states that the private records directly identify Jimmy as Cynthia’s father."
+          },
+          "conflicts": {
+            "status": "private",
+            "note": "The public account does not expose a private-record conflict review."
+          },
+          "conclusion": {
+            "status": "shown",
+            "note": "The public account states the father–daughter relationship."
+          }
+        },
+        "nextAction": "Complete a private source and conflict audit, then publish a privacy-safe GPS assessment."
       }
     },
     {
@@ -32,7 +80,31 @@
       "kind": "parent-child",
       "relationshipId": "james-1892-james-1934",
       "gpsReview": {
-        "status": "pending"
+        "status": "near-ready",
+        "access": "public",
+        "elements": {
+          "research": {
+            "status": "partial",
+            "note": "The 1934 birth certificate, birth index, 1940 household, and 1973 death certificate are reviewed; a search scope is not documented."
+          },
+          "citations": {
+            "status": "partial",
+            "note": "The birth and death records have precise citations; the 1940 household still lacks a verified district, sheet, and line."
+          },
+          "analysis": {
+            "status": "shown",
+            "note": "The contemporaneous birth certificate is weighed above the later death statement, with the index and household as corroboration."
+          },
+          "conflicts": {
+            "status": "partial",
+            "note": "The shortened paternal name in 1973 is compatible, but the same-name identity comparison is not fully written out."
+          },
+          "conclusion": {
+            "status": "shown",
+            "note": "The public relationship identifies the older James as Jimmy’s father."
+          }
+        },
+        "nextAction": "Document the targeted search, finish the 1940 locator, and write the same-name identity correlation."
       }
     },
     {
@@ -42,7 +114,31 @@
       "kind": "parent-child",
       "relationshipId": "franklin-james-1892",
       "gpsReview": {
-        "status": "pending"
+        "status": "work-remains",
+        "access": "public",
+        "elements": {
+          "research": {
+            "status": "partial",
+            "note": "The 1949 death certificate is reviewed, but corroborating earlier parentage research is not shown."
+          },
+          "citations": {
+            "status": "shown",
+            "note": "The original Texas death certificate has a specific, provider-linked citation."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "The parentage statement is identified as direct but secondary information supplied after James’s birth."
+          },
+          "conflicts": {
+            "status": "not-shown",
+            "note": "No comparison with possible conflicting parentage or same-name records is presented."
+          },
+          "conclusion": {
+            "status": "shown",
+            "note": "The public relationship names Frank as the older James’s father."
+          }
+        },
+        "nextAction": "Find earlier corroboration and document a targeted search and conflict review for this father–son link."
       }
     },
     {
@@ -52,7 +148,31 @@
       "kind": "parent-child",
       "relationshipId": "george-franklin",
       "gpsReview": {
-        "status": "pending"
+        "status": "work-remains",
+        "access": "public",
+        "elements": {
+          "research": {
+            "status": "partial",
+            "note": "The 1933 death certificate is reviewed, but earlier corroborating parentage research is not shown."
+          },
+          "citations": {
+            "status": "shown",
+            "note": "The original Texas death certificate has a specific, provider-linked citation."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "The parentage statement is identified as later, secondary information; the Frank and Franklin names are associated."
+          },
+          "conflicts": {
+            "status": "partial",
+            "note": "The Mason spelling, inconsistent age, and reported birthplace are noted but not fully reconciled."
+          },
+          "conclusion": {
+            "status": "shown",
+            "note": "The public relationship names George as Frank’s father."
+          }
+        },
+        "nextAction": "Corroborate the parentage in earlier records and resolve the name, age, and birthplace differences."
       }
     },
     {
@@ -62,7 +182,31 @@
       "kind": "parent-child",
       "relationshipId": "benjamin-george",
       "gpsReview": {
-        "status": "pending"
+        "status": "work-remains",
+        "access": "mixed",
+        "elements": {
+          "research": {
+            "status": "partial",
+            "note": "Land, households, and later kinship records have been reviewed, but the estate and identity searches remain open."
+          },
+          "citations": {
+            "status": "shown",
+            "note": "The published argument identifies and cites the relevant deeds, censuses, marriage return, and death record."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "Several independent family-network clues are correlated, but the inferential dependencies need a fuller written argument."
+          },
+          "conflicts": {
+            "status": "partial",
+            "note": "The distinct Missouri and Texas James L. trails are kept separate; alternative meanings of “uncle” and George’s omission from Benjamin’s will still need testing."
+          },
+          "conclusion": {
+            "status": "partial",
+            "note": "The tree accepts an indirect link, but the published summary is not yet a complete proof argument."
+          }
+        },
+        "nextAction": "Write a full indirect proof argument that tests alternate kinship paths and documents the remaining searches."
       }
     },
     {
@@ -72,7 +216,31 @@
       "kind": "parent-child",
       "partId": "benjamin-kentucky-thomas",
       "gpsReview": {
-        "status": "pending"
+        "status": "work-remains",
+        "access": "public",
+        "elements": {
+          "research": {
+            "status": "partial",
+            "note": "Kentucky marriage, land, tax, and Highland Creek records are reviewed; other branches and linking records remain to be searched."
+          },
+          "citations": {
+            "status": "shown",
+            "note": "The relevant marriage, deed, and collateral-heir records have specific public citations."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "Place and chronology make Thomas a candidate, but no reviewed record assigns Benjamin to his branch."
+          },
+          "conflicts": {
+            "status": "partial",
+            "note": "Other possible family branches remain open; the heir-at-law wording cannot be read as “son.”"
+          },
+          "conclusion": {
+            "status": "shown",
+            "note": "The written conclusion correctly leaves Benjamin’s proposed father unproved."
+          }
+        },
+        "nextAction": "Seek a contemporary parentage or household link and test the other heir branches before concluding."
       }
     },
     {
@@ -82,7 +250,31 @@
       "kind": "identity",
       "partId": "senior-son-kentucky",
       "gpsReview": {
-        "status": "pending"
+        "status": "work-remains",
+        "access": "public",
+        "elements": {
+          "research": {
+            "status": "partial",
+            "note": "The will, Kentucky deeds, and collateral-heir network are reviewed, but unique identification is unfinished."
+          },
+          "citations": {
+            "status": "shown",
+            "note": "The recorded will and relevant land and heir deeds are specifically cited."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "The family network favors the identification, but no direct record joins the will’s son to the Kentucky landholder."
+          },
+          "conflicts": {
+            "status": "partial",
+            "note": "Hempfield Thomas is separated by chronology; other plausible identities have not been fully eliminated."
+          },
+          "conclusion": {
+            "status": "partial",
+            "note": "The written conclusion is provisional, not an established identity."
+          }
+        },
+        "nextAction": "Test the remaining same-name candidates and seek a record connecting the will’s son to Kentucky."
       }
     },
     {
@@ -92,7 +284,31 @@
       "kind": "parent-child",
       "partId": "senior-son-thomas",
       "gpsReview": {
-        "status": "pending"
+        "status": "near-ready",
+        "access": "public",
+        "elements": {
+          "research": {
+            "status": "partial",
+            "note": "Both recorded renderings establish the narrow named-son statement; the son’s later identity remains a separate open question."
+          },
+          "citations": {
+            "status": "shown",
+            "note": "The earlier will-book entry has a precise citation and the second rendering is identified as a copy of the same will."
+          },
+          "analysis": {
+            "status": "shown",
+            "note": "The will explicitly names a son Thomas among the testator’s children."
+          },
+          "conflicts": {
+            "status": "shown",
+            "note": "The former 18 March proof-date error is resolved from both renderings; neither is treated as an independent will."
+          },
+          "conclusion": {
+            "status": "shown",
+            "note": "The conclusion is limited to the son named in the will, without assigning him a later identity."
+          }
+        },
+        "nextAction": "Document the bounded search for the named-son claim; assess Kentucky identity in its separate step."
       }
     }
   ],

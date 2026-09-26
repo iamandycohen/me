@@ -52,7 +52,16 @@ export interface ProofLineageStep {
   readonly relationshipId?: RelationshipId;
   readonly partId?: string;
   readonly gpsReview: {
-    readonly status: 'pending';
+    readonly status: 'near-ready' | 'work-remains' | 'private-review';
+    readonly access: 'public' | 'mixed' | 'private';
+    readonly elements: Record<
+      'research' | 'citations' | 'analysis' | 'conflicts' | 'conclusion',
+      {
+        readonly status: 'shown' | 'partial' | 'not-shown' | 'private';
+        readonly note: string;
+      }
+    >;
+    readonly nextAction: string;
   };
 }
 

@@ -123,8 +123,38 @@ export function validatePublicGenealogyContent(
       errors.push(`${projectLabel} lineage must end with ${expectedTarget}`);
     for (const [index, step] of lineage.entries()) {
       const label = `${projectLabel} lineage step ${step.id}`;
-      if (step.gpsReview?.status !== 'pending')
+      const gpsReview = step.gpsReview;
+      if (
+        !gpsReview ||
+        !['near-ready', 'work-remains', 'private-review'].includes(
+          gpsReview.status
+        )
+      )
         errors.push(`${label} has missing or invalid GPS review status`);
+      if (
+        !gpsReview ||
+        !['public', 'mixed', 'private'].includes(gpsReview.access)
+      )
+        errors.push(`${label} has missing or invalid GPS evidence access`);
+      for (const element of [
+        'research',
+        'citations',
+        'analysis',
+        'conflicts',
+        'conclusion',
+      ] as const) {
+        const assessment = gpsReview?.elements?.[element];
+        if (
+          !assessment ||
+          !['shown', 'partial', 'not-shown', 'private'].includes(
+            assessment.status
+          ) ||
+          textMissing(assessment.note)
+        )
+          errors.push(`${label} has missing or invalid ${element} assessment`);
+      }
+      if (textMissing(gpsReview?.nextAction))
+        errors.push(`${label} is missing its next GPS action`);
       if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(step.id))
         errors.push(`${label} has invalid id`);
       if (textMissing(step.from) || textMissing(step.to))

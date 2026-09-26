@@ -12,7 +12,31 @@
       "kind": "parent-child",
       "relationshipId": "cynthia-shannon",
       "gpsReview": {
-        "status": "pending"
+        "status": "private-review",
+        "access": "private",
+        "elements": {
+          "research": {
+            "status": "private",
+            "note": "The reviewed original and amended birth records are described, but the search scope is private."
+          },
+          "citations": {
+            "status": "private",
+            "note": "The modern vital and adoption records are intentionally not cited publicly."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "The public account distinguishes birth and adoptive identities while preserving the biological relationship."
+          },
+          "conflicts": {
+            "status": "private",
+            "note": "Any record differences require review within the private evidence file."
+          },
+          "conclusion": {
+            "status": "shown",
+            "note": "The public account states Cynthia is Andy’s biological mother."
+          }
+        },
+        "nextAction": "Audit the private records against all five GPS elements and publish only a privacy-safe assessment."
       }
     },
     {
@@ -22,7 +46,31 @@
       "kind": "parent-child",
       "relationshipId": "james-1934-cynthia",
       "gpsReview": {
-        "status": "pending"
+        "status": "private-review",
+        "access": "private",
+        "elements": {
+          "research": {
+            "status": "private",
+            "note": "Reviewed vital records are reported, but the search scope is not public."
+          },
+          "citations": {
+            "status": "private",
+            "note": "The modern vital records and identifying details remain private."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "The published relationship states that the private records directly identify Jimmy as Cynthia’s father."
+          },
+          "conflicts": {
+            "status": "private",
+            "note": "The public account does not expose a private-record conflict review."
+          },
+          "conclusion": {
+            "status": "shown",
+            "note": "The public account states the father–daughter relationship."
+          }
+        },
+        "nextAction": "Complete a private source and conflict audit, then publish a privacy-safe GPS assessment."
       }
     },
     {
@@ -32,7 +80,31 @@
       "kind": "parent-child",
       "partId": "jimmy-mary",
       "gpsReview": {
-        "status": "pending"
+        "status": "near-ready",
+        "access": "public",
+        "elements": {
+          "research": {
+            "status": "partial",
+            "note": "The birth certificate, index, and 1940 household are named; search sufficiency is not explained."
+          },
+          "citations": {
+            "status": "partial",
+            "note": "The birth certificate and index are cited; the 1940 household locator needs verification."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "The certificate directly names Mary; the index reflects the same birth event."
+          },
+          "conflicts": {
+            "status": "shown",
+            "note": "No conflicting mother identification appears in the cited records."
+          },
+          "conclusion": {
+            "status": "partial",
+            "note": "The parentage finding is written, but a full proof statement is not assembled."
+          }
+        },
+        "nextAction": "Explain the search scope and correlate the birth certificate with an independent later record."
       }
     },
     {
@@ -42,7 +114,31 @@
       "kind": "parent-child",
       "partId": "mary-jack",
       "gpsReview": {
-        "status": "pending"
+        "status": "work-remains",
+        "access": "public",
+        "elements": {
+          "research": {
+            "status": "partial",
+            "note": "The 1952 certificate and two census households are reviewed; a continuity record is missing."
+          },
+          "citations": {
+            "status": "partial",
+            "note": "Census locators are detailed, but the death-certificate citation lacks a file number."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "Names and household placement support the bridge between the two Marys."
+          },
+          "conflicts": {
+            "status": "partial",
+            "note": "The 1896 versus 1897 birth-year difference is identified, not resolved."
+          },
+          "conclusion": {
+            "status": "partial",
+            "note": "The parentage and later identity remain a supported inference."
+          }
+        },
+        "nextAction": "Find Mary's marriage or another continuity record and resolve the date difference."
       }
     },
     {
@@ -52,7 +148,31 @@
       "kind": "identity",
       "partId": "jack-ira",
       "gpsReview": {
-        "status": "pending"
+        "status": "work-remains",
+        "access": "public",
+        "elements": {
+          "research": {
+            "status": "partial",
+            "note": "The 1900 and 1910 households are compared; intervening identity records remain unreviewed here."
+          },
+          "citations": {
+            "status": "partial",
+            "note": "Both censuses have precise locators; the 1952 certificate citation is less specific."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "Lizzie and Mary recur with Jack and Ira, supporting but not proving identity."
+          },
+          "conflicts": {
+            "status": "partial",
+            "note": "Different given names and natal details are acknowledged without resolution."
+          },
+          "conclusion": {
+            "status": "partial",
+            "note": "The shared identity remains an explicitly qualified inference."
+          }
+        },
+        "nextAction": "Find a record or distinctive network connecting Jack and Ira across the households."
       }
     },
     {
@@ -62,7 +182,31 @@
       "kind": "parent-child",
       "partId": "ira-john-w",
       "gpsReview": {
-        "status": "pending"
+        "status": "work-remains",
+        "access": "mixed",
+        "elements": {
+          "research": {
+            "status": "not-shown",
+            "note": "The intervening parentage evidence has not been assessed in this public path."
+          },
+          "citations": {
+            "status": "not-shown",
+            "note": "The cited 1870 and 1910 records do not name Ira's father."
+          },
+          "analysis": {
+            "status": "not-shown",
+            "note": "John and Ira have not been correlated across a parentage source here."
+          },
+          "conflicts": {
+            "status": "not-shown",
+            "note": "Potential identity or parentage conflicts have not been assessed here."
+          },
+          "conclusion": {
+            "status": "not-shown",
+            "note": "The page states no conclusion for this parent-child link."
+          }
+        },
+        "nextAction": "Review and cite the intervening household record, then correlate Ira's later identity."
       }
     },
     {
@@ -72,7 +216,31 @@
       "kind": "parent-child",
       "partId": "francis-john",
       "gpsReview": {
-        "status": "pending"
+        "status": "work-remains",
+        "access": "public",
+        "elements": {
+          "research": {
+            "status": "partial",
+            "note": "Both household schedules are reviewed; parentage and later identity searches remain open."
+          },
+          "citations": {
+            "status": "shown",
+            "note": "The 1860 four-frame sequence and 1870 household have specific source locators."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "Repeated co-residence is analyzed but does not establish fatherhood."
+          },
+          "conflicts": {
+            "status": "partial",
+            "note": "The 1860 page-order issue is resolved; competing kinship explanations remain untested."
+          },
+          "conclusion": {
+            "status": "partial",
+            "note": "The written assessment correctly leaves fatherhood unproved."
+          }
+        },
+        "nextAction": "Find a parentage record or correlate later John W. records with both households."
       }
     },
     {
@@ -82,7 +250,31 @@
       "kind": "parent-child",
       "partId": "collin-francis",
       "gpsReview": {
-        "status": "pending"
+        "status": "work-remains",
+        "access": "public",
+        "elements": {
+          "research": {
+            "status": "partial",
+            "note": "A deed, estate notice, and earlier will are reviewed; the key heir records remain open."
+          },
+          "citations": {
+            "status": "partial",
+            "note": "The deed and will are cited; the estate-notice summary lacks a linked citation here."
+          },
+          "analysis": {
+            "status": "not-shown",
+            "note": "No reviewed source connects Francis to Collin as his son."
+          },
+          "conflicts": {
+            "status": "not-shown",
+            "note": "Competing parentage candidates have not been evaluated."
+          },
+          "conclusion": {
+            "status": "partial",
+            "note": "The page states the link is open without proposing a proved parent."
+          }
+        },
+        "nextAction": "Examine Collin's probate, deeds, tax records, and Francis's early records for kinship."
       }
     },
     {
@@ -92,7 +284,31 @@
       "kind": "parent-child",
       "partId": "john-collin",
       "gpsReview": {
-        "status": "pending"
+        "status": "work-remains",
+        "access": "public",
+        "elements": {
+          "research": {
+            "status": "partial",
+            "note": "The original will-book entry is reviewed; Collin's broader identity context is not shown."
+          },
+          "citations": {
+            "status": "shown",
+            "note": "The will-book volume, pages, image, and provider link are cited."
+          },
+          "analysis": {
+            "status": "partial",
+            "note": "The will directly calls Collin a son of this testator, but later identity needs correlation."
+          },
+          "conflicts": {
+            "status": "shown",
+            "note": "The derivative 14 April date is corrected to the will-book's 17 April date."
+          },
+          "conclusion": {
+            "status": "partial",
+            "note": "The will statement is established; a full lineage proof is not assembled."
+          }
+        },
+        "nextAction": "Document adequate identity research for Collin and write the linked parentage proof."
       }
     },
     {
@@ -102,7 +318,31 @@
       "kind": "identity",
       "partId": "john-patriot-identity",
       "gpsReview": {
-        "status": "pending"
+        "status": "work-remains",
+        "access": "public",
+        "elements": {
+          "research": {
+            "status": "not-shown",
+            "note": "No reviewed patriot records have been incorporated for identity comparison."
+          },
+          "citations": {
+            "status": "not-shown",
+            "note": "The will citation documents the testator, not the claimed patriot identity."
+          },
+          "analysis": {
+            "status": "not-shown",
+            "note": "Residence, family, chronology, and service identity have not been correlated."
+          },
+          "conflicts": {
+            "status": "partial",
+            "note": "The unsupported Jr. suffix is rejected, but the identity question stays open."
+          },
+          "conclusion": {
+            "status": "not-shown",
+            "note": "No same-person or SAR eligibility conclusion is presented."
+          }
+        },
+        "nextAction": "Identify the claimed patriot and compare sourced service and life records with the testator."
       }
     }
   ],

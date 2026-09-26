@@ -89,10 +89,25 @@ test('proof lineage paths connect the claimant to each target through assessed l
   );
 });
 
-test('every lineage link has an explicit GPS review status', () => {
-  for (const project of proofProjects)
-    for (const step of project.lineage)
-      assert.deepEqual(step.gpsReview, { status: 'pending' });
+test('every lineage link has a bounded five-element GPS assessment', () => {
+  const elementNames = [
+    'research',
+    'citations',
+    'analysis',
+    'conflicts',
+    'conclusion',
+  ];
+  for (const project of proofProjects) {
+    for (const step of project.lineage) {
+      assert.ok(
+        ['near-ready', 'work-remains', 'private-review'].includes(
+          step.gpsReview.status
+        )
+      );
+      assert.deepEqual(Object.keys(step.gpsReview.elements), elementNames);
+      assert.ok(step.gpsReview.nextAction.length > 0);
+    }
+  }
 
   for (const gpsReview of [undefined, { status: 'complete' }]) {
     const invalid = structuredClone(publicGenealogyContent);
@@ -104,6 +119,23 @@ test('every lineage link has an explicit GPS review status', () => {
       ),
       `GPS review ${JSON.stringify(gpsReview)} must be rejected`
     );
+  }
+
+  const incomplete = structuredClone(publicGenealogyContent);
+  delete incomplete.proofProjects[0].lineage[0].gpsReview.elements.research;
+  assert.ok(
+    validatePublicGenealogyContent(incomplete).errors.some((error) =>
+      error.includes('invalid research assessment')
+    )
+  );
+});
+
+test('shared modern links carry the same GPS assessment in both paths', () => {
+  const [meason, sledge] = proofProjects;
+  for (const id of ['andy-cynthia', 'cynthia-jimmy']) {
+    const measonReview = meason.lineage.find((step) => step.id === id).gpsReview;
+    const sledgeReview = sledge.lineage.find((step) => step.id === id).gpsReview;
+    assert.deepEqual(sledgeReview, measonReview);
   }
 });
 
