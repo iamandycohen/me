@@ -611,7 +611,7 @@ test('the Three Thomases model preserves identities and open boundaries', () => 
   assert.deepEqual(
     threeThomasesIdentityModel.timeline.map(({ date }) => date),
     [
-      '14–18 March 1779',
+      '14–15 March 1779',
       '18 September 1785',
       '21 March 1786',
       '23 October 1788',
@@ -682,6 +682,9 @@ test('the Highland Creek reconstruction preserves evidence boundaries', () => {
   const thomasWillReference = references.find(
     (reference) => reference.id === 18
   );
+  assert.match(thomasWillReference?.citation ?? '', /proved 15 March 1779/);
+  assert.match(thomasWillReference?.citation ?? '', /DGS 7727205/);
+  assert.match(thomasWillReference?.limitation ?? '', /copy-volume rendering/);
   assert.match(thomasWillReference?.supports ?? '', /daughter Ann/);
   assert.match(
     thomasWillReference?.limitation ?? '',

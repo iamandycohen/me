@@ -213,13 +213,13 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     id: 18,
     title: 'Will of Thomas Meason senior',
     citation:
-      'Westmoreland County, Pennsylvania, Will Book 1, pp. 16–17, entry 28; dated 14 March and proved 18 March 1779; Ancestry collection 8802, record 2042575.',
+      'Westmoreland County, Pennsylvania, Will Book 1, p. 17, entry 28; dated 14 March and proved 15 March 1779; FamilySearch DGS 7727205, FHL 1316409, item 5, image 417.',
     supports:
-      'Twelve named children—six sons and six daughters—including son Thomas and daughter Ann; Benjamin is absent from the extensive list. Fresh review of the complete original pages confirms that the instrument names no wife and no daughter Jane.',
+      'Twelve named children—six sons and six daughters—including son Thomas and daughter Ann; Benjamin is absent from the extensive list. Review of the complete recorded will entry confirms that it names no wife and no daughter Jane.',
     limitation:
-      'The omission weighs strongly against the testator as Benjamin’s direct father, but a will need not name every child. It does not categorically exclude him, identify Benjamin’s parents, or exclude another family line. Earlier relationship indexing misclassified daughter Ann as a spouse, while adjacent will text supplied Jane; those claims are superseded by the preserved-original review.',
-    url: 'https://www.ancestry.com/search/collections/8802/records/2042575',
-    accessLabel: 'Open indexed probate record',
+      'The omission weighs strongly against the testator as Benjamin’s direct father, but a will need not name every child. It does not categorically exclude him, identify Benjamin’s parents, or exclude another family line. The earlier recorded entry and the cataloged copy-volume rendering on pp. 16–17 (Ancestry collection 8802, record 2042575) are two versions of one will, not independent wills or the loose signed original. Neither proof notation establishes an exact death date. Earlier relationship indexing misclassified daughter Ann as a spouse, while adjacent will text supplied Jane; those claims are superseded by review of the recorded entries.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-C9BL-69P5-F',
+    accessLabel: 'Open earlier recorded will entry',
   },
   {
     id: 19,
