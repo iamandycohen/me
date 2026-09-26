@@ -81,12 +81,12 @@ export default function ProofsPage() {
               Each evidence badge records the current assessment of its own
               link. A separate, five-part GPS assessment shows which standards
               the reviewed evidence supports, where the work is close, and what
-              remains. I assess the first two modern links as satisfying the GPS
-              criteria using privately held records and firsthand evidence;
-              their records are not published here. These are my assessments of
-              the evidence; no independent review is claimed. An open link keeps
-              the overall lineage open, however strong the neighboring links
-              are.
+              remains. I assess several individual links as satisfying the GPS
+              criteria, including the first two modern links supported by
+              privately held records and firsthand evidence. Their private
+              records are not published here. These are my assessments of the
+              evidence; no independent review is claimed. An open link keeps the
+              overall lineage open, however strong the neighboring links are.
             </p>
           </div>
         </div>

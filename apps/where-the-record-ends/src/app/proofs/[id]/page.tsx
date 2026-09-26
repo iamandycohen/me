@@ -216,7 +216,7 @@ export default async function ProofProjectPage({
                   </span>
                   <p className="text-xs leading-relaxed text-ink/55">
                     {step.gpsReview.status === 'met'
-                      ? 'In my assessment, this narrow relationship satisfies all five GPS elements. The modern source records and full citations remain private.'
+                      ? 'In my assessment, the evidence for this specific link satisfies all five GPS elements.'
                       : step.gpsReview.status === 'near-ready'
                         ? 'Strong evidence is in place; the listed GPS work remains.'
                         : 'See the specific standards and next action below.'}

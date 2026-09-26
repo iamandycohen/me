@@ -25,7 +25,7 @@ test('the canonical public content passes integrity validation', () => {
   assert.doesNotThrow(() => assertValidPublicGenealogyContent());
 });
 
-test('proof projects expose separate assessed links and an unassessed Sledge generation', () => {
+test('proof projects expose separately assessed links and open Sledge generations', () => {
   assert.deepEqual(
     proofProjects.map(({ id, status }) => [id, status]),
     [
@@ -40,7 +40,7 @@ test('proof projects expose separate assessed links and an unassessed Sledge gen
       ['jimmy-mary', 'documented'],
       ['mary-jack', 'supported-inference'],
       ['jack-ira', 'supported-inference'],
-      ['ira-john-w', 'not-assessed'],
+      ['ira-john-w', 'documented'],
       ['francis-john', 'open'],
       ['collin-francis', 'open'],
       ['john-collin', 'documented'],
@@ -50,7 +50,13 @@ test('proof projects expose separate assessed links and an unassessed Sledge gen
   );
   assert.match(
     sledge.parts.find(({ id }) => id === 'ira-john-w').conclusion,
-    /No assessment of the Ira–John W. link is presented here yet/
+    /John W. Sledge is documented as father of the Ira recorded in 1880/
+  );
+  assert.equal(
+    sledge.parts
+      .find(({ id }) => id === 'ira-john-w')
+      .evidence.find(({ referenceId }) => referenceId === 91).role,
+    'supports'
   );
   assert.equal(
     sledge.parts
@@ -215,10 +221,10 @@ test('proof validation catches an unrecognized status and uncited evidence', () 
 });
 
 test('the package carries the complete reviewed public reference catalog', () => {
-  assert.equal(references.length, 90);
+  assert.equal(references.length, 91);
   assert.deepEqual(
     references.map(({ id }) => id),
-    Array.from({ length: 90 }, (_, index) => index + 1)
+    Array.from({ length: 91 }, (_, index) => index + 1)
   );
 });
 
@@ -233,7 +239,7 @@ test('reviewed citation visuals expose only approved public media', () => {
     Object.keys(visualAccessByReference).map(Number),
     [
       5, 26, 36, 38, 39, 40, 42, 67, 68, 71, 73, 74, 75, 76, 77, 78, 79, 80, 81,
-      82, 83, 84, 85, 86, 87, 88, 89, 90,
+      82, 83, 84, 85, 86, 87, 88, 89, 90, 91,
     ]
   );
   assert.deepEqual(
@@ -272,6 +278,7 @@ test('reviewed citation visuals expose only approved public media', () => {
       88: 'external-original-only',
       89: 'external-original-only',
       90: 'text-only-deferred',
+      91: 'text-only-deferred',
     }
   );
   assert.deepEqual(

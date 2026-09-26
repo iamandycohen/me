@@ -80,31 +80,31 @@
       "kind": "parent-child",
       "relationshipId": "james-1892-james-1934",
       "gpsReview": {
-        "status": "near-ready",
+        "status": "met",
         "access": "public",
         "elements": {
           "research": {
-            "status": "partial",
-            "note": "The 1934 birth certificate, birth index, 1940 household, and 1973 death certificate are reviewed; a search scope is not documented."
+            "status": "shown",
+            "note": "The contemporaneous 1934 birth certificate was checked with the independent 1973 death certificate, birth index, and household context for this father–son claim."
           },
           "citations": {
-            "status": "partial",
-            "note": "The birth and death records have precise citations; the 1940 household still lacks a verified district, sheet, and line."
+            "status": "shown",
+            "note": "The birth and death certificates are precisely identified; the 1940 household is contextual and its incomplete schedule locator remains flagged."
           },
           "analysis": {
             "status": "shown",
-            "note": "The contemporaneous birth certificate is weighed above the later death statement, with the index and household as corroboration."
+            "note": "The birth certificate directly names the father; the later death record uses a shorter form of his name that fits the same family."
           },
           "conflicts": {
-            "status": "partial",
-            "note": "The shortened paternal name in 1973 is compatible, but the same-name identity comparison is not fully written out."
+            "status": "shown",
+            "note": "The shorter paternal name in 1973 is reconciled with the full name and matching family context in the 1934 record."
           },
           "conclusion": {
             "status": "shown",
-            "note": "The public relationship identifies the older James as Jimmy’s father."
+            "note": "The correlated original records establish the older James Lawrence Meason as Jimmy’s father."
           }
         },
-        "nextAction": "Document the targeted search, finish the 1940 locator, and write the same-name identity correlation."
+        "nextAction": "Verify the ancillary 1940 schedule locator when available; revisit this conclusion if contrary evidence appears."
       }
     },
     {
@@ -134,8 +134,8 @@
             "note": "No comparison with possible conflicting parentage or same-name records is presented."
           },
           "conclusion": {
-            "status": "shown",
-            "note": "The public relationship names Frank as the older James’s father."
+            "status": "partial",
+            "note": "The 1949 certificate names Frank as father; the positive link still needs earlier corroboration and correlation with the man labeled Franklin in this path."
           }
         },
         "nextAction": "Find earlier corroboration and document a targeted search and conflict review for this father–son link."
@@ -161,15 +161,15 @@
           },
           "analysis": {
             "status": "partial",
-            "note": "The parentage statement is identified as later, secondary information; the Frank and Franklin names are associated."
+            "note": "The 1933 certificate directly names George as Frank’s father; another later family certificate corroborates the parent pair, but both report earlier parentage secondhand."
           },
           "conflicts": {
             "status": "partial",
             "note": "The Mason spelling, inconsistent age, and reported birthplace are noted but not fully reconciled."
           },
           "conclusion": {
-            "status": "shown",
-            "note": "The public relationship names George as Frank’s father."
+            "status": "partial",
+            "note": "The direct statement supports George as Frank’s father, while earlier corroboration and identity differences remain to be resolved."
           }
         },
         "nextAction": "Corroborate the parentage in earlier records and resolve the name, age, and birthplace differences."
@@ -203,7 +203,7 @@
           },
           "conclusion": {
             "status": "partial",
-            "note": "The tree accepts an indirect link, but the published summary is not yet a complete proof argument."
+            "note": "The high-confidence indirect link is an accepted working conclusion; the underlying synthesis explicitly leaves its GPS proof argument unfinished."
           }
         },
         "nextAction": "Write a full indirect proof argument that tests alternate kinship paths and documents the remaining searches."
@@ -236,8 +236,8 @@
             "note": "Other possible family branches remain open; the heir-at-law wording cannot be read as “son.”"
           },
           "conclusion": {
-            "status": "shown",
-            "note": "The written conclusion correctly leaves Benjamin’s proposed father unproved."
+            "status": "partial",
+            "note": "The reviewed conclusion leaves Benjamin’s proposed father unresolved; no positive parentage proof can yet be written."
           }
         },
         "nextAction": "Seek a contemporary parentage or household link and test the other heir branches before concluding."
@@ -289,7 +289,7 @@
         "elements": {
           "research": {
             "status": "partial",
-            "note": "Both recorded renderings establish the narrow named-son statement; the son’s later identity remains a separate open question."
+            "note": "The earlier will-book entry and later rendering are reviewed as one instrument. The search context for the genealogical parentage conclusion has not yet been fully documented."
           },
           "citations": {
             "status": "shown",
@@ -308,7 +308,7 @@
             "note": "The conclusion is limited to the son named in the will, without assigning him a later identity."
           }
         },
-        "nextAction": "Document the bounded search for the named-son claim; assess Kentucky identity in its separate step."
+        "nextAction": "Document the research context for this narrow parent–child conclusion; test the son’s Kentucky identity in its separate step."
       }
     }
   ],

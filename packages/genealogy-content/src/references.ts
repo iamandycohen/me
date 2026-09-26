@@ -1134,7 +1134,7 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     id: 83,
     title: 'Mary Meason 1952 Texas death certificate',
     citation:
-      'Texas death certificate for Mary Meason, 1952, Dallas County; Ancestry collection 2272, record 22407326, certificate front.',
+      'Texas death certificate for Mary Meason, 1952, Dallas County, state file no. 58673; Ancestry collection 2272, record 22407326, certificate front.',
     supports:
       'Names her father as Jack Sledge and mother as Elizabeth Hetzer, as typed.',
     limitation:
@@ -1254,6 +1254,22 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     visualAccess: {
       status: 'text-only-deferred',
       note: 'The derivative PDF is linked with attribution; its pages and any future archive scans are not republished.',
+    },
+  },
+  {
+    id: 91,
+    title: 'John W. and Ira Sledge in the 1880 Collin County census',
+    citation:
+      '1880 United States census, Justice Precinct 5, Collin County, Texas, enumeration district 25, schedule p. 22B, John W. Sledge household, lines 41–44; NARA T9 roll 1296; Ancestry collection 6742, record 40381274, image 4244716-00581.',
+    supports:
+      'The original schedule records Ira as a son in John W. Sledge’s household. Ira’s age and natal profile are consistent with the later Ira household in 1910.',
+    limitation:
+      'The 1880 relationship wording is direct census evidence, with an unidentified informant. The later Ira identity is a separate correlation; this record does not establish Jack and Ira as one man or Francis as John W.’s father.',
+    url: 'https://www.ancestry.com/search/collections/6742/records/40381274',
+    accessLabel: 'Open provider record',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'The original schedule was reviewed privately; provider record is linked and image bytes are not republished.',
     },
   },
 ];

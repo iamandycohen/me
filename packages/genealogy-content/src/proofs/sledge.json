@@ -80,31 +80,31 @@
       "kind": "parent-child",
       "partId": "jimmy-mary",
       "gpsReview": {
-        "status": "near-ready",
+        "status": "met",
         "access": "public",
         "elements": {
           "research": {
-            "status": "partial",
-            "note": "The birth certificate, index, and 1940 household are named; search sufficiency is not explained."
+            "status": "shown",
+            "note": "The original 1934 birth certificate was checked against an independent 1973 death certificate, with the birth index and 1940 household as context."
           },
           "citations": {
-            "status": "partial",
-            "note": "The birth certificate and index are cited; the 1940 household locator needs verification."
+            "status": "shown",
+            "note": "The birth and death certificates are precisely cited. The 1940 household is context and its incomplete schedule locator remains flagged."
           },
           "analysis": {
-            "status": "partial",
-            "note": "The certificate directly names Mary; the index reflects the same birth event."
+            "status": "shown",
+            "note": "The contemporaneous birth certificate directly names Mary; the later death record independently repeats her name as mother."
           },
           "conflicts": {
             "status": "shown",
-            "note": "No conflicting mother identification appears in the cited records."
+            "note": "No conflicting mother identification appears in the reviewed records; the derivative birth index is not counted as an independent event."
           },
           "conclusion": {
-            "status": "partial",
-            "note": "The parentage finding is written, but a full proof statement is not assembled."
+            "status": "shown",
+            "note": "The correlated original records establish Mary Estelle Sledge as Jimmy’s mother."
           }
         },
-        "nextAction": "Explain the search scope and correlate the birth certificate with an independent later record."
+        "nextAction": "Verify the ancillary 1940 schedule locator when available; revisit this conclusion if contrary evidence appears."
       }
     },
     {
@@ -122,8 +122,8 @@
             "note": "The 1952 certificate and two census households are reviewed; a continuity record is missing."
           },
           "citations": {
-            "status": "partial",
-            "note": "Census locators are detailed, but the death-certificate citation lacks a file number."
+            "status": "shown",
+            "note": "The 1952 death certificate now has its state file number and provider locator; the 1900 and 1910 households have specific census citations."
           },
           "analysis": {
             "status": "partial",
@@ -156,12 +156,12 @@
             "note": "The 1900 and 1910 households are compared; intervening identity records remain unreviewed here."
           },
           "citations": {
-            "status": "partial",
-            "note": "Both censuses have precise locators; the 1952 certificate citation is less specific."
+            "status": "shown",
+            "note": "The 1900 and 1910 households and the 1952 certificate have specific source locators."
           },
           "analysis": {
             "status": "partial",
-            "note": "Lizzie and Mary recur with Jack and Ira, supporting but not proving identity."
+            "note": "A multi-record family correlation supports identity, but the alternative that Jack and Ira were two men still needs testing."
           },
           "conflicts": {
             "status": "partial",
@@ -172,7 +172,7 @@
             "note": "The shared identity remains an explicitly qualified inference."
           }
         },
-        "nextAction": "Find a record or distinctive network connecting Jack and Ira across the households."
+        "nextAction": "Test the two-men alternative and the name and natal-field differences with additional identity evidence."
       }
     },
     {
@@ -182,31 +182,31 @@
       "kind": "parent-child",
       "partId": "ira-john-w",
       "gpsReview": {
-        "status": "work-remains",
+        "status": "met",
         "access": "mixed",
         "elements": {
           "research": {
-            "status": "not-shown",
-            "note": "The intervening parentage evidence has not been assessed in this public path."
+            "status": "shown",
+            "note": "The reviewed original 1880 household directly records Ira as son; a later Ira household was compared for age and parental birthplace continuity."
           },
           "citations": {
-            "status": "not-shown",
-            "note": "The cited 1870 and 1910 records do not name Ira's father."
+            "status": "shown",
+            "note": "The 1880 schedule has a precise page, lines, film, and provider locator; the 1910 household is separately cited."
           },
           "analysis": {
-            "status": "not-shown",
-            "note": "John and Ira have not been correlated across a parentage source here."
+            "status": "shown",
+            "note": "The 1880 relationship column names Ira as John W.’s son, and the 1910 age and natal profile supports the later Ira identity."
           },
           "conflicts": {
-            "status": "not-shown",
-            "note": "Potential identity or parentage conflicts have not been assessed here."
+            "status": "shown",
+            "note": "No conflicting father statement has been found in the reviewed records; the separate Jack–Ira identity question remains open."
           },
           "conclusion": {
-            "status": "not-shown",
-            "note": "The page states no conclusion for this parent-child link."
+            "status": "shown",
+            "note": "The reviewed records support John W. Sledge as the father of the Ira in this path."
           }
         },
-        "nextAction": "Review and cite the intervening household record, then correlate Ira's later identity."
+        "nextAction": "Continue testing Jack and Ira as one man in the separate identity step; keep the original census image private."
       }
     },
     {
@@ -289,7 +289,7 @@
         "elements": {
           "research": {
             "status": "partial",
-            "note": "The original will-book entry is reviewed; Collin's broader identity context is not shown."
+            "note": "The original will and related probate, inventory, and estate-account context are reviewed; the later Collin identity remains unestablished."
           },
           "citations": {
             "status": "shown",
@@ -368,19 +368,25 @@
           "referenceId": 76,
           "role": "context",
           "note": "The 1940 Richardson household associates Mary with young Jimmie."
+        },
+        {
+          "referenceId": 56,
+          "role": "supports",
+          "note": "The 1973 original death certificate independently names Mary Sledge as Jimmy’s mother."
         }
       ],
       "researchScope": {
         "searched": [
           "1934 birth certificate",
           "Statewide birth index",
-          "1940 household"
+          "1940 household",
+          "1973 death certificate"
         ],
         "limits": "The certificate image is not cleared for public reproduction; the index is derivative of the same birth event."
       },
-      "analysis": "A contemporaneous vital record directly supplies the relationship, and the later household fits the same family group.",
+      "analysis": "The contemporaneous birth certificate directly names Mary Estelle Sledge; his later original death certificate independently repeats Mary Sledge as mother. The birth index derives from the same birth event, and the 1940 household is supporting context.",
       "conflicts": [],
-      "conclusion": "The reviewed birth record documents Mary Estelle Sledge as his mother.",
+      "conclusion": "The correlated original records establish Mary Estelle Sledge as Jimmy’s mother.",
       "nextTest": "",
       "relatedCaseIds": []
     },
@@ -481,32 +487,38 @@
     {
       "id": "ira-john-w",
       "question": "Was Ira Sledge a son of John W. Sledge?",
-      "status": "not-assessed",
-      "evidenceType": "unassessed",
-      "summary": "This page has not yet assessed the proposed connection between Ira and John W. Sledge.",
+      "status": "documented",
+      "evidenceType": "mixed",
+      "summary": "The original 1880 Collin County census records Ira as a son in John W. Sledge’s household. The later Ira household fits his age and parental birthplace profile.",
       "evidence": [
         {
-          "referenceId": 87,
-          "role": "context",
-          "note": "The 1870 Alcorn household identifies a John without middle initial or relationship; it does not name Ira."
+          "referenceId": 91,
+          "role": "supports",
+          "note": "The 1880 original schedule directly records Ira as John W.’s son."
         },
         {
           "referenceId": 85,
+          "role": "supports",
+          "note": "The later Ira household fits the age and parental birthplace profile from 1880."
+        },
+        {
+          "referenceId": 87,
           "role": "context",
-          "note": "The 1910 Lathram household identifies Ira with Lizzie and Mary, but does not identify his parents."
+          "note": "The earlier John household informs the older-generation identity question but states no kinship."
         }
       ],
       "researchScope": {
         "searched": [
-          "1870 Alcorn household summary for John",
-          "1910 Lathram household summary for Ira"
+          "1880 Collin County original household",
+          "1910 Lathram original household",
+          "1870 Alcorn household context"
         ],
-        "limits": "The cited public summaries do not identify Ira's father. The 1880 household record has not yet been assessed for this question on this page."
+        "limits": "The 1880 informant is unidentified. The separate question whether Jack and Ira were one man remains an inference; this parentage assessment does not resolve it."
       },
-      "analysis": "These two contextual records concern neighboring generations but do not themselves answer the parent–child question. A complete assessment must examine the intervening record and correlate identities across the households.",
+      "analysis": "The 1880 relationship column supplies direct father–son wording, and the later Ira’s age and parental birthplace profile supports continuity. The proposed Jack–Ira identity is assessed separately.",
       "conflicts": [],
-      "conclusion": "No assessment of the Ira–John W. link is presented here yet.",
-      "nextTest": "Add a fully cited assessment of the 1880 household and correlate Ira across later records.",
+      "conclusion": "John W. Sledge is documented as father of the Ira recorded in 1880, with the later Ira identity supported by the household profile.",
+      "nextTest": "Continue the separate Jack–Ira identity test.",
       "relatedCaseIds": []
     },
     {
