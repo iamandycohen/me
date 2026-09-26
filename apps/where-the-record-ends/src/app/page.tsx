@@ -1,10 +1,11 @@
-import { media } from '@where-the-record-ends/genealogy-content';
+import { media, proofProjects } from '@where-the-record-ends/genealogy-content';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { ArrowLink } from '@/components/ArrowLink';
 import { MediaFigure } from '@/components/MediaFigure';
+import { ProofStatusBadge } from '@/components/ProofStatusBadge';
 import { ReferenceLinks } from '@/components/ReferenceLinks';
 
 export const metadata: Metadata = {
@@ -183,6 +184,70 @@ export default function HomePage() {
             <ArrowLink href="/cases/parentage">
               Read the larger parentage case
             </ArrowLink>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="border-b border-ink/10 bg-paper px-5 py-16 sm:px-8 md:py-24"
+        aria-labelledby="proof-paths-heading"
+      >
+        <div className="mx-auto max-w-[92rem]">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+            <div>
+              <p className="eyebrow">Proof paths</p>
+              <h2
+                id="proof-paths-heading"
+                className="balanced mt-4 max-w-2xl font-serif text-4xl leading-tight sm:text-6xl"
+              >
+                Following the line, one link at a time.
+              </h2>
+            </div>
+            <div className="max-w-2xl lg:pb-1">
+              <p className="text-base leading-relaxed text-ink/65">
+                I am tracing two lines from myself toward earlier ancestors.
+                Each parent–child connection has its own evidence and status; an
+                open link keeps the larger lineage open.
+              </p>
+              <div className="mt-6">
+                <ArrowLink href="/proofs">
+                  How I assess these proof paths
+                </ArrowLink>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+            {proofProjects.map((project) => (
+              <article
+                key={project.id}
+                className="group flex h-full flex-col rounded-[2rem] border border-ink/10 bg-cream p-7 shadow-paper transition-colors hover:border-accent/40 sm:p-9"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <p className="eyebrow">
+                    {project.lineage.length} links in the proposed path
+                  </p>
+                  <ProofStatusBadge status={project.status} />
+                </div>
+                <h3 className="balanced mt-8 font-serif text-4xl leading-tight">
+                  {project.title}
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-ink/65">
+                  From me toward{' '}
+                  {project.lineage[project.lineage.length - 1].to}.
+                </p>
+                <p className="mt-5 flex-1 text-sm leading-relaxed text-ink/65">
+                  {project.summary}
+                </p>
+                <Link
+                  href={`/proofs/${project.id}`}
+                  className="mt-8 inline-flex items-center justify-between border-t border-ink/10 pt-6 text-sm font-medium text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                >
+                  Follow the {project.id === 'meason' ? 'Meason' : 'Sledge'}{' '}
+                  path <span aria-hidden="true">→</span>
+                </Link>
+              </article>
+            ))}
           </div>
         </div>
       </section>

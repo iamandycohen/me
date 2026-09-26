@@ -7,6 +7,7 @@ import {
   highlandCreekReconstruction,
   media,
   people,
+  proofProjects,
   publicGenealogyContent,
   references,
   relationships,
@@ -24,11 +25,206 @@ test('the canonical public content passes integrity validation', () => {
   assert.doesNotThrow(() => assertValidPublicGenealogyContent());
 });
 
+test('proof projects expose separately assessed links and open Sledge generations', () => {
+  assert.deepEqual(
+    proofProjects.map(({ id, status }) => [id, status]),
+    [
+      ['meason', 'in-progress'],
+      ['sledge', 'in-progress'],
+    ]
+  );
+  const sledge = proofProjects.find(({ id }) => id === 'sledge');
+  assert.deepEqual(
+    sledge.parts.map(({ id, status }) => [id, status]),
+    [
+      ['jimmy-mary', 'documented'],
+      ['mary-jack', 'supported-inference'],
+      ['jack-ira', 'supported-inference'],
+      ['ira-john-w', 'documented'],
+      ['francis-john', 'open'],
+      ['collin-francis', 'open'],
+      ['john-collin', 'documented'],
+      ['john-patriot-identity', 'open'],
+      ['john-service', 'not-assessed'],
+    ]
+  );
+  assert.match(
+    sledge.parts.find(({ id }) => id === 'ira-john-w').conclusion,
+    /John W. Sledge is documented as father of the Ira recorded in 1880/
+  );
+  assert.equal(
+    sledge.parts
+      .find(({ id }) => id === 'ira-john-w')
+      .evidence.find(({ referenceId }) => referenceId === 91).role,
+    'supports'
+  );
+  assert.equal(
+    sledge.parts
+      .find(({ id }) => id === 'francis-john')
+      .evidence.find(({ referenceId }) => referenceId === 90).role,
+    'context'
+  );
+});
+
+test('proof lineage paths connect the claimant to each target through assessed links', () => {
+  assert.deepEqual(
+    proofProjects.map(({ id, lineage }) => [
+      id,
+      lineage[0].from,
+      lineage.at(-1).to,
+    ]),
+    [
+      ['meason', 'Andy Cohen', 'Thomas Meason senior'],
+      ['sledge', 'Andy Cohen', 'John Sledge of the SAR family claim'],
+    ]
+  );
+  for (const project of proofProjects) {
+    for (const [index, step] of project.lineage.entries()) {
+      if (index > 0) assert.equal(project.lineage[index - 1].to, step.from);
+      assert.equal(Boolean(step.relationshipId) !== Boolean(step.partId), true);
+    }
+  }
+  const meason = proofProjects.find(({ id }) => id === 'meason');
+  assert.equal(
+    meason.lineage.find(({ id }) => id === 'benjamin-kentucky-thomas').partId,
+    'benjamin-kentucky-thomas'
+  );
+  assert.equal(
+    meason.parts.find(({ id }) => id === 'benjamin-kentucky-thomas').status,
+    'open'
+  );
+});
+
+test('every lineage link has a bounded five-element GPS assessment', () => {
+  const elementNames = [
+    'research',
+    'citations',
+    'analysis',
+    'conflicts',
+    'conclusion',
+  ];
+  for (const project of proofProjects) {
+    for (const step of project.lineage) {
+      assert.ok(
+        ['met', 'near-ready', 'work-remains'].includes(
+          step.gpsReview.status
+        )
+      );
+      assert.deepEqual(Object.keys(step.gpsReview.elements), elementNames);
+      assert.ok(step.gpsReview.nextAction.length > 0);
+    }
+  }
+
+  for (const gpsReview of [undefined, { status: 'complete' }]) {
+    const invalid = structuredClone(publicGenealogyContent);
+    invalid.proofProjects[0].lineage[0].gpsReview = gpsReview;
+    const { errors } = validatePublicGenealogyContent(invalid);
+    assert.ok(
+      errors.some((error) =>
+        error.includes('has missing or invalid GPS review status')
+      ),
+      `GPS review ${JSON.stringify(gpsReview)} must be rejected`
+    );
+  }
+
+  const incomplete = structuredClone(publicGenealogyContent);
+  delete incomplete.proofProjects[0].lineage[0].gpsReview.elements.research;
+  assert.ok(
+    validatePublicGenealogyContent(incomplete).errors.some((error) =>
+      error.includes('invalid research assessment')
+    )
+  );
+
+  const overstated = structuredClone(publicGenealogyContent);
+  overstated.proofProjects[0].lineage[0].gpsReview.elements.research.status =
+    'partial';
+  assert.ok(
+    validatePublicGenealogyContent(overstated).errors.some((error) =>
+      error.includes('claims GPS met without showing research')
+    )
+  );
+});
+
+test('shared modern links carry the same GPS assessment in both paths', () => {
+  const [meason, sledge] = proofProjects;
+  for (const id of ['andy-cynthia', 'cynthia-jimmy']) {
+    const measonReview = meason.lineage.find(
+      (step) => step.id === id
+    ).gpsReview;
+    const sledgeReview = sledge.lineage.find(
+      (step) => step.id === id
+    ).gpsReview;
+    assert.deepEqual(sledgeReview, measonReview);
+    assert.equal(measonReview.status, 'met');
+    assert.equal(measonReview.access, 'private');
+  }
+});
+
+test('proof validation rejects a broken lineage and missing source claim', () => {
+  const invalid = structuredClone(publicGenealogyContent);
+  invalid.proofProjects[0].lineage[1].from = 'Disconnected person';
+  invalid.proofProjects[1].lineage[3].partId = 'missing-part';
+  const { errors } = validatePublicGenealogyContent(invalid);
+  assert.ok(
+    errors.some((error) =>
+      error.includes('does not connect to the previous step')
+    )
+  );
+  assert.ok(
+    errors.some((error) =>
+      error.includes('references missing proof part missing-part')
+    )
+  );
+});
+
+test('proof validation rejects missing arrays required by the detail page', () => {
+  for (const field of ['conflicts', 'relatedCaseIds']) {
+    const invalid = structuredClone(publicGenealogyContent);
+    delete invalid.proofProjects[0].parts[0][field];
+    const { errors } = validatePublicGenealogyContent(invalid);
+    assert.ok(
+      errors.some((error) =>
+        error.includes(
+          `is missing ${field === 'conflicts' ? 'conflicts' : 'related case ids'} array`
+        )
+      ),
+      `${field} should be required`
+    );
+  }
+});
+
+test('proof validation catches an unrecognized status and uncited evidence', () => {
+  const [project, ...rest] = proofProjects;
+  const [part, ...parts] = project.parts;
+  const invalid = {
+    ...publicGenealogyContent,
+    proofProjects: [
+      {
+        ...project,
+        parts: [
+          {
+            ...part,
+            status: 'proved',
+            evidence: [
+              { referenceId: 999, role: 'supports', note: 'Bad source' },
+            ],
+          },
+          ...parts,
+        ],
+      },
+      ...rest,
+    ],
+  };
+  const { errors } = validatePublicGenealogyContent(invalid);
+  assert.ok(errors.some((error) => error.includes('invalid status proved')));
+  assert.ok(errors.some((error) => error.includes('missing source 999')));
+});
+
 test('the package carries the complete reviewed public reference catalog', () => {
-  assert.equal(references.length, 82);
+  assert.equal(references.length, 91);
   assert.deepEqual(
     references.map(({ id }) => id),
-    Array.from({ length: 82 }, (_, index) => index + 1)
+    Array.from({ length: 91 }, (_, index) => index + 1)
   );
 });
 
@@ -41,7 +237,10 @@ test('reviewed citation visuals expose only approved public media', () => {
 
   assert.deepEqual(
     Object.keys(visualAccessByReference).map(Number),
-    [5, 26, 36, 38, 39, 40, 42, 67, 68, 71, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82]
+    [
+      5, 26, 36, 38, 39, 40, 42, 67, 68, 71, 73, 74, 75, 76, 77, 78, 79, 80, 81,
+      82, 83, 84, 85, 86, 87, 88, 89, 90, 91,
+    ]
   );
   assert.deepEqual(
     Object.fromEntries(
@@ -71,6 +270,15 @@ test('reviewed citation visuals expose only approved public media', () => {
       80: 'external-original-only',
       81: 'external-original-only',
       82: 'text-only-deferred',
+      83: 'text-only-deferred',
+      84: 'text-only-deferred',
+      85: 'text-only-deferred',
+      86: 'text-only-deferred',
+      87: 'text-only-deferred',
+      88: 'external-original-only',
+      89: 'external-original-only',
+      90: 'text-only-deferred',
+      91: 'text-only-deferred',
     }
   );
   assert.deepEqual(

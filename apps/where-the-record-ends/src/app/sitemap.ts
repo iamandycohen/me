@@ -1,4 +1,5 @@
 import {
+  proofProjects,
   researchCases,
   stories,
 } from '@where-the-record-ends/genealogy-content';
@@ -12,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
     '/',
     '/family',
+    '/proofs',
     '/cases',
     '/stories',
     '/sources',
@@ -24,6 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPaths.map((path) => ({ url: absoluteUrl(path) })),
     ...researchCases.map((item) => ({ url: absoluteUrl(`/cases/${item.id}`) })),
+    ...proofProjects.map((item) => ({
+      url: absoluteUrl(`/proofs/${item.id}`),
+    })),
     ...stories.map((item) => ({ url: absoluteUrl(`/stories/${item.id}`) })),
   ];
 }
