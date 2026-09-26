@@ -100,7 +100,7 @@ test('every lineage link has a bounded five-element GPS assessment', () => {
   for (const project of proofProjects) {
     for (const step of project.lineage) {
       assert.ok(
-        ['near-ready', 'work-remains', 'private-review'].includes(
+        ['met', 'near-ready', 'work-remains'].includes(
           step.gpsReview.status
         )
       );
@@ -128,14 +128,29 @@ test('every lineage link has a bounded five-element GPS assessment', () => {
       error.includes('invalid research assessment')
     )
   );
+
+  const overstated = structuredClone(publicGenealogyContent);
+  overstated.proofProjects[0].lineage[0].gpsReview.elements.research.status =
+    'partial';
+  assert.ok(
+    validatePublicGenealogyContent(overstated).errors.some((error) =>
+      error.includes('claims GPS met without showing research')
+    )
+  );
 });
 
 test('shared modern links carry the same GPS assessment in both paths', () => {
   const [meason, sledge] = proofProjects;
   for (const id of ['andy-cynthia', 'cynthia-jimmy']) {
-    const measonReview = meason.lineage.find((step) => step.id === id).gpsReview;
-    const sledgeReview = sledge.lineage.find((step) => step.id === id).gpsReview;
+    const measonReview = meason.lineage.find(
+      (step) => step.id === id
+    ).gpsReview;
+    const sledgeReview = sledge.lineage.find(
+      (step) => step.id === id
+    ).gpsReview;
     assert.deepEqual(sledgeReview, measonReview);
+    assert.equal(measonReview.status, 'met');
+    assert.equal(measonReview.access, 'private');
   }
 });
 

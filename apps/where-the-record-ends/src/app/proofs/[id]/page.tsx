@@ -13,15 +13,15 @@ import { ReferenceLinks } from '@/components/ReferenceLinks';
 import { absoluteUrl } from '@/lib/site';
 
 const gpsReviewLabels = {
+  met: 'GPS met for this link',
   'near-ready': 'GPS: nearly demonstrated',
   'work-remains': 'GPS: work remains',
-  'private-review': 'GPS audit pending: private records',
 } as const;
 
 const gpsReviewStyles = {
+  met: 'border-emerald-700/40 bg-emerald-50 text-emerald-950',
   'near-ready': 'border-amber-700/40 bg-amber-100 text-amber-950',
   'work-remains': 'border-ink/30 bg-paper text-ink/75',
-  'private-review': 'border-accent/30 bg-accent/10 text-accent',
 } as const;
 
 const gpsElementLabels = {
@@ -33,7 +33,7 @@ const gpsElementLabels = {
 } as const;
 
 const gpsElementStatusLabels = {
-  shown: 'Shown',
+  shown: 'Satisfied',
   partial: 'Partial',
   'not-shown': 'Not shown',
   private: 'Private evidence',
@@ -167,8 +167,9 @@ export default async function ProofProjectPage({
             identity step tests whether records with different names describe
             the same person. The evidence badge describes the current
             conclusion. The separate GPS assessment tracks five standards for
-            that link; none of these links is yet labeled GPS complete. A path
-            with an open step remains an open lineage.
+            that link. A GPS-met label is my assessment of that specific link,
+            not an endorsement of the whole path. A path with an open step
+            remains an open lineage.
           </p>
           {project.id === 'sledge' ? (
             <p className="mt-4 max-w-3xl text-sm leading-relaxed text-ink/65">
@@ -213,8 +214,8 @@ export default async function ProofProjectPage({
                     {gpsReviewLabels[step.gpsReview.status]}
                   </span>
                   <p className="text-xs leading-relaxed text-ink/55">
-                    {step.gpsReview.access === 'private'
-                      ? 'The relationship uses private modern records. Their five-part GPS audit is still pending; the badge does not indicate a known problem with the link.'
+                    {step.gpsReview.status === 'met'
+                      ? 'This narrow relationship meets the five GPS elements. The modern source records and full citations remain private.'
                       : step.gpsReview.status === 'near-ready'
                         ? 'Strong evidence is in place; the listed GPS work remains.'
                         : 'See the specific standards and next action below.'}

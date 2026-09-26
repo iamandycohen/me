@@ -126,9 +126,7 @@ export function validatePublicGenealogyContent(
       const gpsReview = step.gpsReview;
       if (
         !gpsReview ||
-        !['near-ready', 'work-remains', 'private-review'].includes(
-          gpsReview.status
-        )
+        !['met', 'near-ready', 'work-remains'].includes(gpsReview.status)
       )
         errors.push(`${label} has missing or invalid GPS review status`);
       if (
@@ -152,6 +150,8 @@ export function validatePublicGenealogyContent(
           textMissing(assessment.note)
         )
           errors.push(`${label} has missing or invalid ${element} assessment`);
+        if (gpsReview?.status === 'met' && assessment?.status !== 'shown')
+          errors.push(`${label} claims GPS met without showing ${element}`);
       }
       if (textMissing(gpsReview?.nextAction))
         errors.push(`${label} is missing its next GPS action`);

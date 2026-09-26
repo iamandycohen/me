@@ -80,10 +80,11 @@ export default function ProofsPage() {
             <p>
               Each evidence badge records the current assessment of its own
               link. A separate, five-part GPS assessment shows which standards
-              the public material demonstrates, where the work is close, and
-              what remains. Some modern evidence stays private. No lineage link
-              is yet labeled GPS complete. An open link keeps the overall
-              lineage open, however strong the neighboring links are.
+              the reviewed evidence supports, where the work is close, and what
+              remains. The first two modern links are assessed as GPS met from
+              privately held records and firsthand evidence; their records are
+              not published here. An open link keeps the overall lineage open,
+              however strong the neighboring links are.
             </p>
           </div>
         </div>

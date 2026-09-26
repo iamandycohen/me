@@ -12,31 +12,31 @@
       "kind": "parent-child",
       "relationshipId": "cynthia-shannon",
       "gpsReview": {
-        "status": "private-review",
+        "status": "met",
         "access": "private",
         "elements": {
           "research": {
-            "status": "private",
-            "note": "The reviewed original and amended birth records are described, but the search scope is private."
+            "status": "shown",
+            "note": "The certified original and amended birth records, together with first-person identity evidence, answer this narrow mother-and-child question."
           },
           "citations": {
-            "status": "private",
-            "note": "The modern vital and adoption records are intentionally not cited publicly."
+            "status": "shown",
+            "note": "The certified records and preserved images are individually identified in private source notes; their details are not published here."
           },
           "analysis": {
-            "status": "partial",
-            "note": "The public account distinguishes birth and adoptive identities while preserving the biological relationship."
+            "status": "shown",
+            "note": "The original record names Cynthia as mother; the paired amended record connects the child’s earlier and later names."
           },
           "conflicts": {
-            "status": "private",
-            "note": "Any record differences require review within the private evidence file."
+            "status": "shown",
+            "note": "The change of name and parent fields is explained by the original and amended records, without changing the documented mother relationship."
           },
           "conclusion": {
             "status": "shown",
-            "note": "The public account states Cynthia is Andy’s biological mother."
+            "note": "The paired records establish Cynthia as Andy’s mother."
           }
         },
-        "nextAction": "Audit the private records against all five GPS elements and publish only a privacy-safe assessment."
+        "nextAction": "Keep the source records private and revisit this conclusion if material contrary evidence appears."
       }
     },
     {
@@ -46,31 +46,31 @@
       "kind": "parent-child",
       "relationshipId": "james-1934-cynthia",
       "gpsReview": {
-        "status": "private-review",
+        "status": "met",
         "access": "private",
         "elements": {
           "research": {
-            "status": "private",
-            "note": "Reviewed vital records are reported, but the search scope is not public."
+            "status": "shown",
+            "note": "The certified birth registration and first-person identification answer this narrow father-and-child question."
           },
           "citations": {
-            "status": "private",
-            "note": "The modern vital records and identifying details remain private."
+            "status": "shown",
+            "note": "The issuing office, registration, and preserved image are identified in a private source note; the record is not published here."
           },
           "analysis": {
-            "status": "partial",
-            "note": "The published relationship states that the private records directly identify Jimmy as Cynthia’s father."
+            "status": "shown",
+            "note": "The registration directly names Jimmy as Cynthia’s father; first-person evidence identifies its subject as the Cynthia in this path."
           },
           "conflicts": {
-            "status": "private",
-            "note": "The public account does not expose a private-record conflict review."
+            "status": "shown",
+            "note": "A transcription discrepancy elsewhere on the registration was resolved against two photographs; it did not concern the named father."
           },
           "conclusion": {
             "status": "shown",
-            "note": "The public account states the father–daughter relationship."
+            "note": "The registration and identity evidence establish Jimmy as Cynthia’s father."
           }
         },
-        "nextAction": "Complete a private source and conflict audit, then publish a privacy-safe GPS assessment."
+        "nextAction": "Keep the source record private and revisit this conclusion if material contrary evidence appears."
       }
     },
     {
