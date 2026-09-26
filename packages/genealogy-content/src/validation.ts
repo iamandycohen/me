@@ -107,6 +107,58 @@ export function validatePublicGenealogyContent(
     if (!parts.length) errors.push(`${projectLabel} has no parts`);
     for (const duplicate of duplicateValues(parts.map(({ id }) => id)))
       errors.push(`Duplicate proof part id: ${project.id}:${duplicate}`);
+    const lineage = Array.isArray(project.lineage) ? project.lineage : [];
+    if (!lineage.length) errors.push(`${projectLabel} has no lineage steps`);
+    for (const duplicate of duplicateValues(lineage.map(({ id }) => id)))
+      errors.push(
+        `Duplicate proof lineage step id: ${project.id}:${duplicate}`
+      );
+    const expectedTarget =
+      project.id === 'meason'
+        ? 'Thomas Meason senior'
+        : 'John Sledge of the SAR family claim';
+    if (lineage.length && lineage[0].from !== 'Andy Cohen')
+      errors.push(`${projectLabel} lineage must begin with Andy Cohen`);
+    if (lineage.length && lineage[lineage.length - 1].to !== expectedTarget)
+      errors.push(`${projectLabel} lineage must end with ${expectedTarget}`);
+    for (const [index, step] of lineage.entries()) {
+      const label = `${projectLabel} lineage step ${step.id}`;
+      if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(step.id))
+        errors.push(`${label} has invalid id`);
+      if (textMissing(step.from) || textMissing(step.to))
+        errors.push(`${label} is missing a person label`);
+      if (step.from === step.to)
+        errors.push(`${label} connects the same label to itself`);
+      if (index > 0 && lineage[index - 1].to !== step.from)
+        errors.push(`${label} does not connect to the previous step`);
+      if (!['parent-child', 'identity'].includes(step.kind))
+        errors.push(`${label} has invalid kind ${step.kind}`);
+      if (Boolean(step.relationshipId) === Boolean(step.partId)) {
+        errors.push(
+          `${label} must reference exactly one relationship or proof part`
+        );
+      } else if (step.relationshipId) {
+        const relationship = content.relationships.find(
+          ({ id }) => id === step.relationshipId
+        );
+        if (!relationship)
+          errors.push(
+            `${label} references missing relationship ${step.relationshipId}`
+          );
+        else if (step.kind !== relationship.kind)
+          errors.push(
+            `${label} kind conflicts with relationship ${relationship.id}`
+          );
+      } else if (step.partId) {
+        const part = parts.find(({ id }) => id === step.partId);
+        if (!part)
+          errors.push(`${label} references missing proof part ${step.partId}`);
+        else if (part.status === 'excluded')
+          errors.push(
+            `${label} references an excluded proof part ${step.partId}`
+          );
+      }
+    }
     for (const part of parts) {
       const label = `${projectLabel} part ${part.id}`;
       if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(part.id))

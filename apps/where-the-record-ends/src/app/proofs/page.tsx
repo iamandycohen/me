@@ -12,7 +12,7 @@ const url = absoluteUrl('/proofs');
 export const metadata: Metadata = {
   title: 'Proof paths',
   description:
-    'Follow two family-history proof projects, the evidence behind each link, and the questions still open.',
+    'Follow two lineage paths from my generation toward Thomas Meason senior and a proposed Sledge patriot, one relationship at a time.',
   alternates: { canonical: url },
   openGraph: { title: 'Proof paths', url },
 };
@@ -59,7 +59,7 @@ export default function ProofsPage() {
       <PageHero
         eyebrow="Proof paths"
         title="What can I actually establish?"
-        introduction="Two lines in my family history have led me to questions that deserve more than a name on a tree. I am following each connection back through the records, one claim at a time."
+        introduction="I am tracing two lines from myself toward earlier ancestors. Each generation needs a supported relationship, and some of those links remain open."
       />
 
       <section className="border-b border-ink/10 px-5 py-14 sm:px-8 md:py-20">
@@ -72,17 +72,16 @@ export default function ProofsPage() {
           </div>
           <div className="max-w-3xl space-y-5 text-base leading-relaxed text-ink/70">
             <p>
-              I want to understand where my Meason line leads beyond Benjamin. I
-              also want to test the Sledge line that may connect my family to an
-              earlier John Sledge and a Revolutionary-era claim. Each path
-              contains links with different kinds of evidence and different
-              questions still to answer.
+              I want to trace my Meason line from myself through Benjamin to
+              Thomas Meason senior. I also want to test a Sledge line toward the
+              John Sledge associated with a family SAR claim. Each page starts
+              with me and shows every proposed generational connection in order.
             </p>
             <p>
-              These pages show the current assessment for each link. A record
-              can name one relationship directly while leaving the next
-              generation open. A promising association can guide the search
-              without becoming a parent-child connection in the family atlas.
+              Each badge records the current assessment of its own link. An
+              identity question may sit between generations when two record
+              groups might describe the same person. An open link keeps the
+              overall lineage open, however strong the neighboring links are.
             </p>
           </div>
         </div>
@@ -104,8 +103,11 @@ export default function ProofsPage() {
                 >
                   Genealogical Proof Standard
                 </a>{' '}
-                to test a conclusion. A proof may be short or long, depending on
-                the question and the evidence it takes to answer it.
+                to test each consequential relationship or identity conclusion.
+                A proof may be short or long, depending on the question and the
+                evidence it takes to answer it. These pages are working
+                assessments, with fuller proof arguments still needed for
+                disputed links.
               </p>
             </div>
             <ol className="grid gap-3 sm:grid-cols-2">
@@ -147,6 +149,7 @@ export default function ProofsPage() {
                   {project.summary}
                 </p>
                 <p className="mt-5 text-sm leading-relaxed text-ink/60">
+                  {project.lineage.length} lineage links ·{' '}
                   {project.parts.length} questions tracked · Reviewed{' '}
                   {project.publication.reviewedOn}
                 </p>

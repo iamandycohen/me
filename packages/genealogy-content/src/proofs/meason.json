@@ -4,6 +4,71 @@
   "summary": "Following the documented family line through Benjamin while testing where Benjamin belongs among the earlier Measons.",
   "purpose": "I want to understand and explain each relationship in my Meason line, especially the open generation before Benjamin.",
   "status": "in-progress",
+  "lineage": [
+    {
+      "id": "andy-cynthia",
+      "from": "Andy Cohen",
+      "to": "Cynthia June Meason",
+      "kind": "parent-child",
+      "relationshipId": "cynthia-shannon"
+    },
+    {
+      "id": "cynthia-jimmy",
+      "from": "Cynthia June Meason",
+      "to": "James Lawrence “Jimmy” Meason",
+      "kind": "parent-child",
+      "relationshipId": "james-1934-cynthia"
+    },
+    {
+      "id": "jimmy-james-1892",
+      "from": "James Lawrence “Jimmy” Meason",
+      "to": "James Lawrence Meason (1892–1949)",
+      "kind": "parent-child",
+      "relationshipId": "james-1892-james-1934"
+    },
+    {
+      "id": "james-1892-franklin",
+      "from": "James Lawrence Meason (1892–1949)",
+      "to": "Franklin Meason",
+      "kind": "parent-child",
+      "relationshipId": "franklin-james-1892"
+    },
+    {
+      "id": "franklin-george",
+      "from": "Franklin Meason",
+      "to": "George M. Meason",
+      "kind": "parent-child",
+      "relationshipId": "george-franklin"
+    },
+    {
+      "id": "george-benjamin",
+      "from": "George M. Meason",
+      "to": "Benjamin Meason",
+      "kind": "parent-child",
+      "relationshipId": "benjamin-george"
+    },
+    {
+      "id": "benjamin-kentucky-thomas",
+      "from": "Benjamin Meason",
+      "to": "Thomas Mason of Kentucky",
+      "kind": "parent-child",
+      "partId": "benjamin-kentucky-thomas"
+    },
+    {
+      "id": "kentucky-thomas-will-son",
+      "from": "Thomas Mason of Kentucky",
+      "to": "Thomas, son named in the 1779 will",
+      "kind": "identity",
+      "partId": "senior-son-kentucky"
+    },
+    {
+      "id": "will-son-thomas-senior",
+      "from": "Thomas, son named in the 1779 will",
+      "to": "Thomas Meason senior",
+      "kind": "parent-child",
+      "partId": "senior-son-thomas"
+    }
+  ],
   "parts": [
     {
       "id": "benjamin-george",
@@ -71,6 +136,53 @@
       "conclusion": "Accepted as an indirect parent–child conclusion in the public tree, with the identity caveat visible.",
       "nextTest": "Find a contemporary record that directly names George's father or independently resolves the James L. identity bridge.",
       "relatedCaseIds": ["george-connection"]
+    },
+    {
+      "id": "benjamin-kentucky-thomas",
+      "question": "Was Thomas Mason of Kentucky Benjamin Meason's father?",
+      "status": "open",
+      "evidenceType": "indirect",
+      "summary": "Thomas Mason of Kentucky is a proposed parentage candidate, but no reviewed record names Benjamin as his son.",
+      "evidence": [
+        {
+          "referenceId": 2,
+          "role": "context",
+          "note": "Benjamin's 1801 Nelson County marriage bond places him in Kentucky but names no parent or guardian."
+        },
+        {
+          "referenceId": 20,
+          "role": "context",
+          "note": "Thomas's 1788 land purchase places the proposed father in Kentucky; it names no child."
+        },
+        {
+          "referenceId": 21,
+          "role": "context",
+          "note": "Thomas's 1795 Logan County conveyance does not mention Benjamin."
+        },
+        {
+          "referenceId": 67,
+          "role": "limits",
+          "note": "Benjamin was an heir at law of Joseph Meason, but the deed does not state the degree of kinship or assign him to Thomas's branch."
+        },
+        {
+          "referenceId": 68,
+          "role": "context",
+          "note": "Joseph's collateral-heir deed identifies other family branches, without assigning Benjamin to this candidate."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "Reviewed Nelson County marriage and tax records",
+          "Kentucky land transactions for Thomas Mason",
+          "1813 Highland Creek heir deeds"
+        ],
+        "limits": "The reviewed records do not identify Benjamin's parents or connect him specifically to Kentucky Thomas; other branches remain possible."
+      },
+      "analysis": "Kentucky place, chronology, and the wider Meason network make this a question to test. They do not establish a parent–child link. Joseph's heir deed does not specify Benjamin's relationship to Joseph or to Thomas.",
+      "conflicts": [],
+      "conclusion": "Thomas Mason of Kentucky remains a proposed father only; Benjamin's parentage is open.",
+      "nextTest": "Find contemporary guardianship, probate, land, tax, or church records that name Benjamin in Thomas's household or identify his father.",
+      "relatedCaseIds": ["parentage"]
     },
     {
       "id": "benjamin-parents",

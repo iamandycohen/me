@@ -44,12 +44,22 @@ export interface ProofPart {
   readonly relatedCaseIds: readonly CaseId[];
 }
 
+export interface ProofLineageStep {
+  readonly id: string;
+  readonly from: string;
+  readonly to: string;
+  readonly kind: 'parent-child' | 'identity';
+  readonly relationshipId?: RelationshipId;
+  readonly partId?: string;
+}
+
 export interface ProofProject {
   readonly id: 'meason' | 'sledge';
   readonly title: string;
   readonly summary: string;
   readonly purpose: string;
   readonly status: ProofProjectStatus;
+  readonly lineage: readonly ProofLineageStep[];
   readonly parts: readonly ProofPart[];
   readonly publication: PublicationReview;
 }

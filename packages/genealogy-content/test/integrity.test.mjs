@@ -45,6 +45,7 @@ test('proof projects expose separate assessed links and an unassessed Sledge gen
       ['collin-francis', 'open'],
       ['john-collin', 'documented'],
       ['john-patriot-identity', 'open'],
+      ['john-service', 'not-assessed'],
     ]
   );
   assert.match(
@@ -59,13 +60,63 @@ test('proof projects expose separate assessed links and an unassessed Sledge gen
   );
 });
 
+test('proof lineage paths connect the claimant to each target through assessed links', () => {
+  assert.deepEqual(
+    proofProjects.map(({ id, lineage }) => [
+      id,
+      lineage[0].from,
+      lineage.at(-1).to,
+    ]),
+    [
+      ['meason', 'Andy Cohen', 'Thomas Meason senior'],
+      ['sledge', 'Andy Cohen', 'John Sledge of the SAR family claim'],
+    ]
+  );
+  for (const project of proofProjects) {
+    for (const [index, step] of project.lineage.entries()) {
+      if (index > 0) assert.equal(project.lineage[index - 1].to, step.from);
+      assert.equal(Boolean(step.relationshipId) !== Boolean(step.partId), true);
+    }
+  }
+  const meason = proofProjects.find(({ id }) => id === 'meason');
+  assert.equal(
+    meason.lineage.find(({ id }) => id === 'benjamin-kentucky-thomas').partId,
+    'benjamin-kentucky-thomas'
+  );
+  assert.equal(
+    meason.parts.find(({ id }) => id === 'benjamin-kentucky-thomas').status,
+    'open'
+  );
+});
+
+test('proof validation rejects a broken lineage and missing source claim', () => {
+  const invalid = structuredClone(publicGenealogyContent);
+  invalid.proofProjects[0].lineage[1].from = 'Disconnected person';
+  invalid.proofProjects[1].lineage[3].partId = 'missing-part';
+  const { errors } = validatePublicGenealogyContent(invalid);
+  assert.ok(
+    errors.some((error) =>
+      error.includes('does not connect to the previous step')
+    )
+  );
+  assert.ok(
+    errors.some((error) =>
+      error.includes('references missing proof part missing-part')
+    )
+  );
+});
+
 test('proof validation rejects missing arrays required by the detail page', () => {
   for (const field of ['conflicts', 'relatedCaseIds']) {
     const invalid = structuredClone(publicGenealogyContent);
     delete invalid.proofProjects[0].parts[0][field];
     const { errors } = validatePublicGenealogyContent(invalid);
     assert.ok(
-      errors.some((error) => error.includes(`is missing ${field === 'conflicts' ? 'conflicts' : 'related case ids'} array`)),
+      errors.some((error) =>
+        error.includes(
+          `is missing ${field === 'conflicts' ? 'conflicts' : 'related case ids'} array`
+        )
+      ),
       `${field} should be required`
     );
   }

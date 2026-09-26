@@ -4,6 +4,78 @@
   "summary": "Tracing Mary Estelle Sledge's family toward the John Sledge named in a 1798 Hancock County will, one relationship at a time.",
   "purpose": "I want to establish this line for myself and understand how it relates to a family SAR claim. Lineage, the 1798 testator's identity, and Revolutionary service need separate conclusions.",
   "status": "in-progress",
+  "lineage": [
+    {
+      "id": "andy-cynthia",
+      "from": "Andy Cohen",
+      "to": "Cynthia June Meason",
+      "kind": "parent-child",
+      "relationshipId": "cynthia-shannon"
+    },
+    {
+      "id": "cynthia-jimmy",
+      "from": "Cynthia June Meason",
+      "to": "James Lawrence “Jimmy” Meason",
+      "kind": "parent-child",
+      "relationshipId": "james-1934-cynthia"
+    },
+    {
+      "id": "jimmy-mary",
+      "from": "James Lawrence “Jimmy” Meason",
+      "to": "Mary Estelle Sledge",
+      "kind": "parent-child",
+      "partId": "jimmy-mary"
+    },
+    {
+      "id": "mary-jack",
+      "from": "Mary Estelle Sledge",
+      "to": "Jack Sledge",
+      "kind": "parent-child",
+      "partId": "mary-jack"
+    },
+    {
+      "id": "jack-ira",
+      "from": "Jack Sledge",
+      "to": "Ira Sledge",
+      "kind": "identity",
+      "partId": "jack-ira"
+    },
+    {
+      "id": "ira-john-w",
+      "from": "Ira Sledge",
+      "to": "John W. Sledge",
+      "kind": "parent-child",
+      "partId": "ira-john-w"
+    },
+    {
+      "id": "john-w-francis",
+      "from": "John W. Sledge",
+      "to": "Francis M. Sledge",
+      "kind": "parent-child",
+      "partId": "francis-john"
+    },
+    {
+      "id": "francis-collin",
+      "from": "Francis M. Sledge",
+      "to": "Collin Sledge",
+      "kind": "parent-child",
+      "partId": "collin-francis"
+    },
+    {
+      "id": "collin-testator-john",
+      "from": "Collin Sledge",
+      "to": "John Sledge, 1798 Hancock testator",
+      "kind": "parent-child",
+      "partId": "john-collin"
+    },
+    {
+      "id": "testator-sar-john",
+      "from": "John Sledge, 1798 Hancock testator",
+      "to": "John Sledge of the SAR family claim",
+      "kind": "identity",
+      "partId": "john-patriot-identity"
+    }
+  ],
   "parts": [
     {
       "id": "jimmy-mary",
@@ -302,6 +374,31 @@
       ],
       "conclusion": "The testator's proposed patriot identity and service are unproved here; no SAR eligibility conclusion follows.",
       "nextTest": "Identify the claimed patriot and compare independently cited service, residence, family, and probate records with the Hancock testator.",
+      "relatedCaseIds": []
+    },
+    {
+      "id": "john-service",
+      "question": "What Revolutionary service, if any, is documented for the John Sledge of the SAR family claim?",
+      "status": "not-assessed",
+      "evidenceType": "unassessed",
+      "summary": "Revolutionary service has not been assessed in this public proof path.",
+      "evidence": [
+        {
+          "referenceId": 88,
+          "role": "limits",
+          "note": "The 1798 Hancock will documents a testator and his son Collin, but contains no Revolutionary service evidence."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "1798 Hancock will-book entry for the limits of this source"
+        ],
+        "limits": "No reviewed service record or qualifying service analysis has been incorporated here. The will cannot serve as evidence of service."
+      },
+      "analysis": "A family patriot claim and a same-name will are leads. Service requires independently cited records, and the person in those records must be identified with the ancestor on the lineage path.",
+      "conflicts": [],
+      "conclusion": "No Revolutionary service conclusion is presented here, and this path establishes no SAR eligibility.",
+      "nextTest": "Identify the service claim and review original or reliable derivative service, residence, and identity records for the named man.",
       "relatedCaseIds": []
     }
   ],
