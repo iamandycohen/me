@@ -13,7 +13,7 @@ import { ReferenceLinks } from '@/components/ReferenceLinks';
 import { absoluteUrl } from '@/lib/site';
 
 const gpsReviewLabels = {
-  met: 'GPS met for this link',
+  met: 'GPS criteria satisfied',
   'near-ready': 'GPS: nearly demonstrated',
   'work-remains': 'GPS: work remains',
 } as const;
@@ -167,9 +167,10 @@ export default async function ProofProjectPage({
             identity step tests whether records with different names describe
             the same person. The evidence badge describes the current
             conclusion. The separate GPS assessment tracks five standards for
-            that link. A GPS-met label is my assessment of that specific link,
-            not an endorsement of the whole path. A path with an open step
-            remains an open lineage.
+            that link. “GPS criteria satisfied” is my assessment that the
+            evidence for that specific link meets the five elements; it does not
+            imply independent review or establish the whole path. A path with an
+            open step remains an open lineage.
           </p>
           {project.id === 'sledge' ? (
             <p className="mt-4 max-w-3xl text-sm leading-relaxed text-ink/65">
@@ -215,7 +216,7 @@ export default async function ProofProjectPage({
                   </span>
                   <p className="text-xs leading-relaxed text-ink/55">
                     {step.gpsReview.status === 'met'
-                      ? 'This narrow relationship meets the five GPS elements. The modern source records and full citations remain private.'
+                      ? 'In my assessment, this narrow relationship satisfies all five GPS elements. The modern source records and full citations remain private.'
                       : step.gpsReview.status === 'near-ready'
                         ? 'Strong evidence is in place; the listed GPS work remains.'
                         : 'See the specific standards and next action below.'}
