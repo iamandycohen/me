@@ -15,7 +15,7 @@ import { absoluteUrl } from '@/lib/site';
 const gpsReviewLabels = {
   'near-ready': 'GPS: nearly demonstrated',
   'work-remains': 'GPS: work remains',
-  'private-review': 'GPS: private review needed',
+  'private-review': 'GPS audit pending: private records',
 } as const;
 
 const gpsReviewStyles = {
@@ -214,7 +214,7 @@ export default async function ProofProjectPage({
                   </span>
                   <p className="text-xs leading-relaxed text-ink/55">
                     {step.gpsReview.access === 'private'
-                      ? 'The underlying records are private; this public page cannot show their full review.'
+                      ? 'The relationship uses private modern records. Their five-part GPS audit is still pending; the badge does not indicate a known problem with the link.'
                       : step.gpsReview.status === 'near-ready'
                         ? 'Strong evidence is in place; the listed GPS work remains.'
                         : 'See the specific standards and next action below.'}
