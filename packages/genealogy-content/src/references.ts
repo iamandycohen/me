@@ -1130,6 +1130,132 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       note: 'Historical context is linked; no illustration is used as a depiction of Joseph’s boat.',
     },
   },
+  {
+    id: 83,
+    title: 'Mary Meason 1952 Texas death certificate',
+    citation:
+      'Texas death certificate for Mary Meason, 1952, Dallas County; Ancestry collection 2272, record 22407326, certificate front.',
+    supports:
+      'Names her father as Jack Sledge and mother as Elizabeth Hetzer, as typed.',
+    limitation:
+      'The certificate does not call Jack Ira or Mary Estelle. The typed mother surname is Hetzer; Netzer remains unverified. Her reported birth year conflicts with the 1900 census. A possible reverse was not independently reviewed.',
+    url: 'https://www.ancestry.com/search/collections/2272/records/22407326',
+    accessLabel: 'Open provider record',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'The reviewed certificate front is summarized; private image bytes are not republished.',
+    },
+  },
+  {
+    id: 84,
+    title: 'Mary in the 1900 Dallas Sledge household',
+    citation:
+      '1900 United States census, Dallas Ward 12, Dallas County, Texas, enumeration district 125, sheet 5B, Jack and Lizzie Sledge household; NARA T623 roll 1625; Ancestry collection 7602, record 70512902.',
+    supports:
+      'Places daughter Mary in the household of Jack and Lizzie Sledge, supporting the later Mary Meason identity bridge.',
+    limitation:
+      'The identity with the later Mary Meason is an inference. The census reports birth year 1897, while her 1952 death certificate reports 1896.',
+    url: 'https://www.ancestry.com/search/collections/7602/records/70512902',
+    accessLabel: 'Open provider record',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'The provider record is linked; private census image bytes are not republished.',
+    },
+  },
+  {
+    id: 85,
+    title: 'Mary in the 1910 Lathram household',
+    citation:
+      '1910 United States census, Lathram Township, Caddo County, Oklahoma, enumeration district 67, sheet 6A, Ira and Lizzie household; NARA T624 roll 1245; Ancestry collection 7884, record 22769222.',
+    supports:
+      'Places daughter Mary with Ira and Lizzie in the later household, contributing to the Jack/Ira and Mary identity analysis.',
+    limitation:
+      'The census association alone does not prove that Jack and Ira were the same man or identify the later Mary Meason without correlation.',
+    url: 'https://www.ancestry.com/search/collections/7884/records/22769222',
+    accessLabel: 'Open provider record',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'The provider record is linked; private census image bytes are not republished.',
+    },
+  },
+  {
+    id: 86,
+    title: 'Francis and John in the 1860 Tishomingo census sequence',
+    citation:
+      '1860 United States census, Tishomingo County, Mississippi, NARA M653 roll 593, manuscript pp. 145, 147, 148, 146, 6 August 1860; Ancestry collection 7667, frames 4233376_00149–00152.',
+    supports:
+      'Francis M. Sledge starts household 958 on p. 145, line 40. Its continuation on p. 147 includes John Sledge, age 10, at line 7; household 959 starts at line 12.',
+    limitation:
+      'The schedule has no relationship column, so the shared household does not directly establish parentage. Page 146 follows page 148 in household sequence; Sarah Bass belongs to household 969, not Francis’s household.',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'Reviewed four-frame sequence is summarized; private census image bytes are not republished.',
+    },
+  },
+  {
+    id: 87,
+    title: 'Francis and John in the 1870 Alcorn household',
+    citation:
+      '1870 United States census, Alcorn County, Mississippi, NARA M593 roll 720, manuscript pp. 31–32, F M Sleage and John household; Ancestry collection 7163, record 36514689.',
+    supports:
+      'Records F M Sleage, age 59 and Georgia-born, and John, age 21 and Mississippi-born, in the same complete household.',
+    limitation:
+      'The form supplies neither John’s middle initial nor relationship to the head; identification with later John W. Sledge and fatherhood are indirect questions.',
+    url: 'https://www.ancestry.com/search/collections/7163/records/36514689',
+    accessLabel: 'Open provider record',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'Provider record is linked; private census image bytes are not republished.',
+    },
+  },
+  {
+    id: 88,
+    title: '1798 Hancock County will of John Sledge',
+    citation:
+      'Hancock County, Georgia, Will Book AA, pp. 18–19, will dated 17 April 1798; FamilySearch DGS 5759601, image 273.',
+    supports:
+      'The recorded will directly calls Collin Sledge the testator John Sledge’s son.',
+    limitation:
+      'The will does not style the testator Jr. and does not by itself identify him with a compiled patriot or establish Revolutionary service. The derivative 14 April date is superseded by the original record.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:3QS7-893L-5J5D',
+    accessLabel: 'Open will-book image',
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'The FamilySearch image is linked externally; private image bytes are not republished.',
+    },
+  },
+  {
+    id: 89,
+    title: '1834 Pike County deed witnessed by Francis M. Sledge',
+    citation:
+      'Pike County, Georgia, Deed Book C, p. 13, Crawley to Zilpha Sledge, 1834; FamilySearch DGS 8152116, image 288.',
+    supports:
+      'Names Francis M. Sledge as a witness to Zilpha Sledge’s purchase.',
+    limitation:
+      'Witnessing a deed states no kinship between Francis and Zilpha or Collin Sledge.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSKJ-Y9J3-8',
+    accessLabel: 'Open deed-book image',
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'The FamilySearch image is linked externally; private image bytes are not republished.',
+    },
+  },
+  {
+    id: 90,
+    title: 'Tishomingo school fund account book name index',
+    citation:
+      'Tishomingo County Historical & Genealogical Society, School Fund Accounts Book (2005), alphabetical name index, PDF p. 34, printed p. 228, Sledge entries.',
+    supports:
+      'The derivative index points Barbery Ann, Francis, John, and William Sledge to manuscript p. 19, and Barbery A., John W., Mary F., Sabra Jane, and William Sledge to manuscript p. 42.',
+    limitation:
+      'This is a name locator, not the original account book. Manuscript pp. 19 and 42, their columns, and continuations have not been reviewed. Shared surname or page number does not establish household, identity, or kinship. A separate school-record index has different page numbers that cannot be transferred here.',
+    url: 'https://www.msgw.org/tishomingo/1856_1859SchoolFundAccountBook.pdf',
+    accessLabel: 'Open society name index',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'The derivative PDF is linked with attribution; its pages and any future archive scans are not republished.',
+    },
+  },
 ];
 const publication = {
   status: 'published',
@@ -1142,7 +1268,15 @@ export const references: readonly Reference[] = referenceCatalog.map(
     ...entry,
     publication:
       entry.id >= 80
-        ? { ...publication, reviewedOn: '2026-09-22' }
+        ? {
+            ...publication,
+            reviewedOn:
+              entry.id >= 90
+                ? '2026-09-26'
+                : entry.id >= 83
+                  ? '2026-09-24'
+                  : '2026-09-22',
+          }
         : publication,
   })
 );

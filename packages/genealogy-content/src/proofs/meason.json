@@ -1,0 +1,278 @@
+{
+  "id": "meason",
+  "title": "The Meason proof path",
+  "summary": "Following the documented family line through Benjamin while testing where Benjamin belongs among the earlier Measons.",
+  "purpose": "I want to understand and explain each relationship in my Meason line, especially the open generation before Benjamin.",
+  "status": "in-progress",
+  "parts": [
+    {
+      "id": "benjamin-george",
+      "question": "Was George M. Meason Benjamin Mason's son?",
+      "status": "accepted-indirect",
+      "evidenceType": "indirect",
+      "summary": "The public tree accepts this link through a converging family and land network, although no reviewed record states it directly.",
+      "evidence": [
+        {
+          "referenceId": 1,
+          "role": "context",
+          "note": "Benjamin and the Hollingsworth family appear in one 1850 Monroe County household; George is not identified as his son."
+        },
+        {
+          "referenceId": 61,
+          "role": "supports",
+          "note": "Laura Ann Meason is directly called Benjamin’s daughter and married John C. Kippers."
+        },
+        {
+          "referenceId": 28,
+          "role": "supports",
+          "note": "John C. Kippers, George M. Meason, and James L. Meason jointly acquired adjacent land; the deed states no kinship."
+        },
+        {
+          "referenceId": 62,
+          "role": "supports",
+          "note": "The 1860 Missouri neighbor sequence preserves Kipper, Hollingsworth, Parker, and James L. Mason associations."
+        },
+        {
+          "referenceId": 33,
+          "role": "supports",
+          "note": "George’s 1880 household names son James and daughter-in-law Eva, enabling the later Texas identity correlation."
+        },
+        {
+          "referenceId": 60,
+          "role": "supports",
+          "note": "The 1900 Texas census calls elder James L. the uncle of James R., strongly continued from George’s son James in 1880."
+        },
+        {
+          "referenceId": 59,
+          "role": "supports",
+          "note": "The elder James L. 1919 death certificate names Benjamin Meason as his father; this is later, informant-supplied evidence."
+        },
+        {
+          "referenceId": 64,
+          "role": "limits",
+          "note": "Missouri James L. remained Kentucky-born in 1880; no record bridges him to the Missouri-born Texas elder James L."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "Reviewed Missouri land and household records",
+          "Reviewed Kipper, Hollingsworth, Parker, and Meason associations",
+          "Reviewed Texas uncle and father statements"
+        ],
+        "limits": "No single reviewed record names George as Benjamin's son; the Missouri-to-Texas James L. bridge remains unresolved."
+      },
+      "analysis": "Benjamin’s documented daughter Laura and her husband John C. Kippers connect the Missouri land and neighbor network to George. The Texas uncle statement, George’s 1880 son James, and the elder James L. death certificate add independent kinship correlations. The two James L. trails remain separate because no migration record bridges them.",
+      "conflicts": [
+        {
+          "issue": "The Missouri and Texas James L. records report different birthplaces.",
+          "resolution": "Keep their identities separate; the George–Benjamin conclusion rests on the wider network and retains this limit."
+        }
+      ],
+      "conclusion": "Accepted as an indirect parent–child conclusion in the public tree, with the identity caveat visible.",
+      "nextTest": "Find a contemporary record that directly names George's father or independently resolves the James L. identity bridge.",
+      "relatedCaseIds": ["george-connection"]
+    },
+    {
+      "id": "benjamin-parents",
+      "question": "Who were Benjamin Mason's parents?",
+      "status": "open",
+      "evidenceType": "mixed",
+      "summary": "Benjamin is documented in Kentucky and Missouri, but no reviewed record names either parent.",
+      "evidence": [
+        {
+          "referenceId": 2,
+          "role": "supports",
+          "note": "Benjamin signed the 1801 Nelson County marriage bond; it names no parent or guardian."
+        },
+        {
+          "referenceId": 1,
+          "role": "context",
+          "note": "The 1850 census reports a Virginia birthplace and approximate age, without parentage."
+        },
+        {
+          "referenceId": 18,
+          "role": "limits",
+          "note": "Thomas senior's extensive 1779 will omits Benjamin; omission weighs against direct fatherhood but is not categorical."
+        },
+        {
+          "referenceId": 19,
+          "role": "limits",
+          "note": "Hempfield Thomas's will also omits Benjamin, without identifying his parents."
+        },
+        {
+          "referenceId": 67,
+          "role": "supports",
+          "note": "Benjamin is directly called an heir at law of Joseph Meason, but the deed does not state the degree of kinship."
+        },
+        {
+          "referenceId": 68,
+          "role": "context",
+          "note": "A neighboring deed shows Joseph’s collateral heirs through brothers John and Samuel; it does not assign Benjamin to a branch."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "Reviewed Nelson County marriage and tax records",
+          "Reviewed Benjamin's Missouri household",
+          "Reviewed Thomas senior and Hempfield probate records",
+          "1813 Highland Creek heir deeds"
+        ],
+        "limits": "The reviewed record set has not identified a parent, guardian, or direct relationship statement."
+      },
+      "analysis": "Benjamin’s marriage, census, and heir deed place him in a documented family network. “Heir at law” does not mean son, and the collateral deed does not assign him to John, Samuel, or Thomas. The will omissions and lack of a linking record keep his parentage open.",
+      "conflicts": [
+        {
+          "issue": "Thomas senior and Hempfield Thomas are attractive same-name candidates, but both wills omit Benjamin.",
+          "resolution": "Treat each omission as negative evidence to weigh, not proof of exclusion or a positive assignment elsewhere."
+        }
+      ],
+      "conclusion": "Benjamin's parents are not established.",
+      "nextTest": "Search contemporary guardianship, land, tax, probate, and church records for a relationship statement or a correlated household path.",
+      "relatedCaseIds": ["parentage"]
+    },
+    {
+      "id": "senior-son-thomas",
+      "question": "Did Thomas Meason senior name a son Thomas?",
+      "status": "documented",
+      "evidenceType": "direct",
+      "summary": "The will dated 14 March and proved 15 March 1779 names a son Thomas among twelve children.",
+      "evidence": [
+        {
+          "referenceId": 18,
+          "role": "supports",
+          "note": "The earlier recorded will-book entry directly names son Thomas; the cataloged copy is another rendering of the same will."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "Westmoreland Will Book 1 earlier recorded entry",
+          "Cataloged copy-volume rendering"
+        ],
+        "limits": "Neither book is the loose signed original; the will does not identify the named son with a later Kentucky or Hempfield man."
+      },
+      "analysis": "The parent–son statement is explicit in the will. Identification of that son in later records is a distinct question.",
+      "conflicts": [
+        {
+          "issue": "An earlier public citation gave 18 March as the proof date.",
+          "resolution": "Both reviewed record-book renderings give 15 March; cite the earlier entry and identify the other as a copy rendering."
+        }
+      ],
+      "conclusion": "Thomas senior's will documents a son named Thomas; it does not establish that son's later identity or Benjamin's parentage.",
+      "nextTest": "",
+      "relatedCaseIds": ["parentage"]
+    },
+    {
+      "id": "hempfield-kentucky-identity",
+      "question": "Could Hempfield Thomas be the later Kentucky Thomas?",
+      "status": "excluded",
+      "evidenceType": "mixed",
+      "summary": "Hempfield Thomas was dead by March 1786; Kentucky Thomas acted in land records in 1788 and 1795.",
+      "evidence": [
+        {
+          "referenceId": 19,
+          "role": "context",
+          "note": "Hempfield Thomas made a will in 1785; its 1805 proof is not his death date."
+        },
+        {
+          "referenceId": 73,
+          "role": "supports",
+          "note": "The 21 March 1786 agreement calls Ann the widow of deceased Thomas."
+        },
+        {
+          "referenceId": 20,
+          "role": "supports",
+          "note": "Kentucky Thomas purchased land in 1788."
+        },
+        {
+          "referenceId": 21,
+          "role": "supports",
+          "note": "Kentucky Thomas conveyed land in 1795."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "Hempfield will and widow agreement",
+          "Nelson and Logan County Kentucky land records"
+        ],
+        "limits": "The exclusion separates the two later men but does not identify Benjamin's father or prove either man's link to Thomas senior."
+      },
+      "analysis": "A man dead by 21 March 1786 cannot personally transact the later Kentucky land purchases and conveyance.",
+      "conflicts": [
+        {
+          "issue": "The Hempfield will was not proved until 1805, which can be mistaken for a survival date.",
+          "resolution": "The 1786 agreement independently establishes his earlier death; the later notation is probate timing."
+        }
+      ],
+      "conclusion": "The Hempfield and Kentucky record groups describe different men.",
+      "nextTest": "",
+      "relatedCaseIds": ["parentage"]
+    },
+    {
+      "id": "senior-son-kentucky",
+      "question": "Was Thomas senior's named son the later Kentucky Thomas?",
+      "status": "supported-inference",
+      "evidenceType": "indirect",
+      "summary": "The recurring Joseph–John–Samuel–Isaac–Elizabeth network strongly favors the Kentucky man, but no reviewed record says so directly.",
+      "evidence": [
+        {
+          "referenceId": 18,
+          "role": "context",
+          "note": "The 1779 will establishes the son Thomas as a role."
+        },
+        {
+          "referenceId": 67,
+          "role": "supports",
+          "note": "Benjamin’s 1813 deed names him as an heir of Joseph but does not identify the degree of kinship or Kentucky Thomas."
+        },
+        {
+          "referenceId": 68,
+          "role": "supports",
+          "note": "The neighboring 1813 deed names Joseph’s brothers John and Samuel and their children, strengthening the family-network comparison."
+        },
+        {
+          "referenceId": 22,
+          "role": "supports",
+          "note": "Joseph’s 1795 deed of gift calls William the eldest son of Thomas Mason of Logan County."
+        },
+        {
+          "referenceId": 69,
+          "role": "supports",
+          "note": "William Mason, expressly son of deceased Thomas, conveyed a Highland Creek interest in 1811; the deed does not name Benjamin."
+        },
+        {
+          "referenceId": 20,
+          "role": "context",
+          "note": "The 1788 Rough Creek purchase documents the Kentucky Thomas."
+        },
+        {
+          "referenceId": 21,
+          "role": "context",
+          "note": "The 1795 sale of the same Rough Creek tract places Thomas Mason in Logan County; it states no relationship to senior."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "1779 Westmoreland will",
+          "Kentucky land transactions",
+          "1813 collateral-heir deeds and associated family records"
+        ],
+        "limits": "No reviewed record explicitly calls the Kentucky man Thomas senior's son; the Hempfield man's connection to senior remains unproved."
+      },
+      "analysis": "Repeated uncommon family-name associations and the Kentucky deed sequence favor the identity. The argument still depends on correlating separate records rather than an explicit identity statement.",
+      "conflicts": [
+        {
+          "issue": "Another same-name man, including Hempfield Thomas, has been proposed for the will's son.",
+          "resolution": "Hempfield and Kentucky men are distinct; the named son's identification remains an inference rather than a direct conclusion."
+        }
+      ],
+      "conclusion": "The Kentucky identity is strongly supported but remains provisional; it does not establish Benjamin as his son.",
+      "nextTest": "Find a deed, probate, or family record explicitly connecting Thomas senior's son with the Kentucky landholder.",
+      "relatedCaseIds": ["parentage"]
+    }
+  ],
+  "publication": {
+    "status": "published",
+    "privacy": "public",
+    "reviewedOn": "2026-09-26"
+  }
+}

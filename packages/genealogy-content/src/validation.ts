@@ -3,6 +3,7 @@ import { evidenceClusters } from './clusters.js';
 import { caseMediaIds, media, personMediaIds, storyMediaIds } from './media.js';
 import { genealogyIdentityModels } from './identity-models.js';
 import { people } from './people.js';
+import { proofProjects } from './proofs.js';
 import { references } from './references.js';
 import { genealogyReconstructions } from './reconstructions.js';
 import { relationships } from './relationships.js';
@@ -18,6 +19,7 @@ export const publicGenealogyContent: PublicGenealogyContent = {
   clusters: evidenceClusters,
   reconstructions: genealogyReconstructions,
   identityModels: genealogyIdentityModels,
+  proofProjects,
   media,
 };
 
@@ -33,8 +35,8 @@ function duplicateValues(
   return [...duplicates];
 }
 
-function textMissing(value: string | undefined): boolean {
-  return !value || value.trim().length === 0;
+function textMissing(value: unknown): boolean {
+  return typeof value !== 'string' || value.trim().length === 0;
 }
 
 export function validatePublicGenealogyContent(
@@ -63,6 +65,7 @@ export function validatePublicGenealogyContent(
     ['cluster', content.clusters.map((item) => item.id)],
     ['reconstruction', content.reconstructions.map((item) => item.id)],
     ['identity model', content.identityModels.map((item) => item.id)],
+    ['proof project', content.proofProjects.map((item) => item.id)],
     ['media', Object.keys(content.media)],
   ] as const) {
     for (const duplicate of duplicateValues(values)) {
@@ -85,6 +88,100 @@ export function validatePublicGenealogyContent(
       if (!referenceIds.has(id))
         errors.push(`${label} references missing source ${id}`);
   };
+
+  for (const project of content.proofProjects) {
+    const projectLabel = `Proof project ${project.id}`;
+    if (!['meason', 'sledge'].includes(project.id))
+      errors.push(`${projectLabel} has invalid id`);
+    validatePublication(projectLabel, project.publication);
+    if (project.status !== 'in-progress')
+      errors.push(`${projectLabel} has invalid status ${project.status}`);
+    for (const [field, value] of [
+      ['title', project.title],
+      ['summary', project.summary],
+      ['purpose', project.purpose],
+    ] as const)
+      if (textMissing(value))
+        errors.push(`${projectLabel} is missing ${field}`);
+    const parts = Array.isArray(project.parts) ? project.parts : [];
+    if (!parts.length) errors.push(`${projectLabel} has no parts`);
+    for (const duplicate of duplicateValues(parts.map(({ id }) => id)))
+      errors.push(`Duplicate proof part id: ${project.id}:${duplicate}`);
+    for (const part of parts) {
+      const label = `${projectLabel} part ${part.id}`;
+      if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(part.id))
+        errors.push(`${label} has invalid id`);
+      if (
+        ![
+          'documented',
+          'accepted-indirect',
+          'supported-inference',
+          'open',
+          'excluded',
+          'not-assessed',
+        ].includes(part.status)
+      )
+        errors.push(`${label} has invalid status ${part.status}`);
+      if (
+        !['direct', 'indirect', 'mixed', 'unassessed'].includes(
+          part.evidenceType
+        )
+      )
+        errors.push(`${label} has invalid evidence type ${part.evidenceType}`);
+      if (
+        (part.status === 'not-assessed') !==
+        (part.evidenceType === 'unassessed')
+      )
+        errors.push(`${label} has inconsistent status and evidence type`);
+      for (const [field, value] of [
+        ['question', part.question],
+        ['summary', part.summary],
+        ['research scope limits', part.researchScope?.limits],
+        ['analysis', part.analysis],
+        ['conclusion', part.conclusion],
+      ] as const)
+        if (textMissing(value)) errors.push(`${label} is missing ${field}`);
+      if (
+        !Array.isArray(part.researchScope?.searched) ||
+        !part.researchScope.searched.length ||
+        part.researchScope.searched.some(textMissing)
+      )
+        errors.push(`${label} is missing researched record groups`);
+      if (
+        [
+          'open',
+          'supported-inference',
+          'accepted-indirect',
+          'not-assessed',
+        ].includes(part.status) &&
+        textMissing(part.nextTest)
+      )
+        errors.push(`${label} is missing next test`);
+      const evidence = Array.isArray(part.evidence) ? part.evidence : [];
+      if (!evidence.length) errors.push(`${label} has no evidence`);
+      for (const item of evidence) {
+        validateReferences(label, [item.referenceId]);
+        if (!['supports', 'context', 'conflicts', 'limits'].includes(item.role))
+          errors.push(`${label} has invalid source role ${item.role}`);
+        if (textMissing(item.note))
+          errors.push(`${label} has evidence without a note`);
+      }
+      const conflicts = Array.isArray(part.conflicts) ? part.conflicts : [];
+      if (!Array.isArray(part.conflicts))
+        errors.push(`${label} is missing conflicts array`);
+      for (const conflict of conflicts)
+        if (textMissing(conflict.issue) || textMissing(conflict.resolution))
+          errors.push(`${label} has incomplete conflict analysis`);
+      const relatedCaseIds = Array.isArray(part.relatedCaseIds)
+        ? part.relatedCaseIds
+        : [];
+      if (!Array.isArray(part.relatedCaseIds))
+        errors.push(`${label} is missing related case ids array`);
+      for (const caseId of relatedCaseIds)
+        if (!caseIds.has(caseId))
+          errors.push(`${label} has missing case ${caseId}`);
+    }
+  }
 
   for (const person of content.people) {
     validatePublication(`Person ${person.id}`, person.publication);

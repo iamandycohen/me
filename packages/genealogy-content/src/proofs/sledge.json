@@ -1,0 +1,313 @@
+{
+  "id": "sledge",
+  "title": "The Sledge proof path",
+  "summary": "Tracing Mary Estelle Sledge's family toward the John Sledge named in a 1798 Hancock County will, one relationship at a time.",
+  "purpose": "I want to establish this line for myself and understand how it relates to a family SAR claim. Lineage, the 1798 testator's identity, and Revolutionary service need separate conclusions.",
+  "status": "in-progress",
+  "parts": [
+    {
+      "id": "jimmy-mary",
+      "question": "Was Mary Estelle Sledge the mother of James Lawrence Meason born in 1934?",
+      "status": "documented",
+      "evidenceType": "direct",
+      "summary": "His contemporaneous Texas birth certificate names Mary Estelle Sledge as his mother.",
+      "evidence": [
+        {
+          "referenceId": 75,
+          "role": "supports",
+          "note": "The original birth certificate directly names the mother."
+        },
+        {
+          "referenceId": 74,
+          "role": "supports",
+          "note": "The derivative statewide birth index repeats the full parent name."
+        },
+        {
+          "referenceId": 76,
+          "role": "context",
+          "note": "The 1940 Richardson household associates Mary with young Jimmie."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "1934 birth certificate",
+          "Statewide birth index",
+          "1940 household"
+        ],
+        "limits": "The certificate image is not cleared for public reproduction; the index is derivative of the same birth event."
+      },
+      "analysis": "A contemporaneous vital record directly supplies the relationship, and the later household fits the same family group.",
+      "conflicts": [],
+      "conclusion": "The reviewed birth record documents Mary Estelle Sledge as his mother.",
+      "nextTest": "",
+      "relatedCaseIds": []
+    },
+    {
+      "id": "mary-jack",
+      "question": "Was the later Mary Meason the daughter of Jack Sledge in the 1900 household?",
+      "status": "supported-inference",
+      "evidenceType": "mixed",
+      "summary": "The 1952 death certificate names Jack Sledge as Mary's father, while the 1900 household names a daughter Mary with Jack and Lizzie. Identifying the two Marys is a strong inference.",
+      "evidence": [
+        {
+          "referenceId": 83,
+          "role": "supports",
+          "note": "The death certificate names Jack Sledge and Elizabeth Hetzer as Mary's parents."
+        },
+        {
+          "referenceId": 84,
+          "role": "supports",
+          "note": "The 1900 household records daughter Mary with Jack and Lizzie."
+        },
+        {
+          "referenceId": 85,
+          "role": "context",
+          "note": "The 1910 household has a daughter Mary with Ira and Lizzie."
+        },
+        {
+          "referenceId": 75,
+          "role": "context",
+          "note": "The 1934 birth certificate supplies Mary Estelle Sledge's later maternal role."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "1952 Texas death certificate front",
+          "1900 Dallas household",
+          "1910 Lathram household",
+          "1934 Texas birth certificate"
+        ],
+        "limits": "The certificate does not call Jack Ira or Mary Estelle; the 1952 birth year differs from 1900 by one year."
+      },
+      "analysis": "The father and mother names, surname, household placement, and chronology support the identity bridge. The later certificate's informant and the census identities must be correlated rather than treated as one direct record.",
+      "conflicts": [
+        {
+          "issue": "The death certificate reports birth year 1896, while the 1900 census reports 1897.",
+          "resolution": "Treat the one-year difference as an unresolved reporting conflict; it does not by itself separate the women."
+        },
+        {
+          "issue": "The certificate types Elizabeth's surname as Hetzer; a Netzer variant has been suggested.",
+          "resolution": "Retain Hetzer as transcribed; do not silently correct it or use Netzer as established."
+        }
+      ],
+      "conclusion": "A strong identity bridge supports the parentage path, but it is still an inference requiring a fuller proof argument.",
+      "nextTest": "Find Mary-specific marriage or other records that connect the household daughter to the later Mary Meason and resolve the date and name differences.",
+      "relatedCaseIds": []
+    },
+    {
+      "id": "jack-ira",
+      "question": "Were Jack Sledge and the Ira in the 1910 Lathram household the same man?",
+      "status": "supported-inference",
+      "evidenceType": "indirect",
+      "summary": "The repeated Lizzie and Mary household pattern strongly supports Jack and Ira as the same man, while recorded names and natal details conflict.",
+      "evidence": [
+        {
+          "referenceId": 84,
+          "role": "supports",
+          "note": "Jack, Lizzie, and daughter Mary appear in 1900."
+        },
+        {
+          "referenceId": 85,
+          "role": "supports",
+          "note": "Ira, Lizzie, and daughter Mary appear in 1910."
+        },
+        {
+          "referenceId": 83,
+          "role": "conflicts",
+          "note": "Mary's later certificate names Jack, not Ira, as father."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "1900 Dallas original census household",
+          "1910 Lathram original census household",
+          "1952 certificate front"
+        ],
+        "limits": "No reviewed record explicitly equates Jack and Ira; complete identity analysis remains pending despite precise citations for both households."
+      },
+      "analysis": "A shared household pattern suggests an identity, but the inconsistent given names and birth details require direct comparison with intervening records.",
+      "conflicts": [
+        {
+          "issue": "Jack and Ira are different recorded names with natal-field discrepancies.",
+          "resolution": "Retain the supported identity inference with its conflicts visible; do not treat the names as a proved merger."
+        }
+      ],
+      "conclusion": "Jack/Ira is a supported identity inference, with documented name and natal-field conflicts still requiring resolution.",
+      "nextTest": "Find marriage, land, probate, or additional census records that give both names or otherwise uniquely connect the two households.",
+      "relatedCaseIds": []
+    },
+    {
+      "id": "ira-john-w",
+      "question": "Was Ira Sledge a son of John W. Sledge?",
+      "status": "not-assessed",
+      "evidenceType": "unassessed",
+      "summary": "This page has not yet assessed the proposed connection between Ira and John W. Sledge.",
+      "evidence": [
+        {
+          "referenceId": 87,
+          "role": "context",
+          "note": "The 1870 Alcorn household identifies a John without middle initial or relationship; it does not name Ira."
+        },
+        {
+          "referenceId": 85,
+          "role": "context",
+          "note": "The 1910 Lathram household identifies Ira with Lizzie and Mary, but does not identify his parents."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "1870 Alcorn household summary for John",
+          "1910 Lathram household summary for Ira"
+        ],
+        "limits": "The cited public summaries do not identify Ira's father. The 1880 household record has not yet been assessed for this question on this page."
+      },
+      "analysis": "These two contextual records concern neighboring generations but do not themselves answer the parent–child question. A complete assessment must examine the intervening record and correlate identities across the households.",
+      "conflicts": [],
+      "conclusion": "No assessment of the Ira–John W. link is presented here yet.",
+      "nextTest": "Add a fully cited assessment of the 1880 household and correlate Ira across later records.",
+      "relatedCaseIds": []
+    },
+    {
+      "id": "francis-john",
+      "question": "Was John W. Sledge the son of Francis M. Sledge?",
+      "status": "open",
+      "evidenceType": "indirect",
+      "summary": "The 1860 and 1870 original schedules place Francis and a John in shared households, supporting repeated co-residence but not a direct father–son statement.",
+      "evidence": [
+        {
+          "referenceId": 86,
+          "role": "supports",
+          "note": "The corrected four-frame sequence puts John, age 10, in Francis's 1860 household 958."
+        },
+        {
+          "referenceId": 87,
+          "role": "supports",
+          "note": "F M Sleage and John, age 21, share the complete 1870 household."
+        },
+        {
+          "referenceId": 87,
+          "role": "limits",
+          "note": "The 1870 form gives no middle initial or relationship column."
+        },
+        {
+          "referenceId": 90,
+          "role": "context",
+          "note": "The derivative school-fund index identifies manuscript pp. 19 and 42 for original-page inspection; it establishes no household or kinship."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "Complete 1860 household sequence across manuscript pp. 145, 147, 148, 146",
+          "Complete 1870 Alcorn household",
+          "Derivative 2005 school-fund name index, used only to locate unseen original pages"
+        ],
+        "limits": "Neither schedule states parentage; identity with the later John W. also needs independent correlation. The school-fund account-book manuscript pages remain unseen."
+      },
+      "analysis": "The age and birthplace pattern plus repeated co-residence support a strong working identity. Co-residence alone cannot distinguish son, other kin, or another household member.",
+      "conflicts": [
+        {
+          "issue": "The 1860 page order appears to jump from household 958 to 970.",
+          "resolution": "The reviewed four-frame sequence places p. 147 after p. 145 and before p. 148, locating John in household 958; Sarah Bass remains in household 969."
+        }
+      ],
+      "conclusion": "John W. as Francis's son is not yet proved.",
+      "nextTest": "Find a direct parentage statement or correlate later John W. records with the 1860 and 1870 household member across name, age, place, and associates. Inspect school-fund manuscript pp. 19 and 42 for named entries and column meaning; do not infer kinship from the index.",
+      "relatedCaseIds": []
+    },
+    {
+      "id": "collin-francis",
+      "question": "Was Francis M. Sledge Collin Sledge's son?",
+      "status": "open",
+      "evidenceType": "indirect",
+      "summary": "A 1834 deed places Francis as a witness in a Sledge transaction, but states no kinship; the proposed parent–child link remains unproved.",
+      "evidence": [
+        {
+          "referenceId": 89,
+          "role": "context",
+          "note": "Francis witnessed Zilpha Sledge's purchase; the deed does not name Collin or state a relationship."
+        },
+        {
+          "referenceId": 88,
+          "role": "context",
+          "note": "The earlier will documents Collin as the 1798 testator's son but says nothing about Francis's parentage."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "1834 Pike deed",
+          "Reviewed Collin estate notice summary",
+          "1798 Hancock will"
+        ],
+        "limits": "The estate notice names no child; no reviewed source directly or indirectly closes Collin–Francis."
+      },
+      "analysis": "A shared surname, Georgia setting, and witness role cannot establish a father–son relationship without a more specific link.",
+      "conflicts": [],
+      "conclusion": "The Collin–Francis link remains open.",
+      "nextTest": "Search Collin's probate, deeds, tax records, and Francis's early records for a named heir or a documented family network.",
+      "relatedCaseIds": []
+    },
+    {
+      "id": "john-collin",
+      "question": "Did the 1798 Hancock County testator John Sledge name Collin as his son?",
+      "status": "documented",
+      "evidenceType": "direct",
+      "summary": "The recorded will dated 17 April 1798 explicitly calls Collin the testator's son.",
+      "evidence": [
+        {
+          "referenceId": 88,
+          "role": "supports",
+          "note": "The original will-book entry directly states the parent–son relationship."
+        }
+      ],
+      "researchScope": {
+        "searched": [
+          "Hancock Will Book AA, pp. 18–19, original recorded entry"
+        ],
+        "limits": "The testator is not styled Jr.; this statement does not identify him with a compiled patriot or prove a later Collin–Francis link."
+      },
+      "analysis": "The relationship wording is direct. It applies to the testator named in this will, without importing a compiled identity.",
+      "conflicts": [
+        {
+          "issue": "A derivative account dated the will 14 April 1798.",
+          "resolution": "The reviewed original records 17 April 1798; cite that date."
+        }
+      ],
+      "conclusion": "John Sledge, the 1798 Hancock testator, documented Collin as his son.",
+      "nextTest": "",
+      "relatedCaseIds": []
+    },
+    {
+      "id": "john-patriot-identity",
+      "question": "Was the 1798 testator the same John Sledge associated with the family patriot claim?",
+      "status": "open",
+      "evidenceType": "indirect",
+      "summary": "The will identifies a testator and son, but reviewed evidence here has not established the testator's compiled identity or Revolutionary service.",
+      "evidence": [
+        {
+          "referenceId": 88,
+          "role": "limits",
+          "note": "The will supplies the testator's name and Collin relationship, but neither a Jr. suffix nor service evidence."
+        }
+      ],
+      "researchScope": {
+        "searched": ["1798 Hancock will-book entry"],
+        "limits": "No reviewed service record or identity comparison has been incorporated into this proof project."
+      },
+      "analysis": "A same-name will cannot by itself connect this testator to a patriot profile. Identity and service require separate correlated records.",
+      "conflicts": [
+        {
+          "issue": "Compiled versions append Jr. to the testator.",
+          "resolution": "The original will does not use Jr.; leave the compiled identity unassigned."
+        }
+      ],
+      "conclusion": "The testator's proposed patriot identity and service are unproved here; no SAR eligibility conclusion follows.",
+      "nextTest": "Identify the claimed patriot and compare independently cited service, residence, family, and probate records with the Hancock testator.",
+      "relatedCaseIds": []
+    }
+  ],
+  "publication": {
+    "status": "published",
+    "privacy": "public",
+    "reviewedOn": "2026-09-26"
+  }
+}
