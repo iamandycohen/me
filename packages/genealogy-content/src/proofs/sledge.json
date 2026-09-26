@@ -10,70 +10,100 @@
       "from": "Andy Cohen",
       "to": "Cynthia June Meason",
       "kind": "parent-child",
-      "relationshipId": "cynthia-shannon"
+      "relationshipId": "cynthia-shannon",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "cynthia-jimmy",
       "from": "Cynthia June Meason",
       "to": "James Lawrence “Jimmy” Meason",
       "kind": "parent-child",
-      "relationshipId": "james-1934-cynthia"
+      "relationshipId": "james-1934-cynthia",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "jimmy-mary",
       "from": "James Lawrence “Jimmy” Meason",
       "to": "Mary Estelle Sledge",
       "kind": "parent-child",
-      "partId": "jimmy-mary"
+      "partId": "jimmy-mary",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "mary-jack",
       "from": "Mary Estelle Sledge",
       "to": "Jack Sledge",
       "kind": "parent-child",
-      "partId": "mary-jack"
+      "partId": "mary-jack",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "jack-ira",
       "from": "Jack Sledge",
       "to": "Ira Sledge",
       "kind": "identity",
-      "partId": "jack-ira"
+      "partId": "jack-ira",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "ira-john-w",
       "from": "Ira Sledge",
       "to": "John W. Sledge",
       "kind": "parent-child",
-      "partId": "ira-john-w"
+      "partId": "ira-john-w",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "john-w-francis",
       "from": "John W. Sledge",
       "to": "Francis M. Sledge",
       "kind": "parent-child",
-      "partId": "francis-john"
+      "partId": "francis-john",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "francis-collin",
       "from": "Francis M. Sledge",
       "to": "Collin Sledge",
       "kind": "parent-child",
-      "partId": "collin-francis"
+      "partId": "collin-francis",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "collin-testator-john",
       "from": "Collin Sledge",
       "to": "John Sledge, 1798 Hancock testator",
       "kind": "parent-child",
-      "partId": "john-collin"
+      "partId": "john-collin",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "testator-sar-john",
       "from": "John Sledge, 1798 Hancock testator",
       "to": "John Sledge of the SAR family claim",
       "kind": "identity",
-      "partId": "john-patriot-identity"
+      "partId": "john-patriot-identity",
+      "gpsReview": {
+        "status": "pending"
+      }
     }
   ],
   "parts": [

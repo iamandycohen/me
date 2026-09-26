@@ -10,63 +10,90 @@
       "from": "Andy Cohen",
       "to": "Cynthia June Meason",
       "kind": "parent-child",
-      "relationshipId": "cynthia-shannon"
+      "relationshipId": "cynthia-shannon",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "cynthia-jimmy",
       "from": "Cynthia June Meason",
       "to": "James Lawrence “Jimmy” Meason",
       "kind": "parent-child",
-      "relationshipId": "james-1934-cynthia"
+      "relationshipId": "james-1934-cynthia",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "jimmy-james-1892",
       "from": "James Lawrence “Jimmy” Meason",
       "to": "James Lawrence Meason (1892–1949)",
       "kind": "parent-child",
-      "relationshipId": "james-1892-james-1934"
+      "relationshipId": "james-1892-james-1934",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "james-1892-franklin",
       "from": "James Lawrence Meason (1892–1949)",
       "to": "Franklin Meason",
       "kind": "parent-child",
-      "relationshipId": "franklin-james-1892"
+      "relationshipId": "franklin-james-1892",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "franklin-george",
       "from": "Franklin Meason",
       "to": "George M. Meason",
       "kind": "parent-child",
-      "relationshipId": "george-franklin"
+      "relationshipId": "george-franklin",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "george-benjamin",
       "from": "George M. Meason",
       "to": "Benjamin Meason",
       "kind": "parent-child",
-      "relationshipId": "benjamin-george"
+      "relationshipId": "benjamin-george",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "benjamin-kentucky-thomas",
       "from": "Benjamin Meason",
       "to": "Thomas Mason of Kentucky",
       "kind": "parent-child",
-      "partId": "benjamin-kentucky-thomas"
+      "partId": "benjamin-kentucky-thomas",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "kentucky-thomas-will-son",
       "from": "Thomas Mason of Kentucky",
       "to": "Thomas, son named in the 1779 will",
       "kind": "identity",
-      "partId": "senior-son-kentucky"
+      "partId": "senior-son-kentucky",
+      "gpsReview": {
+        "status": "pending"
+      }
     },
     {
       "id": "will-son-thomas-senior",
       "from": "Thomas, son named in the 1779 will",
       "to": "Thomas Meason senior",
       "kind": "parent-child",
-      "partId": "senior-son-thomas"
+      "partId": "senior-son-thomas",
+      "gpsReview": {
+        "status": "pending"
+      }
     }
   ],
   "parts": [

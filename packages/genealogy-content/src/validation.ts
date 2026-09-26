@@ -123,6 +123,8 @@ export function validatePublicGenealogyContent(
       errors.push(`${projectLabel} lineage must end with ${expectedTarget}`);
     for (const [index, step] of lineage.entries()) {
       const label = `${projectLabel} lineage step ${step.id}`;
+      if (step.gpsReview?.status !== 'pending')
+        errors.push(`${label} has missing or invalid GPS review status`);
       if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(step.id))
         errors.push(`${label} has invalid id`);
       if (textMissing(step.from) || textMissing(step.to))

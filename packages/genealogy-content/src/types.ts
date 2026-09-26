@@ -51,6 +51,9 @@ export interface ProofLineageStep {
   readonly kind: 'parent-child' | 'identity';
   readonly relationshipId?: RelationshipId;
   readonly partId?: string;
+  readonly gpsReview: {
+    readonly status: 'pending';
+  };
 }
 
 export interface ProofProject {

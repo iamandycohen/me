@@ -78,9 +78,10 @@ export default function ProofsPage() {
               with me and shows every proposed generational connection in order.
             </p>
             <p>
-              Each badge records the current assessment of its own link. An
-              identity question may sit between generations when two record
-              groups might describe the same person. An open link keeps the
+              Each evidence badge records the current assessment of its own
+              link. A separate GPS label shows whether all five parts of the
+              standard have been demonstrated for that link on this site; every
+              link currently has a pending GPS review. An open link keeps the
               overall lineage open, however strong the neighboring links are.
             </p>
           </div>

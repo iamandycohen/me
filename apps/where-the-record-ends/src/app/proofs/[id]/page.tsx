@@ -12,6 +12,10 @@ import { ProofStatusBadge } from '@/components/ProofStatusBadge';
 import { ReferenceLinks } from '@/components/ReferenceLinks';
 import { absoluteUrl } from '@/lib/site';
 
+const gpsReviewLabels = {
+  pending: 'GPS review pending',
+} as const;
+
 export function generateStaticParams() {
   return proofProjects.map((project) => ({ id: project.id }));
 }
@@ -134,9 +138,10 @@ export default async function ProofProjectPage({
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-ink/70">
             Each parent–child step needs its own evidence and reasoning. An
             identity step tests whether records with different names describe
-            the same person. A path with an open step remains an open lineage;
-            these badges describe the current assessment, not a completed GPS
-            proof or an approved SAR application.
+            the same person. The evidence badge describes the current
+            conclusion. The separate GPS label says whether this site has
+            demonstrated all five elements for that link. A path with an open
+            step remains an open lineage.
           </p>
           {project.id === 'sledge' ? (
             <p className="mt-4 max-w-3xl text-sm leading-relaxed text-ink/65">
@@ -174,6 +179,15 @@ export default async function ProofProjectPage({
                   {step.summary}
                   <ReferenceLinks ids={step.referenceIds} />
                 </p>
+                <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-ink/10 pt-4">
+                  <span className="inline-flex rounded-full border border-dashed border-ink/40 bg-paper px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-ink/70">
+                    {gpsReviewLabels[step.gpsReview.status]}
+                  </span>
+                  <p className="text-xs leading-relaxed text-ink/55">
+                    This page has not yet demonstrated all five GPS elements for
+                    this link.
+                  </p>
+                </div>
                 {step.relationship?.referenceIds.length === 0 ? (
                   <p className="mt-3 text-xs leading-relaxed text-ink/55">
                     The reviewed modern records remain private.

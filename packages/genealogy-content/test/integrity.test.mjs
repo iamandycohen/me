@@ -89,6 +89,24 @@ test('proof lineage paths connect the claimant to each target through assessed l
   );
 });
 
+test('every lineage link has an explicit GPS review status', () => {
+  for (const project of proofProjects)
+    for (const step of project.lineage)
+      assert.deepEqual(step.gpsReview, { status: 'pending' });
+
+  for (const gpsReview of [undefined, { status: 'complete' }]) {
+    const invalid = structuredClone(publicGenealogyContent);
+    invalid.proofProjects[0].lineage[0].gpsReview = gpsReview;
+    const { errors } = validatePublicGenealogyContent(invalid);
+    assert.ok(
+      errors.some((error) =>
+        error.includes('has missing or invalid GPS review status')
+      ),
+      `GPS review ${JSON.stringify(gpsReview)} must be rejected`
+    );
+  }
+});
+
 test('proof validation rejects a broken lineage and missing source claim', () => {
   const invalid = structuredClone(publicGenealogyContent);
   invalid.proofProjects[0].lineage[1].from = 'Disconnected person';
