@@ -18,6 +18,9 @@ export function SiteFooter() {
             <Link className="transition-colors hover:text-paper" href="/family">
               Family atlas
             </Link>
+            <Link className="transition-colors hover:text-paper" href="/proofs">
+              Proofs
+            </Link>
             <Link className="transition-colors hover:text-paper" href="/cases">
               Research cases
             </Link>

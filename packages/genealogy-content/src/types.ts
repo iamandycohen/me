@@ -7,6 +7,75 @@ export interface PublicationReview {
   readonly reviewedOn: string;
 }
 
+export type ProofPartStatus =
+  | 'documented'
+  | 'accepted-indirect'
+  | 'supported-inference'
+  | 'open'
+  | 'excluded'
+  | 'not-assessed';
+export type ProofProjectStatus = 'in-progress';
+export type ProofEvidenceType = 'direct' | 'indirect' | 'mixed' | 'unassessed';
+
+export interface ProofEvidence {
+  readonly referenceId: number;
+  readonly role: 'supports' | 'context' | 'conflicts' | 'limits';
+  readonly note: string;
+}
+
+export interface ProofPart {
+  readonly id: string;
+  readonly question: string;
+  readonly status: ProofPartStatus;
+  readonly evidenceType: ProofEvidenceType;
+  readonly summary: string;
+  readonly evidence: readonly ProofEvidence[];
+  readonly researchScope: {
+    readonly searched: readonly string[];
+    readonly limits: string;
+  };
+  readonly analysis: string;
+  readonly conflicts: readonly {
+    readonly issue: string;
+    readonly resolution: string;
+  }[];
+  readonly conclusion: string;
+  readonly nextTest: string;
+  readonly relatedCaseIds: readonly CaseId[];
+}
+
+export interface ProofLineageStep {
+  readonly id: string;
+  readonly from: string;
+  readonly to: string;
+  readonly kind: 'parent-child' | 'identity';
+  readonly relationshipId?: RelationshipId;
+  readonly partId?: string;
+  readonly gpsReview: {
+    readonly status: 'near-ready' | 'work-remains' | 'private-review';
+    readonly access: 'public' | 'mixed' | 'private';
+    readonly elements: Record<
+      'research' | 'citations' | 'analysis' | 'conflicts' | 'conclusion',
+      {
+        readonly status: 'shown' | 'partial' | 'not-shown' | 'private';
+        readonly note: string;
+      }
+    >;
+    readonly nextAction: string;
+  };
+}
+
+export interface ProofProject {
+  readonly id: 'meason' | 'sledge';
+  readonly title: string;
+  readonly summary: string;
+  readonly purpose: string;
+  readonly status: ProofProjectStatus;
+  readonly lineage: readonly ProofLineageStep[];
+  readonly parts: readonly ProofPart[];
+  readonly publication: PublicationReview;
+}
+
 export type PersonId =
   | 'benjamin'
   | 'george'
@@ -382,6 +451,7 @@ export interface PublicGenealogyContent {
   readonly clusters: readonly EvidenceCluster[];
   readonly reconstructions: readonly GenealogyReconstruction[];
   readonly identityModels: readonly GenealogyIdentityModel[];
+  readonly proofProjects: readonly ProofProject[];
   readonly media: Readonly<Record<MediaId, PublicMedia>>;
 }
 

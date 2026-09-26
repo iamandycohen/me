@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 const navigation = [
   ['Family atlas', '/family'],
+  ['Proofs', '/proofs'],
   ['Research cases', '/cases'],
-  ['Highland Creek', '/cases/parentage/highland-creek'],
   ['Stories', '/stories'],
   ['Sources', '/sources'],
   ['About', '/about'],
