@@ -35,3 +35,9 @@ the website branch, commit, validation, affected public routes or content
 surfaces, and the disposition of **each** pending handoff item. Geneaology's
 integration owner verifies those outcomes and updates the handoff in its own
 repository. Do not edit the private research repository from a website session.
+
+For structured proof publication, use the workspace-owned
+`.agents/skills/genealogy-proof-publication/SKILL.md` in the dev repository and
+follow `docs/proof-publication.md`. Canonical claims and reviews live in private
+Geneaology. Import only an explicitly reviewed candidate; never edit generated
+proof JSON directly or make the site build read private sibling repositories.

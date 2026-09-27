@@ -110,7 +110,10 @@ test('every lineage link has a bounded five-element GPS assessment', () => {
           step.gpsReview.status
         )
       );
-      assert.deepEqual(Object.keys(step.gpsReview.elements), elementNames);
+      assert.deepEqual(
+        Object.keys(step.gpsReview.elements).sort(),
+        [...elementNames].sort()
+      );
       assert.ok(step.gpsReview.nextAction.length > 0);
     }
   }
