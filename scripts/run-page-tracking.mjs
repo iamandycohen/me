@@ -8,10 +8,18 @@ import { once } from 'node:events';
 import { createRequire } from 'node:module';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const appRequire = createRequire(
-  resolve(root, 'apps/where-the-record-ends/package.json')
-);
 const args = process.argv.slice(2);
+const siteIndex = args.indexOf('--site');
+const site = siteIndex === -1 ? 'genealogy' : args[siteIndex + 1];
+if (!['personal', 'genealogy'].includes(site))
+  throw Error('Expected --site personal or genealogy');
+const appDirectory =
+  site === 'personal' ? root : resolve(root, 'apps/where-the-record-ends');
+const statePath =
+  site === 'personal'
+    ? 'src/data/page-content-state.json'
+    : 'apps/where-the-record-ends/src/data/page-content-state.json';
+const appRequire = createRequire(resolve(appDirectory, 'package.json'));
 const skip = args.indexOf('--skip-build');
 if (skip !== -1) args.splice(skip, 1);
 // A stable public rendering, independent of preview hosts, optional challenge
@@ -19,7 +27,10 @@ if (skip !== -1) args.splice(skip, 1);
 const env = {
   ...process.env,
   SITE_IS_PUBLIC: 'true',
-  NEXT_PUBLIC_SITE_URL: 'https://www.wheretherecordends.com',
+  NEXT_PUBLIC_SITE_URL:
+    site === 'personal'
+      ? 'https://www.iamandycohen.com'
+      : 'https://www.wheretherecordends.com',
   NEXT_PUBLIC_TURNSTILE_SITE_KEY: '',
   NEXT_TELEMETRY_DISABLED: '1',
 };
@@ -61,8 +72,7 @@ try {
     args.splice(baseIndex, 2);
     if (ref !== '0'.repeat(40)) {
       execFileSync('git', ['cat-file', '-e', `${ref}^{commit}`], { cwd: root });
-      const path =
-        'apps/where-the-record-ends/src/data/page-content-state.json';
+      const path = statePath;
       let bytes;
       try {
         bytes = execFileSync('git', ['show', `${ref}:${path}`], {
@@ -83,7 +93,7 @@ try {
         );
     }
   }
-  if (skip === -1) await run('npm', ['run', 'build:genealogy']);
+  if (skip === -1) await run('npm', ['run', `build:${site}`]);
   const port = await availablePort();
   const origin = `http://127.0.0.1:${port}`;
   server = spawn(
@@ -91,7 +101,7 @@ try {
     [
       appRequire.resolve('next/dist/bin/next'),
       'start',
-      resolve(root, 'apps/where-the-record-ends'),
+      appDirectory,
       '--hostname',
       '127.0.0.1',
       '--port',

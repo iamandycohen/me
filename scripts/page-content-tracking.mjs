@@ -17,6 +17,24 @@ export const defaultRegistryPath = resolve(
   root,
   'apps/where-the-record-ends/src/data/page-modifications.json'
 );
+export function siteTrackingPaths(site = 'genealogy', repoRoot = root) {
+  if (!['genealogy', 'personal'].includes(site))
+    throw Error(`Unknown site: ${site}`);
+  const appRoot =
+    site === 'personal'
+      ? repoRoot
+      : resolve(repoRoot, 'apps/where-the-record-ends');
+  return {
+    state: resolve(appRoot, 'src/data/page-content-state.json'),
+    registry: resolve(appRoot, 'src/data/page-modifications.json'),
+    build: resolve(appRoot, '.next/server/app'),
+    publicRoots:
+      site === 'personal'
+        ? [resolve(repoRoot, 'public')]
+        : [resolve(appRoot, 'public'), resolve(repoRoot, 'public')],
+  };
+}
+
 const canonical = (value) =>
   Array.isArray(value)
     ? value.map(canonical)
@@ -268,6 +286,31 @@ export async function readBuiltPage(route, buildDir, origin) {
   return response.text();
 }
 
+export async function readBuiltSitemap(buildDir, origin) {
+  try {
+    return await readFile(resolve(buildDir, 'sitemap.xml.body'), 'utf8');
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+  }
+  if (!origin)
+    throw Error(
+      'No built sitemap; supply --origin for a local production server'
+    );
+  const base = new URL(origin);
+  if (
+    !['http:', 'https:'].includes(base.protocol) ||
+    !['127.0.0.1', 'localhost', '[::1]'].includes(base.hostname)
+  )
+    throw Error('--origin must be a local production server');
+  const response = await fetch(new URL('/sitemap.xml', base), {
+    signal: AbortSignal.timeout(30000),
+    redirect: 'error',
+  });
+  if (!response.ok || !response.headers.get('content-type')?.includes('xml'))
+    throw Error(`Production sitemap did not return XML: ${response.status}`);
+  return response.text();
+}
+
 export function renderedReferenceIds(html) {
   const main = descendants(parse(html)).find((node) => node.tagName === 'main');
   return [
@@ -466,6 +509,7 @@ export async function run(argv) {
         '--registry',
         '--build-dir',
         '--origin',
+        '--site',
       ].includes(arg) &&
       argv[i + 1] &&
       !argv[i + 1].startsWith('--')
@@ -480,14 +524,13 @@ export async function run(argv) {
     throw Error(
       'Use --check or --write [--initialize] [--date DATE] [--base MANIFEST]'
     );
-  const statePath = resolve(options.state ?? defaultStatePath);
-  const registryPath = resolve(options.registry ?? defaultRegistryPath);
-  const buildDir = resolve(
-    options['build-dir'] ??
-      resolve(root, 'apps/where-the-record-ends/.next/server/app')
-  );
+  const site = options.site ?? 'genealogy';
+  const paths = siteTrackingPaths(site);
+  const statePath = resolve(options.state ?? paths.state);
+  const registryPath = resolve(options.registry ?? paths.registry);
+  const buildDir = resolve(options['build-dir'] ?? paths.build);
   const routes = sitemapRoutes(
-    await readFile(resolve(buildDir, 'sitemap.xml.body'), 'utf8')
+    await readBuiltSitemap(buildDir, options.origin)
   );
   const html = Object.fromEntries(
     await Promise.all(
@@ -497,23 +540,34 @@ export async function run(argv) {
       ])
     )
   );
-  const { pageContentModels, referenceContentModels } =
-    await import('./page-content-models.mjs');
-  const content = await import('@where-the-record-ends/genealogy-content');
+  let dataModels;
+  let renderedReferencesFor = () => undefined;
+  if (site === 'personal') {
+    const { personalPageContentModels } =
+      await import('./personal-page-content-models.mjs');
+    dataModels = personalPageContentModels(
+      await readJson(resolve(root, 'content/data.json'))
+    );
+  } else {
+    const { pageContentModels, referenceContentModels } =
+      await import('./page-content-models.mjs');
+    const content = await import('@where-the-record-ends/genealogy-content');
+    dataModels = pageContentModels(content);
+    renderedReferencesFor = (pageHtml) =>
+      referenceContentModels(content, renderedReferenceIds(pageHtml));
+  }
   const { authoredContentForRoute } =
     await import('./page-authored-content.mjs');
-  const dataModels = pageContentModels(content);
   assertCoverage(routes, dataModels, 'Public models');
   const models = Object.fromEntries(
     await Promise.all(
       routes.map(async (route) => {
         const model = {
           data: dataModels[route],
-          renderedReferences: referenceContentModels(
-            content,
-            renderedReferenceIds(html[route])
-          ),
-          authored: await authoredContentForRoute(route, root),
+          ...(site === 'genealogy'
+            ? { renderedReferences: renderedReferencesFor(html[route]) }
+            : {}),
+          authored: await authoredContentForRoute(route, root, site),
         };
         return [
           route,
@@ -521,10 +575,7 @@ export async function run(argv) {
             ...model,
             assets: await assetFingerprints(
               localAssetPaths(html[route], model),
-              [
-                resolve(root, 'apps/where-the-record-ends/public'),
-                resolve(root, 'public'),
-              ]
+              paths.publicRoots
             ),
           },
         ];

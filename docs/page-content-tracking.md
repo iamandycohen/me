@@ -1,6 +1,6 @@
 # Page content dates
 
-Every genealogy sitemap route has a committed content fingerprint and a separate
+Every sitemap route on both websites has a committed content fingerprint and a separate
 last meaningful modification date. `page-content-state.json` is the authoritative
 manifest; `page-modifications.json` is its generated non-null date projection for
 Next.js's sitemap. These are website metadata, not genealogical assessments.
@@ -17,6 +17,11 @@ npm run pages:check
 The first command makes a production build with a stable public configuration,
 compares all routes, and updates only changed pages. Review and commit both
 JSON files under `apps/where-the-record-ends/src/data/` with the content edits.
+For iamandycohen.com use `npm run pages:update:personal` and
+`npm run pages:check:personal`; its two manifests live in `src/data/`.
+Run both pairs for changes that affect both sites. `pages:verify:personal` is
+the personal equivalent of the existing-build check. The shared runner also
+accepts `--site personal` or `--site genealogy` (the default).
 The second command rebuilds and checks without modifying files. To use a known
 editorial instant, append `-- --date 2026-09-27T03:00:37Z` to `pages:update`.
 Normal publication uses its current UTC timestamp. An unchanged page keeps its
@@ -74,11 +79,11 @@ the sitemap route. Unknown historical dates can be `null` during an explicitly
 reviewed baseline; later meaningful changes establish a real date.
 
 `--initialize` is only for establishing the first manifest, not a way to clear
-stale checks. The current 20 routes have audited historical dates. If the
+stale checks. The current 28 routes across the two sites have audited historical dates. If the
 fingerprinting algorithm changes, review the effect separately from editorial
 changes; do not silently relabel an algorithm change as a page update.
 
-## Initial history audit
+## Initial genealogy history audit
 
 Dates below are verified main integration timestamps, not independently measured
 deployment completion times. They include shared data changes and interactive
@@ -94,3 +99,20 @@ citation content; they are not simply the last commit touching a page file.
 | `/contact`                                                                                                                        | 2026-09-22T14:28:40Z | `da6e7b4`: form and explanatory copy                                                         |
 | `/privacy`                                                                                                                        | 2026-09-22T15:07:23Z | `39d7dd7`: consent and analytics disclosures                                                 |
 | `/cases/parentage`, `/cases/burial-ground`                                                                                        | 2026-09-21T11:45:13Z | `979b67b`: citation viewers; no later displayed dependency changes                           |
+
+## Personal site data and history
+
+The eight personal routes use `scripts/personal-page-content-models.mjs` to
+track their actual `content/data.json` dependencies, including interactive
+content and semantic SEO data. Editing an article updates the articles page;
+editing shared Person structured data (for example the current employer) affects
+every page that publishes that data. Site navigation, analytics and presentation
+styling remain excluded. Both build jobs enforce their own site's manifest.
+
+| Routes                                                                           | UTC timestamp        | Public commit and reason                                                                                                               |
+| -------------------------------------------------------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`, `/resume`, `/projects`, `/genealogy`, `/articles`, `/contact`, `/community` | 2026-09-21T23:48:47Z | `7a4dcb1`: current role, biography and expertise changed in Person structured data on every page; also visible profile/project updates |
+| `/privacy`                                                                       | 2026-09-22T15:34:51Z | `601a99e`: privacy page introduced                                                                                                     |
+
+These are audited main integration times. The previous request-time “today”
+values are not historical evidence and were not reused.

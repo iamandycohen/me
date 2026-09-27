@@ -49,3 +49,55 @@ test('stylesheet constants do not trigger editorial dates', () => {
     authoredLiterals(before.replace("label='Person'", "label='Family'"))
   );
 });
+
+test('personal authored traversal excludes modeled JSON and date feedback while retaining hidden copy', async () => {
+  const { authoredContentForRoute } =
+    await import('../page-authored-content.mjs');
+  const { mkdtemp, mkdir, writeFile, rm } = await import('node:fs/promises');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const root = await mkdtemp(join(tmpdir(), 'personal-authored-'));
+  try {
+    for (const path of ['src/app', 'src/lib', 'src/data', 'content'])
+      await mkdir(join(root, path), { recursive: true });
+    await writeFile(
+      join(root, 'src/app/page.tsx'),
+      `import data from '@/lib/data'; import dates from '../data/page-modifications.json'; const hidden = 'Read evidence'; export default () => <main>Welcome</main>;`
+    );
+    await writeFile(
+      join(root, 'src/lib/data.ts'),
+      `import data from '../../content/data.json'; export default data;`
+    );
+    await writeFile(
+      join(root, 'content/data.json'),
+      '{"privateToModel":"first"}'
+    );
+    await writeFile(
+      join(root, 'src/data/page-modifications.json'),
+      '{"first":"date"}'
+    );
+    const before = await authoredContentForRoute('/', root, 'personal');
+    await writeFile(
+      join(root, 'content/data.json'),
+      '{"privateToModel":"second"}'
+    );
+    await writeFile(
+      join(root, 'src/data/page-modifications.json'),
+      '{"second":"date"}'
+    );
+    assert.deepEqual(
+      await authoredContentForRoute('/', root, 'personal'),
+      before
+    );
+    await writeFile(
+      join(root, 'src/app/page.tsx'),
+      `import data from '@/lib/data'; const hidden = 'Read corrected evidence'; export default () => <main>Welcome</main>;`
+    );
+    assert.notDeepEqual(
+      await authoredContentForRoute('/', root, 'personal'),
+      before
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});

@@ -39,7 +39,10 @@
     "pages:update": "node scripts/run-page-tracking.mjs --write",
     "pages:check": "node scripts/run-page-tracking.mjs --check",
     "pages:verify": "node scripts/run-page-tracking.mjs --check --skip-build",
-    "test:page-tracking": "npm run build:content && node --test scripts/test/page-content*.test.mjs scripts/test/page-authored-content.test.mjs"
+    "test:page-tracking": "npm run build:content && node --test scripts/test/page-content*.test.mjs scripts/test/page-authored-content.test.mjs",
+    "pages:update:personal": "node scripts/run-page-tracking.mjs --site personal --write",
+    "pages:check:personal": "node scripts/run-page-tracking.mjs --site personal --check",
+    "pages:verify:personal": "node scripts/run-page-tracking.mjs --site personal --check --skip-build"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

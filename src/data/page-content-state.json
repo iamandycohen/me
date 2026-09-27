@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "pages": {
+    "/": {
+      "sha256": "85af8da3178ceee1423cbb45d29f84c27186b81e04576909f6e2ae262df8fcdb",
+      "lastModified": "2026-09-21T23:48:47Z"
+    },
+    "/articles": {
+      "sha256": "f42dd941307fb6fe3099423cee269693f77060865400c1b1f6dc74e4927d1479",
+      "lastModified": "2026-09-21T23:48:47Z"
+    },
+    "/community": {
+      "sha256": "5b177a44e497d80eef274004ef8ebb1ce99ba3920256f1f7162d64137fa1fb3c",
+      "lastModified": "2026-09-21T23:48:47Z"
+    },
+    "/contact": {
+      "sha256": "43c684034bdd9537dbf0d74b0f28db928f5f380277b99eb4aceb368c636dc8fa",
+      "lastModified": "2026-09-21T23:48:47Z"
+    },
+    "/genealogy": {
+      "sha256": "27f29855634e06343c30339ac2d40424debc83f74e770309256b04d91d2579a5",
+      "lastModified": "2026-09-21T23:48:47Z"
+    },
+    "/privacy": {
+      "sha256": "78334c1e93fdca7f2aa114a0e63c14073ccde89785f014321876788fd349496f",
+      "lastModified": "2026-09-22T15:34:51Z"
+    },
+    "/projects": {
+      "sha256": "561839ee2b6e4fca953e62ed99fc66d2e729b8b9bbf198122d086803d372cd0e",
+      "lastModified": "2026-09-21T23:48:47Z"
+    },
+    "/resume": {
+      "sha256": "7549bb51d511f00cf73b1aff996c5fe061c03f2bb9440fc244258c41e23a5ad0",
+      "lastModified": "2026-09-21T23:48:47Z"
+    }
+  }
+}

@@ -347,3 +347,51 @@ test('unsupported static-import media fails closed until its byte mapping is def
     /explicit asset-byte mapping/
   );
 });
+
+test('site configuration separates personal and genealogy registries, builds and public roots', async () => {
+  const { siteTrackingPaths } = await import('../page-content-tracking.mjs');
+  assert.equal(
+    siteTrackingPaths('personal', '/repo').state,
+    '/repo/src/data/page-content-state.json'
+  );
+  assert.equal(
+    siteTrackingPaths('genealogy', '/repo').build,
+    '/repo/apps/where-the-record-ends/.next/server/app'
+  );
+  assert.deepEqual(siteTrackingPaths('personal', '/repo').publicRoots, [
+    '/repo/public',
+  ]);
+  assert.throws(() => siteTrackingPaths('unknown', '/repo'), /Unknown site/);
+});
+
+test('dynamic sitemap uses a local production XML response when build artifact is absent', async () => {
+  const { readBuiltSitemap } = await import('../page-content-tracking.mjs');
+  const { mkdtemp, rm } = await import('node:fs/promises');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { createServer } = await import('node:http');
+  const directory = await mkdtemp(join(tmpdir(), 'sitemap-build-'));
+  const xml = '<urlset><url><loc>https://example.com/</loc></url></urlset>';
+  const server = createServer((request, response) => {
+    response.setHeader('Content-Type', 'text/xml');
+    response.end(xml);
+  });
+  await new Promise((accept) => server.listen(0, '127.0.0.1', accept));
+  try {
+    assert.equal(
+      await readBuiltSitemap(
+        directory,
+        `http://127.0.0.1:${server.address().port}`
+      ),
+      xml
+    );
+    await assert.rejects(() => readBuiltSitemap(directory), /No built sitemap/);
+    await assert.rejects(
+      () => readBuiltSitemap(directory, 'https://example.com'),
+      /local production/
+    );
+  } finally {
+    await new Promise((accept) => server.close(accept));
+    await rm(directory, { recursive: true, force: true });
+  }
+});

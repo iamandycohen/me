@@ -44,9 +44,11 @@ proof JSON directly or make the site build read private sibling repositories.
 
 ## Page content dates
 
-After changing genealogy page content, public data, interactive content or
-images, run `npm run pages:update`, review and commit the affected fingerprints
-and dates, then run `npm run pages:check`. CI enforces full route coverage and
+After changing page content, public data, interactive content or images, run
+`npm run pages:update` for Where the Record Ends or
+`npm run pages:update:personal` for iamandycohen.com. Review and commit the
+affected fingerprints and dates, then run the matching `pages:check` or
+`pages:check:personal`. Changes shared by both sites require both commands. CI enforces full route coverage and
 compares with the base revision. Read `docs/page-content-tracking.md` when
 adding routes or dependencies, changing the tracker, or resolving a stale check.
 Do not update dates by hand or treat research-review/build dates as page edits.

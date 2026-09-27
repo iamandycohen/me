@@ -103,8 +103,15 @@ async function existingModule(path) {
   }
   throw Error(`Cannot resolve authored content dependency ${path}`);
 }
-export async function authoredContentForRoute(route, root) {
-  const sourceRoot = resolve(root, 'apps/where-the-record-ends/src');
+export async function authoredContentForRoute(route, root, site = 'genealogy') {
+  if (!['genealogy', 'personal'].includes(site))
+    throw Error(`Unknown site: ${site}`);
+  const sourceRoot = resolve(
+    root,
+    site === 'personal' ? 'src' : 'apps/where-the-record-ends/src'
+  );
+  const modeledData =
+    site === 'personal' ? resolve(root, 'content/data.json') : undefined;
   const app = resolve(sourceRoot, 'app');
   const paths = await filesIn(app);
   const segments = route.split('/').filter(Boolean);
@@ -128,6 +135,10 @@ export async function authoredContentForRoute(route, root) {
   const visited = new Set();
   const modules = [];
   async function walk(path) {
+    // This external JSON is fingerprinted per route by the personal data models.
+    // Tracking the whole file here would advance every route for any data edit.
+    if (path === modeledData) return;
+    if (/\/(?:page-content-state|page-modifications)\.json$/.test(path)) return;
     if (visited.has(path)) return;
     visited.add(path);
     if (!path.startsWith(`${sourceRoot}/`))
