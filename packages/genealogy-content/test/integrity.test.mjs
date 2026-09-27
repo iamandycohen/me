@@ -222,10 +222,10 @@ test('proof validation catches an unrecognized status and uncited evidence', () 
 });
 
 test('the package carries the complete reviewed public reference catalog', () => {
-  assert.equal(references.length, 95);
+  assert.equal(references.length, 101);
   assert.deepEqual(
     references.map(({ id }) => id),
-    Array.from({ length: 95 }, (_, index) => index + 1)
+    Array.from({ length: 101 }, (_, index) => index + 1)
   );
 });
 
@@ -240,7 +240,8 @@ test('reviewed citation visuals expose only approved public media', () => {
     Object.keys(visualAccessByReference).map(Number),
     [
       5, 26, 36, 38, 39, 40, 42, 67, 68, 71, 73, 74, 75, 76, 77, 78, 79, 80, 81,
-      82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95,
+      82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99,
+      100, 101,
     ]
   );
   assert.deepEqual(
@@ -284,6 +285,12 @@ test('reviewed citation visuals expose only approved public media', () => {
       93: 'text-only-deferred',
       94: 'text-only-deferred',
       95: 'text-only-deferred',
+      96: 'external-original-only',
+      97: 'text-only-deferred',
+      98: 'text-only-deferred',
+      99: 'text-only-deferred',
+      100: 'external-original-only',
+      101: 'external-original-only',
     }
   );
   assert.deepEqual(
@@ -803,7 +810,7 @@ test('the Three Thomases model preserves identities and open boundaries', () => 
   );
   assert.deepEqual(
     threeThomasesIdentityModel.referenceIds,
-    [18, 19, 20, 21, 22, 67, 68, 69, 73]
+    [18, 19, 20, 21, 22, 67, 68, 69, 73, 96, 97, 98, 99]
   );
   assert.deepEqual(
     threeThomasesIdentityModel.connections.map(({ endpointLabels }) =>
@@ -831,9 +838,13 @@ test('the Three Thomases model preserves identities and open boundaries', () => 
   assert.deepEqual(
     threeThomasesIdentityModel.timeline.map(({ date }) => date),
     [
+      '5 September 1777',
       '14–15 March 1779',
+      '18 May 1784',
       '18 September 1785',
       '21 March 1786',
+      'July 1786',
+      '6 July 1786',
       '23 October 1788',
       '2 February 1795',
       '27 July 1795',
@@ -843,11 +854,15 @@ test('the Three Thomases model preserves identities and open boundaries', () => 
     ]
   );
   assert.match(
-    threeThomasesIdentityModel.timeline[1].detail,
+    threeThomasesIdentityModel.timeline.find(
+      ({ id }) => id === 'hempfield-will-1785'
+    )?.detail ?? '',
     /wife, not yet as his widow/
   );
   assert.match(
-    threeThomasesIdentityModel.timeline[2].detail,
+    threeThomasesIdentityModel.timeline.find(
+      ({ id }) => id === 'hempfield-widow-1786'
+    )?.detail ?? '',
     /widow and relict/
   );
   assert.match(

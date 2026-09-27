@@ -1212,11 +1212,11 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     id: 88,
     title: '1798 Hancock County will of John Sledge',
     citation:
-      'Hancock County, Georgia, Will Book AA, pp. 18–19, will dated 17 April 1798; FamilySearch DGS 5759601, image 273.',
+      'Hancock County, Georgia, Will Book AA, pp. 18–19, will dated 14 April 1798 and proved 11 October 1798; FamilySearch DGS 5759601, image 273.',
     supports:
-      'The recorded will directly calls Collin Sledge the testator John Sledge’s son.',
+      'The recorded will directly calls Collin Sledge the testator John Sledge’s son. Its first bequest names son Nathaniel; no wife is named.',
     limitation:
-      'The will does not style the testator Jr. and does not by itself identify him with a compiled patriot or establish Revolutionary service. The derivative 14 April date is superseded by the original record.',
+      'The will does not style the testator Jr. and does not by itself identify him with a compiled patriot or establish Revolutionary service. Corrective original-image review reads fourteenth, withdrawing the earlier 17 April transcription and the supposed disagreement with the derivative date.',
     url: 'https://www.familysearch.org/ark:/61903/3:1:3QS7-893L-5J5D',
     accessLabel: 'Open will-book image',
     visualAccess: {
@@ -1336,6 +1336,102 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       note: 'The original schedule was independently reviewed; provider record is linked and census image bytes are not republished.',
     },
   },
+  {
+    id: 96,
+    title: 'John Minter’s 1777 conveyance to Thomas Meason',
+    citation:
+      'Westmoreland County, Pennsylvania, Deed Book A, p. 285, 5 September 1777, recorded 30 October 1782; FamilySearch DGS 8036032, image 200, pp. 284–285.',
+    supports:
+      'John Minter conveyed his home tract on the north side of Jacob’s Creek to Thomas Meason of Berkeley County, Virginia. The purchase matches the Minter land devised to son Thomas in the 1779 will; later deeds continue the tract through its boundaries and debt history.',
+    limitation:
+      'The 1782 index date is the recording date, not the sale date. The 1777 acreage wording remains difficult. This deed does not name Benjamin or identify the later Huntingdon or Kentucky Thomas as the son in the will.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSX1-XSKB-Y',
+    accessLabel: 'Open deed-book image',
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'Reviewed source summaries and public locators only; privately retained scans are not republished.',
+    },
+  },
+  {
+    id: 97,
+    title: 'Thomas Mason’s 1784 Minter-tract security and default instruments',
+    citation:
+      'Westmoreland County, Pennsylvania, Deed Book A, pp. 380–382, instruments dated 18 May 1784 and recorded 15 June 1784; recorded copies reviewed from scans supplied by the Historical Society of Pennsylvania.',
+    supports:
+      'Thomas Mason of Huntingdon conditionally conveyed his interest to Christopher Hays and John Henderson as security for an obligation involving James Hutchinson, with a companion authority for judgment and recovery on default. The recital names Minter’s 5 September 1777 conveyance; the 319½-acre description and neighboring lands connect the tract.',
+    limitation:
+      'This is a conditional security conveyance, not an ordinary unconditional sale. It calls the debtor the recipient of the 1777 purchase but does not explain succession after the 1779 testator’s devise to son Thomas. It names no Benjamin and states no kinship. The linked catalog is a locator, not the reviewed scans.',
+    url: 'https://www.familysearch.org/en/search/catalog/koha:119334',
+    accessLabel: 'Open deed collection catalog',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'Reviewed source summaries and public locators only; privately retained scans are not republished.',
+    },
+  },
+  {
+    id: 98,
+    title: '1786 sheriff’s sale of the Minter tract to Isaac Mason',
+    citation:
+      'Westmoreland County, Pennsylvania, Deed Book B, pp. 173–174, sale recited as 6 July 1786; execution clause 21 July 1786, acknowledgment 6 July 1786, recorded 9 February 1787; recorded copy reviewed from Historical Society of Pennsylvania scans.',
+    supports:
+      'Sheriff Robert Orr conveyed land seized on the judgment against Thomas Mason and James Hutchinson to Isaac Mason for 266 pounds. The same creditors and neighboring lands connect this sale with the 1784 debt and the Minter tract.',
+    limitation:
+      'The apparent execution/acknowledgment date conflict remains unresolved. The deed does not state Isaac’s relationship to Thomas, identify the debtor as the 1779 testator’s son, establish whether the debtor was alive at the sale, or name Benjamin. The linked catalog is a locator, not the reviewed scans.',
+    url: 'https://www.familysearch.org/en/search/catalog/koha:119334',
+    accessLabel: 'Open deed collection catalog',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'Reviewed source summaries and public locators only; privately retained scans are not republished.',
+    },
+  },
+  {
+    id: 99,
+    title: '1786 executor’s conveyance of the Hempfield tract',
+    citation:
+      'Westmoreland County, Pennsylvania, Deed Book B, pp. 71–73, James Westbay as executor to David Irwin, dated and recorded 6 July 1786; recorded copy reviewed from Historical Society of Pennsylvania scans.',
+    supports:
+      'James Westbay conveyed 226 acres within one mile of Hannastown as executor of deceased Thomas Mason of Hempfield, citing the will dated 18 September 1785. This agrees with the earlier will and Ann’s 1786 widow statement.',
+    limitation:
+      'This is different land from the Jacob’s Creek/Minter tract on the reviewed descriptions. It establishes no kinship between the Hempfield and 1779 testators and does not identify Benjamin’s parents. The linked catalog is a locator, not the reviewed scans.',
+    url: 'https://www.familysearch.org/en/search/catalog/koha:119334',
+    accessLabel: 'Open deed collection catalog',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'Reviewed source summaries and public locators only; privately retained scans are not republished.',
+    },
+  },
+  {
+    id: 100,
+    title: 'Joseph Meason witnesses the 1780 Davis conveyance',
+    citation:
+      'Westmoreland County, Pennsylvania, Deed Book A, pp. 284–285, George Davis to Thomas Meason, 2 September 1780, recorded 29 October 1782; FamilySearch DGS 8036032, image 200.',
+    supports:
+      'The separate instrument immediately before the Minter deed concerns an improvement on the north side of Jacob’s Creek. Its witnesses include Joseph Meason, supporting an association with Thomas in 1780.',
+    limitation:
+      'The witness statement gives no kinship or secure identity with the 1779 testator’s son Joseph. The post-1779 date requires a separate explanation of Thomas’s identity. This is not a 1778 Allegheny/Kiskiminetas conveyance; that geographic description belongs to a preceding instrument.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSX1-XSKB-Y',
+    accessLabel: 'Open deed-book image',
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'Reviewed source summaries and public locators only; privately retained scans are not republished.',
+    },
+  },
+  {
+    id: 101,
+    title: 'Westmoreland Meason–Mason grantor-index coverage',
+    citation:
+      'Westmoreland County, Pennsylvania, grantor index M–R, FamilySearch DGS 7903056, directory image 16 and image 17, subdivision 13/2.',
+    supports:
+      'The reviewed Meason–Mason leaves contain A given names. The directory’s pointer to 2 is consistent with subdivision 13/2, already reviewed, rather than a missing standalone page 2.',
+    limitation:
+      'These leaves cannot establish absence of Thomas, John, or Joseph entries. The earlier complete-search negative is withdrawn. The reported Thomas index rows remain unverified locators, although the resulting 1784 and 1786 deeds have been independently reviewed.',
+    url: 'https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSHM-MV6D',
+    accessLabel: 'Open reviewed index leaf',
+    visualAccess: {
+      status: 'external-original-only',
+      note: 'Reviewed source summaries and public locators only; privately retained scans are not republished.',
+    },
+  },
 ];
 const publication = {
   status: 'published',
@@ -1351,7 +1447,7 @@ export const references: readonly Reference[] = referenceCatalog.map(
         ? {
             ...publication,
             reviewedOn:
-              entry.id >= 92
+              entry.id >= 92 || entry.id === 88
                 ? '2026-09-27'
                 : entry.id >= 90
                   ? '2026-09-26'

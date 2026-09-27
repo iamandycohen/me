@@ -21,7 +21,7 @@ export const researchCases = [
     unknown:
       'Which sibling branch connected Benjamin to Joseph, and who Benjamin’s parents were.',
     relatedPersonIds: ['benjamin'],
-    referenceIds: [19, 20, 21, 22, 67, 68, 73],
+    referenceIds: [18, 19, 20, 21, 22, 67, 68, 73, 96, 97, 98, 99, 100, 101],
     sections: [
       {
         id: 'record-turn',
@@ -96,6 +96,52 @@ export const researchCases = [
         ],
       },
       {
+        id: 'minter-title',
+        label: 'Following the land',
+        heading:
+          'The Minter tract continues. The Thomas identity remains open.',
+        intro:
+          'Reviewed deeds carry a Jacob’s Creek parcel from the 1777 purchase into a 1784 debt and a 1786 sheriff’s sale. They give the parentage search a firmer land trail without selecting Benjamin’s branch.',
+        cards: [
+          {
+            id: 'minter-debt-sequence',
+            eyebrow: '1777–1786 · title and debt',
+            title: 'One tract, a conditional conveyance, and a sheriff’s sale',
+            detail:
+              'Thomas Mason of Huntingdon secured an obligation to Christopher Hays and John Henderson in 1784 with the land purchased from John Minter in 1777. A companion instrument authorized judgment on default. The same debtors, creditors, and neighboring lands connect the July 1786 sheriff’s sale to Isaac Mason. Its 21 July execution and 6 July acknowledgment remain an unresolved date conflict.',
+            referenceIds: [96, 97, 98],
+            tone: 'record',
+          },
+          {
+            id: 'minter-succession',
+            eyebrow: 'Identity boundary',
+            title: 'The deeds do not explain the same-name succession',
+            detail:
+              'The 1779 testator left the Minter purchase to son Thomas, but the 1784 deed calls its debtor the recipient of the 1777 conveyance. Neither it nor the sheriff’s deed explains that succession or states Isaac’s kinship. The Hempfield executor’s separate 226-acre tract near Hannastown does not supply that bridge. None names Benjamin.',
+            referenceIds: [18, 97, 98, 99],
+            tone: 'limit',
+          },
+          {
+            id: 'davis-witness-boundary',
+            eyebrow: '1780 · association',
+            title: 'Joseph witnessed a separate Jacob’s Creek conveyance',
+            detail:
+              'Joseph Meason witnessed George Davis’s 2 September 1780 conveyance to Thomas. The entry states no kinship and does not identify Joseph as the son in the 1779 will. Its Thomas likewise needs an identity explanation because the instrument postdates that testator’s death.',
+            referenceIds: [18, 100],
+            tone: 'limit',
+          },
+          {
+            id: 'grantor-index-coverage',
+            eyebrow: 'Search coverage',
+            title: 'The reviewed index leaves do not exhaust the surname',
+            detail:
+              'The preserved Meason–Mason leaves cover A given names, not the Thomas, John, or Joseph sections. Their directory pointer fits subdivision 13/2, not a missing standalone page 2. A complete-negative search claim is withdrawn; the reported Thomas rows still need inspection.',
+            referenceIds: [101],
+            tone: 'limit',
+          },
+        ],
+      },
+      {
         id: 'change',
         label: 'What would change it',
         heading: 'A new record must select a branch—not merely repeat a name.',
@@ -124,7 +170,7 @@ export const researchCases = [
       },
     ],
     relatedStoryIds: ['migration'],
-    publication,
+    publication: { ...publication, reviewedOn: '2026-09-27' },
   },
   {
     id: 'george-connection',

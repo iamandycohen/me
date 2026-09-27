@@ -98,12 +98,28 @@ export const threeThomasesIdentityModel: GenealogyIdentityModel = {
   ],
   timeline: [
     {
+      id: 'minter-purchase-1777',
+      date: '5 September 1777',
+      title: 'John Minter conveys his Jacob’s Creek tract',
+      detail:
+        'The purchaser is Thomas Meason of Berkeley County, Virginia. The conveyance was recorded in 1782; that later date is not the purchase date.',
+      referenceIds: [96],
+    },
+    {
       id: 'senior-will-1779',
       date: '14–15 March 1779',
       title: 'Thomas senior\u2019s will',
       detail:
-        'The will names twelve children, including son Thomas and daughter Ann, and names no wife.',
+        'The will names twelve children, including son Thomas and daughter Ann, and names no wife. It devises the Minter purchase to son Thomas.',
       referenceIds: [18],
+    },
+    {
+      id: 'minter-security-1784',
+      date: '18 May 1784',
+      title: 'Huntingdon Thomas uses the Minter tract as security',
+      detail:
+        'A conditional conveyance and companion default authority secure a debt involving Thomas Mason and James Hutchinson. The deed calls its Thomas the recipient of Minter’s 1777 conveyance but does not explain the succession after the 1779 devise. It does not identify him as that testator’s son or as either later Thomas shown here.',
+      referenceIds: [18, 96, 97],
     },
     {
       id: 'hempfield-will-1785',
@@ -120,6 +136,22 @@ export const threeThomasesIdentityModel: GenealogyIdentityModel = {
       detail:
         'A premarital agreement between Ann Meason and Hugh Quigley calls her the widow and relict of deceased Thomas Meason, establishing his death by this date.',
       referenceIds: [73],
+    },
+    {
+      id: 'minter-sheriff-1786',
+      date: 'July 1786',
+      title: 'The Minter tract passes through a sheriff’s sale',
+      detail:
+        'The same debtors, creditors, and adjoining lands connect a sale to Isaac Mason with the 1784 obligation. No kinship is stated. The instrument’s 21 July execution and 6 July acknowledgment conflict; it does not establish whether debtor Thomas was still alive.',
+      referenceIds: [97, 98],
+    },
+    {
+      id: 'hempfield-executor-1786',
+      date: '6 July 1786',
+      title: 'Hempfield Thomas’s executor sells a different tract',
+      detail:
+        'James Westbay conveys 226 acres near Hannastown, citing the deceased Hempfield Thomas’s 1785 will. This is different land from the Jacob’s Creek/Minter tract and supplies no kinship between the testators.',
+      referenceIds: [19, 73, 99],
     },
     {
       id: 'kentucky-purchase-1788',
@@ -172,8 +204,8 @@ export const threeThomasesIdentityModel: GenealogyIdentityModel = {
   ],
   annBoundary:
     'Thomas senior\u2019s 1779 will names a daughter Ann. The Hempfield records name an Ann first as that Thomas\u2019s wife in 1785 and then as his widow in 1786. These are distinct roles in distinct record groups; the reviewed evidence does not establish whether they describe the same woman or different women.',
-  referenceIds: [18, 19, 20, 21, 22, 67, 68, 69, 73],
-  publication,
+  referenceIds: [18, 19, 20, 21, 22, 67, 68, 69, 73, 96, 97, 98, 99],
+  publication: { ...publication, reviewedOn: '2026-09-27' },
 };
 
 export const genealogyIdentityModels: readonly GenealogyIdentityModel[] = [

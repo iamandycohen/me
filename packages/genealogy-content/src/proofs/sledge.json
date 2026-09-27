@@ -79,7 +79,7 @@
             "status": "shown"
           },
           "citations": {
-            "note": "The birth and death certificates are precisely cited. The 1940 household is context and its incomplete schedule locator remains flagged.",
+            "note": "The birth and death certificates are precisely cited. The contextual 1940 household is located at ED 57-14, sheet 4B, lines 59–63, visitation 86, NARA T627 roll 4016, frame 37.",
             "status": "shown"
           },
           "conclusion": {
@@ -95,7 +95,7 @@
             "status": "shown"
           }
         },
-        "nextAction": "Verify the ancillary 1940 schedule locator when available; revisit this conclusion if contrary evidence appears.",
+        "nextAction": "Revisit this conclusion if contrary evidence appears.",
         "status": "met"
       },
       "id": "jimmy-mary",
@@ -291,7 +291,7 @@
             "status": "partial"
           },
           "conflicts": {
-            "note": "The derivative 14 April date is corrected to the will-book's 17 April date.",
+            "note": "The earlier 17 April transcription is corrected to 14 April by original-image review; the alleged date conflict is withdrawn.",
             "status": "shown"
           },
           "research": {
@@ -625,12 +625,12 @@
       "summary": "A 1834 deed places Francis as a witness in a Sledge transaction, but states no kinship; the proposed parent–child link remains unproved."
     },
     {
-      "analysis": "The relationship wording is direct. It applies to the testator named in this will, without importing a compiled identity.",
+      "analysis": "The relationship wording is direct. It applies to the testator named in this will, without importing a compiled identity. The first bequest names son Nathaniel, not a wife; no wife is named in the will. The corrected execution date is 14 April 1798, and probate remains 11 October 1798.",
       "conclusion": "John Sledge, the 1798 Hancock testator, documented Collin as his son.",
       "conflicts": [
         {
-          "issue": "A derivative account dated the will 14 April 1798.",
-          "resolution": "The reviewed original records 17 April 1798; cite that date."
+          "issue": "The earlier research transcription and public summary dated the will 17 April 1798.",
+          "resolution": "Independent original-image review reads fourteenth day of April: 14 April 1798. The earlier 17 April reading was erroneous; there is no conflict with the derivative 14 April date."
         }
       ],
       "evidence": [
@@ -652,7 +652,7 @@
         ]
       },
       "status": "documented",
-      "summary": "The recorded will dated 17 April 1798 explicitly calls Collin the testator's son."
+      "summary": "The recorded will dated 14 April 1798 explicitly calls Collin the testator's son."
     },
     {
       "analysis": "A same-name will cannot by itself connect this testator to a patriot profile. Identity and service require separate correlated records.",

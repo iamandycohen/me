@@ -79,7 +79,7 @@
             "status": "shown"
           },
           "citations": {
-            "note": "The birth and death certificates are precisely identified; the 1940 household is contextual and its incomplete schedule locator remains flagged.",
+            "note": "The birth and death certificates are precisely cited. The contextual 1940 household is located at ED 57-14, sheet 4B, lines 59–63, visitation 86, NARA T627 roll 4016, frame 37.",
             "status": "shown"
           },
           "conclusion": {
@@ -95,7 +95,7 @@
             "status": "shown"
           }
         },
-        "nextAction": "Verify the ancillary 1940 schedule locator when available; revisit this conclusion if contrary evidence appears.",
+        "nextAction": "Revisit this conclusion if contrary evidence appears.",
         "status": "met"
       },
       "id": "jimmy-james-1892",

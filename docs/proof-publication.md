@@ -121,9 +121,10 @@ Affected public surfaces are `/proofs/meason`, `/proofs/sledge`, and
 website review dispositions; the genealogy integration owner verifies the
 website commit and checks before recording completion in the private handoff.
 
-A nonblocking follow-up remains in the unchanged Jimmy-parentage assessment:
-its older description of incomplete 1940 locators should be reconciled with
-reference 76 through the canonical private projection in a separate review.
+At that publication, a nonblocking follow-up remained in the Jimmy-parentage
+assessment: its older description of incomplete 1940 locators required
+reconciliation with reference 76 through the canonical private projection.
+The reconciliation and editorial handover below resolves this follow-up.
 The corrected source catalog and this pass's three assessments use the complete
 reviewed household; no generated JSON was edited by hand to fix that older text.
 
@@ -178,6 +179,82 @@ no restricted images, private source paths, correspondence, source hashes or
 additional living-person information enter public content. These website
 dispositions do not mark the private handoff integrated; its owner records
 completion only after verifying the actual website commit and checks.
+
+## Reconciliation and editorial handover — 27 September 2026
+
+This pass supersedes all prior 17-April will-date assertions and HSP editorial
+deferrals above, and resolves the earlier Jimmy-parentage locator follow-up. Those earlier sections remain a record of what each publication reviewed.
+The current Sledge source reading is **14 April 1798**, son Nathaniel, and no
+named wife; the original does not conflict with the derivative 14 April date.
+
+Every item pending at the start of this pass was reviewed:
+
+- **2026-09-25-sledge-school-fund-index-locator:** already represented in
+  reference 90 and the Francis–John proof part. Manuscript pages 19 and 42
+  remain unseen; the derivative index supplies neither household nor kinship.
+- **2026-09-24-sledge-1870-household-and-1860-boundary:** already represented
+  in reference 87 and the Francis–John proof part. Repeated co-residence is
+  preserved without upgrading parentage or the later John W. identity.
+- **2026-09-24-sledge-1860-francis-john-household-sequence:** already represented
+  in reference 86 and the corrected 145 → 147 → 148 → 146 sequence. Sarah Bass
+  belongs to household 969, not Francis’s household.
+- **2026-09-24-sledge-originals-and-open-chain:** already represented in
+  references 83–89 and the Sledge proof path, subject to the will correction
+  below. The Mary/Jack/Ira assessments, literal Hetzer reading, unreviewed
+  possible certificate reverse, and incomplete ancestral/service chain retain
+  their limits. No continuous Sledge pedigree or eligibility is asserted.
+- **2026-09-26-hsp-minter-title-and-index-correction:** addressed in new
+  references 96–101, the existing Benjamin-parentage case, and the Three
+  Thomases timeline. These distinguish the 1777 purchase from its 1782
+  recording; follow the 1784 conditional security/default instruments through
+  the 1786 sheriff sale; retain the execution/acknowledgment date conflict;
+  distinguish the 226-acre Hempfield tract; correctly place Joseph’s Davis
+  witness entry in 1780 on Jacob’s Creek; and limit index coverage to A given
+  names in subdivision 13/2. No Thomas identity, Isaac kinship, or Benjamin
+  parentage conclusion follows. The exact reported Thomas index rows remain
+  unverified. The existing public text had no complete-negative index or
+  misdated Davis assertion to remove. Existing stories concern other records
+  and need no expansion; this pass completes the deferred editorial work
+  through the source catalog and two existing case surfaces.
+- **2026-09-27-sledge-will-transcription-correction:** addressed in reference
+  88 and the reviewed canonical Sledge candidate. The corrected date is
+  14 April 1798, probate remains 11 October, the first beneficiary is son
+  Nathaniel, and no wife is named. Collin remains an expressly named son.
+  The supposed original/derivative date conflict is withdrawn; society
+  finding aids do not establish testator identity, service, or eligibility.
+
+- **2026-09-27-jimmy-parentage-locator-consistency:** addressed through the
+  canonical public projection, matching reference 76’s complete reviewed
+  1940 household locator. It changes no parentage or GPS assessment. This
+  item was added during the reconciliation before candidate export.
+
+The reviewed candidate is imported from canonical snapshot
+`22bff1f4992cc7d8ab075a658724b445c63185e3`; source and claim revisions are
+recorded in generated provenance. Independent editorial/privacy review confirmed
+that only the intended Jimmy locator and Sledge correction text changed in the
+proof projects, with no relationship or GPS status changes.
+
+Local validation passed: 29 content tests, 8 importer tests, 5 proof-date tests,
+39 tracking tests, genealogy type/lint and 34 application tests, exact candidate
+import/drift checks, production build, and all 20 route fingerprints. The five
+changed routes below received content dates; the other 15 retained theirs.
+Desktop/mobile browser checks verified the corrected proof/source wording,
+the interactive “Following the land” case section, and the Three Thomases
+additions without browser errors or mobile horizontal overflow.
+
+The intended changed public surfaces are `/sources` (88 and 96–101),
+`/cases/parentage`, `/cases/parentage/three-thomases`, and the affected Meason
+and Sledge proof displays. The full route tracker determines any additional
+shared-content effects. Only reviewed summaries and conventional record or
+catalog locators cross the boundary. New catalog links are explicitly labeled
+as locators, not links to the HSP scans. No source-image bytes, correspondence,
+private email or file identifiers, cost details, DNA, or additional living
+people are published. No pending item is newly deferred by this pass; the
+stated research gaps remain open research, not unfinished website integration.
+
+These are editorial dispositions for the website candidate. The genealogy
+integration owner records verified completion against the eventual website
+commit and checks, without treating preparation or an open PR as a live release.
 
 ## Page modification tracking
 
