@@ -21,7 +21,7 @@
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "type-check": "tsc --noEmit",
     "validate": "npm run type-check && npm run lint",
-    "validate:content": "npm run type-check --workspace=@where-the-record-ends/genealogy-content && npm run test --workspace=@where-the-record-ends/genealogy-content && node --test scripts/test/import-proofs.test.mjs && node scripts/import-proofs.mjs --check",
+    "validate:content": "npm run type-check --workspace=@where-the-record-ends/genealogy-content && npm run test --workspace=@where-the-record-ends/genealogy-content && node --test scripts/test/import-proofs.test.mjs && node scripts/import-proofs.mjs --check && node --test scripts/test/page-modifications.test.mjs && node scripts/page-modifications.mjs --check",
     "validate:genealogy": "npm run validate --workspace=@where-the-record-ends/site",
     "validate:workspace": "npm run validate && npm run validate:content && npm run validate:genealogy",
     "validate:fix": "npm run type-check && npm run lint:fix",
@@ -35,7 +35,8 @@
     "prepare": "husky",
     "proofs:import": "npm run build:content && node scripts/import-proofs.mjs",
     "proofs:check": "npm run build:content && node scripts/import-proofs.mjs --check",
-    "test:proof-import": "npm run build:content && node --test scripts/test/import-proofs.test.mjs"
+    "test:proof-import": "npm run build:content && node --test scripts/test/import-proofs.test.mjs",
+    "sitemap:dates": "node scripts/page-modifications.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
