@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getConfiguredSiteUrl } from '@/lib/url-helpers';
+import modifications from '@/data/page-modifications.json';
 
 interface SitemapEntry {
   path: string;
@@ -9,7 +10,7 @@ interface SitemapEntry {
 
 export async function GET(_request: NextRequest) {
   const baseUrl = getConfiguredSiteUrl();
-  const lastmod = new Date().toISOString().split('T')[0];
+  const dates: Record<string, string> = modifications.pages;
 
   // Define all URLs with their priorities and change frequencies
   const urls: SitemapEntry[] = [
@@ -27,7 +28,7 @@ export async function GET(_request: NextRequest) {
   const urlEntries = urls
     .map(
       ({ path, priority, changefreq }) =>
-        `  <url><loc>${baseUrl}${path}</loc><lastmod>${lastmod}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`
+        `  <url><loc>${baseUrl}${path}</loc>${dates[path] ? `<lastmod>${dates[path]}</lastmod>` : ''}<changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`
     )
     .join('\n');
 

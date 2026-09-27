@@ -44,6 +44,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -54,8 +56,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build personal site
-        run: npm run build:personal
+      - name: Build and verify all personal page fingerprints
+        env:
+          PAGE_BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: npm run pages:check:personal -- --base-ref "$PAGE_BASE_REF"
 
   build-genealogy:
     name: Build Where the Record Ends
@@ -64,6 +68,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -74,5 +80,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build genealogy site
-        run: npm run build:genealogy
+      - name: Build and verify all genealogy page fingerprints
+        env:
+          PAGE_BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: npm run pages:check -- --base-ref "$PAGE_BASE_REF"

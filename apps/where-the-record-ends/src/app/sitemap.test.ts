@@ -14,9 +14,11 @@ test('sitemap uses recorded dates and leaves unknown modification dates absent',
       entries.find((entry) => entry.url === site.absoluteUrl(path))
     ).toEqual({ url: site.absoluteUrl(path), lastModified: date });
   }
-  expect(
-    entries.find((entry) => entry.url.endsWith('/about'))
-  ).not.toHaveProperty('lastModified');
+  for (const entry of entries) {
+    const route = new URL(entry.url).pathname;
+    if (!Object.hasOwn(modifications.pages, route))
+      expect(entry).not.toHaveProperty('lastModified');
+  }
   expect(new Set(entries.map((entry) => entry.url)).size).toBe(entries.length);
 });
 
