@@ -1272,6 +1272,70 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
       note: 'The original schedule was reviewed privately; provider record is linked and image bytes are not republished.',
     },
   },
+  {
+    id: 92,
+    title: 'Franklin in the 1860 George and Martha Mason household',
+    citation:
+      '1860 United States census, Clay Township, Shelby County, Missouri, post office Clarence, 4 June 1860, manuscript p. 8, stamped p. 192, dwelling 53, family 54, lines 11–20; NARA M653 roll 657; Ancestry collection 7667, record 40933476, image 4234822_00196.',
+    supports:
+      'Records Missouri-born Franklin, age 10, in the complete household of Kentucky-born George M. Mason, age 50, and Martha, age 40. The recurring family cluster contributes to identifying the later Frank Meason.',
+    limitation:
+      'There is no relationship column or named informant. Co-residence alone does not establish parentage. Franklin’s age differs by about a year from the later exact birth date, and George’s Kentucky birthplace conflicts with the Moberly, Missouri report in Frank’s death certificate.',
+    url: 'https://www.ancestry.com/search/collections/7667/records/40933476',
+    accessLabel: 'Open provider record',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'The original schedule was independently reviewed; provider record is linked and census image bytes are not republished.',
+    },
+  },
+  {
+    id: 93,
+    title: 'Franklin in the 1870 George and Martha Meason household',
+    citation:
+      '1870 United States census, Marion Township, Monroe County, Missouri, post office Madison, 31 July 1870, manuscript p. 49, stamped p. 658 (cited 658A), dwelling 330, family 335, lines 2–8; NARA M593 roll 793; Ancestry collection 7163, record 2526030, image 4273712_00577.',
+    supports:
+      'Records Missouri-born Franklin, age 19, with Kentucky-born George M. Meason, age 60, and Martha, age 50. Their names, ages, birthplaces and recurring household members corroborate the 1860 family cluster.',
+    limitation:
+      'The complete household has no relationship column and its informant is unidentified. The schedule supports household continuity; the parentage conclusion also depends on the later explicit parental statement and correlated records. George’s birthplace remains in conflict with the later certificate.',
+    url: 'https://www.ancestry.com/search/collections/7163/records/2526030',
+    accessLabel: 'Open provider record',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'The original schedule was independently reviewed; provider record is linked and census image bytes are not republished.',
+    },
+  },
+  {
+    id: 94,
+    title: 'James L. in the 1900 Frank and Nancy Meason household',
+    citation:
+      '1900 United States census, Justice Precinct 2, Dallas County, Texas, 20 June 1900, enumeration district 130, sheet 12A, lines 40–46, Frank and Nancy Meason household; NARA T623 roll 1625; Ancestry collection 7602, record 70518104, image 4112063_00851.',
+    supports:
+      'Directly records Texas-born James L., age 7 and born January 1893, as Frank’s son. Frank is Missouri-born, born December 1850, with Kentucky-born parents; Nancy is Kentucky-born. These details and the later household support identifying James with the Richardson man who died in 1949.',
+    limitation:
+      'The informant is unnamed, the biological subtype of son is not specified, and identifying the later James Lawrence requires correlation. His January 1893 entry differs from the later certificate’s January 1892 date. The overwritten dwelling/family numbers are uncertain; the sheet, lines and image identify the complete household. Nancy’s maiden name and her relationship to James are not explicitly stated.',
+    url: 'https://www.ancestry.com/search/collections/7602/records/70518104',
+    accessLabel: 'Open provider record',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'The original schedule was independently reviewed; provider record is linked and census image bytes are not republished.',
+    },
+  },
+  {
+    id: 95,
+    title: 'Larance in the 1910 Frank and Nancy Meason household',
+    citation:
+      '1910 United States census, Justice Precinct 2, Dallas County, Texas, 23 April 1910, enumeration district 81, sheet 8B, dwelling/family 148, lines 63–67; NARA T624 roll 1545; Ancestry collection 7884, record 168595620, image 4449281_00053.',
+    supports:
+      'Directly records Larance, age 17, as Frank’s son, born in Texas with a Missouri-born father and Kentucky-born mother. The same Frank/Nancy pairing and recurring sons John and Roy support continuity with the 1900 household and the later James Lawrence identity.',
+    limitation:
+      'Larance is the original reading; identification with James L. and later James Lawrence is a cross-record inference. The unnamed informant and approximate age do not resolve the 1892/1893 birth-year difference or specify biological parentage. The sheet’s state/county headings are blank; that attribution comes from the provider locator. A member tree supplied a locator only and is not proof evidence.',
+    url: 'https://www.ancestry.com/search/collections/7884/records/168595620',
+    accessLabel: 'Open provider record',
+    visualAccess: {
+      status: 'text-only-deferred',
+      note: 'The original schedule was independently reviewed; provider record is linked and census image bytes are not republished.',
+    },
+  },
 ];
 const publication = {
   status: 'published',
@@ -1287,11 +1351,13 @@ export const references: readonly Reference[] = referenceCatalog.map(
         ? {
             ...publication,
             reviewedOn:
-              entry.id >= 90
-                ? '2026-09-26'
-                : entry.id >= 83
-                  ? '2026-09-24'
-                  : '2026-09-22',
+              entry.id >= 92
+                ? '2026-09-27'
+                : entry.id >= 90
+                  ? '2026-09-26'
+                  : entry.id >= 83
+                    ? '2026-09-24'
+                    : '2026-09-22',
           }
         : publication,
   })

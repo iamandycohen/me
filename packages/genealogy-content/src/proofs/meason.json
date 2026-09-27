@@ -109,28 +109,28 @@
         "access": "public",
         "elements": {
           "analysis": {
-            "note": "Names, spouse, ages, locality and occupation connect the records. The remaining question is how much weight to give Mary’s report of James’s parents, whose basis of knowledge is undocumented.",
-            "status": "partial"
+            "note": "Two childhood households explicitly call James/Larance a son of Frank. The repeated family and birthplaces connect him to the adult James whose death certificate names Frank and Nancy as parents. The informants’ limits are addressed.",
+            "status": "shown"
           },
           "citations": {
-            "note": "Specific citations identify the two controlling certificates and the verified 1934 birth, 1940 household and 1919 namesake records used for correlation.",
+            "note": "The argument cites identifiable original census and vital records. Private images remain restricted from republication.",
             "status": "shown"
           },
           "conclusion": {
-            "note": "James’s 1949 certificate reports Frank and Nancy as his parents. Frank’s 1933 certificate identifies the adult through his wife and locality; it does not independently name James as his son.",
+            "note": "The correlated records establish James Lawrence Meason, who died in 1949, as the son of Frank Meason, husband of Nancy Ann Huffhines. This narrow parentage claim meets the researcher’s GPS assessment.",
             "status": "shown"
           },
           "conflicts": {
-            "note": "The older namesake and the younger son are distinguished. Frank/Franklin is compatible name variation, not a material identity conflict. Frank’s age discrepancy does not alter this parentage identification; exact birth dating remains outside this claim.",
+            "note": "Childhood records imply 1893, while later records give 1892. That one-year difference does not undo the family identification; the exact birth date remains undecided. The older namesake and younger son are distinct people.",
             "status": "shown"
           },
           "research": {
-            "note": "The records document the reported parentage and correlate the adult identities. The argument still needs to explain why the research scope is sufficient for this parentage question.",
-            "status": "partial"
+            "note": "Childhood censuses, certificates and adult family records cover the relationship and identity questions. The known elderly namesake has been excluded; no material competing parentage remains.",
+            "status": "shown"
           }
         },
-        "nextAction": "Assess whether the research scope and Mary’s available basis of knowledge sufficiently support the parentage conclusion, using the existing evidence before seeking more records.",
-        "status": "work-remains"
+        "nextAction": "No additional record is required to close this parentage claim. Reassess if contrary evidence emerges; clarification of the exact birth year is a separate question.",
+        "status": "met"
       },
       "id": "james-1892-franklin",
       "kind": "parent-child",
@@ -143,28 +143,28 @@
         "access": "public",
         "elements": {
           "analysis": {
-            "note": "The 1933 certificate directly names George as Frank’s father; another later family certificate corroborates the parent pair, but both report earlier parentage secondhand.",
-            "status": "partial"
+            "note": "The certificate names George and Martha as Frank’s parents. Two earlier households corroborate that family identification; co-residence alone would not prove parentage. Later records connect Franklin to the adult Frank with wife Nancy. Informant knowledge remains limited.",
+            "status": "shown"
           },
           "citations": {
-            "note": "The original Texas death certificate has a specific, provider-linked citation.",
+            "note": "The argument cites the 1933 death certificate and identifiable original census schedules from 1860, 1870, 1900 and 1910, alongside the separate family certificate.",
             "status": "shown"
           },
           "conclusion": {
-            "note": "The direct statement supports George as Frank’s father, while earlier corroboration and identity differences remain to be resolved.",
-            "status": "partial"
+            "note": "The direct parentage report and correlated households establish Franklin (Frank) Meason as George M. Meason’s son. This narrow claim meets the researcher’s GPS assessment; it does not establish George’s parents.",
+            "status": "shown"
           },
           "conflicts": {
-            "note": "The Mason spelling, inconsistent age, and reported birthplace are noted but not fully reconciled.",
-            "status": "partial"
+            "note": "Age differences leave Frank’s exact birth date unsettled. Earlier census reports consistently place George’s birth in Kentucky and outweigh the later Missouri report for identity comparison. Neither discrepancy establishes a competing father; George’s exact birthplace remains outside this conclusion.",
+            "status": "shown"
           },
           "research": {
-            "note": "The 1933 death certificate is reviewed, but earlier corroborating parentage research is not shown.",
-            "status": "partial"
+            "note": "The 1860 and 1870 households test the earlier corroboration gap. Together with the later parental report, a separate family certificate and adult census records, they adequately address this parentage question.",
+            "status": "shown"
           }
         },
-        "nextAction": "Corroborate the parentage in earlier records and resolve the name, age, and birthplace differences.",
-        "status": "work-remains"
+        "nextAction": "Reassess if material contrary evidence appears. Further exact-birth research is optional and separate; no additional record is required solely to complete this parentage claim.",
+        "status": "met"
       },
       "id": "franklin-george",
       "kind": "parent-child",

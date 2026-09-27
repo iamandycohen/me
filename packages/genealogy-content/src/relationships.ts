@@ -34,13 +34,14 @@ export const relationships = [
     evidenceType: 'direct',
     assessment: 'documented',
     statement:
-      'Franklin’s death certificate names George M. Meason and Martha Reed as his parents.',
+      'Frank’s 1933 death certificate names George Mason and Martha Reed as his parents; the earlier census households corroborate their identification as George M. Meason and Martha.',
     support: [
-      'The parent names appear in the original death record reviewed for the public tree.',
+      'The 1860 and 1870 censuses place Franklin with George and Martha in a repeating Missouri household.',
+      'The 1900 and 1910 Frank/Nancy households connect the adult Frank to the later certificate through his wife, birthplace and chronology.',
     ],
     limitation:
-      'The informant-supplied statement is evaluated alongside identity and chronology.',
-    referenceIds: [58],
+      'The early censuses record co-residence, not explicit parentage. The later certificate supplies the direct parental statement. Informant knowledge, age differences and conflicting reports of George’s birthplace remain qualified; exact vital details are not settled by the parentage conclusion.',
+    referenceIds: [58, 92, 93, 94, 95],
     publication: published,
   },
   {
@@ -53,10 +54,12 @@ export const relationships = [
     statement:
       'James Lawrence Meason’s 1949 death certificate names Frank Meason as his father and Nancy A. Huffines as his mother.',
     support: [
-      'James Lawrence Meason’s death certificate names Frank Meason as his father.',
+      'The 1900 James L. and 1910 Larance entries explicitly identify the child as Frank’s son in the same Frank/Nancy family.',
+      'James’s 1949 certificate names the same parents and their birthplaces; adult family records connect the childhood son to the Richardson decedent.',
     ],
-    limitation: 'The parentage statement was supplied after the 1892 birth.',
-    referenceIds: [57],
+    limitation:
+      'Census informants are unidentified and the later parental report is secondhand. Childhood records imply 1893 while adult records give 1892; that one-year difference leaves the exact birth date unsettled without displacing the family identification.',
+    referenceIds: [57, 58, 75, 76, 94, 95],
     publication: published,
   },
   {
