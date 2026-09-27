@@ -549,9 +549,13 @@ test('the 1934 certificate and corroborating records document Jimmy’s parents'
 
   assert.match(
     census?.supports ?? '',
-    /James L\. Meason, Mary, and young Jimmie/
+    /James L\. Meason, 48, wife Mary, 43, two daughters, and son Jimmie, 5/
   );
-  assert.match(census?.limitation ?? '', /enumeration district, sheet, line/);
+  assert.match(
+    census?.citation ?? '',
+    /enumeration district 57-14, sheet 4B, lines 59–63/
+  );
+  assert.match(census?.limitation ?? '', /not independent evidence/);
   assert.deepEqual(census?.accessLinks, [
     {
       label: 'Open the Ancestry record',

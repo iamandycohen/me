@@ -710,7 +710,7 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     citation:
       'Texas State Department of Health, Bureau of Vital Statistics, standard certificate of death no. 27128, Frank Meason, 29 June 1933, Dallas County; “Texas, United States records, images,” FamilySearch, image 678 of 3622; Texas State Registrar Office, image group 005145224.',
     supports:
-      'The original certificate identifies Frank Meason (1850–1933), names Nancy Ann Huffhines as his wife, and names his parents as George Mason and Martha Reed. Read with James Lawrence Meason’s 1949 certificate, it documents the direct chain from James Lawrence to Frank and then to George and Martha.',
+      'The original certificate identifies Missouri-born Richardson resident Frank Meason (1850–1933), names Nancy Ann Huffhines as his wife, and names his parents as George Mason and Martha Reed. The wife, birthplace and locality correlate him with the father reported on James Lawrence Meason’s 1949 certificate. This certificate does not itself name James as Frank’s child.',
     limitation:
       'The parentage is a direct statement in an original official record, but it is secondary information supplied after Frank’s 1850 birth. The certificate calls him Frank rather than Franklin, spells his father’s surname Mason, and contains an age inconsistent with its exact dates. George’s reported Moberly birthplace is not independently proved. The record does not name George’s parents or prove George was Benjamin Meason’s son. I link to FamilySearch rather than reproduce the certificate or unnecessary medical and residential details.',
     url: 'https://www.familysearch.org/ark:/61903/3:1:33S7-9YB1-3G1R?view=index',
@@ -990,11 +990,11 @@ const referenceCatalog: readonly Omit<Reference, 'publication'>[] = [
     id: 76,
     title: '1940 Richardson household — James L. Meason family',
     citation:
-      '1940 United States census, Richardson, Dallas County, Texas, household of James L. Meason; Ancestry collection 2442, record 155810441, image m-t0627-04016-00037; FamilySearch indexed-record ARK KWJL-2PF.',
+      '1940 United States census, Richardson town, Dallas County, Texas, enumeration district 57-14, sheet 4B, lines 59–63, visitation 86, James L. Meason household; enumerated 9 April 1940; NARA T627, roll 4016, frame 37; Ancestry collection 2442, record 155810441, image m-t0627-04016-00037; FamilySearch indexed-record ARK KWJL-2PF.',
     supports:
-      'The reviewed household image places James L. Meason, Mary, and young Jimmie together in Richardson, independently corroborating the family association recorded by the 1934 birth certificate and later records.',
+      'The complete reviewed schedule records James L. Meason, 48, wife Mary, 43, two daughters, and son Jimmie, 5, together in Richardson. It corroborates the family association recorded by the 1934 birth certificate and later records, and supplies an age and household control for Mary’s identity.',
     limitation:
-      'The full-resolution schedule has not yet been preserved, and the enumeration district, sheet, line, address, and adjacent household context remain unverified. The household association does not by itself establish a narrower biological, legal, or adoptive relationship subtype.',
+      'The full-resolution NARA scan verifies the complete five-person household and its boundaries; it is another copy of the same census event, not independent evidence from the earlier screenshot or provider indexes. The schedule names relationships to the head but does not establish a narrower biological, legal, or adoptive relationship subtype. Private image bytes are not republished here.',
     accessLinks: [
       {
         label: 'Open the Ancestry record',

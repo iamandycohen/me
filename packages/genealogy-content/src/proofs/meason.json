@@ -109,27 +109,27 @@
         "access": "public",
         "elements": {
           "analysis": {
-            "note": "The parentage statement is identified as direct but secondary information supplied after James’s birth.",
+            "note": "Names, spouse, ages, locality and occupation connect the records. The remaining question is how much weight to give Mary’s report of James’s parents, whose basis of knowledge is undocumented.",
             "status": "partial"
           },
           "citations": {
-            "note": "The original Texas death certificate has a specific, provider-linked citation.",
+            "note": "Specific citations identify the two controlling certificates and the verified 1934 birth, 1940 household and 1919 namesake records used for correlation.",
             "status": "shown"
           },
           "conclusion": {
-            "note": "The 1949 certificate names Frank as father; the positive link still needs earlier corroboration and correlation with the man labeled Franklin in this path.",
-            "status": "partial"
+            "note": "James’s 1949 certificate reports Frank and Nancy as his parents. Frank’s 1933 certificate identifies the adult through his wife and locality; it does not independently name James as his son.",
+            "status": "shown"
           },
           "conflicts": {
-            "note": "No comparison with possible conflicting parentage or same-name records is presented.",
-            "status": "not-shown"
+            "note": "The older namesake and the younger son are distinguished. Frank/Franklin is compatible name variation, not a material identity conflict. Frank’s age discrepancy does not alter this parentage identification; exact birth dating remains outside this claim.",
+            "status": "shown"
           },
           "research": {
-            "note": "The 1949 death certificate is reviewed, but corroborating earlier parentage research is not shown.",
+            "note": "The records document the reported parentage and correlate the adult identities. The argument still needs to explain why the research scope is sufficient for this parentage question.",
             "status": "partial"
           }
         },
-        "nextAction": "Find earlier corroboration and document a targeted search and conflict review for this father–son link.",
+        "nextAction": "Assess whether the research scope and Mary’s available basis of knowledge sufficiently support the parentage conclusion, using the existing evidence before seeking more records.",
         "status": "work-remains"
       },
       "id": "james-1892-franklin",
