@@ -106,9 +106,7 @@ test('every lineage link has a bounded five-element GPS assessment', () => {
   for (const project of proofProjects) {
     for (const step of project.lineage) {
       assert.ok(
-        ['met', 'near-ready', 'work-remains'].includes(
-          step.gpsReview.status
-        )
+        ['met', 'near-ready', 'work-remains'].includes(step.gpsReview.status)
       );
       assert.deepEqual(
         Object.keys(step.gpsReview.elements).sort(),
@@ -224,10 +222,10 @@ test('proof validation catches an unrecognized status and uncited evidence', () 
 });
 
 test('the package carries the complete reviewed public reference catalog', () => {
-  assert.equal(references.length, 91);
+  assert.equal(references.length, 95);
   assert.deepEqual(
     references.map(({ id }) => id),
-    Array.from({ length: 91 }, (_, index) => index + 1)
+    Array.from({ length: 95 }, (_, index) => index + 1)
   );
 });
 
@@ -242,7 +240,7 @@ test('reviewed citation visuals expose only approved public media', () => {
     Object.keys(visualAccessByReference).map(Number),
     [
       5, 26, 36, 38, 39, 40, 42, 67, 68, 71, 73, 74, 75, 76, 77, 78, 79, 80, 81,
-      82, 83, 84, 85, 86, 87, 88, 89, 90, 91,
+      82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95,
     ]
   );
   assert.deepEqual(
@@ -282,6 +280,10 @@ test('reviewed citation visuals expose only approved public media', () => {
       89: 'external-original-only',
       90: 'text-only-deferred',
       91: 'text-only-deferred',
+      92: 'text-only-deferred',
+      93: 'text-only-deferred',
+      94: 'text-only-deferred',
+      95: 'text-only-deferred',
     }
   );
   assert.deepEqual(
@@ -617,9 +619,12 @@ test('direct-line relationships cite only the records that support that edge', (
     ({ id }) => id === 'franklin-james-1892'
   );
 
-  assert.deepEqual(georgeToFrank?.referenceIds, [58]);
-  assert.match(georgeToFrank?.statement ?? '', /Franklin’s death certificate/);
-  assert.deepEqual(frankToJames?.referenceIds, [57]);
+  assert.deepEqual(georgeToFrank?.referenceIds, [58, 92, 93, 94, 95]);
+  assert.match(
+    georgeToFrank?.statement ?? '',
+    /Frank’s 1933 death certificate/
+  );
+  assert.deepEqual(frankToJames?.referenceIds, [57, 58, 75, 76, 94, 95]);
   assert.match(
     frankToJames?.statement ?? '',
     /1949 death certificate names Frank Meason as his father/

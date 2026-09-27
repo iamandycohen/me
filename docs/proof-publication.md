@@ -127,6 +127,58 @@ reference 76 through the canonical private projection in a separate review.
 The corrected source catalog and this pass's three assessments use the complete
 reviewed household; no generated JSON was edited by hand to fix that older text.
 
+## Meason census publication review — 27 September 2026
+
+This pass uses the independently reviewed census findings to update the two
+narrow parentage assessments, James → Frank/Franklin and Frank/Franklin →
+George, to documented / GPS met. It adds references 92–95 with original census
+locators. The 1860/1870 household associations corroborate the explicit
+certificate evidence; they are not presented as direct parentage statements.
+The 1900/1910 schedules explicitly record sons, with the later James Lawrence
+identity established by correlation. Exact birth-date and birthplace
+uncertainties remain visible. No new tree edge or broader ancestor conclusion
+is introduced, and member trees remain locators rather than proof evidence.
+
+All six pending handoff items were reviewed together:
+
+- **2026-09-27-meason-parentage-census-proof-closure:** addressed in the Meason
+  proof path, its supporting explanation and references 92–95. The 1870
+  citation uses dwelling 330 / family 335; the 1900 overwritten household
+  numbers remain qualified; the 1910 son retains the literal name Larance.
+  James's 1892/1893 birth-year difference, Frank's age/date discrepancy and
+  George's conflicting birthplace do not disappear with the parentage
+  assessment. The claim revisions and committed source snapshot belong in
+  generated provenance after the reviewed import.
+- **2026-09-25-sledge-school-fund-index-locator:** already represented by
+  reference 90 and the Francis–John proof part. Manuscript pages 19 and 42
+  remain unseen, and the derivative index supplies no kinship conclusion.
+- **2026-09-24-sledge-1870-household-and-1860-boundary:** already represented
+  by reference 87 and the Francis–John proof part; repeated co-residence
+  remains distinct from proved fatherhood and later John W. identity.
+- **2026-09-24-sledge-1860-francis-john-household-sequence:** already
+  represented by reference 86 and the corrected 145 → 147 → 148 → 146 page
+  order. Sarah Bass remains assigned to household 969, not Francis's.
+- **2026-09-24-sledge-originals-and-open-chain:** already represented in
+  references 83–89 and the Sledge proof path. The Mary/Jack/Ira assessments,
+  literal Hetzer reading, unreviewed possible reverse, 17 April 1798 will
+  date and incomplete ancestral/service chain retain their existing limits.
+- **2026-09-26-hsp-minter-title-and-index-correction:** broader references,
+  cases and stories remain deferred to a separate editorial pass. Reviewed
+  current public content contains no complete-negative Westmoreland grantor
+  search or misdated Davis-witness claim requiring correction in this pass.
+  The title/debt sequence establishes neither Benjamin's parents nor the
+  later Thomas identity, so it cannot support these parentage upgrades.
+
+The changed public routes are `/proofs/meason`, `/sources` references
+92–95, and `/family`, which consumes the two shared relationships. The complete
+20-route content check identified exactly these three meaningful page changes;
+story pages and the Sledge proof retain their previous modification dates. Existing Sledge content was checked for the dispositions above, without
+changing its findings. Only source summaries and provider links are transferred:
+no restricted images, private source paths, correspondence, source hashes or
+additional living-person information enter public content. These website
+dispositions do not mark the private handoff integrated; its owner records
+completion only after verifying the actual website commit and checks.
+
 ## Page modification tracking
 
 After importing a reviewed proof candidate, run `npm run pages:update` and
