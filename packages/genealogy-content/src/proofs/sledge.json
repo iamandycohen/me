@@ -109,28 +109,28 @@
         "access": "public",
         "elements": {
           "analysis": {
-            "note": "Names and household placement support the bridge between the two Marys.",
-            "status": "partial"
+            "note": "The narrative correlates Plano birth, Richardson residence, parent names, husband and child, distinguishes reported facts from identity inference, and weighs a different-Mary alternative.",
+            "status": "shown"
           },
           "citations": {
-            "note": "The 1952 death certificate now has its state file number and provider locator; the 1900 and 1910 households have specific census citations.",
+            "note": "Certificates and complete census households have exact record locators; the reused correlation is identified as authored analysis, not independent corroboration.",
             "status": "shown"
           },
           "conclusion": {
-            "note": "The parentage and later identity remain a supported inference.",
-            "status": "partial"
+            "note": "A reasoned supported-inference conclusion is written. Overall GPS remains near-ready pending final adjudication of the age conflicts and adequacy of the evidence despite informant and document-boundary limits.",
+            "status": "shown"
           },
           "conflicts": {
-            "note": "The 1896 versus 1897 birth-year difference is identified, not resolved.",
+            "note": "1934 and 1940 ages favor the 1952 birth year 1896; 1900 says 1897 and April 1910 age 14 is also not an exact fit. Final adjudication of their effect on identity remains open; Netzer is an unverified lead, not competing original evidence.",
             "status": "partial"
           },
           "research": {
-            "note": "The 1952 certificate and two census households are reviewed; a continuity record is missing.",
-            "status": "partial"
+            "note": "Reviewed childhood censuses, later certificates, the complete 1940 household and the existing identity synthesis supply a proportionate continuity case. No specific missing record is presently required; final adequacy review is bounded by the stated age and informant limits.",
+            "status": "shown"
           }
         },
-        "nextAction": "Find Mary's marriage or another continuity record and resolve the date difference.",
-        "status": "work-remains"
+        "nextAction": "Decide whether the age discrepancies and documented informant limits leave a plausible alternative identity. State what, if anything, further evidence would need to resolve.",
+        "status": "near-ready"
       },
       "id": "mary-jack",
       "kind": "parent-child",
@@ -143,28 +143,28 @@
         "access": "public",
         "elements": {
           "analysis": {
-            "note": "A multi-record family correlation supports identity, but the alternative that Jack and Ira were two men still needs testing.",
-            "status": "partial"
+            "note": "Repeated wife and children, progressing ages and marriage duration, Lizzie’s matching natal profile, and the 1880/1910 Ira profile favor one man. Both duplicate-family and replacement-husband explanations are weighed.",
+            "status": "shown"
           },
           "citations": {
-            "note": "The 1900 and 1910 households and the 1952 certificate have specific source locators.",
+            "note": "Specific citations identify the three census schedules and the later certificate. The written correlations explain those records and are not additional independent evidence.",
             "status": "shown"
           },
           "conclusion": {
-            "note": "The shared identity remains an explicitly qualified inference.",
-            "status": "partial"
+            "note": "The written conclusion supports one man and explains the near-ready assessment; final adjudication of the head’s name/natal discrepancies remains the bounded gap.",
+            "status": "shown"
           },
           "conflicts": {
-            "note": "Different given names and natal details are acknowledged without resolution.",
+            "note": "The Jack/Ira name and head/father birthplace differences remain recorded. First-marriage reporting weakens substitution; final adjudication of whether the conflicting fields leave a material alternative remains open.",
             "status": "partial"
           },
           "research": {
-            "note": "The 1900 and 1910 households are compared; intervening identity records remain unreviewed here.",
-            "status": "partial"
+            "note": "The reviewed 1880, 1900 and 1910 schedules and the later certificate provide a bounded identity comparison. No member-tree assertion is evidence, and an explicit alias record is not required.",
+            "status": "shown"
           }
         },
-        "nextAction": "Test the two-men alternative and the name and natal-field differences with additional identity evidence.",
-        "status": "work-remains"
+        "nextAction": "Decide whether the conflicting names and birthplaces leave a plausible alternative after weighing the repeated family members, marriage history and unknown census informants.",
+        "status": "near-ready"
       },
       "id": "jack-ira",
       "kind": "identity",
@@ -387,16 +387,16 @@
       "summary": "His contemporaneous Texas birth certificate names Mary Estelle Sledge as his mother."
     },
     {
-      "analysis": "The father and mother names, surname, household placement, and chronology support the identity bridge. The later certificate's informant and the census identities must be correlated rather than treated as one direct record.",
-      "conclusion": "A strong identity bridge supports the parentage path, but it is still an inference requiring a fuller proof argument.",
+      "analysis": "Plano birthplace, Richardson residence, Sledge parentage, compatible age and the James/Mary/Jimmie family bridge the childhood and later records. The 1910 Ira household supplies conditional context, while the central Mary-to-Jack case relies on 1900 and 1952. The 1949 Mary is an informant, not explicitly a named spouse in that field. A different-Mary explanation has no affirmative support in the reviewed set.",
+      "conclusion": "The correlated records strongly support identifying Mary Estelle Sledge Meason with the daughter of Jack Sledge in 1900. The written identity argument is complete for this near-ready assessment; a bounded final decision on the age conflicts and evidentiary limits remains before assessing GPS met.",
       "conflicts": [
         {
-          "issue": "The death certificate reports birth year 1896, while the 1900 census reports 1897.",
-          "resolution": "Treat the one-year difference as an unresolved reporting conflict; it does not by itself separate the women."
+          "issue": "1900 records October 1897 and age 2; April 1910 records age 14; the 1952 certificate reports 20 October 1896.",
+          "resolution": "Age 38 in October 1934 and age 43 in April 1940 fit October 1896. The 1910 age would be 13 for that birth date, not 14. Reporting variation is a plausible explanation, not a demonstrated cause. The combined family/locality evidence favors one Mary; final adjudication of whether these discrepancies are immaterial to that identity remains open."
         },
         {
-          "issue": "The certificate types Elizabeth's surname as Hetzer; a Netzer variant has been suggested.",
-          "resolution": "Retain Hetzer as transcribed; do not silently correct it or use Netzer as established."
+          "issue": "Elizabeth’s maiden surname is typed Hetzer in 1952; Netzer is an unverified suggestion.",
+          "resolution": "Retain the literal Hetzer reading. No reviewed competing original establishes Netzer. Her actual maiden surname remains a separate unresolved question, but the unverified suggestion does not create a material competing Mary-to-Jack relationship."
         }
       ],
       "evidence": [
@@ -411,40 +411,63 @@
           "role": "supports"
         },
         {
-          "note": "The 1910 household has a daughter Mary with Ira and Lizzie.",
+          "note": "This household adds conditional continuity context; identifying its Ira with Jack is assessed separately and is not a prerequisite of the 1900-to-1952 Mary-to-Jack argument.",
           "referenceId": 85,
           "role": "context"
         },
         {
-          "note": "The 1934 birth certificate supplies Mary Estelle Sledge's later maternal role.",
+          "note": "Plano origin, Sledge name, Richardson residence and age support identification with the later Mary Meason; the certificate does not name her father.",
           "referenceId": 75,
+          "role": "supports"
+        },
+        {
+          "note": "The husband, son, residence and age bridge the 1934 parental household to the later Richardson Mary Meason and favor a birth about 1896.",
+          "referenceId": 76,
+          "role": "supports"
+        },
+        {
+          "note": "Consistent with the 1940 couple and Mary's 1952 widowhood; the informant field alone does not explicitly identify a spouse.",
+          "referenceId": 57,
           "role": "context"
+        },
+        {
+          "note": "Later secondary parentage information corroborates the 1934 family; it does not identify Mary’s father.",
+          "referenceId": 56,
+          "role": "supports"
         }
       ],
       "evidenceType": "mixed",
       "id": "mary-jack",
-      "nextTest": "Find Mary-specific marriage or other records that connect the household daughter to the later Mary Meason and resolve the date and name differences.",
+      "nextTest": "Decide whether the age discrepancies and documented informant limits leave a plausible alternative identity. State what, if anything, further evidence would need to resolve.",
       "question": "Was the later Mary Meason the daughter of Jack Sledge in the 1900 household?",
       "relatedCaseIds": [],
       "researchScope": {
-        "limits": "The certificate does not call Jack Ira or Mary Estelle; the 1952 birth year differs from 1900 by one year.",
+        "limits": "Existing preserved records and documented prior image reviews were assessed; no new records were acquired. The 1952 informant’s knowledge is undocumented and reverse/adjacent-frame coverage remains qualified. No exhaustive search for every similarly named family is claimed.",
         "searched": [
-          "1952 Texas death certificate front",
           "1900 Dallas household",
           "1910 Lathram household",
-          "1934 Texas birth certificate"
+          "1934 Texas birth certificate",
+          "Complete 1940 Richardson household",
+          "1949 James Lawrence Meason death certificate",
+          "1952 Mary Meason death certificate front",
+          "1973 James Lawrence Meason death certificate",
+          "Existing household identity correlation"
         ]
       },
       "status": "supported-inference",
-      "summary": "The 1952 death certificate names Jack Sledge as Mary's father, while the 1900 household names a daughter Mary with Jack and Lizzie. Identifying the two Marys is a strong inference."
+      "summary": "The 1900 census names Mary as Jack Sledge’s daughter; her later identity is strongly supported by correlated certificates and the complete 1940 household. The remaining GPS question is the weight of age discrepancies and evidence limits."
     },
     {
-      "analysis": "A shared household pattern suggests an identity, but the inconsistent given names and birth details require direct comparison with intervening records.",
-      "conclusion": "Jack/Ira is a supported identity inference, with documented name and natal-field conflicts still requiring resolution.",
+      "analysis": "Lizzie, Mary and Charles recur with coherent spouse/son ages and marriage duration. Lizzie’s natal profile matches, and both spouses report a first marriage in 1910. These details weaken a different-family or replacement-husband explanation; the 1880/1910 Ira profile supplies a separate continuity control.",
+      "conclusion": "Jack in the 1900 Dallas household and Ira in the 1910 Lathram household are strongly supported as the same man by family and natal-profile correlation. GPS is near-ready pending final adjudication of the head’s conflicting name and birthplace reports.",
       "conflicts": [
         {
-          "issue": "Jack and Ira are different recorded names with natal-field discrepancies.",
-          "resolution": "Retain the supported identity inference with its conflicts visible; do not treat the names as a proved merger."
+          "issue": "The 1900 head is Jack, Texas-born with a Georgia-born father; the 1880/1910 Ira profile is Arkansas-born with a Mississippi-born father.",
+          "resolution": "Repeated family members, Lizzie’s matching birthplace and parental birthplaces, and the first-marriage and marriage-duration entries favor one man over two families or a replacement husband. The cause of the conflicting name and birthplace reports is unknown; their final weight remains unresolved."
+        },
+        {
+          "issue": "Mary is age 2, born October 1897, in 1900, but age 14 in April 1910; her later certificate reports 20 October 1896.",
+          "resolution": "Neither census age exactly fits the later birth date. This uncertainty does not by itself imply two families. Mary’s continuity and the conflicting ages are assessed in the separate proof of her relationship to Jack."
         }
       ],
       "evidence": [
@@ -459,26 +482,31 @@
           "role": "supports"
         },
         {
-          "note": "Mary's later certificate names Jack, not Ira, as father.",
+          "note": "Mary’s later certificate repeats Jack as her father’s name; it does not explicitly equate Jack with Ira.",
           "referenceId": 83,
-          "role": "conflicts"
+          "role": "context"
+        },
+        {
+          "note": "The 1880 Ira’s age and natal profile agree with the 1910 household head.",
+          "referenceId": 91,
+          "role": "supports"
         }
       ],
       "evidenceType": "indirect",
       "id": "jack-ira",
-      "nextTest": "Find marriage, land, probate, or additional census records that give both names or otherwise uniquely connect the two households.",
+      "nextTest": "Decide whether the conflicting names and birthplaces leave a plausible alternative after weighing the repeated family members, marriage history and unknown census informants.",
       "question": "Were Jack Sledge and the Ira in the 1910 Lathram household the same man?",
       "relatedCaseIds": [],
       "researchScope": {
-        "limits": "No reviewed record explicitly equates Jack and Ira; complete identity analysis remains pending despite precise citations for both households.",
+        "limits": "No reviewed record explicitly equates the names, but that document type is not required. Census informants are unidentified; the final weighting of the head’s name and natal discrepancies remains open.",
         "searched": [
-          "1900 Dallas original census household",
-          "1910 Lathram original census household",
-          "1952 certificate front"
+          "1880 Collin original census control through documented prior review",
+          "1900 Dallas and 1910 Lathram preserved original households, reopened",
+          "1952 certificate front through documented prior review"
         ]
       },
       "status": "supported-inference",
-      "summary": "The repeated Lizzie and Mary household pattern strongly supports Jack and Ira as the same man, while recorded names and natal details conflict."
+      "summary": "The repeated wife and children, marriage duration, and correlated census profiles strongly support Jack and Ira as one man; conflicting name and birthplace reports still need final assessment."
     },
     {
       "analysis": "The 1880 relationship column supplies direct father–son wording, and the later Ira’s age and parental birthplace profile supports continuity. The proposed Jack–Ira identity is assessed separately.",

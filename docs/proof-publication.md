@@ -82,3 +82,47 @@ mark the private handoff integrated.
   revision `f94760bd371df0924f52ebdd9eaee3cbe9ead0a3`. Both generated public
   project objects are semantically identical to the previously published JSON;
   the changes establish generated ownership and provenance, not new findings.
+
+## Nearest-linkage publication review — 26 September 2026
+
+This pass reviews the three nearest incomplete assessments against the current
+private research and preserves their remaining uncertainty. It introduces no
+new relationship edge, member-tree evidence, private image, or living-person
+scope. The source revision and exact claim revisions are recorded in generated
+`provenance.json` after candidate import.
+
+- **2026-09-26-nearest-linkages-gps-review:** addressed in the Meason and Sledge
+  proof paths. James → Frank/Franklin remains documented / work-remains;
+  compatible name variation is no longer treated as a material conflict.
+  Mary → Jack and Jack = Ira become supported-inference / near-ready. Existing
+  evidence and correlation replace mandatory marriage/alias-record language;
+  age, informant, research-scope and natal-field limits remain explicit.
+  Reference 76 now cites the complete reviewed 1940 household, and reference 58
+  distinguishes identifying Frank from independently naming James as his child.
+- **2026-09-25-sledge-school-fund-index-locator:** already represented in the
+  Francis–John evidence and next test; manuscript pages remain unseen and the
+  derivative index establishes no kinship.
+- **2026-09-24-sledge-1870-household-and-1860-boundary:** already represented;
+  repeated co-residence remains distinct from parentage and later identity.
+- **2026-09-24-sledge-1860-francis-john-household-sequence:** already represented
+  with the corrected page sequence and unresolved parentage.
+- **2026-09-24-sledge-originals-and-open-chain:** already represented, with the
+  nearest Mary/Jack/Ira assessments updated in this pass. Hetzer remains the
+  certificate transcription; the possible reverse remains unreviewed. The
+  1798 will date and incomplete ancestral/service chain are unchanged.
+- **2026-09-26-hsp-minter-title-and-index-correction:** broader references,
+  case and story work remains deferred to a separate editorial pass. The proof
+  content contains neither a complete-negative grantor-index claim nor a
+  misdated Davis-witness claim; this title/debt sequence establishes no new
+  parentage or later Thomas identity.
+
+Affected public surfaces are `/proofs/meason`, `/proofs/sledge`, and
+`/sources` references 58 and 76. These are
+website review dispositions; the genealogy integration owner verifies the
+website commit and checks before recording completion in the private handoff.
+
+A nonblocking follow-up remains in the unchanged Jimmy-parentage assessment:
+its older description of incomplete 1940 locators should be reconciled with
+reference 76 through the canonical private projection in a separate review.
+The corrected source catalog and this pass's three assessments use the complete
+reviewed household; no generated JSON was edited by hand to fix that older text.
