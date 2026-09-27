@@ -178,3 +178,104 @@ test('allows supporting claim and dependency tails while checking shared lineage
     'Contradictory review for the same canonical claim';
   assert.throws(() => generatedFiles(candidate), /Inconsistent shared claim/);
 });
+
+test('public import dates track rendered changes, remain stable for provenance and repeated imports', async () => {
+  const { importWithPageModifications } = await import('../import-proofs.mjs');
+  const directory = await mkdtemp(join(tmpdir(), 'proof-page-dates-'));
+  const registryPath = `${directory}-dates.json`;
+  const before = {
+    schemaVersion: 1,
+    pages: {
+      '/': '2026-09-20',
+      '/proofs': '2026-09-20',
+      '/sources': '2026-09-20',
+      '/proofs/meason': '2026-09-20',
+      '/proofs/sledge': '2026-09-20',
+    },
+  };
+  const options = {
+    destination: directory,
+    registryPath,
+    date: '2026-09-25T12:00:00Z',
+    now: new Date('2026-09-28T12:00:00Z'),
+  };
+  try {
+    const candidate = fixture();
+    await importCandidate(candidate, directory, false, true);
+    await writeFile(registryPath, JSON.stringify(before));
+    candidate.manifest.claims[0].revision++;
+    candidate.projects.reverse();
+    await importWithPageModifications(candidate, options);
+    assert.deepEqual(JSON.parse(await readFile(registryPath, 'utf8')), before);
+    candidate.projects.find(
+      (project) => project.id === 'meason'
+    ).lineage[0].gpsReview.nextAction += ' Continue the review.';
+    assert.deepEqual(await importWithPageModifications(candidate, options), [
+      '/proofs/meason',
+    ]);
+    const updated = JSON.parse(await readFile(registryPath, 'utf8'));
+    assert.deepEqual(updated, {
+      ...before,
+      pages: { ...before.pages, '/proofs/meason': options.date },
+    });
+    const bytes = await readFile(registryPath, 'utf8');
+    await importWithPageModifications(candidate, {
+      ...options,
+      date: '2026-09-27',
+    });
+    await importWithPageModifications(candidate, { ...options, check: true });
+    assert.equal(await readFile(registryPath, 'utf8'), bytes);
+    candidate.projects.find((project) => project.id === 'meason').summary +=
+      ' Updated summary.';
+    const proofBytes = await readFile(join(directory, 'meason.json'), 'utf8');
+    for (const date of ['invalid', '2027-01-01', '2026-09-01']) {
+      await assert.rejects(
+        importWithPageModifications(candidate, { ...options, date }),
+        /date/
+      );
+      assert.equal(await readFile(registryPath, 'utf8'), bytes);
+      assert.equal(
+        await readFile(join(directory, 'meason.json'), 'utf8'),
+        proofBytes
+      );
+    }
+    await assert.rejects(
+      importWithPageModifications(candidate, { ...options, check: true }),
+      /drift/
+    );
+    assert.equal(await readFile(registryPath, 'utf8'), bytes);
+    assert.equal(
+      await readFile(join(directory, 'meason.json'), 'utf8'),
+      proofBytes
+    );
+    await assert.rejects(
+      importWithPageModifications(candidate, {
+        ...options,
+        date: '2026-09-27',
+        writeRegistry: async (path, registry) => {
+          await writeFile(path, JSON.stringify(registry));
+          throw Error('Simulated date write failure');
+        },
+      }),
+      /Simulated date write failure/
+    );
+    assert.equal(await readFile(registryPath, 'utf8'), bytes);
+    assert.equal(
+      await readFile(join(directory, 'meason.json'), 'utf8'),
+      proofBytes
+    );
+    await checkGenerated(directory);
+    await importWithPageModifications(candidate, {
+      ...options,
+      date: '2026-09-27',
+    });
+    const summaryDates = JSON.parse(await readFile(registryPath, 'utf8')).pages;
+    assert.equal(summaryDates['/'], '2026-09-27');
+    assert.equal(summaryDates['/proofs'], '2026-09-27');
+    assert.equal(summaryDates['/sources'], '2026-09-20');
+    assert.equal(summaryDates['/proofs/sledge'], '2026-09-20');
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+    await rm(registryPath, { force: true });
+  }
+});

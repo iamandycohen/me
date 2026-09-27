@@ -15,6 +15,15 @@ import {
   validatePublicGenealogyContent,
 } from '../packages/genealogy-content/dist/index.js';
 
+import {
+  defaultRegistryPath,
+  validateModificationDate,
+  validatePageModifications,
+  updatePageModifications,
+  changedProofRoutes,
+  writePageModifications,
+} from './page-modifications.mjs';
+
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const directory = resolve(root, 'packages/genealogy-content/src/proofs');
 const ids = ['meason', 'sledge'];
@@ -255,6 +264,93 @@ export async function importCandidate(
     }
   }
 }
+// The CLI couples a reviewed public import to website-owned page dates. The
+// low-level importer remains usable for isolated candidate validation/tests.
+export async function importWithPageModifications(
+  candidate,
+  {
+    destination = directory,
+    registryPath = defaultRegistryPath,
+    check = false,
+    bootstrap = false,
+    date = new Date().toISOString(),
+    now = new Date(),
+    writeRegistry = writePageModifications,
+  } = {}
+) {
+  validateModificationDate(date, { now });
+  const registry = validatePageModifications(
+    JSON.parse(await readFile(registryPath, 'utf8')),
+    { now }
+  );
+  // Validate the candidate and existing generated content before reading the
+  // old projects or calculating the complete date update, before any writes.
+  generatedFiles(candidate);
+  await safeDirectory(destination);
+  const existing = await readdir(destination);
+  if (existing.includes('provenance.json')) await checkGenerated(destination);
+  else if (!bootstrap)
+    throw Error('Initial import requires explicit --bootstrap');
+  const before = await Promise.all(
+    ids.map(async (id) => {
+      try {
+        return JSON.parse(
+          await readFile(resolve(destination, `${id}.json`), 'utf8')
+        );
+      } catch (error) {
+        if (bootstrap && error.code === 'ENOENT') return null;
+        throw error;
+      }
+    })
+  );
+  const nextProjects = ids.map((id) =>
+    candidate.projects.find((project) => project.id === id)
+  );
+  const routes = changedProofRoutes(before.filter(Boolean), nextProjects);
+  const next = updatePageModifications(registry, routes, date, { now });
+  if (check) {
+    await importCandidate(candidate, destination, true, bootstrap);
+    return routes;
+  }
+  // Preserve preimages so a failed date write cannot leave imported content
+  // looking unchanged on retry while its modification dates are still stale.
+  const names = ['meason.json', 'sledge.json', 'provenance.json'];
+  const previous = await Promise.all(
+    names.map(async (name) => {
+      try {
+        return await readFile(resolve(destination, name));
+      } catch (error) {
+        if (error.code === 'ENOENT') return null;
+        throw error;
+      }
+    })
+  );
+  const registryBytes = await readFile(registryPath);
+  try {
+    await importCandidate(candidate, destination, false, bootstrap);
+    if (routes.length) await writeRegistry(registryPath, next);
+  } catch (error) {
+    const restored = await Promise.allSettled([
+      ...names.map((name, index) =>
+        previous[index] === null
+          ? unlink(resolve(destination, name)).catch((failure) => {
+              if (failure.code !== 'ENOENT') throw failure;
+            })
+          : writeFile(resolve(destination, name), previous[index])
+      ),
+      writeFile(registryPath, registryBytes),
+    ]);
+    const failures = restored.filter((result) => result.status === 'rejected');
+    if (failures.length)
+      throw new AggregateError(
+        [error, ...failures.map((result) => result.reason)],
+        `Import failed and rollback was incomplete: ${error.message}`
+      );
+    throw error;
+  }
+  return routes;
+}
+
 export async function checkGenerated(destination = directory) {
   await safeDirectory(destination);
   const provenance = JSON.parse(
@@ -297,29 +393,34 @@ if (
 ) {
   try {
     const args = process.argv.slice(2);
+    let date;
+    const dateIndex = args.indexOf('--date');
+    if (dateIndex !== -1) {
+      date = args[dateIndex + 1];
+      validateModificationDate(date);
+      args.splice(dateIndex, 2);
+    }
     const bootstrap = args.includes('--bootstrap');
     if (bootstrap) args.splice(args.indexOf('--bootstrap'), 1);
-    if (args.length === 2 && args[0] === '--references' && !bootstrap)
+    if (args.length === 2 && args[0] === '--references' && !bootstrap && !date)
       await writeFile(
         resolve(args[1]),
         serialize(references.map((reference) => reference.id))
       );
-    else if (args.length === 1 && args[0] === '--check' && !bootstrap)
+    else if (args.length === 1 && args[0] === '--check' && !bootstrap && !date)
       await checkGenerated();
     else if (
       args.length === 2 &&
       ['--check', '--write'].includes(args[1]) &&
       !args[0].startsWith('--')
     )
-      await importCandidate(
+      await importWithPageModifications(
         JSON.parse(await readFile(resolve(args[0]), 'utf8')),
-        directory,
-        args[1] === '--check',
-        bootstrap
+        { check: args[1] === '--check', bootstrap, ...(date ? { date } : {}) }
       );
     else
       throw Error(
-        'Usage: import-proofs.mjs CANDIDATE.json --write|--check [--bootstrap]; or --check; or --references OUTPUT.json'
+        'Usage: import-proofs.mjs CANDIDATE.json --write|--check [--bootstrap] [--date DATE]; or --check; or --references OUTPUT.json'
       );
     console.log('Public proof import check passed.');
   } catch (error) {

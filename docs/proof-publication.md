@@ -126,3 +126,45 @@ its older description of incomplete 1940 locators should be reconciled with
 reference 76 through the canonical private projection in a separate review.
 The corrected source catalog and this pass's three assessments use the complete
 reviewed household; no generated JSON was edited by hand to fix that older text.
+
+## Sitemap modification dates
+
+Website page modification dates live separately from canonical research reviews
+in `apps/where-the-record-ends/src/data/page-modifications.json`. The sitemap
+emits `lastmod` only where a date has been recorded. A rebuild, deployment,
+private claim revision, or provenance-only import does not by itself update a
+date. No runtime Git history or private repository access is needed.
+
+A proof `--write` import automatically records the current UTC time for each
+changed public proof page. It also updates the homepage or proof index only
+when the fields displayed in their cards change. `--check` and identical
+re-imports never write dates. For a known editorial timestamp, supply
+`--date 2026-09-27T03:00:37Z` with the write command. Commit the date registry
+alongside the generated proof files. Review the date diff with the content diff.
+
+For other substantive page changes, record the affected routes explicitly:
+
+```sh
+npm run sitemap:dates -- --date 2026-09-27T03:00:37Z /sources /proofs/meason
+npm run sitemap:dates -- --check
+```
+
+Choose the actual content edit/release date; do not reset every route to the
+build time. Review all pages showing changed shared content, including source
+citation popovers, relationship summaries, media captions, and index cards.
+Reference changes are website edits outside the proof importer and need this
+explicit route update. Pure formatting, dependency bumps and invisible
+provenance changes do not require a new date. Research `reviewedOn` is a distinct
+concept and is not used as a fallback. Unknown page dates remain absent until
+an editor can establish them. Validation rejects invalid, future or regressing
+dates; sitemap tests catch dates recorded for routes absent from the sitemap.
+
+Initial dates are anchored to reviewed public changes: `/` and `/proofs` use
+`692b960` (2026-09-26T16:41:42-05:00), while both proof details and `/sources`
+use `aac7439` (2026-09-26T22:00:37-05:00). The stored UTC timestamps preserve
+those instants. The homepage and proof-index projections were unchanged by
+the later proof migration and assessment release. Other pages have no backfill
+until their shared-content history can be established accurately.
+
+This metadata-only change does not publish new research. The preceding pending
+handoff dispositions remain unchanged, including the deferred HSP editorial pass.

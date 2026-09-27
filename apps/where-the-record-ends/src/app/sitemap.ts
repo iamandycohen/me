@@ -6,6 +6,7 @@ import {
 import type { MetadataRoute } from 'next';
 
 import { absoluteUrl, isPublic } from '@/lib/site';
+import modifications from '@/data/page-modifications.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!isPublic) return [];
@@ -23,12 +24,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/cases/parentage/highland-creek',
     '/cases/parentage/three-thomases',
   ];
-  return [
-    ...staticPaths.map((path) => ({ url: absoluteUrl(path) })),
-    ...researchCases.map((item) => ({ url: absoluteUrl(`/cases/${item.id}`) })),
-    ...proofProjects.map((item) => ({
-      url: absoluteUrl(`/proofs/${item.id}`),
-    })),
-    ...stories.map((item) => ({ url: absoluteUrl(`/stories/${item.id}`) })),
+  const paths = [
+    ...staticPaths,
+    ...researchCases.map((item) => `/cases/${item.id}`),
+    ...proofProjects.map((item) => `/proofs/${item.id}`),
+    ...stories.map((item) => `/stories/${item.id}`),
   ];
+  const dates: Readonly<Record<string, string>> = modifications.pages;
+  return paths.map((path) => ({
+    url: absoluteUrl(path),
+    // Unknown dates are omitted; builds and research reviews are not page edits.
+    ...(dates[path] ? { lastModified: dates[path] } : {}),
+  }));
 }
